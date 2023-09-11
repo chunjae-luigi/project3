@@ -16,7 +16,7 @@ CREATE TABLE MEMBER(
 -- board
 CREATE TABLE board(
 	bno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
-	boardType varcha(15) NOT NULL,   -- 게시글 타입: notice, faq, forum, fileboard
+	boardType varchar(15) NOT NULL,   -- 게시글 타입: notice, faq, forum, fileboard
 	title VARCHAR(200) NOT NULL,   -- (게시글 제목)
 	content VARCHAR(1000),   -- (게시글 내용)
 	author VARCHAR(16) NOT NULL,   -- (작성자)
@@ -27,7 +27,8 @@ CREATE TABLE board(
 
 CREATE TABLE fileboard(
 	fno INT PRIMARY KEY AUTO_INCREMENT,
-	filename VARCHAR(100),
+	fileName VARCHAR(100),
+	fileType VARCHAR(100),
 	bno INT NOT NULL,
 )
 
