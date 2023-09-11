@@ -16,14 +16,7 @@ public class HomeController {
     // http:localhost:8081/pro03_war == root
     // http:localhost:8081/pro03_war/index.jsp == http:localhost:8081/pro03_war/WEB-INF/views/index.jsp
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Locale locale, Model model){
-        Date date = new Date();
-        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-        String today = dateFormat.format(date);
-        model.addAttribute("today", today);
-        model.addAttribute("name", "Tspoon");
-
+    public String index(Model model){
         return "/index";
     }
 }

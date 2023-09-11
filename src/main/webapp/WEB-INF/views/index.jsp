@@ -6,14 +6,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>그로우앤조이</title>
-    <%@ include file="head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/main.css">
+    <title>티스푼</title>
+    <%@ include file="include/head.jsp" %>
 </head>
 <body>
 <div class="wrap">
     <header class="hd" id="hd">
-        <%@ include file="header.jsp" %>
+        <%@ include file="include/header.jsp" %>
     </header>
     <div class="contents" id="contents">
         <figure class="vs">
@@ -93,53 +92,53 @@
                     <li class="item1">
                         <div class="board_tit">
                             <h3>공지사항</h3>
-                            <a href="<%=headerPath%>/board/listNotice.jsp" class="btn_more">+</a>
+                            <a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp" class="btn_more">+</a>
                         </div>
                         <ul class="board_con">
-                            <%
-                                if(noticeList.size() > 0){
-                                    for(Board bd : noticeList) {
-                                        String dateStr = bd.getResdate().substring(0, 10);
-                                        String title = "";
-                                        if(bd.getTitle().length() > 70) {
-                                            title = bd.getTitle().substring(69) + "...";
-                                        } else {
-                                            title = bd.getTitle();
-                                        }
+<%--                            <%--%>
+<%--                                if(noticeList.size() > 0){--%>
+<%--                                    for(Board bd : noticeList) {--%>
+<%--                                        String dateStr = bd.getResdate().substring(0, 10);--%>
+<%--                                        String title = "";--%>
+<%--                                        if(bd.getTitle().length() > 70) {--%>
+<%--                                            title = bd.getTitle().substring(69) + "...";--%>
+<%--                                        } else {--%>
+<%--                                            title = bd.getTitle();--%>
+<%--                                        }--%>
 
-                            %>
-                            <li><a href="<%=headerPath %>/board/getNotice.jsp?bno=<%=bd.getBno() %>"><%=title %><span class="date"><%=dateStr %></span></a></li>
-                            <% } } else { %>
-                            <li class="no_date">
-                                등록된 공지사항이 없습니다.
-                            </li>
-                            <% } %>
+<%--                            %>--%>
+<%--                            <li><a href="<%=headerPath %>/board/getNotice.jsp?bno=<%=bd.getBno() %>"><%=title %><span class="date"><%=dateStr %></span></a></li>--%>
+<%--                            <% } } else { %>--%>
+<%--                            <li class="no_date">--%>
+<%--                                등록된 공지사항이 없습니다.--%>
+<%--                            </li>--%>
+<%--                            <% } %>--%>
                         </ul>
                     </li>
                     <li class="item2">
                         <div class="board_tit">
                             <h3>자유게시판</h3>
-                            <a href="<%=headerPath%>/board/listBoard.jsp" class="btn_more">+</a>
+                            <a href="${headPath }/WEB-INF/views/board/forum/listBoard.jsp" class="btn_more">+</a>
                         </div>
                         <ul class="board_con">
-                            <%
-                                if(boardList.size() > 0){
-                                    for(Board bd : boardList) {
-                                        String dateStr = bd.getResdate().substring(0, 10);
-                                        String title = "";
-                                        if(bd.getTitle().length() > 70) {
-                                            title = bd.getTitle().substring(69) + "...";
-                                        } else {
-                                            title = bd.getTitle();
-                                        }
+<%--                            <%--%>
+<%--                                if(boardList.size() > 0){--%>
+<%--                                    for(Board bd : boardList) {--%>
+<%--                                        String dateStr = bd.getResdate().substring(0, 10);--%>
+<%--                                        String title = "";--%>
+<%--                                        if(bd.getTitle().length() > 70) {--%>
+<%--                                            title = bd.getTitle().substring(69) + "...";--%>
+<%--                                        } else {--%>
+<%--                                            title = bd.getTitle();--%>
+<%--                                        }--%>
 
-                            %>
-                            <li><a href="<%=headerPath %>/board/getBoard.jsp?bno=<%=bd.getBno() %>"><%=title %><span class="date"><%=dateStr %></span></a></li>
-                            <% } } else { %>
-                            <li class="no_date">
-                                등록된 자유게시판이 없습니다.
-                            </li>
-                            <% } %>
+<%--                            %>--%>
+<%--                            <li><a href="<%=headerPath %>/board/getBoard.jsp?bno=<%=bd.getBno() %>"><%=title %><span class="date"><%=dateStr %></span></a></li>--%>
+<%--                            <% } } else { %>--%>
+<%--                            <li class="no_date">--%>
+<%--                                등록된 자유게시판이 없습니다.--%>
+<%--                            </li>--%>
+<%--                            <% } %>--%>
                         </ul>
                     </li>
                 </ul>
@@ -148,35 +147,33 @@
         <section class="page" id="page2">
             <div class="page_wrap">
                 <h2 class="page_tit">이벤트</h2>
-                <p class="page_com">그로우앤조이에서 진행된 이벤트를 소개합니다.</p>
-                <% if(eventList.size() > 0) { %>
+                <p class="page_com">티스푼에서 진행된 이벤트를 소개합니다.</p>
                 <div class="sl-btn-box">
                     <button type="button" class="btn next">&gt;</button>
                     <button type="button" class="btn prev">&lt;</button>
                 </div>
-                <% } %>
                 <div class="slide_box">
                     <ul class="card_lst">
-                        <%
-                            if(eventList.size() > 0) {
-                                int num = 1;
-                                for(Event event: eventList){ %>
-                        <li class="item<%=num %>">
-                            <a href="<%=headerPath%>/event/eventing_get.jsp?eno=<%=event.getEno()%>">
-                                <div class="thumb_box" style="background-image:url('<%=headerPath%>/event/event_img/<%=num %>.jpg')"></div>
-                                <p class="thumb_tit"><%=event.getTitle() %></p>
-                                <span class="thumb_date">
-                                <% if(event.getStartdate()!=null && event.getEnddate()!=null){ %>
-                                    <%=event.getStartdate()%>~<%=event.getEnddate()%>
-                                <% } else { %>
-                                    2023-08-01 ~ 2023-08-16
-                                <% } %>
-                                </span>
-                            </a>
-                        </li>
-                        <% num++; } } else { %>
-                        <li class="no_date">등록된 이벤트가 없습니다.</li>
-                        <% } %>
+<%--                        <%--%>
+<%--                            if(eventList.size() > 0) {--%>
+<%--                                int num = 1;--%>
+<%--                                for(Event event: eventList){ %>--%>
+<%--                        <li class="item<%=num %>">--%>
+<%--                            <a href="<%=headerPath%>/event/eventing_get.jsp?eno=<%=event.getEno()%>">--%>
+<%--                                <div class="thumb_box" style="background-image:url('<%=headerPath%>/event/event_img/<%=num %>.jpg')"></div>--%>
+<%--                                <p class="thumb_tit"><%=event.getTitle() %></p>--%>
+<%--                                <span class="thumb_date">--%>
+<%--                                <% if(event.getStartdate()!=null && event.getEnddate()!=null){ %>--%>
+<%--                                    <%=event.getStartdate()%>~<%=event.getEnddate()%>--%>
+<%--                                <% } else { %>--%>
+<%--                                    2023-08-01 ~ 2023-08-16--%>
+<%--                                <% } %>--%>
+<%--                                </span>--%>
+<%--                            </a>--%>
+<%--                        </li>--%>
+<%--                        <% num++; } } else { %>--%>
+<%--                        <li class="no_date">등록된 이벤트가 없습니다.</li>--%>
+<%--                        <% } %>--%>
                     </ul>
                 </div>
             </div>
@@ -201,7 +198,7 @@
         </script>
     </div>
     <footer class="ft" id="ft">
-        <%@ include file="footer.jsp" %>
+        <%@ include file="include/footer.jsp" %>
     </footer>
 </div>
 </body>
