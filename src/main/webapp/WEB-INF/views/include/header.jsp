@@ -4,53 +4,82 @@
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 
 <c:set var="headPath" value="${pageContext.request.contextPath }"/>
-<c:set var="sid" value="${pageContext.session.getAttribute('id') } }"/>
+<c:set var="sid" value="${pageContext.session.getAttribute('sid') }"/>
 
-<div class="hd_wrap" id="hdWrap">
-    <a href="${headPath }/" class="logo">
-        <img src="${headPath }/resources/image/common/logo.png" alt="티스푼 로고타입">
-    </a>
-    <nav class="gnb" id="hdGnb">
-        <ul class="menu">
-            <li class="item1">
-                <a href="${headPath }/WEB-INF/views/company/company01.jsp" class="dp1">회사소개</a>
-                <ul class="sub">
-                    <li><a href="${headPath }/WEB-INF/views/company/company01.jsp">인사말</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/company/company02.jsp">연혁</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a></li>
-                </ul>
-            </li>
-            <li class="item3">
-                <a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp" class="dp1">커뮤니티</a>
-                <ul class="sub">
-                    <li><a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp">공지사항</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/board/forum/listBoard.jsp">자유게시판</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/board/faq/">Faq</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-    <nav class="tnb">
-        <ul class="menu">
-            <c:choose>
-                <c:when test="${!empty sid}">
-                    <li><a href="${headPath }/WEB-INF/views/member/logout.jsp">로그아웃</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/member/mypage.jsp">마이페이지</a></li>
-                </c:when>
-                <c:when test="${sid=='admin'}">
-                    <li><a href="${headPath }/WEB-INF/views/member/logout.jsp">로그아웃</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/member/mypage.jsp">마이페이지</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/admin/memberList.jsp">관리자페이지</a></li>
-                </c:when>
-                <c:otherwise>
-                    <li><a href="${headPath }/WEB-INF/views/member/login.jsp">로그인</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/member/term.jsp">회원가입</a></li>
-                    <li><a href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a></li>
-                </c:otherwise>
-            </c:choose>
-        </ul>
-    </nav>
-</div>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item is-active" href="${headPath }/">
+                Home
+            </a>
+            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company01.jsp">
+                Company
+            </a>
+
+            <a class="navbar-item" href="${headPath }/member/list.do">
+                MemberList
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Board
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        About
+                    </a>
+                    <a class="navbar-item">
+                        Forum
+                    </a>
+                    <a class="navbar-item">
+                        Contact
+                    </a>
+                    <hr class="navbar-divider">
+                    <a class="navbar-item">
+                        Report an issue
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <c:choose>
+                        <c:when test="${sid == 'admin'}">
+                            <a class="button is-light" href="${headPath }/member/logout.do">Log Out</a>
+                            <a class="button is-light" href="${headPath }/member/detail.do?id=${sid}">Member</a>
+                            <a class="button is-light" href="${headPath }/WEB-INF/views/admin/memberList.jsp">Admin</a>
+                        </c:when>
+                        <c:when test="${not empty sid}">
+                            <a class="button is-light" href="${headPath }/member/logout.do">Log Out</a>
+                            <a class="button is-light" href="${headPath }/WEB-INF/views/member/memberDetail.jsp">마이페이지</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="button is-light" href="${headPath }/member/login.do">Log In</a>
+                            <a class="button is-light" href="${headPath }/member/term.do">회원가입</a>
+                            <a class="button is-light" href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
 
 <script>
     var gnb = document.getElementById("hdGnb");

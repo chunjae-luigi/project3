@@ -52,9 +52,9 @@
 <!-- 필요한 폰트를 로딩 : 구글 웹 폰트에서 폰트를 선택하여 해당 내용을 붙여 넣기 -->
 <link rel="stylesheet" href="${headPath }/resources/css/google.css">
 <link rel="stylesheet" href="${headPath }/resources/css/fonts.css">
-<link rel="stylesheet" href="${headPath }/resources/css/common.css">
-<link rel="stylesheet" href="${headPath }/resources/css/hd.css">
 <link rel="stylesheet" href="${headPath }/resources/css/ft.css">
+
+<link rel="stylesheet" href="${headPath }/resources/css/bulma.css">
 
 <!-- 필요한 플러그인 연결 -->
 <script src="https://code.jquery.com/jquery-latest.js"></script>

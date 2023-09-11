@@ -1,40 +1,13 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
     <title>회원약관</title>
-    <%@ include file="../head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/sub.css">
-    <style>
-        .frm { clear:both; width:1200px; margin:0 auto; padding-top: 80px; }
-
-        .tb1 { width:500px; margin:50px auto; }
-        .tb1 th { width:180px; line-height:32px; padding-top:8px; padding-bottom:8px;
-            border-top:1px solid #333; border-bottom:1px solid #333;
-            background-color:deepskyblue; color:#fff; }
-        .tb1 td { width:310px; line-height:32px; padding-top:8px; padding-bottom:8px;
-            border-bottom:1px solid #333;
-            padding-left: 14px; border-top:1px solid #333; }
-
-        .indata { display:inline-block; width: 500px; height: 48px; line-height: 48px;
-            text-indent:14px; font-size:18px; }
-        .inbtn { display:block;  border-radius:100px;
-            min-width:140px; padding-left: 24px; padding-right: 24px; text-align: center;
-            line-height: 48px; background-color: #333; color:#fff; font-size: 18px; }
-        .inbtn:first-child { float:left; }
-        .inbtn:last-child { float:right; }
-
-        .agree_fr { width: 900px; margin: 20px auto; border:1px solid #eee;
-            padding: 20px; overflow-y: auto;
-            height: 250px; white-space: pre-wrap; }
-        .btn_fr{text-align:center;}
-    </style>
-
-    <link rel="stylesheet" href="../ft.css">
+    <%@ include file="../include/head.jsp" %>
 </head>
 <body>
     <header class="hd" id="hd">
-        <%@ include file="../header.jsp" %>
+        <%@ include file="../include/header.jsp" %>
     </header>
     <div class="contents" id="contents">
         <div class="sub">
@@ -374,7 +347,7 @@
                     var ck_item2 = document.getElementById("ck_item2");
                     in_btn1.addEventListener("click", function(){
                         if(ck_item1.checked && ck_item2.checked) {
-                            location.href = "join.jsp";
+                            location.href = "${headPath }/member/insert.do";
                         } else if(ck_item1.checked || ck_item2.checked){
                             alert("약관에 동의하지 않으셨습니다.");
                             return;
@@ -386,7 +359,7 @@
     </div>
     <br>
     <footer class="ft" id="ft">
-        <%@ include file="../footer.jsp" %>
+        <%@ include file="../include/footer.jsp" %>
     </footer>
 </body>
 </html>

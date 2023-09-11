@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%
     int lev = request.getParameter("lev") != null ? Integer.parseInt(request.getParameter("lev")) : 0;
     int par = request.getParameter("lev") != null ? Integer.parseInt(request.getParameter("par")) : 0;
