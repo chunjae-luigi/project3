@@ -415,5 +415,7 @@
 </div>
 
 <%@ include file="include/footer.jsp" %>
+
+<%@ include file="include/footer.jsp" %>
 </body>
 </html>
