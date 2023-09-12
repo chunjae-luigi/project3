@@ -57,6 +57,7 @@
         <bean id="noticeService" class="kr.co.tspoon.service.NoticeServiceImpl"/>
         <bean id="noticeDAO" class="kr.co.tspoon.dao.NoticeDAOImpl"/>
 
+
         <!-- @Transactional 어노테이션 처리 -->
         <tx:annotation-driven transaction-manager="transactionManager" />
 

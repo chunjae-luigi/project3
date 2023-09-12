@@ -21,7 +21,7 @@ public class MemberDAOImpl implements MemberDAO{
 
     @Override
     public Member memberGet(String id) throws Exception {
-        return sqlSession.selectOne("member.memberGet");
+        return sqlSession.selectOne("member.memberGet", id);
     }
 
     @Override

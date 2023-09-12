@@ -28,16 +28,17 @@ public class MemberController {
     HttpSession session;
 
     @GetMapping("list.do")
-    public String getMemberList(Model model) throws Exception {
+    public String memberList(Model model) throws Exception {
         List<Member> memberList = memberService.memberList();
         model.addAttribute("memberList", memberList);
         return "/member/memberList";
     }
 
     @GetMapping("get.do")
-    public String getMemberDetail(Model model) throws Exception {
+    public String memberGet(Model model) throws Exception {
         String id = (String) session.getAttribute("sid");
         Member dto = memberService.memberGet(id);
+        System.out.println(dto.getId());
         model.addAttribute("member", dto);
         return "/member/memberGet";
     }
