@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    <select id="memberList" resultType="kr.co.teaspoon.dto.member">
+        select * from member
+    </select>
+    <select id="memberGet" resultType="kr.co.teaspoon.dto.member">
+        select * from member where id=#{id}
+    </select>
+    <select id="memberCount" resultType="kr.co.teaspoon.dto.member">
+        select COUNT(*) from member
+    </select>
+    <select id="idcheck" resultType="kr.co.teaspoon.dto.member">
+        select (id,pw,name) from member where id=#{id}
+    </select>
+    <select id="login" resultType="kr.co.teaspoon.dto.member">
+        select * from member where id=#{id}
+    </select>
+    <select id="memberInsert" >
+        insert into member values(#{id}, #{pw}, #{name},#{email},#{tel},#{addr1},#{addr2},#{postcode},#{regdate},#{birth}, #{ps}, #{visited})
+    </select>
+    <select id="memberUpdate" >
+        update member set pw=#{pw}, name=#{name},email=#{email},tel=#{tel},addr1=#{addr1},addr2=#{addr2},postcode=#{postcode} where id=#{id}
+    </select>
+    <select id="memberDelete" >
+        delete from member where id=#{id}
+    </select>
+</mapper>

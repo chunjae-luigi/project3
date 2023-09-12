@@ -92,7 +92,7 @@
                     <li class="item1">
                         <div class="board_tit">
                             <h3>공지사항</h3>
-                            <a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp" class="btn_more">+</a>
+                            <a href="${headPath }/WEB-INF/views/board/notice/NoticeList.jsp" class="btn_more">+</a>
                         </div>
                         <ul class="board_con">
 <%--                            <%--%>

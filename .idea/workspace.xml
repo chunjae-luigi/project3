@@ -11,161 +11,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02e045f0-3753-47c6-9b04-c3b2df27af75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberUpdatePw.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaAddQuestion.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaGet.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaUpdate.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dat/datList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/addBoard.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/getBoard.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/listBoard.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/modifyBoard.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/addNotice.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/getNotice.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/listNotice.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/modifyNotice.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/aboutEmail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company01.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company02.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company03.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idcheck.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idload.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/join.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/logout.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/modifyMember.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/mypage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/term.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/addQuestion.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/getQna.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/qnaList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/updateQna.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma-rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma-rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma-rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/ft.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/google.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/hd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/jquery.dataTables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/normalize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/sub.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/book/iiim9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/ico_foot_sns.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_114.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_32.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/common/logo_96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/join/chk_ico.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/main/vs1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/main/vs2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/bg_visual_overview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/icon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/test (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/test (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/test (2).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/image/sub/test (3).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/code.jquery.com_jquery-3.7.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/jquery.dataTables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/base/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/base/animations.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/base/generic.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/base/helpers.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/base/minireset.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/breadcrumb.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/card.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/dropdown.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/level.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/media.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/menu.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/message.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/modal.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/navbar.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/pagination.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/panel.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/components/tabs.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/box.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/button.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/container.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/content.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/form.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/icon.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/image.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/notification.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/other.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/progress.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/table.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/tag.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/elements/title.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/checkbox-radio.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/file.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/input-textarea.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/select.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/shared.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/form/tools.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/grid/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/grid/columns.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/grid/tiles.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/color.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/flexbox.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/float.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/other.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/overflow.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/position.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/spacing.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/typography.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/helpers/visibility.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/layout/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/layout/footer.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/layout/hero.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/layout/section.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/_all.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/animations.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/controls.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/derived-variables.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/extends.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/functions.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/initial-variables.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/sass/utilities/mixins.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/NoticeCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/MemberDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/MemberDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/NoticeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/NoticeDAOImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/MemberServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/NoticeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/NoticeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/test/BcryptTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/memberMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/noticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeUpdate.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/sampleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/sampleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/addNotice.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/getNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/getNotice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/listNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/logout.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +47,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -205,7 +80,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/luigi-team/team43/src/main/webapp/resources/css",
+    "last_opened_file_path": "D:/kyo/project2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -228,8 +103,24 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\luigi-team\team43\src\main\webapp\WEB-INF\views\board" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="kr.co.tspoon.service" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BcryptTest">
+    <configuration name="BcryptTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="kr.co.tspoon.test.BcryptTest" />
+      <module name="team43" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="kr.co.tspoon.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
@@ -326,6 +217,11 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BcryptTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -340,6 +236,7 @@
       <workItem from="1694085127137" duration="660000" />
       <workItem from="1694392855320" duration="13000" />
       <workItem from="1694393494235" duration="2260000" />
+      <workItem from="1694477106120" duration="11476000" />
     </task>
     <servers />
   </component>

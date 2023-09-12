@@ -21,9 +21,9 @@
                 </ul>
             </li>
             <li class="item3">
-                <a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp" class="dp1">커뮤니티</a>
+                <a href="${headPath }/WEB-INF/views/board/notice/NoticeList.jsp" class="dp1">커뮤니티</a>
                 <ul class="sub">
-                    <li><a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp">공지사항</a></li>
+                    <li><a href="${headPath }/WEB-INF/views/board/notice/NoticeList.jsp">공지사항</a></li>
                     <li><a href="${headPath }/WEB-INF/views/board/forum/listBoard.jsp">자유게시판</a></li>
                     <li><a href="${headPath }/WEB-INF/views/board/faq/">Faq</a></li>
                 </ul>

@@ -1,68 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ page import="com.grownjoy.db.*" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.grownjoy.vo.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%
-    int bno = Integer.parseInt(request.getParameter("bno"));
-    String writer = (String) session.getAttribute("id");
-
-    int cnt = 0;
-    String sql = "";
-    Board bd = new Board();
-
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
-
-    DBC con = new MariaDBCon();
-    conn = con.connect();
-
-    try {
-
-        // 공지사항 글 가져오는 쿼리문
-        sql = "select * from boardList where bno = ?";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, bno);
-        rs = pstmt.executeQuery();
-        if(rs.next()) {
-            bd.setTitle(rs.getString("title"));
-            bd.setContent(rs.getString("content"));
-            bd.setAuthor(rs.getString("author"));
-            bd.setName(rs.getString("name"));
-            bd.setResdate(rs.getString("resdate"));
-            bd.setCnt(rs.getInt("cnt"));
-        }
-
-        rs.close();
-        pstmt.close();
-
-        if(!bd.getAuthor().equals(writer)) {
-            // 조회수 증가 쿼리
-            sql = "update board set cnt = cnt + 1 where bno = ?";
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, bno);
-            cnt = pstmt.executeUpdate();
-            if (cnt > 0) {
-                System.out.println("조회수 증가 성공");
-            } else {
-                System.out.println("조회수 증가 실패");
-            }
-            pstmt.close();
-        }
-    } catch (SQLException e) {
-        System.out.println("sql 구문 오류");
-    } finally {
-        conn.close();
-    }
-
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼::공지사항-상세보기</title>
     <%@ include file="../head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/sub.css">
+    <link rel="stylesheet" href="${headPath }/css/sub.css">
 </head>
 <body>
 <div class="wrap">
