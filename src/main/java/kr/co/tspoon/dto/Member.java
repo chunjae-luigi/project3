@@ -19,6 +19,6 @@ public class Member {
     private String postcode;
     private String regdate;
     private String birth;
-    private String birth;
     private int point = 0;
+    private int grade = 1;
 }

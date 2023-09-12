@@ -4,10 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="notice">
-    <select id="noticeList" resultType="kr.co.teaspoon.dto.notice">
+    <select id="noticeList" resultType="kr.co.tspoon.dto.Notice">
         select * from notice order by regdate desc
     </select>
-    <select id="noticeGet" resultType="kr.co.teaspoon.dto.notice">
+    <select id="noticeGet" resultType="kr.co.tspoon.dto.Notice">
         select * from notice where no=#{no}
     </select>
     <select id="noticeInsert" >

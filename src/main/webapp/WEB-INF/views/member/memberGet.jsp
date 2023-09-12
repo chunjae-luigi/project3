@@ -55,7 +55,7 @@
             </tbody>
         </table>
         <div class="btn_group">
-            <a href="${headPath }/member/edit.do?id=${member.id}" class="button">정보 수정</a>
+            <a href="${headPath }/member/update.do?id=${member.id}" class="button">정보 수정</a>
             <a href="${headPath }/member/delete.do?id=${member.id}" class="button">회원 탈퇴</a>
         </div>
     </div>

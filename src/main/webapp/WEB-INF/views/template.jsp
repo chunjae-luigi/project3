@@ -27,7 +27,7 @@
     </section>
 
 
-    <section class="section blog-wrap">
+    <section class="section blog-wrap container">
     <%--        내용 넣기--%>
 
     </section>

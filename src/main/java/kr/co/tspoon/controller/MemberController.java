@@ -34,12 +34,12 @@ public class MemberController {
         return "/member/memberList";
     }
 
-    @GetMapping("detail.do")
+    @GetMapping("get.do")
     public String getMemberDetail(Model model) throws Exception {
         String id = (String) session.getAttribute("sid");
-        Member dto = memberService.memberDetail(id);
+        Member dto = memberService.memberGet(id);
         model.addAttribute("member", dto);
-        return "/member/memberDetail";
+        return "/member/memberGet";
     }
 
     @GetMapping("term.do")
@@ -68,7 +68,10 @@ public class MemberController {
     @RequestMapping(value="idcheck.do", method= RequestMethod.POST)
     public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String id = request.getParameter("id");
-        boolean noId = memberService.idCheck(id);
+        boolean noId = true;
+        if(memberService.memberGet(id)!=null){
+            noId = false;
+        }
         JSONObject json = new JSONObject();
         json.put("result", noId);
         PrintWriter out = response.getWriter();
@@ -119,16 +122,16 @@ public class MemberController {
         return "redirect:list.do";
     }
 
-    @GetMapping("edit.do")
+    @GetMapping("update.do")
     public String editForm(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");
-        Member dto = memberService.memberDetail(id);
+        Member dto = memberService.memberGet(id);
         model.addAttribute("dto", dto);
-        return "/member/memberEdit";
+        return "/member/memberUpdate";
     }
 
-    @PostMapping("edit.do")
-    public String memberEdit(HttpServletRequest request, Model model) throws Exception {
+    @PostMapping("update.do")
+    public String memberUpdate(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");
         String pw = request.getParameter("pw");
         String name = request.getParameter("name");
@@ -150,10 +153,10 @@ public class MemberController {
         dto.setPostcode(postcode);
         dto.setBirth(birth);
 
-        memberService.memberEdit(dto);
+        memberService.memberUpdate(dto);
 
         model.addAttribute("dto", dto);
 
-        return "redirect:detail.do";
+        return "redirect:get.do";
     }
 }
