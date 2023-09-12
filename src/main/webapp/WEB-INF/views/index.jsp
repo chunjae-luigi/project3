@@ -10,196 +10,410 @@
     <%@ include file="include/head.jsp" %>
 </head>
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <%@ include file="include/header.jsp" %>
-    </header>
-    <div class="contents" id="contents">
-        <figure class="vs">
-            <ul class="img_box">
-                <li class="item1 active">
-                    <input type="radio" name="vs_ra" id="vs_ra1" class="vs_ra" checked>
-                    <div class="bg_box"></div>
-                    <h2 class="vs_tit">교육에 대한 끊임없는 도전<br>
-                        <strong>행복한 내일을 함께 합니다</strong></h2>
-                </li>
-                <li class="item2">
-                    <input type="radio" name="vs_ra" id="vs_ra2" class="vs_ra">
-                    <div class="bg_box"></div>
-                    <h2 class="vs_tit">“나눔의 힘! 실천의 힘!”<br>
-                        <strong>작은 따뜻함으로 세상을 <br>바꿉니다</strong>
-                    </h2>
-                </li>
-            </ul>
-            <ul class="btn_box">
-                <li class="item1 active"><label for="vs_ra1" class="vs_btn"></label></li>
-                <li class="item2"><label for="vs_ra2" class="vs_btn"></label></li>
-            </ul>
-            <button type="button" class="play_btn"></button>
-        </figure>
-        <script>
-            $(function(){
-                $(".btn_box li .vs_btn").click(function(){
-                    var par = $(this).parents("li").index();
-                    $(".img_box li").removeClass("active");
-                    $(".img_box li").eq(par).addClass("active");
-                    $(".btn_box li").removeClass("active");
-                    $(".btn_box li").eq(par).addClass("active");
-                });
-                var sw = 1;
-                var int1 = setInterval(function(){
-                    if(sw==1){
-                        autoplay(1);
-                        sw = 0;
-                    } else {
-                        autoplay(0);
-                        sw = 1;
-                    }
-                }, 3500);
+<%@ include file="include/header.jsp" %>
 
-                function autoplay(n){
-                    $(".img_box li").removeClass("active");
-                    $(".img_box li").eq(n).addClass("active");
-                    $(".btn_box li").removeClass("active");
-                    $(".btn_box li").eq(n).addClass("active");
-                }
+<div class="content">
 
-                $(".play_btn").click(function(){
-                    if($(this).hasClass("active")){
-                        $(this).removeClass("active");
-                        sw = 1;
-                        int1 = setInterval(function(){
-                            if(sw==1){
-                                autoplay(1);
-                                sw = 0;
-                            } else {
-                                autoplay(0);
-                                sw = 1;
-                            }
-                        }, 3500);
-                    } else {
-                        $(this).addClass("active");
-                        sw = 0;
-                        clearInterval(int1);
-                    }
-                });
-            });
-        </script>
-        <section class="page" id="page1">
-            <div class="page_wrap">
-                <h2 class="page_tit"><span class="txtColor1">Grow</span> & <span class="txtColor2">Joy</span></h2>
-                <ul class="board_lst">
-                    <li class="item1">
-                        <div class="board_tit">
-                            <h3>공지사항</h3>
-                            <a href="${headPath }/WEB-INF/views/board/notice/listNotice.jsp" class="btn_more">+</a>
-                        </div>
-                        <ul class="board_con">
-<%--                            <%--%>
-<%--                                if(noticeList.size() > 0){--%>
-<%--                                    for(Board bd : noticeList) {--%>
-<%--                                        String dateStr = bd.getResdate().substring(0, 10);--%>
-<%--                                        String title = "";--%>
-<%--                                        if(bd.getTitle().length() > 70) {--%>
-<%--                                            title = bd.getTitle().substring(69) + "...";--%>
-<%--                                        } else {--%>
-<%--                                            title = bd.getTitle();--%>
-<%--                                        }--%>
-
-<%--                            %>--%>
-<%--                            <li><a href="<%=headerPath %>/board/getNotice.jsp?bno=<%=bd.getBno() %>"><%=title %><span class="date"><%=dateStr %></span></a></li>--%>
-<%--                            <% } } else { %>--%>
-<%--                            <li class="no_date">--%>
-<%--                                등록된 공지사항이 없습니다.--%>
-<%--                            </li>--%>
-<%--                            <% } %>--%>
-                        </ul>
-                    </li>
-                    <li class="item2">
-                        <div class="board_tit">
-                            <h3>자유게시판</h3>
-                            <a href="${headPath }/WEB-INF/views/board/forum/listBoard.jsp" class="btn_more">+</a>
-                        </div>
-                        <ul class="board_con">
-<%--                            <%--%>
-<%--                                if(boardList.size() > 0){--%>
-<%--                                    for(Board bd : boardList) {--%>
-<%--                                        String dateStr = bd.getResdate().substring(0, 10);--%>
-<%--                                        String title = "";--%>
-<%--                                        if(bd.getTitle().length() > 70) {--%>
-<%--                                            title = bd.getTitle().substring(69) + "...";--%>
-<%--                                        } else {--%>
-<%--                                            title = bd.getTitle();--%>
-<%--                                        }--%>
-
-<%--                            %>--%>
-<%--                            <li><a href="<%=headerPath %>/board/getBoard.jsp?bno=<%=bd.getBno() %>"><%=title %><span class="date"><%=dateStr %></span></a></li>--%>
-<%--                            <% } } else { %>--%>
-<%--                            <li class="no_date">--%>
-<%--                                등록된 자유게시판이 없습니다.--%>
-<%--                            </li>--%>
-<%--                            <% } %>--%>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="page" id="page2">
-            <div class="page_wrap">
-                <h2 class="page_tit">이벤트</h2>
-                <p class="page_com">티스푼에서 진행된 이벤트를 소개합니다.</p>
-                <div class="sl-btn-box">
-                    <button type="button" class="btn next">&gt;</button>
-                    <button type="button" class="btn prev">&lt;</button>
-                </div>
-                <div class="slide_box">
-                    <ul class="card_lst">
-<%--                        <%--%>
-<%--                            if(eventList.size() > 0) {--%>
-<%--                                int num = 1;--%>
-<%--                                for(Event event: eventList){ %>--%>
-<%--                        <li class="item<%=num %>">--%>
-<%--                            <a href="<%=headerPath%>/event/eventing_get.jsp?eno=<%=event.getEno()%>">--%>
-<%--                                <div class="thumb_box" style="background-image:url('<%=headerPath%>/event/event_img/<%=num %>.jpg')"></div>--%>
-<%--                                <p class="thumb_tit"><%=event.getTitle() %></p>--%>
-<%--                                <span class="thumb_date">--%>
-<%--                                <% if(event.getStartdate()!=null && event.getEnddate()!=null){ %>--%>
-<%--                                    <%=event.getStartdate()%>~<%=event.getEnddate()%>--%>
-<%--                                <% } else { %>--%>
-<%--                                    2023-08-01 ~ 2023-08-16--%>
-<%--                                <% } %>--%>
-<%--                                </span>--%>
-<%--                            </a>--%>
-<%--                        </li>--%>
-<%--                        <% num++; } } else { %>--%>
-<%--                        <li class="no_date">등록된 이벤트가 없습니다.</li>--%>
-<%--                        <% } %>--%>
-                    </ul>
+    <!-- Slider Start -->
+    <section class="slider">
+        <div class="container">
+            <div class="columns is-justify-content-center">
+                <div class="column is-9-desktop is-10-tablet">
+                    <div class="block has-text-centered">
+                        <span class="is-block mb-4 text-white is-capitalized">Small help can make change</span>
+                        <h1 class="mb-5">New hope for <br>near future</h1>
+                        <p class="mb-6">Your small contribution means a lot. Natus officia amet <br>accusamus repellat magni reprehenderit dolorem.</p>
+                        <a href="#" target="_blank" class="btn btn-main is-rounded">Donate Now</a>
+                    </div>
                 </div>
             </div>
-        </section>
-        <script>
-            $(function(){
-                $(".sl-btn-box .btn.next").click(function(){
-                    var ln = parseInt($(".card_lst").css("margin-left"));
-                    if(ln>-1110) {
-                        var mv = ln - 370;
-                        $(".card_lst").not(":animated").animate({"margin-left":mv+"px"});
-                    }
-                });
-                $(".sl-btn-box .btn.prev").click(function(){
-                    var ln = parseInt($(".card_lst").css("margin-left"));
-                    if(ln<0){
-                        var mv = ln + 370;
-                        $(".card_lst").not(":animated").animate({"margin-left":mv+"px"});
-                    }
-                });
-            });
-        </script>
+        </div>
+    </section>
+
+    <!-- Section Intro Start -->
+    <section class="section intro">
+        <div class="container">
+            <div class="columns is-align-items-center is-desktop mb-6">
+                <div class="column is-6-desktop">
+                    <div class="section-title mb-0">
+                        <span class="text-color">What we can do</span>
+                        <h2 class="mt-4 content-title">We Believe that We can <br>Save More Lifes with you</h2>
+                    </div>
+                </div>
+                <div class="column is-6-desktop">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, dicta, iure. Esse quasi labore aperiam, dolorem amet voluptas soluta asperiores nostrum voluptate molestias numquam similique. Voluptate natus corporis ex, distinctio.</p>
+                </div>
+            </div>
+            <div class="columns is-multiline is-justify-content-center">
+                <div class="column is-3-desktop is-6-tablet">
+                    <div class="intro-item mb-5 mb-lg-0">
+                        <img src="images/about/image-1.jpg" alt="" class=" w-100">
+                        <h4 class="mt-4 mb-3">Get inspired</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+                    </div>
+                </div>
+                <div class="column is-3-desktop is-6-tablet">
+                    <div class="intro-item mb-5 mb-lg-0">
+                        <img src="images/about/image-2.jpg" alt="" class=" w-100">
+                        <h4 class="mt-4 mb-3">Give Donation</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+                    </div>
+                </div>
+                <div class="column is-3-desktop is-6-tablet">
+                    <div class="intro-item">
+                        <img src="images/about/image-3.jpg" alt="" class=" w-100">
+                        <h4 class="mt-4 mb-3">Become a Volunteer</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+                    </div>
+                </div>
+                <div class="column is-3-desktop is-6-tablet">
+                    <div class="intro-item">
+                        <img src="images/about/image-1.jpg" alt="" class=" w-100">
+                        <h4 class="mt-4 mb-3">Help The children</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section Intro END -->
+    <section class="section video">
+        <div class="container">
+            <div class="columns is-desktop">
+                <div class="column is-8-desktop">
+                    <div class="video-content">
+                        <h2 class="mt-4 mb-6 is-relative text-lg text-white">We Make a Difference <br>in their Life</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="video-block">
+                        <div class="img-block">
+                            <img src="images/bg/bg-3.jpg" alt="">
+                        </div>
+                        <a data-video-id="sXoKSD8QJEA" class="videoplay">
+                            <i class="icofont-ui-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="counter-section">
+                <div class="columns is-multiline">
+                    <div class="column is-3-desktop is-6-tablet">
+                        <div class="counter-item-2 pt-5">
+                            <span class="counter-stat  text-color">18</span>
+                            <p>Years of Experience</p>
+                        </div>
+                    </div>
+                    <div class="column is-3-desktop is-6-tablet">
+                        <div class="counter-item-2 pt-5">
+                            <span class="counter-stat has-text-weight-bold text-color">1,460</span>
+                            <p>Active Volunteer</p>
+                        </div>
+                    </div>
+                    <div class="column is-3-desktop is-6-tablet">
+                        <div class="counter-item-2 pt-5">
+                            <span class="counter-stat  text-color">92</span>
+                            <p>Availble Country</p>
+                        </div>
+                    </div>
+                    <div class="column is-3-desktop is-6-tablet">
+                        <div class="counter-item-2 pt-5">
+                            <span class="counter-stat text-color">54</span>
+                            <p >Million People Helped</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section gallery">
+        <div class="container">
+            <div class="columns is-justify-content-center">
+                <div class="column is-8-desktop is-10-tablet">
+                    <div class="section-title has-text-centered">
+                        <span class="text-color">Our Gallery</span>
+                        <h2 class="mt-4 mb-5 is-relative content-title">We connect with people across different sectors. we take risksand we always keep learning.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="gallery-wrap">
+                <div class="columns is-multiline">
+                    <div class="column is-4-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/1.jpg" class="gallery-popup">
+                                <img src="images/gallery/1.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-4-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/2.jpg" class="gallery-popup">
+                                <img src="images/gallery/2.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-4-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/3.jpg" class="gallery-popup">
+                                <img src="images/gallery/3.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-4-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/4.jpg" class="gallery-popup">
+                                <img src="images/gallery/4.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="column is-4-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/5.jpg" class="gallery-popup">
+                                <img src="images/gallery/5.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-4-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/6.jpg" class="gallery-popup">
+                                <img src="images/gallery/6.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-6-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/9.jpg" class="gallery-popup">
+                                <img src="images/gallery/9.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column is-6-desktop is-12-tablet">
+                        <div class="gallery-item">
+                            <a href="images/gallery/8.jpg" class="gallery-popup">
+                                <img src="images/gallery/8.jpg" alt="" class=" w-100">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="column">
+                <div class="column lg-12">
+                    <div class="section-divider"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section About Start -->
+    <section class="section causes">
+        <div class="container">
+            <div class="columns is-justify-content-center">
+                <div class="column is-7-desktop is-8-tablet">
+                    <div class="section-title has-text-centered">
+                        <span class="text-color">Latest Events</span>
+                        <h2 class="mt-4 mb-5 is-relative content-title">Our Recent Causes <br> to serve better</h2>
+                        <p class="mb-5">We provide services in the area of IFRS and management reporting, helping companies to reach their highest level.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-multiline is-justify-content-center">
+                <div class="column is-4-desktop is-6-tablet">
+                    <div class="cause-item">
+                        <img src="images/about/image-1.jpg" class=" w-100" alt="...">
+
+                        <div class="card-body">
+                            <h3 class="mb-4"><a href="cause-single.html">Save Poor Childrens</a></h3>
+
+                            <ul class="list-inline border-bottom border-top py-3 mb-4">
+                                <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
+                                <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
+                            </ul>
+                            <p class="card-text mb-5">Save poor child by supporting text below as a natural lead-in to additional content.</p>
+
+                            <a href="donation.html" class="btn btn-main is-rounded">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4-desktop is-6-tablet">
+                    <div class="cause-item">
+                        <img src="images/about/image-2.jpg" class=" w-100" alt="...">
+
+                        <div class="card-body">
+                            <h3 class="mb-4"><a href="cause-single.html">Clean Drink Water</a></h3>
+
+                            <ul class="list-inline border-bottom border-top py-3 mb-4">
+                                <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Goal:	<span>$890</span></li>
+                                <li class="list-inline-item"><i class="icofont-check text-color mr-2"></i>Raised: <span>$390</span></li>
+                            </ul>
+                            <p class="card-text mb-5">Save poor child by supporting text below as a natural lead-in to additional content.</p>
+
+                            <a href="donation.html" class="btn btn-main is-rounded">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-4-desktop is-6-tablet">
+                    <div class="cause-item">
+                        <img src="images/about/image-3.jpg" class=" w-100" alt="...">
+
+                        <div class="card-body">
+                            <h3 class="mb-4"><a href="cause-single.html">Fund for Education</a></h3>
+
+                            <p class="card-text mb-4">Save poor child by supporting text below as a natural lead-in to additional content. </p>
+                            <p class="card-text mb-4">Quia vitae ab maxime cum quod neque .</p>
+
+                            <a href="donation.html" class="btn btn-main is-rounded">Donate Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section About End -->
+    <div class="cta-block section">
+        <div class="container">
+            <div class="columns is-justify-content-center ">
+                <div class="column is-7-desktop is-12-tablet">
+                    <div class="cta-content has-text-centered">
+                        <i class="icofont-diamond text-lg text-color"></i>
+                        <h2 class="text-white text-lg mb-6 mt-4">We can’t help everyone, but everyone can help someone</h2>
+                        <a href="donation.html" class="btn btn-main is-rounded">Make a donation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <footer class="ft" id="ft">
-        <%@ include file="include/footer.jsp" %>
-    </footer>
+
+    <section class="section latest-blog">
+        <div class="container">
+            <div class="columns is-justify-content-center is-desktop">
+                <div class="column is-7-desktop has-text-centered">
+                    <div class="section-title">
+                        <span class="h6 text-color">Latest News</span>
+                        <h2 class="mt-4 content-title">Latest articles to enrich knowledge</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-multiline is-justify-content-center">
+                <div class="column is-4-desktop is-6-tablet">
+                    <div class="blog-item">
+                        <img src="images/blog/blog_1.jpg" alt="" class="">
+
+                        <div class="card-body mt-2">
+                            <span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
+                            <h3 class="mb-3"><a href="blog-single.html" class="">We can make a difference in families lives</a></h3>
+                            <p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4-desktop is-6-tablet">
+                    <div class="blog-item">
+                        <img src="images/blog/blog_2.jpg" alt="" class="">
+
+                        <div class="card-body mt-2">
+                            <span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
+                            <h3 class="mb-3"><a href="blog-single.html" class="">A place where start new life with peace</a></h3>
+                            <p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-4-desktop is-6-tablet">
+                    <div class="blog-item">
+                        <img src="images/blog/blog_3.jpg" alt="" class="">
+
+                        <div class="card-body mt-2">
+                            <span class="text-sm text-color is-uppercase has-text-weight-bold">January 3, 2019</span>
+                            <h3 class="mb-3"><a href="blog-single.html" class="">Build school for poor childrens</a></h3>
+                            <p class="mb-4">Aspernatur obcaecati unde, quasi nihil neque, voluptatem. Consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="volunteer section ">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-7-desktop is-12-tablet">
+                    <div class="volunteer-content">
+                        <img src="images/bg/image-5.jpg" alt="" class="">
+                        <h2 class="text-lg mb-5 mt-3">We can’t help everyone, but everyone can help someone</h2>
+                        <p>Assumenda reiciendis delectus dolore incidunt molestias omnis quo quaerat voluptate, eligendi perspiciatis ipsa laudantium nesciunt officia, odit nemo quidem hic itaque. Fugiat.</p>
+
+                        <h2 class="mt-6 mb-5">Trusted worldwide partner</h2>
+                        <div class="clients-wrap">
+                            <a href="#">
+                                <img src="images/clients/client1.png" alt="" class="">
+                            </a>
+                            <a href="#">
+                                <img src="images/clients/client2.png" alt="" class="">
+                            </a>
+                            <a href="#">
+                                <img src="images/clients/client4.png" alt="" class="">
+                            </a>
+                            <a href="#">
+                                <img src="images/clients/client5.png" alt="" class="">
+                            </a>
+                            <a href="#">
+                                <img src="images/clients/client6.png" alt="" class="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-5-desktop is-12-tablet">
+                    <div class="volunteer-form-wrap">
+                        <span class="text-white">Join With us</span>
+                        <h2 class="mb-6 text-lg text-white">Become A Volunteer</h2>
+                        <form action="#" class="volunteer-form">
+                            <div class="mb-4">
+                                <input type="text" class="input" placeholder="Full Name">
+                            </div>
+                            <div class="mb-4">
+                                <input type="email" class="input" placeholder="Emaill Address">
+                            </div>
+                            <div class="mb-4">
+                                <input type="text" class="input" placeholder="Phone Number">
+                            </div>
+                            <div class="mb-4">
+                                <input type="text" class="input" placeholder="Adress ">
+                            </div>
+                            <div class="mb-4">
+                                <input type="text" class="input" placeholder="Occupation">
+                            </div>
+                            <div class="mb-4">
+                                <textarea name="#" id="#" cols="30" rows="6" class="input" placeholder="Your Message"></textarea>
+                            </div>
+
+                            <a href="#" class="btn btn-main is-rounded mt-5">Send Message</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+<%@ include file="include/footer.jsp" %>
 </body>
 </html>

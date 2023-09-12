@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+    <select id="memberList" resultType="kr.co.tspoon.dto.Member">
+        select * from member
+    </select>
+    <select id="memberDetail" resultType="kr.co.tspoon.dto.Member">
+        select * from member where id=#{id}
+    </select>
+
+<!--    DAO 로그인 -->
+    <select id="login" resultType="kr.co.tspoon.dto.Member">
+        select id, pw, name from member where id=#{id}
+    </select>
+
+<!--    Ajax idcheck-->
+    <select id="idCheck" resultType="kr.co.tspoon.dto.Member">
+        select id from member where id=#{id}
+    </select>
+
+    <insert id="memberInsert">
+        insert into member(id, pw, name, email, tel, addr1, addr2, postcode, birth) values (#{id}, #{pw}, #{name}, #{email}, #{tel}, #{addr1}, #{addr2}, #{postcode}, #{birth})
+    </insert>
+    <update id="memberEdit">
+        update member set pw=#{pw}, name=#{name}, email=#{email}, tel=#{tel}, addr1=#{addr1}, addr2=#{addr2}, postcode=#{postcode}, birth=#{birth} where id=#{id}
+    </update>
+    <delete id="memberDelete">
+        delete from member where id=#{id}
+    </delete>
+</mapper>

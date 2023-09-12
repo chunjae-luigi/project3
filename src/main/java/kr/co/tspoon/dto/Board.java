@@ -1,20 +1,13 @@
 package kr.co.tspoon.dto;
 
-import lombok.*;
+import lombok.Data;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-
+@Data
 public class Board {
-    private int bno;
-    private String boardType;
+    private int seq;
     private String title;
     private String content;
-    private String author;
-    private String relatinos = "no";
+    private String nickname;
     private String regdate;
-    private int visited = 0;
+    private int visited;
 }
