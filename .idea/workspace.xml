@@ -11,33 +11,577 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02e045f0-3753-47c6-9b04-c3b2df27af75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberCtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/NoticeCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/BoardDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/BoardDAOImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/MemberDAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/MemberDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/NoticeDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/NoticeDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/BoardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/BoardServiceImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/MemberService.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/MemberServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/NoticeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/NoticeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/test/BcryptTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/memberMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/noticeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeUpdate.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberDetail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberInsert.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/template.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/blog-grid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/blog-sidebar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/blog-single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/cause-single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/confirmation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/donation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/event-single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/gulpfile.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/bg-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/event-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/event-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/event-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/event-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/fiver1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/image-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/image-11-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/image-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/image-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/img-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/about/img-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/bg/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/bg/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/bg/bg-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/bg/image-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/bg/worldmap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/blog_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/blog_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/blog_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/blog_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/blog_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/gallery-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/gallery-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/gallery-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/gallery-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/gallery-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/blog/image-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/clients/client1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/clients/client2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/clients/client4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/clients/client5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/clients/client6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/gallery/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/team/volunteer-img1.1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/team/volunteer-img1.2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/images/team/volunteer-img1.3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/js/contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/netlify.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/animate-css/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/bulma/bulma.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/counterup/jquery.counterup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/counterup/jquery.waypoints.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/fontawesome/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/google-map/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/icofont/icofont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/external/sizzle/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/parseXML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/var/location.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/var/nonce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/var/rquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/ajax/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/attributes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/attributes/attr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/attributes/classes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/attributes/prop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/attributes/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/attributes/val.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/callbacks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/DOMEval.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/nodeName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/parseHTML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/ready-no-deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/ready.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/readyException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/stripAndCollapse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/core/var/rsingleTag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/addGetHookIf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/adjustCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/curCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/hiddenVisibleSelectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/showHide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/var/cssExpand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/var/getStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/var/isHiddenWithinTree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/var/rmargin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/var/rnumnonpx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/css/var/swap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/data/Data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/data/var/acceptData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/data/var/dataPriv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/data/var/dataUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/deferred/exceptionHook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/deprecated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/dimensions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/effects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/effects/Tween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/effects/animatedSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/event/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/event/alias.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/event/focusin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/event/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/event/trigger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/exports/amd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/exports/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/_evalUrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/buildFragment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/getAll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/setGlobalEval.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/var/rcheckableType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/var/rscriptType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/var/rtagName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/manipulation/wrapMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/offset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/queue/delay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/selector-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/selector-sizzle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/serialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/traversing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/traversing/findFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/traversing/var/dir.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/traversing/var/rneedsContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/traversing/var/siblings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/ObjectFunctionString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/arr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/class2type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/concat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/document.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/documentElement.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/fnToString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/getProto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/hasOwn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/indexOf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/pnum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/push.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/rcssNum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/rnothtmlwhite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/slice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/var/toString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/jquery/src/wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/magnific-popup/dist/jquery.magnific-popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/magnific-popup/dist/jquery.magnific-popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/magnific-popup/dist/magnific-popup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/modal-video/jquery-modal-video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/modal-video/modal-video.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/config.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/fonts/slick.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/fonts/slick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/fonts/slick.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/fonts/slick.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick-theme.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick-theme.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/slick-carousel/slick/slick.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/themify/css/themify-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/themify/fonts/themify.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/themify/fonts/themify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/themify/fonts/themify.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/plugins/themify/fonts/themify.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/pricing.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/service.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/blog-grid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/blog-sidebar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/blog-single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/cause-single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/confirmation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/donation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/event-single.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/gallery.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/bg-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/event-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/event-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/event-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/event-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/fiver1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/image-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/image-11-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/image-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/image-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/img-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/about/img-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/bg/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/bg/banner.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/bg/bg-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/bg/image-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/bg/worldmap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/blog_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/blog_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/blog_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/blog_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/blog_5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/gallery-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/gallery-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/gallery-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/gallery-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/gallery-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/blog/image-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/clients/client1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/clients/client2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/clients/client4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/clients/client5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/clients/client6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/gallery/9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/team/volunteer-img1.1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/team/volunteer-img1.2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/images/team/volunteer-img1.3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/js/contact.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/about-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/about.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/blog-post-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/blog-posts.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/blog.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/causes.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/clinets-logo.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/counter-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/counter.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/cta-block.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/footer.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/gallery.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/instagram-feed.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/intro-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/intro.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/latest-blog.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/navigation.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/page-header.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/page-title.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/post-sidebar.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/pricing-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/pricing-3.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/pricing.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/service-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/service.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/single-blog.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/slider.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/team.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/testimonial-2.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/testimonial.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/video-block.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/blocks/volunteer.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/footer.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/partials/header.htm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/animate-css/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/bulma/bulma.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/counterup/jquery.counterup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/counterup/jquery.waypoints.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/fontawesome/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/google-map/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/fonts/icofont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/fonts/icofont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/fonts/icofont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/fonts/icofont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/fonts/icofont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/icofont.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/icofont/icofont.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/external/sizzle/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/jsonp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/load.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/parseXML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/var/location.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/var/nonce.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/var/rquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/ajax/xhr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/attributes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/attributes/attr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/attributes/classes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/attributes/prop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/attributes/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/attributes/val.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/callbacks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/DOMEval.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/nodeName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/parseHTML.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/ready-no-deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/ready.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/readyException.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/stripAndCollapse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/core/var/rsingleTag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/addGetHookIf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/adjustCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/curCSS.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/hiddenVisibleSelectors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/showHide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/var/cssExpand.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/var/getStyles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/var/isHiddenWithinTree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/var/rmargin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/var/rnumnonpx.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/css/var/swap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/data/Data.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/data/var/acceptData.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/data/var/dataPriv.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/data/var/dataUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/deferred.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/deferred/exceptionHook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/deprecated.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/dimensions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/effects.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/effects/Tween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/effects/animatedSelector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/event.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/event/ajax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/event/alias.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/event/focusin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/event/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/event/trigger.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/exports/amd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/exports/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/_evalUrl.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/buildFragment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/getAll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/setGlobalEval.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/var/rcheckableType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/var/rscriptType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/var/rtagName.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/manipulation/wrapMap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/offset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/queue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/queue/delay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/selector-native.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/selector-sizzle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/serialize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/traversing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/traversing/findFilter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/traversing/var/dir.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/traversing/var/rneedsContext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/traversing/var/siblings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/ObjectFunctionString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/arr.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/class2type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/concat.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/document.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/documentElement.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/fnToString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/getProto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/hasOwn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/indexOf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/pnum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/push.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/rcssNum.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/rnothtmlwhite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/slice.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/var/toString.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/jquery/src/wrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/magnific-popup/dist/jquery.magnific-popup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/magnific-popup/dist/jquery.magnific-popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/magnific-popup/dist/magnific-popup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/modal-video/jquery-modal-video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/modal-video/modal-video.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/config.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/fonts/slick.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/fonts/slick.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/fonts/slick.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/fonts/slick.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick-theme.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick-theme.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/slick-carousel/slick/slick.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/themify/css/themify-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/themify/fonts/themify.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/themify/fonts/themify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/themify/fonts/themify.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/plugins/themify/fonts/themify.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/pricing.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/_common.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/_media-query.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/_typography.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_about.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_backgrounds.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_blog-sidebar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_blog.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_contact.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_counter.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_cta.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_donation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_feature.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_intro.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_navigation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_portfolio.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_pricing.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_review.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_service.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_single-post.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_slider.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/scss/templates/_team.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/service.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/source/volunteer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/wishfund-bulma-main/volunteer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/addNotice.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberUpdatePw.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberUpdatePw.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaAddQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaAddQuestion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaGet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaUpdate.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dat/datList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dat/datList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/addBoard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/addBoard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/getBoard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/getBoard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/listBoard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/listBoard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/modifyBoard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/forum/modifyBoard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/addNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/addNotice.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/getNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/getNotice.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/listNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/listNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/listNotice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/modifyNotice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/modifyNotice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/aboutEmail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/aboutEmail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company01.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company01.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company02.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company02.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company03.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/company/company03.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/logout.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idcheck.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idcheck.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idload.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idload.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/logout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/logout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/modifyMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/modifyMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/term.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/term.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/addQuestion.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/addQuestion.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/getQna.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/getQna.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/qnaList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/qnaList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/updateQna.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/qna/updateQna.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,14 +592,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="spring-beans.schema" />
         <option value="Class" />
-        <option value="Jsp File" />
+        <option value="spring-beans.schema" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JspContextManager">
+    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -63,6 +609,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2V2rHndyetKk6lyc1ydRt0b4rjQ" />
   <component name="ProjectLevelVcsManager">
@@ -78,13 +627,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "sangmin",
+    "git-widget-placeholder": "sangmin",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/kyo/project2",
+    "last_opened_file_path": "D:/sangmin0816/luigi/project3/src/main/webapp/WEB-INF/views",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.26923078",
@@ -94,17 +645,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\luigi-team\team43\src\main\webapp\resources\css" />
-      <recent name="D:\luigi-team\team43\src\main\webapp\WEB-INF\views\qna" />
-      <recent name="D:\luigi-team\team43\src\main\webapp\WEB-INF\views\admin" />
-      <recent name="D:\luigi-team\team43\src\main\webapp\WEB-INF\views\board\notice" />
-      <recent name="D:\luigi-team\team43\src\main\webapp\WEB-INF\views\board\forum" />
+      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views" />
+      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF" />
+      <recent name="D:\sangmin0816\luigi\project3\src\main\resources" />
+      <recent name="D:\sangmin0816\luigi\project3\src\main\java\kr\co\tspoon" />
+      <recent name="D:\sangmin0816\루이지팀\project3\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\resources\wishfund-bulma-main\plugins\icofont" />
+      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\resources\wishfund-bulma-main" />
+      <recent name="D:\sangmin0816\루이지팀\project3\src\main\webapp\WEB-INF\views" />
+      <recent name="D:\sangmin0816\루이지팀\project3\src\main\webapp\resources\css" />
       <recent name="D:\luigi-team\team43\src\main\webapp\WEB-INF\views\board" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="kr.co.tspoon.service" />
+      <recent name="kr.co.tspoon.controller" />
     </key>
   </component>
   <component name="RunManager" selected="Application.BcryptTest">
@@ -123,8 +678,6 @@
     </configuration>
     <configuration name="Tomcat 9.0.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="HOT_SWAP_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="team43:war">
@@ -236,7 +789,9 @@
       <workItem from="1694085127137" duration="660000" />
       <workItem from="1694392855320" duration="13000" />
       <workItem from="1694393494235" duration="2260000" />
-      <workItem from="1694477106120" duration="11476000" />
+      <workItem from="1694485751669" duration="1882000" />
+      <workItem from="1694489084409" duration="222000" />
+      <workItem from="1694489391174" duration="3885000" />
     </task>
     <servers />
   </component>

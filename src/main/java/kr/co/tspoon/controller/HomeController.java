@@ -19,4 +19,9 @@ public class HomeController {
     public String index(Model model){
         return "/index";
     }
+
+    @RequestMapping(value = "/template", method = RequestMethod.GET)
+    public String template(Model model){
+        return "/template";
+    }
 }

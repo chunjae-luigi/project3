@@ -47,3 +47,11 @@ textarea.inData {min-height:150px;}
 
 .ul_type01 li {position:relative;padding-left:10px;color:#333;line-height:1.8;font-size:15px;}
 .ul_type01 li:before {position:absolute;content:"";display:block;background:#333;width:5px;height:1px;top:50%;margin-top:-0.5px;left:0;}
+
+.content {
+    min-height: 80vh;
+}
+
+.font-happy {font-family: 'Happy';}
+.font-handon {font-family: 'Handon'}
+.font-iceSotong {font-family: 'iceSotong'}

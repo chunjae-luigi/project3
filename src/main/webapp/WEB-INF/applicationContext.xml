@@ -20,6 +20,7 @@
         <bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
                 <property name="driverClass" value="org.mariadb.jdbc.Driver" />
                 <property name="url" value="jdbc:mariadb://localhost:3306/team43" />
+                <!--                올리기 전에 이거 바꾸는 거 잊지 말기 -->
                 <property name="username" value="root" />
                 <property name="password" value="1234" />
         </bean>
@@ -46,6 +47,8 @@
 <!--        <bean id="sampleDAO" class="kr.co.teaspoon.dao.SampleDAOImpl"/>-->
 <!--        <bean id="boardService" class="kr.co.teaspoon.service.BoardServiceImpl"/>-->
 <!--        <bean id="boardDAO" class="kr.co.teaspoon.dao.BoardDAOImpl"/>-->
+        <bean id="memberService" class="kr.co.tspoon.service.MemberServiceImpl"/>
+        <bean id="memberDAO" class="kr.co.tspoon.dao.MemberDAOImpl"/>
 
 
         <!-- @Transactional 어노테이션 처리 -->
