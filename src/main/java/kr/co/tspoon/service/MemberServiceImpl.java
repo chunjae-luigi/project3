@@ -5,18 +5,15 @@ import kr.co.tspoon.dto.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-    @Autowired
-    HttpSession session;
 
     @Autowired
     private MemberDAO memberDAO;
-
-    private BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+    BCryptPasswordEncoder pwEncoding = new BCryptPasswordEncoder();
 
     @Override
     public List<Member> memberList() throws Exception {
@@ -24,53 +21,39 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member memberDetail(String id) throws Exception {
-        String pw = (String) session.getAttribute("spw");
-        Member member = memberDAO.memberDetail(id);
-        member.setPw(pw);
-        return member;
+    public Member memberGet(String id) throws Exception {
+        return memberDAO.memberGet(id);
     }
 
     @Override
-    public boolean login(String id, String pw) throws Exception {
-        boolean flag = false;
-        Member member = memberDAO.login(id);
-        boolean pwMatch = bcryptPasswordEncoder.matches(pw, member.getPw());
-        if(member.getId().equals(id) && pwMatch){
-            session.setAttribute("sid", id);
-            session.setAttribute("spw", pw);
-            flag = true;
-        }
-        return flag;
+    public int memberCount() throws Exception {
+        return memberDAO.memberCount();
     }
 
     @Override
-    public boolean idCheck(String id) throws Exception {
-        boolean flag = false;
-        if(memberDAO.idCheck(id)==null){
-            flag = true;
-        }
-        return flag;
+    public Member idcheck(String id) throws Exception {
+        return memberDAO.idcheck(id);
     }
 
     @Override
-    public void memberInsert(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberInsert(dto);
+    public Member login(String id) throws Exception {
+        return memberDAO.login(id);
+    }
+
+    @Override
+    public void memberInsert(Member member) throws Exception {
+        memberDAO.memberInsert(member);
+    }
+
+    @Override
+    public void memberUpdate(Member member) throws Exception {
+        memberDAO.memberUpdate(member);
+
     }
 
     @Override
     public void memberDelete(String id) throws Exception {
         memberDAO.memberDelete(id);
-    }
 
-    @Override
-    public void memberEdit(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberEdit(dto);
     }
 }

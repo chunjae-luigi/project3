@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+    <select id="noticeList" resultType="kr.co.teaspoon.dto.notice">
+        select * from notice order by regdate desc
+    </select>
+    <select id="noticeGet" resultType="kr.co.teaspoon.dto.notice">
+        select * from notice where no=#{no}
+    </select>
+    <select id="noticeInsert" >
+        insert into notice values(default, #{title}, #{content}, default, default)
+    </select>
+    <select id="noticeUpdate" >
+        update notice set title=#{title}, content=#{content} where no=#{no}
+    </select>
+    <select id="noticeDelete" >
+        delete from notice where no=#{no}
+    </select>
+</mapper>
