@@ -13,7 +13,7 @@ CREATE TABLE MEMBER(
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (가입일)
 	birth DATE, -- 생일
 	POINT INT DEFAULT 0,   -- (포인트)
-	INT grade DEFAULT 1,-- 등급: admin 관리자, parent 학부모, student 학생
+	INT grade DEFAULT 1,-- 등급: 0 관리자, 1 학부모, 2 학생
 );
 
 -- board
@@ -29,7 +29,7 @@ CREATE TABLE board(
 );
 
 -- notice
-CREATE TABLE notive(
+CREATE TABLE notice(
       no INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
       title VARCHAR(200) NOT NULL,   -- (게시글 제목)
       content VARCHAR(1000),   -- (게시글 내용)
@@ -37,12 +37,7 @@ CREATE TABLE notive(
       visited INT DEFAULT 0   -- (조회수)
 );
 
-CREATE TABLE fileboard(
-	fno INT PRIMARY KEY AUTO_INCREMENT,
-	fileName VARCHAR(100),
-	fileType VARCHAR(100),
-	bno INT NOT NULL,
-)
+
 
 -- datgeul
 CREATE TABLE dat(
@@ -64,3 +59,23 @@ CREATE TABLE qna(
 	lev INT DEFAULT 0, -- 질문(0), 답변(1)
 	par INT DEFAULT 0,	-- 부모 글번호 -> 질문(자신 레코드의 qno), 답변(질문의 글번호)
 );
+
+-- 학습 자료실
+CREATE TABLE dataBoard(
+	bno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
+	title VARCHAR(200) NOT NULL,   -- (게시글 제목)
+	content VARCHAR(1000),   -- (게시글 내용)
+	author VARCHAR(16) NOT NULL,   -- (작성자)
+	relations VARCHAR(20) DEFAULT 'no', -- dataFile table에 관련 자료가 있는지 여부.
+	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
+	visited INT DEFAULT 0   -- (조회수)
+);
+
+-- 학습 자료실 자료
+CREATE TABLE dataFile(
+	fno INT PRIMARY KEY AUTO_INCREMENT,
+	fileName VARCHAR(100),
+	fileType VARCHAR(100),
+	relations VARCHAR(20) DEFAULT 'dataBoard', -- dataFile 테이블을 참조하는 테이블. dataBoard 이외에 다른 테이블에서 dataFile을 참조하는 경우를 대비함.
+	bno INT NOT NULL
+)

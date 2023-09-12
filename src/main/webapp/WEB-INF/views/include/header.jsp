@@ -26,7 +26,7 @@
                         <c:choose>
                             <c:when test="${sid=='admin'}">
                                 <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
-                                <a class="top-btn"  href="${headPath }/member/detail.do">마이페이지</a>
+                                <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
                                 <a class="top-btn"  href="${headPath }/admin/">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">
@@ -78,7 +78,7 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">자료실</a>
+                        <a class="navbar-link" href="${headPath }/board/dataBoard/list.do">자료실</a>
                     </li>
 
                     <li class="navbar-item">

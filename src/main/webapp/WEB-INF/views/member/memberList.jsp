@@ -39,7 +39,7 @@
             <tr>
                 <td>${status.count}</td>
                 <td>${member.name}</td>
-                <td><a href="${headPath }/member/detail.do?id=${member.id}">${member.id}</a></td>
+                <td><a href="${headPath }/member/get.do?id=${member.id}">${member.id}</a></td>
                 <td>${member.tel}</td>
                 <td>${member.regdate}</td>
             </tr>

@@ -1,17 +1,12 @@
 package kr.co.tspoon.dto;
 
-import lombok.*;
+import lombok.Data;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-
-
-public class FileBoard {
+@Data
+public class DataFile {
     private int fno;
     private String fileName;
     private String fileType;
+    private String relations = "dataBoard";
     private int bno;
 }
