@@ -1,4 +1,3 @@
-CREATE DATABASE team43;
 USE team43;
 
 -- member
@@ -8,7 +7,11 @@ CREATE TABLE MEMBER(
 	NAME VARCHAR(100) NOT NULL,   -- (이름)
 	email VARCHAR(100) NOT NULL,   -- (이메일)
 	tel VARCHAR(13),   -- (전화번호)
+	address1 VARCHAR(200), -- 주소
+	address2 VARCHAR(200), -- 상세 주소
+	postcode VARCHAR(10), -- 우편번호
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (가입일)
+	birth DATE, -- 생일
 	POINT INT DEFAULT 0,   -- (포인트)
 	INT grade DEFAULT 1,-- 등급: admin 관리자, parent 학부모, student 학생
 );
