@@ -1,58 +1,23 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ page import="com.grownjoy.db.*" %>
-<%@ page import="com.grownjoy.vo.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@ page import="java.util.Date" %>
-<%
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
-
-    DBC con = new MariaDBCon();
-    conn = con.connect();
-
-    List<Board> boardList = new ArrayList<>();
-    try {
-        String sql = "select * from boardList where boardType = ?";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setInt(1, 1);
-        rs = pstmt.executeQuery();
-        while (rs.next()) {
-            Board bd = new Board();
-            bd.setBno(rs.getInt("bno"));
-            bd.setTitle(rs.getString("title"));
-            bd.setResdate(rs.getString("resdate"));
-            bd.setCnt(rs.getInt("cnt"));
-            boardList.add(bd);
-        }
-    } catch (SQLException e) {
-        System.out.println("sql 구문 오류");
-    } finally {
-        con.close(rs, pstmt, conn);
-    }
-
-    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼::공지사항</title>
-    <%@ include file="../head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/sub.css">
+    <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${headPath }/css/sub.css">
 </head>
 <body>
 <div class="wrap">
     <header class="hd" id="hd">
-        <%@ include file="../header.jsp" %>
+        <jsp:include page="../include/header.jsp" />
     </header>
     <div  class="contents" id="contents">
         <div class="sub">
             <h2>커뮤니티</h2>
         </div>
         <div class="breadcrumb">
-            <p><a href="/"> HOME </a> &gt; <a href="<%=headerPath%>/board/listNotice.jsp"> 커뮤니티 </a> &gt; <span> 공지사항 </span></p>
+            <p><a href="/"> HOME </a> &gt; <a href="${headPath }/board/noticeList.jsp"> 커뮤니티 </a> &gt; <span> 공지사항 </span></p>
         </div>
         <section class="page" id="page1">
             <div class="page_wrap">
@@ -90,7 +55,7 @@
                     %>
                     <tr>
                         <td class="num"><%=num %></td>
-                        <td class="title txtLeft"><a href="<%=headerPath%>/board/getNotice.jsp?bno=<%=bd.getBno() %>"><%=title %></a></td>
+                        <td class="title txtLeft"><a href="${headPath }/board/getNotice.jsp?bno=<%=bd.getBno() %>"><%=title %></a></td>
                         <td class="date"><%=dateStr %></td>
                         <td class="num"><%=bd.getCnt() %></td>
                     </tr>
@@ -106,16 +71,16 @@
                         });
                     });
                 </script>
-                <% if(sid != null && sid.equals("admin")) { %>
+                <C: if(sid != null && sid.equals("admin")) { %>
                 <div class="btn_group">
-                    <a href="<%=headerPath%>/board/addNotice.jsp" class="inBtn inBtn1">공지 등록</a>
+                    <a href="${headPath }/board/noticeAdd.jsp" class="inBtn inBtn1">공지 등록</a>
                 </div>
                 <% } %>
             </div>
         </section>
     </div>
     <footer class="ft" id="ft">
-        <%@ include file="../footer.jsp" %>
+        <jsp:include page="../include/footer.jsp" />
     </footer>
 </div>
 </body>
