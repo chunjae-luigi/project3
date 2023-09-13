@@ -17,8 +17,7 @@
     <resources mapping="/admin/**" location="/WEB-INF/views/admin" />
     <resources mapping="/board/**" location="/WEB-INF/views/board" />
     <resources mapping="/check/**" location="/WEB-INF/views/check" />
-    <resources mapping="/databank/**" location="/WEB-INF/views/databank" />
-    <resources mapping="/free/**" location="/WEB-INF/views/free" />
+
     <resources mapping="/include/**" location="/WEB-INF/views/include" />
     <resources mapping="/member/**" location="/WEB-INF/views/member" />
     <resources mapping="/notice/**" location="/WEB-INF/views/notice" />
