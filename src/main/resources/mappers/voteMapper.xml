@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="vote">
+
+    <!-- 투표 -->
+    <!-- 모든 내역 가져오기 -->
+    <select id="voteAllList" resultType="kr.co.tspoon.dto.Vote">
+        select * from vote order by regDate desc;
+    </select>
+    <!-- 진행중인 내역 가져오기 -->
+    <select id="votIngList" resultType="kr.co.tspoon.dto.Vote">
+        select * from vote where useYn = true order by regDate desc
+    </select>
+    <!-- 종료중인 내역 가져오기 -->
+    <select id="votedList" resultType="kr.co.tspoon.dto.Vote">
+        select * from vote where useYn = false order by regDate desc
+    </select>
+    <!-- 투표 상세보기 -->
+    <select id="voteDetail" resultType="kr.co.tspoon.dto.Vote">
+        select * from vote where vno = #{vno}
+    </select>
+    <!-- 총 투표 갯수 가져오기 -->
+    <select id="totalCount" resultType="integer" >
+        select count(*) from vote
+    </select>
+    <!-- 투표 등록하기 -->
+    <insert id="voteInsert">
+        insert into vote values (default, #{title}, #{content}, default, default, #{startDate}, #{finishDate}, default)
+    </insert>
+    <!-- 투표 삭제하기 -->
+    <delete id="voteDelete">
+        delete from vote where vno = #{vno}
+    </delete>
+    <!-- 투표 상태 종료하기 -->
+    <update id="voteUpdateState">
+        update vote set useYn = false where vno = #{vno}
+    </update>
+    <!-- 투표 변경하기 -->
+    <update id="voteEdit">
+        update vote set title = #{title}, content = #{content}, startDate = #{startDate}, finishDate = #{finishDate} where vno = #{vno}
+    </update>
+    <!-- 투표 조회수 증가 -->
+    <update id="voteVisitCount">
+        update vote set visited = visited + 1 where vno = #{vno}
+    </update>
+
+    <!-- 투표 선택지 -->
+    <!-- 해당 투표 선택지 가져오기 -->
+    <select id="voteAnswerList" resultType="kr.co.tspoon.dto.VoteList">
+        select * from voteAnswerList where vno = #{vno}
+    </select>
+    <!-- 투표 선택지 등록하기 -->
+    <insert id="voteAnswerInsert">
+        insert into voteAnswerList values (default, #{vno}, #{title})
+    </insert>
+    <!-- 투표 선택지 삭제하기 -->
+    <delete id="voteAnswerDelete">
+        delete from voteAnswerList where lno = #{lno}
+    </delete>
+    <!-- 투표 선택지 변경하기 -->
+    <update id="voteAnswerEdit">
+        update voteAnswerList set title = #{title} where lno = #{lno}
+    </update>
+
+    <!-- 투표자 -->
+    <!-- 투표자 선택 등록하기 -->
+    <select id="voteUserCheck" resultType="kr.co.tspoon.dto.VoteUser">
+        select * from voteAnswerUser where vno = #{vno} and author = #{author}
+    </select>
+    <insert id="voteUserInsert">
+        insert into voteAnswerUser values (default, #{vno}, #{lno}, #{author})
+    </insert>
+    <!-- 투표자 선택 삭제하기 -->
+    <delete id="voteUserDelete">
+        delete from voteAnswerUser where uno = #{uno}
+    </delete>
+    <!-- 투표자 선택 변경하기 -->
+    <update id="voteAnswerEdit">
+        update voteAnswerUser set lno = #{lno} where author = #{author}
+    </update>
+
+    <!-- 투표 선택지관련 투표 내역 -->
+    <select id="voteCountList" resultType="kr.co.tspoon.vo.VoteCount">
+        select * from voteCount where vno = #{vno}
+    </select>
+
+</mapper>
