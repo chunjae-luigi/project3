@@ -27,6 +27,7 @@
 
 
     <section class="section blog-wrap container">
+
         <table class="table table-secondary" id="tb1">
             <thead>
             <tr>
@@ -49,6 +50,8 @@
             </c:forEach>
             </tbody>
         </table>
+
+        <a href="${headPath }/board/dataBoard/insert.do" class="button is-primary">글쓰기</a>
     </section>
 
 

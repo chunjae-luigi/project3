@@ -8,13 +8,18 @@ import kr.co.tspoon.service.DataFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/board/*")
@@ -51,18 +56,20 @@ public class BoardController {
         return "/board/dataBoard/dataBoardGet";
     }
 
-    @GetMapping("databoard/insert.do")
+    @GetMapping("dataBoard/insert.do")
     public String dataBoardInsertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/board/boardInsert";
+        return "/board/dataBoard/dataBoardInsert";
     }
 
-    @PostMapping("databoard/insert.do")
-    public String dataBoardInsert(HttpServletRequest request, Model model) throws Exception {
+    @PostMapping("dataBoard/insert.do")
+    public String dataBoardInsert(HttpServletRequest request,
+                                  HttpServletResponse response, MultipartHttpServletRequest multiFile, @RequestParam MultipartFile upload) throws Exception {
         DataBoard dto = new DataBoard();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
         boardService.dataBoardInsert(dto);
-        return "redirect:list.do";
+
+        return "redirect:dataBoard/list.do";
     }
 
     @GetMapping("dataBoard/delete.do")
@@ -70,7 +77,7 @@ public class BoardController {
         int bno = Integer.parseInt(request.getParameter("bno"));
         boardService.dataBoardDelete(bno);
 
-        return "redirect:list.do";
+        return "redirect:dataBoard/list.do";
     }
 
     @GetMapping("dataBoard/update.do")
@@ -78,7 +85,7 @@ public class BoardController {
         int bno = Integer.parseInt(request.getParameter("bno"));
         DataBoard dto = boardService.dataBoardGet(bno);
         model.addAttribute("dto", dto);
-        return "board/boardEdit";
+        return "/board/dataBoard/dataBoardUpdate";
     }
 
     @PostMapping("dataBoard/update.do")
@@ -88,17 +95,15 @@ public class BoardController {
         dto.setContent(request.getParameter("content"));
         boardService.dataBoardUpdate(dto);
 
-        return "redirect:list.do";
+        return "redirect:dataBoard/list.do";
     }
-
-
 
     // Qna
     @GetMapping("qna/list.do")
     public String qnaList(Model model) throws Exception {
         List<Qna> qnaList = boardService.qnaList();
         model.addAttribute("qnaList", qnaList);
-        return "/qna/qnaList";
+        return "/board/qna/qnaList";
     }
 
     @GetMapping("qna/get.do")
@@ -106,12 +111,12 @@ public class BoardController {
         int qno = Integer.parseInt(request.getParameter("qno"));
         Qna dto = boardService.qnaGet(qno);
         model.addAttribute("dto", dto);
-        return "/qna/qnaDetail";
+        return "/board/qna/qnaDetail";
     }
 
     @GetMapping("qna/insert.do")
     public String qnaInsertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/qna/qnaInsert";
+        return "/board/qna/qnaInsert";
     }
 
     @PostMapping("qna/insert.do")
@@ -120,7 +125,7 @@ public class BoardController {
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
         boardService.qnaInsert(dto);
-        return "redirect:list.do";
+        return "redirect:qna/list.do";
     }
 
     @GetMapping("qna/delete.do")
@@ -128,7 +133,7 @@ public class BoardController {
         int qno = Integer.parseInt(request.getParameter("qno"));
         boardService.qnaDelete(qno);
 
-        return "redirect:list.do";
+        return "redirect:qna/list.do";
     }
 
     @GetMapping("qna/update.do")
@@ -136,7 +141,7 @@ public class BoardController {
         int qno = Integer.parseInt(request.getParameter("qno"));
         Qna dto = boardService.qnaGet(qno);
         model.addAttribute("dto", dto);
-        return "qna/qnaEdit";
+        return "/board/qna/qnaUpdate";
     }
 
     @PostMapping("qna/update.do")
@@ -146,6 +151,6 @@ public class BoardController {
         dto.setContent(request.getParameter("content"));
         boardService.qnaUpdate(dto);
 
-        return "redirect:list.do";
+        return "redirect:qna/list.do";
     }
 }

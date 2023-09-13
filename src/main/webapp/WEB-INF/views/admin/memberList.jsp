@@ -1,39 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ page import="com.grownjoy.db.*" %>
-<%@ page import="com.grownjoy.dto.*" %>
+
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
-<%
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
 
-    DBC con = new MariaDBCon();
-    conn = con.connect();
-
-    List<Member> memList = new ArrayList<>();
-    try {
-        String sql = "SELECT * FROM member WHERE id NOT IN ('admin')";
-        pstmt = conn.prepareStatement(sql);
-        rs = pstmt.executeQuery();
-        while (rs.next()) {
-            Member mem = new Member();
-            mem.setName(rs.getString("name"));
-            mem.setId(rs.getString("id"));
-            mem.setTel(rs.getString("tel"));
-            mem.setRegdate(rs.getString("regdate"));
-            memList.add(mem);
-        }
-    } catch (SQLException e) {
-        System.out.println("sql 구문 오류");
-    } finally {
-        con.close(rs, pstmt, conn);
-    }
-
-    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
