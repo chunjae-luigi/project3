@@ -4,23 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="member">
     <select id="memberList" resultType="kr.co.tspoon.dto.Member">
-    <select id="memberList" resultType="kr.co.tspoon.dto.Member">
         select * from member
     </select>
-    <select id="memberGet" resultType="kr.co.tspoon.dto.Member">
+
     <select id="memberGet" resultType="kr.co.tspoon.dto.Member">
         select * from member where id=#{id}
     </select>
-    <select id="memberCount" resultType="kr.co.tspoon.dto.Member">
+
     <select id="memberCount" resultType="kr.co.tspoon.dto.Member">
         select COUNT(*) from member
     </select>
-    <select id="idcheck" resultType="kr.co.tspoon.dto.Member">
+
     <select id="idcheck" resultType="kr.co.tspoon.dto.Member">
         select (id,pw,name) from member where id=#{id}
     </select>
 
-    <select id="login" resultType="kr.co.tspoon.dto.Member">
 
     <select id="login" resultType="kr.co.tspoon.dto.Member">
         select * from member where id=#{id}
@@ -35,10 +33,6 @@
     </update>
 
     <delete id="memberDelete" >
-    </update>
-
-    <delete id="memberDelete" >
         delete from member where id=#{id}
-    </delete>
     </delete>
 </mapper>

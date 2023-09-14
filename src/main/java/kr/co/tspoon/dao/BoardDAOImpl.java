@@ -79,8 +79,6 @@ public class BoardDAOImpl implements BoardDAO {
     @Override
     public void qnaUpdate(Qna qna) throws Exception {
         sqlSession.update("board.qnaUpdate", qna);
-    public void qnaUpdate(Qna qna) throws Exception {
-        sqlSession.update("board.qnaUpdate", qna);
     }
 
     @Override

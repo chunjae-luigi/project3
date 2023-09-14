@@ -44,47 +44,7 @@ public class BoardServiceImpl implements BoardService {
     public void dataBoardDelete(int bno) throws Exception {
         boardDAO.dataBoardDelete(bno);
     }
-
-
-    // Qna
-    @Override
-    public List<Qna> qnaList() throws Exception {
-        return boardDAO.qnaList();
-    }
-
-    @Override
-    public Qna qnaGet(int qno) throws Exception {
-        return boardDAO.qnaGet(qno);
-    public List<DataBoard> dataBoardList() throws Exception {
-        return boardDAO.dataBoardList();
-    }
-
-    @Override
-    public DataBoard dataBoardGet(int bno) throws Exception {
-        return boardDAO.dataBoardGet(bno);
-    }
-
-    @Override
-    public int dataBoardCount() throws Exception {
-        return boardDAO.dataBoardCount();
-    }
-
-    @Override
-    public void dataBoardInsert(DataBoard dataBoard) throws Exception {
-        boardDAO.dataBoardInsert(dataBoard);
-    }
-
-    @Override
-    public void dataBoardUpdate(DataBoard dataBoard) throws Exception {
-        boardDAO.dataBoardUpdate(dataBoard);
-    }
-
-    @Override
-    public void dataBoardDelete(int bno) throws Exception {
-        boardDAO.dataBoardDelete(bno);
-    }
-
-
+    
     // Qna
     @Override
     public List<Qna> qnaList() throws Exception {

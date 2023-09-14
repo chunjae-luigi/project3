@@ -29,7 +29,6 @@ public class MemberController {
 
     @GetMapping("list.do")
     public String memberList(Model model) throws Exception {
-    public String memberList(Model model) throws Exception {
         List<Member> memberList = memberService.memberList();
         model.addAttribute("memberList", memberList);
         return "/member/memberList";
@@ -37,12 +36,9 @@ public class MemberController {
 
     @GetMapping("get.do")
     public String memberGet(Model model) throws Exception {
-    @GetMapping("get.do")
-    public String memberGet(Model model) throws Exception {
         String id = (String) session.getAttribute("sid");
         Member dto = memberService.memberGet(id);
         model.addAttribute("member", dto);
-        return "/member/memberGet";
         return "/member/memberGet";
     }
 
@@ -72,10 +68,7 @@ public class MemberController {
     @RequestMapping(value="idcheck.do", method= RequestMethod.POST)
     public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String id = request.getParameter("id");
-        boolean noId = true;
-        if(memberService.memberGet(id)!=null){
-            noId = false;
-        }
+
         boolean noId = true;
         if(memberService.memberGet(id)!=null){
             noId = false;
@@ -131,18 +124,13 @@ public class MemberController {
     }
 
     @GetMapping("update.do")
-    @GetMapping("update.do")
     public String editForm(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");
         Member dto = memberService.memberGet(id);
-        Member dto = memberService.memberGet(id);
         model.addAttribute("dto", dto);
-        return "/member/memberUpdate";
         return "/member/memberUpdate";
     }
 
-    @PostMapping("update.do")
-    public String memberUpdate(HttpServletRequest request, Model model) throws Exception {
     @PostMapping("update.do")
     public String memberUpdate(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");
@@ -167,11 +155,9 @@ public class MemberController {
         dto.setBirth(birth);
 
         memberService.memberUpdate(dto);
-        memberService.memberUpdate(dto);
 
         model.addAttribute("dto", dto);
 
-        return "redirect:get.do";
         return "redirect:get.do";
     }
 }
