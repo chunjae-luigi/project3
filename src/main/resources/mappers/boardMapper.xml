@@ -46,7 +46,6 @@
         update qna set visited = visited+1 where qno=#{qno}
     </update>
 
-
     <select id="qnaCount" resultType="kr.co.tspoon.dto.Qna">
         select COUNT(*) from qna
     </select>
