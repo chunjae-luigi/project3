@@ -22,7 +22,7 @@
     </select>
 
     <insert id="dataBoardInsert" >
-        insert into dataBoard values(default, #{title}, #{content}, #{author}, #{relations}, default, default)
+        insert into dataBoard(title, content, author) values(#{title}, #{content}, #{author})
     </insert>
 
     <update id="dataBoardUpdate" >
@@ -35,7 +35,7 @@
 
     <!-- QnA  -->
     <select id="qnaList" resultType="kr.co.tspoon.dto.Qna">
-        select * from qna
+        select * from qna order by par desc
     </select>
 
     <select id="qnaGet" resultType="kr.co.tspoon.dto.Qna">

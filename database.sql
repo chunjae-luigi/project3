@@ -56,7 +56,6 @@ CREATE TABLE dataBoard(
 	title VARCHAR(200) NOT NULL,   -- (게시글 제목)
 	content VARCHAR(1000),   -- (게시글 내용)
 	author VARCHAR(16) NOT NULL,   -- (작성자)
-	relations VARCHAR(20) DEFAULT 'no', -- dataFile table에 관련 자료가 있는지 여부.
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
 	visited INT DEFAULT 0   -- (조회수)
 );

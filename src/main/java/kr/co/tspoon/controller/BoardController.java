@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -41,7 +38,7 @@ public class BoardController {
     }
 
     @GetMapping("dataBoardInsert.do")
-    public String dataBoardInsertForm(HttpServletRequest request, Model model) throws Exception {
+    public String dataBoardInsertForm() {
         return "/board/dataBoard/dataBoardInsert";
     }
 
@@ -55,14 +52,13 @@ public class BoardController {
         String id = (String) session.getAttribute("sid");
 
         dto.setAuthor(id);
-        dto.setRelations("dataBoard");
         boardService.dataBoardInsert(dto);
 
         return "redirect:dataBoardList.do";
     }
 
     @GetMapping("dataBoardDelete.do")
-    public String dataBoardDelete(HttpServletRequest request, Model model) throws Exception {
+    public String dataBoardDelete(HttpServletRequest request) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         boardService.dataBoardDelete(bno);
 
@@ -78,7 +74,7 @@ public class BoardController {
     }
 
     @PostMapping("dataBoardUpdate.do")
-    public String dataBoardUpdate(HttpServletRequest request, Model model) throws Exception {
+    public String dataBoardUpdate(HttpServletRequest request) throws Exception {
         DataBoard dto = new DataBoard();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
@@ -99,26 +95,33 @@ public class BoardController {
     public String qnaGet(HttpServletRequest request, Model model) throws Exception {
         int qno = Integer.parseInt(request.getParameter("qno"));
         Qna dto = boardService.qnaGet(qno);
-        model.addAttribute("dto", dto);
-        return "/board/qna/qnaDetail";
+        model.addAttribute("qna", dto);
+        return "/board/qna/qnaGet";
     }
 
     @GetMapping("qnaInsert.do")
     public String qnaInsertForm(HttpServletRequest request, Model model) throws Exception {
+        int lev = Integer.parseInt(request.getParameter("lev"));
+        int par = Integer.parseInt(request.getParameter("par"));
+        model.addAttribute("lev", lev);
+        model.addAttribute("par", par);
         return "/board/qna/qnaInsert";
     }
 
     @PostMapping("qnaInsert.do")
-    public String qnaInsert(HttpServletRequest request, Model model) throws Exception {
+    public String qnaInsert(HttpServletRequest request) throws Exception {
         Qna dto = new Qna();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
+        dto.setAuthor(request.getParameter("author"));
+        dto.setLev(Integer.parseInt(request.getParameter("lev")));
+        dto.setPar(Integer.parseInt(request.getParameter("par")));
         boardService.qnaInsert(dto);
         return "redirect:qnaList.do";
     }
 
     @GetMapping("qnaDelete.do")
-    public String qnaDelete(HttpServletRequest request, Model model) throws Exception {
+    public String qnaDelete(HttpServletRequest request) throws Exception {
         int qno = Integer.parseInt(request.getParameter("qno"));
         boardService.qnaDelete(qno);
 
@@ -129,13 +132,14 @@ public class BoardController {
     public String qnaUpdateForm(HttpServletRequest request, Model model) throws Exception {
         int qno = Integer.parseInt(request.getParameter("qno"));
         Qna dto = boardService.qnaGet(qno);
-        model.addAttribute("dto", dto);
+        model.addAttribute("qna", dto);
         return "/board/qna/qnaUpdate";
     }
 
     @PostMapping("qnaUpdate.do")
-    public String qnaUpdate(HttpServletRequest request, Model model) throws Exception {
+    public String qnaUpdate(HttpServletRequest request) throws Exception {
         Qna dto = new Qna();
+        dto.setQno(Integer.parseInt(request.getParameter("qno")));
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
         boardService.qnaUpdate(dto);

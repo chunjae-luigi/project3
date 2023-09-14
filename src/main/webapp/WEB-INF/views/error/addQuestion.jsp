@@ -34,13 +34,13 @@
             <h2>커뮤니티</h2>
         </div>
         <div class="breadcrumb">
-            <p><a href="/">HOME</a> &gt; <a href="qnaList.jsp">질문 및 답변</a> &gt; <span>질문 및 답변 글쓰기</span></p>
+            <p><a href="/">HOME</a> &gt; <a href="../../error/qnaList.jsp">질문 및 답변</a> &gt; <span>질문 및 답변 글쓰기</span></p>
         </div>
         <section class="page" id="page1">
             <div class="page_wrap">
                 <h2 class="page_tit">질문 및 답변 상세보기</h2>
                 <form action="<%=headPath%>/qna/addQuestionPro.jsp" method="post">
-                    <table class="table tb2">
+                    <table class="table">
                         <tbody>
                         <tr>
                             <th><label for="title">제목</label></th>
@@ -61,7 +61,7 @@
                     </table>
                     <div class="btn_group">
                         <input type="submit" value="<%=sel %> 등록" class="inBtn inBtn1">
-                        <a href="qnaList.jsp" class="inBtn inBtn2">글 목록</a>
+                        <a href="../../error/qnaList.jsp" class="inBtn inBtn2">글 목록</a>
                     </div>
                 </form>
             </div>

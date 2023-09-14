@@ -68,9 +68,11 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.selectOne("board.qnaCount");
     }
 
+    @Transactional
     @Override
     public void qnaInsert(Qna qna) throws Exception {
         sqlSession.insert("board.qnaInsert", qna);
+        sqlSession.update("qnaPar");
     }
 
     @Override

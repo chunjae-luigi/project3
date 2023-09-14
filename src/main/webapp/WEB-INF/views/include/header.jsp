@@ -73,7 +73,7 @@
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company01.jsp">공지사항</a>
                             <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">자유게시판</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">QnA</a>
+                            <a class="navbar-item" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
                     </li>
 
@@ -82,11 +82,11 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">투표</a>
+                        <a class="navbar-link" href="">투표</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">출석</a>
+                        <a class="navbar-link" href="">출석</a>
                     </li>
 
                     <li class="navbar-item">

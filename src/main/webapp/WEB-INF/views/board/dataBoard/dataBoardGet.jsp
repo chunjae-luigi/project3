@@ -46,25 +46,6 @@
                 <td colspan="3" id="content">
                     ${dto.content}
                 </td>
-                <script>
-                    CKEDITOR.replace('contents', {filebrowserUploadUrl: '${headPath}/dataFile/upload.do'});
-                </script>
-            </tr>
-            <tr>
-                <th class="item2" colspan="3">학습자료(클릭하여 다운로드)</th>
-            </tr>
-            <tr>
-                <td colspan="3">
-<%--                    <c:if test="${!empty dto.filename1 }">--%>
-<%--                        <a href="${rootPath }/storage/${dto.filename1 }" download ><i class="fas fa-file" style="color: #54c066;"></i> ${dto.filename1 }</a>--%>
-<%--                    </c:if>--%>
-<%--                    <c:if test="${!empty dto.filename2 }">--%>
-<%--                        <a href="${rootPath }/storage/${dto.filename2 }" download ><i class="fas fa-file" style="color: #54c066;"></i> ${dto.filename2 }</a>--%>
-<%--                    </c:if>--%>
-<%--                    <c:if test="${!empty dto.filename3 }">--%>
-<%--                        <a href="${rootPath }/storage/${dto.filename3 }" download ><i class="fas fa-file" style="color: #54c066;"></i> ${dto.filename3 }</a>--%>
-<%--                    </c:if>--%>
-                </td>
             </tr>
             </tbody>
         </table>

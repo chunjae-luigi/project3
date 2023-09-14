@@ -38,7 +38,6 @@ public class MemberController {
     public String memberGet(Model model) throws Exception {
         String id = (String) session.getAttribute("sid");
         Member dto = memberService.memberGet(id);
-        System.out.println(dto.getId());
         model.addAttribute("member", dto);
         return "/member/memberGet";
     }
