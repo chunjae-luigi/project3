@@ -27,7 +27,6 @@
                             <c:when test="${sid=='admin'}">
                                 <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
                                 <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
-                                <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
                                 <a class="top-btn"  href="${headPath }/admin/">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">

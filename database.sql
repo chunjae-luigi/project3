@@ -57,5 +57,15 @@ CREATE TABLE dataBoard(
 	content VARCHAR(1000),   -- (게시글 내용)
 	author VARCHAR(16) NOT NULL,   -- (작성자)
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
-	visited INT DEFAULT 0   -- (조회수)
+	visited INT DEFAULT 0,   -- (조회수)
+	relations VARCHAR(20) DEFAULT "no"
 );
+
+-- 학습 자료실 자료
+CREATE TABLE dataFile(
+	fno INT PRIMARY KEY AUTO_INCREMENT,
+	fileName VARCHAR(100),
+	fileType VARCHAR(100),
+	relations VARCHAR(20) DEFAULT 'dataBoard', -- dataFile 테이블을 참조하는 테이블. dataBoard 이외에 다른 테이블에서 dataFile을 참조하는 경우를 대비함.
+	bno INT NOT NULL DEFAULT 0
+)
