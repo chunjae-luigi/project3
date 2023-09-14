@@ -43,9 +43,12 @@
                 <td class="item4">${dto.visited}</td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="3" id="content">
                     ${dto.content}
                 </td>
+                <script>
+                    CKEDITOR.replace('contents', {filebrowserUploadUrl: '${headPath}/dataFile/upload.do'});
+                </script>
             </tr>
             <tr>
                 <th class="item2" colspan="3">학습자료(클릭하여 다운로드)</th>

@@ -29,7 +29,7 @@
 
 
     <section class="section blog-wrap container">
-        <form action="${headPath }/board/dataBoard/insert.do" method="post">
+        <form action="${headPath }/board/dataBoardInsert.do" method="post">
             <table class="table">
                 <tbody>
                 <tr>
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
             <input class="button is-info" type="submit" value="작성하기">
-            <a href="${headPath }/board/dataBoard/list.do" class="button is-primary">글 목록</a>
+            <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
         </form>
 
     </section>

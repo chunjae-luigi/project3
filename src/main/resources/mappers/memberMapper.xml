@@ -21,7 +21,7 @@
     </select>
 
     <insert id="memberInsert" >
-        insert into member values(#{id}, #{pw}, #{name},#{email},#{tel},#{addr1},#{addr2},#{postcode},#{regdate},#{birth}, default, #{grade})
+        insert into member(id, pw, name, email, tel, addr1, addr2, postcode, birth) values(#{id}, #{pw}, #{name},#{email},#{tel},#{addr1},#{addr2},#{postcode},#{birth})
     </insert>
 
     <update id="memberUpdate" >

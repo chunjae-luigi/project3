@@ -41,7 +41,7 @@
         <c:forEach var="qna" items="qnaList" varStatus="status">
             <tr>
                 <td>${status.count}</td>
-                <td><a href="${headPath }/board/qna/get.do?qno=${qna.qno}">${qna.title}</a></td>
+                <td><a href="${headPath }/board/qnaGet.do?qno=${qna.qno}">${qna.title}</a></td>
                 <td>${qna.author}</td>
                 <td>${qna.regdate}</td>
             </tr>

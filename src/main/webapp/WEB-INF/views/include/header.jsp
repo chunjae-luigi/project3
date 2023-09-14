@@ -78,7 +78,7 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/board/dataBoard/list.do">자료실</a>
+                        <a class="navbar-link" href="${headPath }/board/dataBoardList.do">자료실</a>
                     </li>
 
                     <li class="navbar-item">

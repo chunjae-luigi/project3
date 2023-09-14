@@ -42,7 +42,7 @@
                 <tr>
                     <td class="item1">${status.count}</td>
                     <td class="item2">
-                        <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="${headPath }/board/dataBoard/get.do?bno=${fileboard.bno}" style="display:inline-block; width:100%;">${fileboard.title}</a>
+                        <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="${headPath }/board/dataBoardGet.do?bno=${fileboard.bno}" style="display:inline-block; width:100%;">${fileboard.title}</a>
                     </td>
                     <td class="item3">${fileboard.regdate}</td>
                     <td class="item4">${fileboard.visited}</td>
@@ -51,7 +51,7 @@
             </tbody>
         </table>
 
-        <a href="${headPath }/board/dataBoard/insert.do" class="button is-primary">글쓰기</a>
+        <a href="${headPath }/board/dataBoardInsert.do" class="button is-primary">글쓰기</a>
     </section>
 
 
