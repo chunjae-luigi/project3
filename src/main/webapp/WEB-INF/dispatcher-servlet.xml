@@ -12,7 +12,6 @@
     <!--  접근 자원에 대한 권한 설정 -->
     <resources mapping="/resources/**" location="/resources/" />
     <resources mapping="/data/**" location="/data/" />
-
     <resources mapping="/sample/**" location="/WEB-INF/views/sample" />
     <resources mapping="/admin/**" location="/WEB-INF/views/admin" />
     <resources mapping="/board/**" location="/WEB-INF/views/board" />
@@ -20,8 +19,8 @@
 
     <resources mapping="/include/**" location="/WEB-INF/views/include" />
     <resources mapping="/member/**" location="/WEB-INF/views/member" />
-    <resources mapping="/notice/**" location="/WEB-INF/views/notice" />
-    <resources mapping="/qna/**" location="/WEB-INF/views/qna" />
+    <resources mapping="/notice/**" location="/WEB-INF/views/board/notice" />
+    <resources mapping="/qna/**" location="/WEB-INF/views/board/qna" />
     <resources mapping="/reservation/**" location="/WEB-INF/views/reservation" />
     <resources mapping="/util/**" location="/WEB-INF/views/util" />
 

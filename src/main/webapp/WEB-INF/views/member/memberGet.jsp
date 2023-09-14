@@ -34,7 +34,7 @@
             </tr>
             <tr>
                 <th>비밀번호</th>
-                <td>${member.pw}</td>
+                <td>${membe`r.pw}</td>
             </tr>
             <tr>
                 <th>이름</th>

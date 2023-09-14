@@ -27,6 +27,7 @@
                             <c:when test="${sid=='admin'}">
                                 <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
                                 <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
+                                <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
                                 <a class="top-btn"  href="${headPath }/admin/">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">
@@ -71,7 +72,7 @@
                     <li class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">커뮤니티<span class="ml-1">+</span></a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company01.jsp">공지사항</a>
+                            <a class="navbar-item" href="${headPath }/notice/List.do">공지사항</a>
                             <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">자유게시판</a>
                             <a class="navbar-item" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
