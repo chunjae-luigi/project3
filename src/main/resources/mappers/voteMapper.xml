@@ -10,14 +10,6 @@
     <select id="voteAllList" resultType="kr.co.tspoon.dto.Vote">
         select * from vote order by regDate desc;
     </select>
-    <!-- 진행중인 내역 가져오기 -->
-    <select id="votIngList" resultType="kr.co.tspoon.dto.Vote">
-        select * from vote where useYn = true order by regDate desc
-    </select>
-    <!-- 종료중인 내역 가져오기 -->
-    <select id="votedList" resultType="kr.co.tspoon.dto.Vote">
-        select * from vote where useYn = false order by regDate desc
-    </select>
     <!-- 투표 상세보기 -->
     <select id="voteDetail" resultType="kr.co.tspoon.dto.Vote">
         select * from vote where vno = #{vno}
@@ -78,13 +70,17 @@
         delete from voteAnswerUser where uno = #{uno}
     </delete>
     <!-- 투표자 선택 변경하기 -->
-    <update id="voteAnswerEdit">
+    <update id="voteUserEdit">
         update voteAnswerUser set lno = #{lno} where author = #{author}
     </update>
 
     <!-- 투표 선택지관련 투표 내역 -->
     <select id="voteCountList" resultType="kr.co.tspoon.vo.VoteCount">
         select * from voteCount where vno = #{vno}
+    </select>
+    <!-- 투표 선택지관련 총 투표수 -->
+    <select id="voteCountCnt" resultType="integer">
+        select count(*) from voteCount where vno = #{vno}
     </select>
 
 </mapper>

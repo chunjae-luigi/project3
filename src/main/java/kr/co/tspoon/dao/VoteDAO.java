@@ -10,14 +10,13 @@ import java.util.List;
 public interface VoteDAO {
 
     public List<Vote> voteAllList() throws Exception;
-    public List<Vote> votIngList() throws Exception;
-    public List<Vote> votedList() throws Exception;
     public Vote voteDetail(int vno) throws Exception;
     public int totalCount() throws Exception;
     public void voteInsert(Vote vote) throws Exception;
     public void voteDelete(int vno) throws Exception;
     public void voteUpdateState(int vno) throws Exception;
     public void voteEdit(Vote vote) throws Exception;
+    public void voteVisitCount(int vno) throws Exception;
 
     public List<VoteList> voteAnswerList(int vno) throws Exception;
     public void voteAnswerInsert(VoteList voteList) throws Exception;
@@ -27,8 +26,9 @@ public interface VoteDAO {
     public VoteUser voteUserCheck(VoteUser voteUser) throws Exception;
     public void voteUserInsert(VoteUser voteUser) throws Exception;
     public void voteUserDelete(int uno) throws Exception;
-    public void voteAnswerEdit(VoteUser voteUser) throws Exception;
+    public void voteUserEdit(VoteUser voteUser) throws Exception;
 
     public List<VoteCount> voteCountList(int vno) throws Exception;
+    public int voteCountCnt(int vno) throws Exception;
 
 }

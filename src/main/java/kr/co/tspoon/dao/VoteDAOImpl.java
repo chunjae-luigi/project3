@@ -22,18 +22,7 @@ public class VoteDAOImpl implements VoteDAO{
     }
 
     @Override
-    public List<Vote> votIngList() throws Exception {
-        return sqlSession.selectList("vote.votIngList");
-    }
-
-    @Override
-    public List<Vote> votedList() throws Exception {
-        return sqlSession.selectList("vote.votedList");
-    }
-
-    @Override
     public Vote voteDetail(int vno) throws Exception {
-        sqlSession.update("vote.voteVisitCount", vno);
         return sqlSession.selectOne("vote.voteDetail", vno);
     }
 
@@ -60,6 +49,11 @@ public class VoteDAOImpl implements VoteDAO{
     @Override
     public void voteEdit(Vote vote) throws Exception {
         sqlSession.update("vote.voteEdit", vote);
+    }
+
+    @Override
+    public void voteVisitCount(int vno) throws Exception {
+        sqlSession.update("vote.voteVisitCount", vno);
     }
 
     @Override
@@ -98,12 +92,17 @@ public class VoteDAOImpl implements VoteDAO{
     }
 
     @Override
-    public void voteAnswerEdit(VoteUser voteUser) throws Exception {
-        sqlSession.update("vote.voteAnswerEdit", voteUser);
+    public void voteUserEdit(VoteUser voteUser) throws Exception {
+        sqlSession.update("vote.voteUserEdit", voteUser);
     }
 
     @Override
     public List<VoteCount> voteCountList(int vno) throws Exception {
         return sqlSession.selectList("vote.voteCountList", vno);
+    }
+
+    @Override
+    public int voteCountCnt(int vno) throws Exception {
+        return sqlSession.selectOne("vote.voteCountCnt", vno);
     }
 }

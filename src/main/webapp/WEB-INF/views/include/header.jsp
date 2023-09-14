@@ -10,33 +10,22 @@
     <div class="header-top ">
         <div class="container">
             <div class="columns is-gapless is-justify-content-space-between is-align-items-center">
-                <div class="column is-6-desktop is-4-tablet has-text-left-desktop has-text-centered-mobile">
-                    <div class="header-top-info">
-                        <a href="https://www.facebook.com/themefisher" target="_blank"><i class="icofont-facebook"></i></a>
-                        <a href="https://twitter.com/themefisher" target="_blank"><i class="icofont-twitter"></i></a>
-                        <a href="https://github.com/themefisher/" target="_blank"><i class="icofont-github"></i></a>
-                        <a href="#" target="_blank"><i class="icofont-pinterest"></i></a>
-                        <a href="#" target="_blank"><i class="icofont-linkedin"></i></a>
-                        <a href="tel:+23-345-67890"><i class="icofont-phone mr-2"></i><span>+23-345-67890</span></a>
-                        <a href="mailto:support@gmail.com" ><i class="icofont-email mr-2"></i><span>support@gmail.com</span></a>
-                    </div>
-                </div>
-                <div class="column is-6-desktop is-8-tablet">
+                <div class="column is-12-desktop is-8-tablet">
                     <div class="header-top-right has-text-right-tablet has-text-centered-mobile">
                         <c:choose>
                             <c:when test="${sid=='admin'}">
-                                <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
-                                <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
-                                <a class="top-btn"  href="${headPath }/admin/">관리자페이지</a>
+                                <a href="${headPath }/member/logout.do">로그아웃</a>
+                                <a href="${headPath }/member/get.do">마이페이지</a>
+                                <a href="${headPath }/admin/">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">
-                                <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
-                                <a class="top-btn"  href="${headPath }/WEB-INF/views/member/mypage.jsp">마이페이지</a>
+                                <a href="${headPath }/member/logout.do">로그아웃</a>
+                                <a href="#">마이페이지</a>
                             </c:when>
                             <c:otherwise>
-                                <a class="top-btn"  href="${headPath }/member/login.do">로그인</a>
-                                <a class="top-btn"  href="${headPath }/member/term.do">회원가입</a>
-                                <a class="top-btn" href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a>
+                                <a href="${headPath }/member/login.do">로그인</a>
+                                <a href="${headPath }/member/term.do">회원가입</a>
+                                <a href="#">오시는 길</a>
                             </c:otherwise>
                         </c:choose>
                     </div>
@@ -82,7 +71,7 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">투표</a>
+                        <a class="navbar-link" href="${headPath }/vote/list.do">투표</a>
                     </li>
 
                     <li class="navbar-item">
