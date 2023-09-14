@@ -13,7 +13,7 @@ CREATE TABLE MEMBER(
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (가입일)
 	birth DATE, -- 생일
 	POINT INT DEFAULT 0,   -- (포인트)
-	INT grade DEFAULT 1,-- 등급: 0 관리자, 1 학부모, 2 학생
+	grade INT DEFAULT 1-- 등급: 0 관리자, 1 학부모, 2 학생
 );
 
 -- board
@@ -57,7 +57,7 @@ CREATE TABLE qna(
 	regdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),   -- (문의 등록)
 	cnt INT DEFAULT 0,   -- (조회수)
 	lev INT DEFAULT 0, -- 질문(0), 답변(1)
-	par INT DEFAULT 0,	-- 부모 글번호 -> 질문(자신 레코드의 qno), 답변(질문의 글번호)
+	par INT DEFAULT 0	-- 부모 글번호 -> 질문(자신 레코드의 qno), 답변(질문의 글번호)
 );
 
 -- 학습 자료실

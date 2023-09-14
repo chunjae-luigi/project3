@@ -1,6 +1,7 @@
 package kr.co.tspoon.dao;
 
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,4 +80,5 @@ public class BoardDAOImpl implements BoardDAO {
     public void qnaDelete(int qno) throws Exception {
         sqlSession.delete("board.qnaDelete", qno);
     }
+
 }

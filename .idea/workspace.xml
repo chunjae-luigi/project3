@@ -12,12 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="02e045f0-3753-47c6-9b04-c3b2df27af75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/MemberDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/term.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/term.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="spring-beans.schema" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -65,7 +59,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;sangmin&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/sangmin0816/luigi/project3/src/main/webapp/WEB-INF/views/member&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/kyo/project3/src/main/webapp/WEB-INF/views/board/notice&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,11 +77,11 @@
       <recent name="kr.co.tspoon.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\kyo\project3\src\main\webapp\WEB-INF\views\board\notice" />
+      <recent name="D:\kyo\project3\src\main\resources\mappers" />
+      <recent name="D:\kyo\project3\src\main\java\kr\co\tspoon\service" />
+      <recent name="D:\kyo\project3\src\main\java\kr\co\tspoon\dao" />
       <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\member" />
-      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\board\dataBoard" />
-      <recent name="D:\sangmin0816\luigi\project3\src\main\resources\mappers" />
-      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views" />
-      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\board" />
@@ -97,9 +91,9 @@
       <recent name="D:\sangmin0816\루이지팀\project3\src\main\webapp\resources\css" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="kr.co.tspoon.controller" />
       <recent name="kr.co.tspoon.service" />
       <recent name="kr.co.tspoon.dao" />
-      <recent name="kr.co.tspoon.controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -217,6 +211,12 @@
       <workItem from="1694499655959" duration="6731000" />
       <workItem from="1694506469763" duration="989000" />
       <workItem from="1694507470196" duration="2000" />
+      <workItem from="1694563171867" duration="1256000" />
+      <workItem from="1694580016745" duration="4213000" />
+      <workItem from="1694589191536" duration="494000" />
+      <workItem from="1694651064770" duration="608000" />
+      <workItem from="1694651680960" duration="6409000" />
+      <workItem from="1694661493756" duration="640000" />
     </task>
     <servers />
   </component>

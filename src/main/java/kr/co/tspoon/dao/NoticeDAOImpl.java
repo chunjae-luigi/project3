@@ -15,26 +15,27 @@ public class NoticeDAOImpl implements NoticeDAO{
 
     @Override
     public List<Notice> noticeList() throws Exception {
-        return sqlSession.selectList("Notice.noticeList");
+        return sqlSession.selectList("notice.noticeList");
     }
 
     @Override
     public Notice noticeGet(int no) throws Exception {
-        return sqlSession.selectOne("Notice.noticeGet", no);
+        sqlSession.update("notice.noticeVisited", no);
+        return sqlSession.selectOne("notice.noticeGet", no);
     }
 
     @Override
     public void noticeInsert(Notice notice) throws Exception {
-        sqlSession.insert("Notice.noticeInsert", notice);
+        sqlSession.insert("notice.noticeInsert", notice);
     }
 
     @Override
     public void noticeUpdate(Notice notice) throws Exception {
-        sqlSession.update("Notice.noticeUpdate", notice);
+        sqlSession.update("notice.noticeUpdate", notice);
     }
 
     @Override
     public void noticeDelete(int no) throws Exception {
-        sqlSession.delete("Notice.noticeDelete", no);
+        sqlSession.delete("notice.noticeDelete", no);
     }
 }

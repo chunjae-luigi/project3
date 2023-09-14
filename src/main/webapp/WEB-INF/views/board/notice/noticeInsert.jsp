@@ -18,23 +18,22 @@
 
     </header><div class="content" id="contents">
     <div class="row column text-center">
-        <h2 class="h1">공지사항 수정하기</h2>
+        <h2 class="h1">공지사항 글쓰기</h2>
         <hr>
         <div class="container">
-            <form action="${headPath }/notice/Update.do" method="post">
+            <form action="${headPath }/notice/Insert.do" method="post">
                 <table id="table1">
                     <tbody>
                     <tr>
                         <th style="background-color:#dcdcdc">글 제목</th>
                         <td>
-                            <input type="hidden" name="no" id="no" placeholder="제목 입력" maxlength="98" value="${notice.no }">
-                            <input type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" value="${notice.title }" required>
+                            <input type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" required>
                         </td>
                     </tr>
                     <tr>
                         <th style="background-color:#dcdcdc">글 내용</th>
                         <td>
-                            <textarea name="content" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required>${notice.content }</textarea>
+                            <textarea name="content" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required></textarea>
                         </td>
                     </tr>
                     <tr>
