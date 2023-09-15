@@ -23,7 +23,7 @@ public interface VoteDAO {
     public void voteAnswerDelete(int lno) throws Exception;
     public void voteAnswerEdit(VoteList voteList) throws Exception;
 
-    public VoteUser voteUserCheck(VoteUser voteUser) throws Exception;
+    public VoteUser voteUserList(VoteUser voteUser) throws Exception;
     public void voteUserInsert(VoteUser voteUser) throws Exception;
     public void voteUserDelete(int uno) throws Exception;
     public void voteUserEdit(VoteUser voteUser) throws Exception;

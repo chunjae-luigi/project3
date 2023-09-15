@@ -75,13 +75,8 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public boolean voteUserCheck(VoteUser voteUser) throws Exception {
-        boolean pass = false;
-        VoteUser voteList =  voteDAO.voteUserCheck(voteUser);
-        if(voteList != null) {
-            pass = true;
-        }
-        return pass;
+    public VoteUser voteUserList(VoteUser voteUser) throws Exception {
+        return voteDAO.voteUserList(voteUser);
     }
 
     @Override

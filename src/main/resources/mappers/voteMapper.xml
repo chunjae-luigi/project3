@@ -59,7 +59,7 @@
 
     <!-- 투표자 -->
     <!-- 투표자 선택 등록하기 -->
-    <select id="voteUserCheck" resultType="kr.co.tspoon.dto.VoteUser">
+    <select id="voteUserList" resultType="kr.co.tspoon.dto.VoteUser">
         select * from voteAnswerUser where vno = #{vno} and author = #{author}
     </select>
     <insert id="voteUserInsert">
@@ -80,7 +80,7 @@
     </select>
     <!-- 투표 선택지관련 총 투표수 -->
     <select id="voteCountCnt" resultType="integer">
-        select count(*) from voteCount where vno = #{vno}
+        select SUM(cnt) from voteCount where vno = #{vno}
     </select>
 
 </mapper>

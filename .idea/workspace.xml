@@ -11,8 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02e045f0-3753-47c6-9b04-c3b2df27af75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteDetail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteList.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/voteList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/VoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/VoteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/VoteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/VoteDAO.java" afterDir="false" />
@@ -20,9 +20,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/VoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/VoteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/VoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/VoteServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/voteMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/voteMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteDetail.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;sangmin&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/park/project/team/project3/src/main/webapp/WEB-INF/views/vote&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/park/project/team/project3/src/main/webapp/WEB-INF/views/admin&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -93,11 +91,11 @@
       <recent name="kr.co.tspoon.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\park\project\team\project3\src\main\webapp\WEB-INF\views\admin" />
       <recent name="D:\park\project\team\project3\src\main\webapp\WEB-INF\views\vote" />
       <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\member" />
       <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\board\dataBoard" />
       <recent name="D:\sangmin0816\luigi\project3\src\main\resources\mappers" />
-      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\board" />
@@ -233,6 +231,8 @@
       <workItem from="1694668610807" duration="44000" />
       <workItem from="1694668663025" duration="1798000" />
       <workItem from="1694685798455" duration="1802000" />
+      <workItem from="1694734925914" duration="143000" />
+      <workItem from="1694735284569" duration="13883000" />
     </task>
     <servers />
   </component>

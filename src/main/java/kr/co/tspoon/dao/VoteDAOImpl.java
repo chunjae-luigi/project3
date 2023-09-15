@@ -77,8 +77,8 @@ public class VoteDAOImpl implements VoteDAO{
     }
 
     @Override
-    public VoteUser voteUserCheck(VoteUser voteUser) throws Exception {
-        return sqlSession.selectOne("vote.voteUserCheck", voteUser);
+    public VoteUser voteUserList(VoteUser voteUser) throws Exception {
+        return sqlSession.selectOne("vote.voteUserList", voteUser);
     }
 
     @Override

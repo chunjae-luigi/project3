@@ -10,6 +10,10 @@
     <title>티스푼::투표</title>
     <jsp:include page="../include/head.jsp" />
     <link rel="stylesheet" href="${path }/css/sub.css">
+    <style>
+        .vote_li {background-color:pink}
+        .vote_li.check {background-color:skyblue}
+    </style>
 </head>
 <body>
 <div class="wrap">
@@ -35,63 +39,83 @@
                 <p>총 투표수 : ${cnt}</p>
             </div>
             <hr>
-            <div>
-                <input type="hidden" value="${vote.vno }" id="vno">
-                <input type="hidden" value="${sid }" id="loginId">
-                <input type="hidden" value="${path }" id="pathStr">
-                <p>투표 선택지내역</p>
-                <ul>
-                    <c:forEach var="answer" items="${voteList }" varStatus="status">
-                        <li>
-                            <input type="radio" id="vote${status.count }" name="vote" value="${answer.lno }">
-                            <label for="vote${status.count }">${answer.title }</label>
-                        </li>
+            <c:if test="${voteYn}">
+                <div class="columns is-multiline is-mobile">
+                    <c:forEach items="${voteList }" var="vote" varStatus="status">
+                        <div class="column is-half">
+                            <div class="vote_li <c:if test="${voteUserInfo.lno == vote.lno }">check</c:if>">
+                                <p class="is-large">${vote.title}</p>
+                                <p>투표수 : ${vote.cnt}</p>
+                                <c:set var="lnoTotal" value="${(vote.cnt / cnt) * 100 }" />
+                                <p>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</p>
+                            </div>
+                        </div>
                     </c:forEach>
-                </ul>
-                <button type="button" class="voteBtn">투표하기</button>
-                <script>
-                    $(function(){
-                        $(".voteBtn").on('click', function(){
+                </div>
+            </c:if>
+            <c:if test="${!voteYn}">
+                <div>
+                    <input type="hidden" value="${vote.vno }" id="vno">
+                    <input type="hidden" value="${sid }" id="loginId">
+                    <input type="hidden" value="${path }" id="pathStr">
+                    <p>투표 선택지내역</p>
+                    <ul>
+                        <c:forEach var="answer" items="${voteList }" varStatus="status">
+                            <li>
+                                <input type="radio" id="vote${status.count }" name="vote" value="${answer.lno }">
+                                <label for="vote${status.count }">${answer.title }</label>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                    <button type="button" class="voteBtn">투표하기</button>
+                    <script>
+                        $(function(){
+                            $(".voteBtn").on('click', function(){
 
-                            var loginId = $("#loginId").val();
-                            var pathStr = $("#pathStr").val();
-                            if(loginId == ""){
-                                alert("로그인을 부탁드립니다.");
-                                location.href = pathStr + "/member/login.do";
-                                return false;
-                            }
+                                var selCnt = $("input[name=vote]:checked").length;
+                                if(selCnt < 1){
+                                    alert("보기를 선택 후 투표해주세요.");
+                                    return;
+                                }
 
-                            var selCnt = $("input[name=vote]:checked").length;
-                            if(selCnt < 1){
-                                alert("보기를 선택 후 투표해주세요.");
-                                return;
-                            }
+                                var loginId = $("#loginId").val();
+                                var pathStr = $("#pathStr").val();
+                                if(loginId == ""){
+                                    alert("로그인을 부탁드립니다.");
+                                    location.href = pathStr + "/member/login.do";
+                                    return false;
+                                }
 
-                            var vno = $("#vno").val();
-                            if(confirm("투표 하시겠습니까?")){
-                                var vno = vno;
-                                var lno = $("input[name=vote]:checked").val();
-                                var param = {
-                                    vno: vno,
-                                    lno: lno
-                                };
-                                $.ajax({
-                                    url: pathStr + '/contents/bod/insertvote.mnt',
-                                    type: 'POST',
-                                    data:param,
-                                    dataType: 'json',
-                                    success:function(result) {
-                                        alert(result.msg);
-                                    },error: function (result) {
-                                        console.log(result.responseText);
-                                    }
-                                });
-                            }
+                                if(confirm("투표 하시겠습니까?")){
+                                    var vno = $("#vno").val();
+                                    var lno = $("input[name=vote]:checked").val();
+                                    var param = {
+                                        vno: vno,
+                                        lno: lno
+                                    };
+                                    $.ajax({
+                                        url: pathStr + '/vote/addAnswer.do',
+                                        type: 'POST',
+                                        data:param,
+                                        success:function(result) {
+                                            if(result == "success") {
+                                                location.reload();
+                                            }
+                                            if(result == "error"){
+                                                alert("로그인을 부탁드립니다.");
+                                                location.href = pathStr + "/member/login.do";
+                                            }
+                                        },error: function (result) {
+                                            console.log(result.responseText);
+                                        }
+                                    });
+                                }
+                            });
                         });
-                    });
 
-                </script>
-            </div>
+                    </script>
+                </div>
+            </c:if>
         </section>
     </div>
     <footer class="ft" id="ft">

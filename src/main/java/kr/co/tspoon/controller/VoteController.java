@@ -1,8 +1,6 @@
 package kr.co.tspoon.controller;
 
-import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Vote;
-import kr.co.tspoon.dto.VoteList;
 import kr.co.tspoon.dto.VoteUser;
 import kr.co.tspoon.service.VoteService;
 import kr.co.tspoon.vo.VoteCount;
@@ -12,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,12 +48,26 @@ public class VoteController {
 
             int cnt = voteService.voteCountCnt(vno);
             model.addAttribute("cnt", cnt);
-            
-            // 값이 있으면 VoteCount로
-            // 값이 없으면 voteList로
+
+            VoteUser voteUser = new VoteUser();
+            voteUser.setVno(vno);
+            voteUser.setAuthor(sid);
+            VoteUser voteUserInfo = voteService.voteUserList(voteUser);
 
             List<VoteCount> voteList = voteService.voteCountList(vno);
             model.addAttribute("voteList", voteList);
+            
+            if(!sid.equals("") && (sid.equals("admin") || voteUserInfo != null)) {
+                model.addAttribute("voteYn", true);
+                if(!sid.equals("admin")) {
+                    model.addAttribute("voteUserInfo", voteUserInfo);
+                }
+                List<VoteCount> voteCountList = voteService.voteCountList(vno);
+                model.addAttribute("voteCountList", voteCountList);
+
+            } else {
+                model.addAttribute("voteYn", false);
+            }
 
             return "/vote/voteDetail";
         }
@@ -63,25 +75,24 @@ public class VoteController {
     }
 
     @RequestMapping(value = "addAnswer.do", method = RequestMethod.POST)
+    @ResponseBody
     public String voteUserInsert(@RequestParam int vno, @RequestParam int lno, HttpServletRequest req, HttpServletResponse res) throws Exception{
 
         String sid = session.getAttribute("sid") != null ? (String) session.getAttribute("sid") : "";
+        String result = "";
 
         VoteUser voteUser = new VoteUser();
-        boolean result = false;
+        voteUser.setVno(vno);
+        voteUser.setLno(lno);
+        voteUser.setAuthor(sid);
 
         if(!sid.equals("")){
-            voteUser.setVno(vno);
-            voteUser.setLno(lno);
-            voteUser.setAuthor(sid);
             voteService.voteUserInsert(voteUser);
-            req.setAttribute("msg", true);
+            result = "success";
         } else {
-            return "redirect:/vote/list.do";
+            result = "error";
         }
-
-        //voteUserInsert
-        return "";
+        return result;
 
     }
 
