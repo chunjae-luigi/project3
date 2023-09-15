@@ -6,18 +6,21 @@ import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import kr.co.tspoon.service.BoardService;
 import kr.co.tspoon.service.DataFileService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping("/board/*")
@@ -55,16 +58,67 @@ public class BoardController {
         return "/board/dataBoard/dataBoardInsert";
     }
 
+
+    private static String uploadFolder = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\upload";
+
     @PostMapping("dataBoardInsert.do")
-    public String dataBoardInsert(HttpServletRequest request) throws Exception {
+    public String dataBoardInsert(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
         DataBoard dto = new DataBoard();
-        dto.setTitle(request.getParameter("title"));
-        dto.setContent(request.getParameter("contents"));
 
-        HttpSession session = request.getSession();
-        String id = (String) session.getAttribute("sid");
+        Enumeration<String> e = files.getParameterNames();
+        Map map = new HashMap();
+        while (e.hasMoreElements()) {
+            String name = e.nextElement();
+            String value = files.getParameter(name);
+            map.put(name, value);
+        }
 
-        dto.setAuthor(id);
+        dto.setTitle((String) map.get("title"));
+        dto.setContent((String) map.get("contents"));
+        dto.setAuthor((String) map.get("sid"));
+
+        String today = new SimpleDateFormat("yyMMdd").format(new Date());
+        String saveFolder = uploadFolder + File.separator + today;
+        File folder = new File(saveFolder);
+
+        if(!folder.exists()){
+            folder.mkdirs();
+        }
+
+        List<MultipartFile> uploadFile = new ArrayList<>();
+        Iterator<String> it = files.getFileNames();
+        while(it.hasNext()) {
+            String paramfName = it.next();
+            uploadFile.add(files.getFile(paramfName));
+        }
+
+
+        for(MultipartFile multipartFile : uploadFile){
+            String originalName = multipartFile.getOriginalFilename();
+            if(!originalName.isEmpty()){
+                String saveName = UUID.randomUUID().toString()+"_"+originalName;
+
+                DataFile dataFile = new DataFile();
+                dataFile.setBno(0);
+                dataFile.setFileName(originalName);
+                dataFile.setSaveName(saveName);
+                dataFile.setFileType(multipartFile.getContentType());
+                dataFile.setSaveFolder(saveFolder);
+
+                dataFileService.dataFileInsert(dataFile);
+
+                File savefile = new File(saveFolder, saveName);
+
+                try{
+                    multipartFile.transferTo(savefile);
+                    System.out.println(originalName+" 저장 성공");
+                } catch (Exception except){
+                    System.out.println(except.getMessage());
+                }
+            }
+        }
+
+
         boardService.dataBoardInsert(dto);
 
         return "redirect:dataBoardList.do";

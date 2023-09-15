@@ -32,7 +32,7 @@
     </insert>
 
     <update id="dataFileUpdate" >
-        update dataFile set fileName=#{fileName}, fileType=#{fileType} where fno=#{fno}
+        update dataFile set fileName=#{fileName}, fileType=#{fileType}, bno=#{bno}, relations=#{relations} where fno=#{fno}
     </update>
 
     <delete id="dataFileDelete" >

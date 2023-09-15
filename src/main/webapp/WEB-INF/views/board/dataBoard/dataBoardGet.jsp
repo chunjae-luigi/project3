@@ -47,7 +47,7 @@
                 <td>학습자료</td>
                 <td colspan="2">
                     <c:forEach var="file" items="${dataFiles}">
-                        <a href="${file.saveFolder}/${file.saveName}" download="${file.fileName}">${file.fileName}</a>
+                        <a href="${file.saveFolder}/${file.fileName}" download>${file.fileName}</a>
                     </c:forEach>
                 </td>
             </tr>

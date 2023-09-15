@@ -22,53 +22,6 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/dataFile/*")
 public class DataFileController {
-    @Autowired
-    private DataFileService dataFileService;
-
-    private static String uploadFolder = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\uploadAjax";
-
-    @PostMapping("uploadAjax.do")
-    public void uploadAjax(MultipartFile[] uploadFile, HttpServletResponse response) throws Exception {
-        String today = new SimpleDateFormat("yyMMdd").format(new Date());
-        String saveFolder = uploadFolder + File.separator + today;
-        File folder = new File(saveFolder);
-
-        if(!folder.exists()){
-            folder.mkdirs();
-        }
-
-        for(MultipartFile multipartFile : uploadFile){
-            String originalName = multipartFile.getOriginalFilename();
-            if(!originalName.isEmpty()){
-                String saveName = UUID.randomUUID().toString()+"_"+originalName;
-
-                DataFile dataFile = new DataFile();
-                dataFile.setBno(0);
-                dataFile.setFileName(originalName);
-                dataFile.setSaveName(saveName);
-                dataFile.setFileType(multipartFile.getContentType());
-                dataFile.setSaveFolder(saveFolder);
-
-                dataFileService.dataFileInsert(dataFile);
-
-                File savefile = new File(saveFolder, saveName);
-
-                try{
-                    multipartFile.transferTo(savefile);
-                    System.out.println(originalName+" 저장 성공");
-                } catch (Exception e){
-                    System.out.println(e.getMessage());
-                }
-            }
-        }
-
-        JSONObject json = new JSONObject();
-        json.put("result", "done");
-        PrintWriter out = response.getWriter();
-        out.println(json.toString()); // 전송이 되는 부분
-
-    }
-
     @RequestMapping(value="upload.do", method = RequestMethod.POST)
     public void dataBoardUpload(HttpServletRequest request,
                                 HttpServletResponse response, MultipartHttpServletRequest multiFile, @RequestParam MultipartFile upload) throws Exception{

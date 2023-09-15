@@ -47,8 +47,7 @@ public class BoardDAOImpl implements BoardDAO {
         for(DataFile df: datafiles){
             df.setBno(bno);
             df.setRelations("databoard");
-            sqlSession.update("dataFileUpdate", df);
-            System.out.println(bno+" "+df.getFileName());
+            sqlSession.update("dataFile.dataFileUpdate", df);
         }
 
         if(!datafiles.isEmpty()){

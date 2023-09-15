@@ -69,3 +69,5 @@ CREATE TABLE dataFile(
 	relations VARCHAR(20) DEFAULT 'dataBoard', -- dataFile 테이블을 참조하는 테이블. dataBoard 이외에 다른 테이블에서 dataFile을 참조하는 경우를 대비함.
 	bno INT NOT NULL DEFAULT 0
 )
+
+select * from dataFile where bno=0
