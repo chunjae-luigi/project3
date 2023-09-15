@@ -1,6 +1,7 @@
 package kr.co.tspoon.controller;
 
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import kr.co.tspoon.service.BoardService;
@@ -21,10 +22,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
-
     @Autowired
     private BoardService boardService;
 
+    @Autowired
+    private DataFileService dataFileService;
 
     // DataBoard
     @GetMapping("dataBoardList.do")
@@ -38,8 +40,13 @@ public class BoardController {
     public String dataBoardGet(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         DataBoard dto = boardService.dataBoardGet(bno);
+        DataFile temp = new DataFile();
+        temp.setBno(bno);
+        temp.setRelations("databoard");
+        List<DataFile> dataFiles = dataFileService.dataFileBoardList(temp);
 
         model.addAttribute("dto", dto);
+        model.addAttribute("dataFiles", dataFiles);
         return "/board/dataBoard/dataBoardGet";
     }
 

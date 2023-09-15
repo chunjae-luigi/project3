@@ -8,6 +8,12 @@
         select * from dataFile
     </select>
 
+
+    <select id="dataFileInsertList" resultType="kr.co.tspoon.dto.DataFile">
+        select * from dataFile where bno=0
+    </select>
+
+
     <select id="dataFileBoardList" resultType="kr.co.tspoon.dto.DataFile">
         select * from dataFile where bno=#{bno} and relations=#{relations}
     </select>
@@ -22,7 +28,7 @@
     </select>
 
     <insert id="dataFileInsert" >
-        insert into dataFile(fno, fileName, fileType, relations, bno) values(default, #{fileName}, #{fileType}, #{relations}, #{bno})
+        insert into dataFile(fno, fileName, saveName, fileType, relations, bno, saveFolder) values(default, #{fileName}, #{saveName}, #{fileType}, default, #{bno}, #{saveFolder})
     </insert>
 
     <update id="dataFileUpdate" >

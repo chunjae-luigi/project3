@@ -10,7 +10,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2878234-7478-4f1b-a414-8519c50f6a46" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/22ff7108-881f-4516-81e0-5f2fa52ffd7f_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/417bf93c-a5b1-40e9-ba52-3e523990235a_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/c46eb5f3-acef-48fe-a589-ed3e934ec35a_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/db71424a-3ee1-451c-a0e8-eb258ecbad6f_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/f5484ab1-7525-48c7-8179-aa8d71485e7d_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/DataFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/DataFileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/BoardDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/BoardDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/DataBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/DataBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/DataFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/DataFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/BoardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/BoardServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/boardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/boardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/fileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/fileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardGet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardInsert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardInsert.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,27 +52,32 @@
     </option>
   </component>
   <component name="ProjectId" id="2VNBM6KcBRcEJBnacBeKuslFoIX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sangmin&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.26923078&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;acc7eb300934b9411875114ac6c2b0aa&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "sangmin",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.26923078",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "spring.configuration.checksum": "acc7eb300934b9411875114ac6c2b0aa",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
@@ -160,10 +182,17 @@
       <workItem from="1694666675470" duration="411000" />
       <workItem from="1694679183390" duration="349000" />
       <workItem from="1694680048234" duration="60000" />
+      <workItem from="1694735998252" duration="10684000" />
+      <workItem from="1694749297890" duration="661000" />
+      <workItem from="1694750406785" duration="30000" />
+      <workItem from="1694750444331" duration="2517000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

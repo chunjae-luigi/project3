@@ -10,4 +10,5 @@ public class DataBoard {
     private String author;
     private String regdate;
     private int visited = 0;
+    private String relations = "no";
 }

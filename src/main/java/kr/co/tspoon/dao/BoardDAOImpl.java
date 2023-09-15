@@ -1,6 +1,7 @@
 package kr.co.tspoon.dao;
 
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import org.apache.ibatis.session.SqlSession;
@@ -35,9 +36,25 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.selectOne("board.dataBoardCount");
     }
 
+    @Transactional
     @Override
     public void dataBoardInsert(DataBoard dataBoard) throws Exception {
         sqlSession.insert("board.dataBoardInsert", dataBoard);
+        DataBoard last = sqlSession.selectOne("board.dataBoardGetLast");
+        int bno = last.getBno();
+
+        List<DataFile> datafiles = sqlSession.selectList("dataFile.dataFileInsertList");
+        for(DataFile df: datafiles){
+            df.setBno(bno);
+            df.setRelations("databoard");
+            sqlSession.update("dataFileUpdate", df);
+            System.out.println(bno+" "+df.getFileName());
+        }
+
+        if(!datafiles.isEmpty()){
+            last.setRelations("datafile");
+            sqlSession.update("board.dataBoardUpdate", last);
+        }
     }
 
     @Override

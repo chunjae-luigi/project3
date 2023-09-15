@@ -42,6 +42,16 @@
                 <td class="item3">${dto.regdate}</td>
                 <td class="item4">${dto.visited}</td>
             </tr>
+            <c:if test="${!empty dataFiles}">
+            <tr>
+                <td>학습자료</td>
+                <td colspan="2">
+                    <c:forEach var="file" items="${dataFiles}">
+                        <a href="${file.saveFolder}/${file.saveName}" download="${file.fileName}">${file.fileName}</a>
+                    </c:forEach>
+                </td>
+            </tr>
+            </c:if>
             <tr>
                 <td colspan="3" id="content">
                     ${dto.content}
@@ -49,7 +59,7 @@
             </tr>
             </tbody>
         </table>
-
+        <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
     </section>
 
 

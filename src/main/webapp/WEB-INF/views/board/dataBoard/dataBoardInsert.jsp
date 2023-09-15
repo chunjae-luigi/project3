@@ -29,7 +29,7 @@
 
 
     <section class="section blog-wrap container">
-        <form action="${headPath }/board/dataBoardInsert.do" method="post">
+        <form action="${headPath }/board/dataBoardInsert.do" method="post" onsubmit="return inform(this)">
             <table class="table">
                 <tbody>
                 <tr>
@@ -45,6 +45,14 @@
                         </script>
                     </td>
                 </tr>
+                <tr>
+                    <th><label for="uploadFiles">파일 업로드(10MB 이하)</label></th>
+                    <td>
+                        <input class="input" type="file" name="uploadFiles" id="uploadFiles" multiple="true">
+                        <button id="uploadBtn" onclick="uploadAjax()">업로드</button>
+                        <input type="hidden" id="uploadck" value="no">
+                    </td>
+                </tr>
                 </tbody>
             </table>
             <input class="button is-info" type="submit" value="작성하기">
@@ -57,3 +65,43 @@
 <%@ include file="../../include/footer.jsp" %>
 </body>
 </html>
+
+
+<script>
+    function inform(){
+        if($("#uploadck").val()!=="yes"){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function uploadAjax(){
+        {
+            var formData = new FormData();
+
+            var inputFile = $("#uploadFiles");
+            var files = inputFile[0].files;
+
+            for (var i = 0; i < files.length; i++) {
+                formData.append('uploadFile', files[i]);
+            }
+
+            console.log(formData.get("uploadFile"));
+
+            $.ajax({
+                url: '${headPath}/dataFile/uploadAjax.do',
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: formData,
+                type: "POST",
+                success: function (result) {
+                    console.log(result);
+                    $("#uploadck").val("yes");
+                }
+            })
+        }
+    }
+
+</script>
