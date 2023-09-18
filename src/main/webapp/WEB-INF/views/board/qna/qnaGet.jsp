@@ -8,9 +8,6 @@
 <head>
     <title>티스푼</title>
     <%@ include file="../../include/head.jsp" %>
-    <style>
-        a .answers {padding-left:30px;}
-    </style>
 </head>
 
 <body>
@@ -32,36 +29,43 @@
 
 
     <section class="section blog-wrap container">
-        <table class="table">
+        <table class="table" id="myTable">
             <thead>
             <tr>
-                <th>글번호</th>
-                <th>제목</th>
+                <th>유형</th>
+                <th>글 제목</th>
                 <th>작성자</th>
-                <th>작성일</th>
+                <th>작성 일시</th>
                 <th>조회수</th>
             </tr>
             </thead>
             <tbody>
-                <c:forEach var="qna" items="${qnaList}" varStatus="status">
-                    <tr>
-                        <td>${status.count}</td>
-                        <c:if test='${qna.lev == 0}'>
-                            <td><a href="${headPath }/board/qnaGet.do?qno=${qna.qno}">${qna.title}</a></td>
-                        </c:if>
-                        <c:if test='${qna.lev == 1}'>
-                            <td><a class="answers" href="${headPath }/board/qnaGet.do?qno=${qna.qno}">└ [답변]${qna.title}</a>
-                            </td>
-                        </c:if>
-                        <td>${qna.author}</td>
-                        <td>${qna.regdate}</td>
-                        <td>${qna.visited}</td>
-                    </tr>
-                </c:forEach>
+            <tr>
+                <c:if test="${qna.lev==0}">
+                    <td>질문</td>
+                </c:if>
+                <c:if test="${qna.lev==1}">
+                    <td>답변</td>
+                </c:if>
+                <td>${qna.title}</td>
+                <td>${qna.author}</td>
+                <td>${qna.regdate}</td>
+                <td>${qna.visited}</td>
+            </tr>
+            <tr>
+                <td colspan="5">${qna.content}</td>
+            </tr>
             </tbody>
         </table>
-        <a href="${headPath}/board/qnaInsert.do?lev=0&par=0" class="button is-primary">문의하기</a>
 
+        <div class="btn_group">
+            <a href="${headPath }/board/qnaList.do" class="button button1">목록</a>
+            <a href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}" class="button button2">수정</a>
+            <a href="${headPath }/board/qnaDelete.do?qno=${qna.qno}" class="button button1">삭제</a>
+            <c:if test="${qna.lev == 0}">
+                <a href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" class="button is-primary">답변하기</a>
+            </c:if>
+        </div>
     </section>
 
 </div>
@@ -69,10 +73,11 @@
 <%@ include file="../../include/footer.jsp" %>
 </body>
 </html>
+
 <script>
     $(document).ready(function(){
         if($("tbody tr").length==0){
-            $("tbody").append("<tr><td colspan='4' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
+            $("tbody").append("<tr><td colspan='5' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
         }
     })
 </script>

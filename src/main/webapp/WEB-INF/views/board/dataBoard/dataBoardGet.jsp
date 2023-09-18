@@ -42,30 +42,27 @@
                 <td class="item3">${dto.regdate}</td>
                 <td class="item4">${dto.visited}</td>
             </tr>
+            <c:if test="${!empty dataFiles}">
             <tr>
                 <td colspan="3">
-                    ${dto.content}
+                    <c:forEach var="file" items="${dataFiles}">
+                        <div class="dataBoardFile">
+                            <a href="${headPath}/resources/upload/${file.saveFolder}/${file.saveName}" download="${file.fileName}"><i class="icofont-ui-file mr-2"></i>${file.fileName}</a>
+                        </div>
+                    </c:forEach>
                 </td>
             </tr>
+            </c:if>
             <tr>
-                <th class="item2" colspan="3">학습자료(클릭하여 다운로드)</th>
-            </tr>
-            <tr>
-                <td colspan="3">
-<%--                    <c:if test="${!empty dto.filename1 }">--%>
-<%--                        <a href="${rootPath }/storage/${dto.filename1 }" download ><i class="fas fa-file" style="color: #54c066;"></i> ${dto.filename1 }</a>--%>
-<%--                    </c:if>--%>
-<%--                    <c:if test="${!empty dto.filename2 }">--%>
-<%--                        <a href="${rootPath }/storage/${dto.filename2 }" download ><i class="fas fa-file" style="color: #54c066;"></i> ${dto.filename2 }</a>--%>
-<%--                    </c:if>--%>
-<%--                    <c:if test="${!empty dto.filename3 }">--%>
-<%--                        <a href="${rootPath }/storage/${dto.filename3 }" download ><i class="fas fa-file" style="color: #54c066;"></i> ${dto.filename3 }</a>--%>
-<%--                    </c:if>--%>
+                <td colspan="3" id="content">
+                    ${dto.content}
                 </td>
             </tr>
             </tbody>
         </table>
-
+        <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
+        <a href="${headPath }/board/dataBoardUpdate.do?bno=${dto.bno}" class="button ">글 수정</a>
+        <a href="${headPath }/board/dataBoardDelete.do?bno=${dto.bno}" class="button is-danger">글 삭제</a>
     </section>
 
 
