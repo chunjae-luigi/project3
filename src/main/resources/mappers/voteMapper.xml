@@ -6,37 +6,116 @@
 <mapper namespace="vote">
 
     <!-- 투표 -->
-    <!-- 모든 내역 가져오기 -->
+    <!-- 모든 내역 가져오기 - 사용자 -->
     <select id="voteAllList" resultType="kr.co.tspoon.dto.Vote">
-        select * from vote order by regDate desc;
+        <![CDATA[
+        select * from vote
+        ]]>
+        <where>
+            useYn = true
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by useYn desc, regDate desc LIMIT #{postStart}, #{postCount}
+        ]]>
     </select>
+
+    <!-- 총 투표 갯수 가져오기 - 사용자 -->
+    <select id="totalCount" resultType="integer" >
+        <![CDATA[
+        select count(*) from vote
+        ]]>
+        <where>
+            useYn = true
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+
+    <!-- 모든 내역 가져오기 - 관리자 -->
+    <select id="voteAllListForAdmin" resultType="kr.co.tspoon.dto.Vote">
+        <![CDATA[
+        select * from vote
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by useYn desc, regDate desc LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+
+    <!-- 총 투표 갯수 가져오기 - 관리자 -->
+    <select id="totalCountForAdmin" resultType="integer" >
+        <![CDATA[
+        select count(*) from vote
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+
     <!-- 투표 상세보기 -->
     <select id="voteDetail" resultType="kr.co.tspoon.dto.Vote">
         select * from vote where vno = #{vno}
     </select>
-    <!-- 총 투표 갯수 가져오기 -->
-    <select id="totalCount" resultType="integer" >
-        select count(*) from vote
-    </select>
-    <!-- 투표 등록하기 -->
+
+    <!-- 투표 등록하기 - 관리자 -->
     <insert id="voteInsert">
-        insert into vote values (default, #{title}, #{content}, default, default, #{startDate}, #{finishDate}, default)
+        insert into vote values (default, #{title}, #{content}, default, default, #{startDate}, #{finishDate}, default, default, null, #{addPt})
     </insert>
-    <!-- 투표 삭제하기 -->
+
+    <!-- 투표 삭제하기 - 관리자 -->
     <delete id="voteDelete">
         delete from vote where vno = #{vno}
     </delete>
-    <!-- 투표 상태 종료하기 -->
+
+    <!-- 투표 상태 종료하기 - 관리자 -->
     <update id="voteUpdateState">
-        update vote set useYn = false where vno = #{vno}
+        update vote set stateYn = false, finishDate = CURDATE() where vno = #{vno}
     </update>
-    <!-- 투표 변경하기 -->
+
+    <!-- 투표 사용 가능하게 하기 - 관리자 -->
+    <update id="voteUpdateUse">
+        update vote set useYn = true where vno = #{vno}
+    </update>
+
+    <!-- 투표 변경하기 - 관리자 -->
     <update id="voteEdit">
         update vote set title = #{title}, content = #{content}, startDate = #{startDate}, finishDate = #{finishDate} where vno = #{vno}
     </update>
+
     <!-- 투표 조회수 증가 -->
     <update id="voteVisitCount">
         update vote set visited = visited + 1 where vno = #{vno}
+    </update>
+
+    <!-- 가장 많은 투표수 받은 lno 등록 -->
+    <update id="voteFinalInsert">
+        update vote set answer = #{lno} where vno = #{vno}
     </update>
 
     <!-- 투표 선택지 -->
@@ -44,40 +123,57 @@
     <select id="voteAnswerList" resultType="kr.co.tspoon.dto.VoteList">
         select * from voteAnswerList where vno = #{vno}
     </select>
-    <!-- 투표 선택지 등록하기 -->
+
+    <!-- 투표 선택지 등록하기 - 관리자 -->
     <insert id="voteAnswerInsert">
         insert into voteAnswerList values (default, #{vno}, #{title})
     </insert>
+
+    <!-- 투표 삭제시 내역 전체 삭제하기 -->
+    <delete id="voteAllAnswerDelete">
+        delete from voteAnswerList where vno = #{vno}
+    </delete>
+
     <!-- 투표 선택지 삭제하기 -->
     <delete id="voteAnswerDelete">
         delete from voteAnswerList where lno = #{lno}
     </delete>
+
     <!-- 투표 선택지 변경하기 -->
     <update id="voteAnswerEdit">
         update voteAnswerList set title = #{title} where lno = #{lno}
     </update>
 
     <!-- 투표자 -->
-    <!-- 투표자 선택 등록하기 -->
+    <select id="voteMyList" resultType="kr.co.tspoon.dto.Vote">
+        SELECT v.title AS title, v.vno AS vno, v.stateYn as stateYn from vote v, voteansweruser u WHERE v.vno = u.vno and author = #{sid}
+    </select>
+
     <select id="voteUserList" resultType="kr.co.tspoon.dto.VoteUser">
         select * from voteAnswerUser where vno = #{vno} and author = #{author}
     </select>
+
+    <select id="voteUserCnt" resultType="integer">
+        select count(*) from voteAnswerUser where lno = #{lno}
+    </select>
+
     <insert id="voteUserInsert">
         insert into voteAnswerUser values (default, #{vno}, #{lno}, #{author})
     </insert>
-    <!-- 투표자 선택 삭제하기 -->
+
     <delete id="voteUserDelete">
-        delete from voteAnswerUser where uno = #{uno}
+        delete from voteAnswerUser where vno = #{vno} and lno = #{lno}
     </delete>
-    <!-- 투표자 선택 변경하기 -->
-    <update id="voteUserEdit">
-        update voteAnswerUser set lno = #{lno} where author = #{author}
-    </update>
 
     <!-- 투표 선택지관련 투표 내역 -->
-    <select id="voteCountList" resultType="kr.co.tspoon.vo.VoteCount">
+    <select id="voteCountList" resultType="kr.co.tspoon.dto.VoteCountVo">
         select * from voteCount where vno = #{vno}
     </select>
+
+    <select id="voteMaxCountList" resultType="kr.co.tspoon.dto.VoteCountVo">
+        select lno, MAX(cnt) as cnt from voteCount where vno = #{vno}
+    </select>
+
     <!-- 투표 선택지관련 총 투표수 -->
     <select id="voteCountCnt" resultType="integer">
         select SUM(cnt) from voteCount where vno = #{vno}

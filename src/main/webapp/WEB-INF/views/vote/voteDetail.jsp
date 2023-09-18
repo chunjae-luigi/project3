@@ -9,11 +9,7 @@
 <head>
     <title>티스푼::투표</title>
     <jsp:include page="../include/head.jsp" />
-    <link rel="stylesheet" href="${path }/css/sub.css">
-    <style>
-        .vote_li {background-color:pink}
-        .vote_li.check {background-color:skyblue}
-    </style>
+    <link rel="stylesheet" href="${path }/resources/css/sub.css">
 </head>
 <body>
 <div class="wrap">
@@ -27,47 +23,55 @@
                 <li class="is-active"><a href="${path }/vote/voteList.jsp" aria-current="page">투표 상세보기</a></li>
             </ul>
         </nav>
-        <section>
-            <h2>투표 상세보기</h2>
-            <div>
-                <p class="is-large">투표상세내용</p>
-                <p class="is-large">${vote.title}</p>
-                <p>조회수 : ${vote.visited}</p>
-                <p>시작일 : ${vote.startDate}</p>
-                <p>종료일 : ${vote.finishDate}</p>
-                <p>상태 : ${vote.useYn}</p>
-                <p>총 투표수 : ${cnt}</p>
+        <section class="section">
+            <h2 class="title has-text-centered">티이슈 - 상세보기</h2>
+
+            <h3 class="is-size-2 has-text-centered has-text-weight-bold mt-5">${vote.title }</h3>
+
+            <div class="columns is-mobile is-four-fifths is-offset-1 my-2">
+                <div class="column is-half">${vote.startDate } ~ ${vote.finishDate}</div>
+                <div class="column is-half has-text-right">참여시 ${vote.addPt }포인트 증정</div>
             </div>
-            <hr>
-            <c:if test="${voteYn}">
-                <div class="columns is-multiline is-mobile">
-                    <c:forEach items="${voteList }" var="vote" varStatus="status">
+
+            <div class="columns is-multiline is-mobile is-four-fifths is-offset-1 mt-5">
+
+                <c:if test="${voteYn && vote.stateYn }">
+                    <c:forEach items="${voteList }" var="voteAnswer" varStatus="status">
                         <div class="column is-half">
-                            <div class="vote_li <c:if test="${voteUserInfo.lno == vote.lno }">check</c:if>">
-                                <p class="is-large">${vote.title}</p>
-                                <p>투표수 : ${vote.cnt}</p>
-                                <c:set var="lnoTotal" value="${(vote.cnt / cnt) * 100 }" />
-                                <p>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</p>
+                            <div class="vote_li box<c:if test="${voteUserInfo.lno == voteAnswer.lno || (cnt != 0 && sid.equals('admin') && getMaxLno.lno == voteAnswer.lno)}"> check</c:if>">
+                                <p class="is-size-3 has-text-weight-semibold">${voteAnswer.title }</p>
+                                <c:if test="${cnt !=0 }">
+                                    <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
+                                    <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
+                                </c:if>
+                                <c:if test="${cnt == 0 }">
+                                    <p><span>투표수 : 0</span> | <span>투표율 : 0 %</span></p>
+                                </c:if>
                             </div>
                         </div>
                     </c:forEach>
-                </div>
-            </c:if>
-            <c:if test="${!voteYn}">
-                <div>
+                </c:if>
+
+                <c:if test="${!voteYn && vote.stateYn }">
+                    <hr />
                     <input type="hidden" value="${vote.vno }" id="vno">
+                    <input type="hidden" value="${vote.addPt }" id="addPt">
                     <input type="hidden" value="${sid }" id="loginId">
                     <input type="hidden" value="${path }" id="pathStr">
-                    <p>투표 선택지내역</p>
-                    <ul>
-                        <c:forEach var="answer" items="${voteList }" varStatus="status">
-                            <li>
+                    <c:forEach var="answer" items="${voteList }" varStatus="status">
+                        <div class="column is-half">
+                                <%--<label class="box"><input name="vote" value="${answer.lno }">${answer.title }</label>--%>
+                            <div class="vote_area">
                                 <input type="radio" id="vote${status.count }" name="vote" value="${answer.lno }">
-                                <label for="vote${status.count }">${answer.title }</label>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                    <button type="button" class="voteBtn">투표하기</button>
+                                <label class="box" for="vote${status.count }">${answer.title }</label>
+                            </div>
+                        </div>
+                    </c:forEach>
+
+                    <div class="column if-full has-text-centered">
+                        <button type="button" class="voteBtn button is-mainColor">투표하기</button>
+                    </div>
+
                     <script>
                         $(function(){
                             $(".voteBtn").on('click', function(){
@@ -89,12 +93,14 @@
                                 if(confirm("투표 하시겠습니까?")){
                                     var vno = $("#vno").val();
                                     var lno = $("input[name=vote]:checked").val();
+                                    var pt = $("#addPt").val();
                                     var param = {
                                         vno: vno,
-                                        lno: lno
+                                        lno: lno,
+                                        pt: pt
                                     };
                                     $.ajax({
-                                        url: pathStr + '/vote/addAnswer.do',
+                                        url: pathStr + '/vote/addVote.do',
                                         type: 'POST',
                                         data:param,
                                         success:function(result) {
@@ -114,8 +120,32 @@
                         });
 
                     </script>
+                    <hr />
+                </c:if>
+
+                <c:if test="${!vote.stateYn }">
+                    <c:forEach items="${voteList }" var="voteAnswer" varStatus="status">
+                        <div class="column is-half">
+                            <div class="vote_li box<c:if test="${getMaxLno.lno == voteAnswer.lno }"> check</c:if>">
+                                <p class="is-size-3 has-text-weight-semibold"><c:if test="${getMaxLno.lno == voteAnswer.lno }">[확정] </c:if>${voteAnswer.title }</p>
+                                <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
+                                <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:if>
+
+                <div class="column is-full has-text-centered my-5">
+                    ${vote.content }
                 </div>
-            </c:if>
+
+            </div>
+
+            <div class="buttons is-right">
+                <a href="${path }/vote/list.do" class="button is-mainColor">목록</a>
+            </div>
+
+            <!-- 댓글 넣을 예정 -->
         </section>
     </div>
     <footer class="ft" id="ft">

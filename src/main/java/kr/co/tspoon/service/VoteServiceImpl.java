@@ -2,8 +2,10 @@ package kr.co.tspoon.service;
 
 import kr.co.tspoon.dao.VoteDAO;
 import kr.co.tspoon.dto.Vote;
+import kr.co.tspoon.dto.VoteCountVo;
 import kr.co.tspoon.dto.VoteList;
 import kr.co.tspoon.dto.VoteUser;
+import kr.co.tspoon.util.Page;
 import kr.co.tspoon.vo.VoteCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,21 +19,28 @@ public class VoteServiceImpl implements VoteService {
     private VoteDAO voteDAO;
 
     @Override
-    public List<Vote> voteAllList() throws Exception {
-        return voteDAO.voteAllList();
+    public List<Vote> voteAllList(Page page) throws Exception {
+        return voteDAO.voteAllList(page);
     }
 
     @Override
-    public Vote voteDetail(int vno, String author) throws Exception {
-        if(!author.equals("admin")) {
-            voteDAO.voteVisitCount(vno);
-        }
+    public int totalCount(Page page) throws Exception {
+        return voteDAO.totalCount(page);
+    }
+
+    @Override
+    public List<Vote> voteAllListForAdmin(Page page) throws Exception {
+        return voteDAO.voteAllListForAdmin(page);
+    }
+
+    @Override
+    public int totalCountForAdmin(Page page) throws Exception {
+        return voteDAO.totalCountForAdmin(page);
+    }
+
+    @Override
+    public Vote voteDetail(int vno) throws Exception {
         return voteDAO.voteDetail(vno);
-    }
-
-    @Override
-    public int totalCount() throws Exception {
-        return voteDAO.totalCount();
     }
 
     @Override
@@ -41,6 +50,21 @@ public class VoteServiceImpl implements VoteService {
 
     @Override
     public void voteDelete(int vno) throws Exception {
+        Vote vote = voteDAO.voteDetail(vno);
+        if(vote.isUseYn()) {
+            List<VoteList> voteList = voteDAO.voteAnswerList(vno);
+            for (VoteList voteAnswer: voteList) {
+                int lno = voteAnswer.getLno();
+                int cnt = voteDAO.voteUserCnt(lno);
+                if(cnt > 0){
+                    VoteUser voteUser = new VoteUser();
+                    voteUser.setVno(vno);
+                    voteUser.setLno(lno);
+                    voteDAO.voteUserDelete(voteUser);
+                }
+            }
+            voteDAO.voteAllAnswerDelete(vno);
+        }
         voteDAO.voteDelete(vno);
     }
 
@@ -50,8 +74,23 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
+    public void voteUpdateUse(int vno) throws Exception {
+        voteDAO.voteUpdateUse(vno);
+    }
+
+    @Override
     public void voteEdit(Vote vote) throws Exception {
         voteDAO.voteEdit(vote);
+    }
+
+    @Override
+    public void voteVisitCount(int vno) throws Exception {
+        voteDAO.voteVisitCount(vno);
+    }
+
+    @Override
+    public void voteFinalInsert(VoteCountVo voteCount) throws Exception {
+        voteDAO.voteFinalInsert(voteCount);
     }
 
     @Override
@@ -70,8 +109,18 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
+    public void voteAllAnswerDelete(int vno) throws Exception {
+        voteDAO.voteAllAnswerDelete(vno);
+    }
+
+    @Override
     public void voteAnswerEdit(VoteList voteList) throws Exception {
         voteDAO.voteAnswerEdit(voteList);
+    }
+
+    @Override
+    public List<Vote> voteMyList(String sid) throws Exception {
+        return voteDAO.voteMyList(sid);
     }
 
     @Override
@@ -80,27 +129,33 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
+    public int voteUserCnt(int lno) throws Exception {
+        return voteDAO.voteUserCnt(lno);
+    }
+
+    @Override
     public void voteUserInsert(VoteUser voteUser) throws Exception {
         voteDAO.voteUserInsert(voteUser);
     }
 
     @Override
-    public void voteUserDelete(int uno) throws Exception {
-        voteDAO.voteUserDelete(uno);
+    public void voteUserDelete(VoteUser voteUser) throws Exception {
+        voteDAO.voteUserDelete(voteUser);
     }
 
     @Override
-    public void voteUserEdit(VoteUser voteUser) throws Exception {
-        voteDAO.voteUserEdit(voteUser);
-    }
-
-    @Override
-    public List<VoteCount> voteCountList(int vno) throws Exception {
+    public List<VoteCountVo> voteCountList(int vno) throws Exception {
         return voteDAO.voteCountList(vno);
+    }
+
+    @Override
+    public VoteCountVo voteMaxCountList(int vno) throws Exception {
+        return voteDAO.voteMaxCountList(vno);
     }
 
     @Override
     public int voteCountCnt(int vno) throws Exception {
         return voteDAO.voteCountCnt(vno);
     }
+
 }

@@ -7,47 +7,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>관리자::투표</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>투표 목록</title>
+    <style>
+        #editSubmit {display:none;}
+        .answer_area {background-color:#fff!important;border-radius:5px;}
+
+        .vote_li.box {border:4px solid #fff;}
+        .vote_li.box.check {border:4px solid #ff4057;}
+    </style>
     <jsp:include page="../include/head.jsp" />
-    <link rel="stylesheet" href="${path }/css/sub.css">
 </head>
+
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <jsp:include page="../include/header.jsp" />
-    </header>
-    <div class="container is-fullhd">
-        <nav class="breadcrumb is-right" aria-label="breadcrumbs">
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li class="is-active"><a href="${path }/vote/voteList.jsp" aria-current="page">투표</a></li>
-            </ul>
-        </nav>
-        <section>
-            <h2>투표</h2>
-            <div class="columns is-multiline is-mobile">
-                <c:forEach items="${voteList }" var="vote" varStatus="status">
-                    <div class="column is-one-quarter">
-                        <div class="vote_li">
-                            <a href="${path }/vote/get.do?vno=${vote.vno}">
-                                <p class="is-large">${vote.title}</p>
-                                <p>조회수 : ${vote.visited}</p>
-                                <p>시작일 : ${vote.startDate}</p>
-                                <p>종료일 : ${vote.finishDate}</p>
-                                <p>상태 : ${vote.useYn}</p>
-                            </a>
-                        </div>
-                    </div>
+<jsp:include page="../include/header.jsp" />
+<div style="display: flex; min-height: 80vh;">
+    <jsp:include page="./adminBoardList.jsp" />
+    <div class="container" style="margin-top: 20px;">
+        <div class="column">
+            <h1 class="is-size-3 has-text-weight-semibold">투표 관리</h1>
+            <form action="${path }/admin/VoteMemberListAdmin.do" method="get" class="field has-addons has-addons-right">
+                <p class="control">
+            <span class="select">
+                <select id="type" name="type">
+                    <option value="title">제목</option>
+                </select>
+            </span>
+                </p>
+                <p class="control">
+                    <input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
+                </p>
+                <p class="control">
+                    <input type="submit" class="button is-mainColor" value="검색" />
+                </p>
+            </form>
+            <table class="table is-fullwidth table is-striped mt-5">
+                <colgroup>
+                    <col style="width:5%;">
+                    <col style="width:auto;">
+                    <col style="width:25%;">
+                    <col style="width:10%;">
+                    <col style="width:10%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="has-text-centered">#</th>
+                    <th class="has-text-centered">제목</th>
+                    <th class="has-text-centered">투표일자</th>
+                    <th class="has-text-centered">총 투표수</th>
+                    <th class="has-text-centered">진행여부</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="vote" items="${voteList }" varStatus="status">
+                    <tr>
+                        <td class="has-text-centered">${status.count }</td>
+                        <td class="has-text-centered"><a href="${path }/admin/getVote.do?vno=${vote.vno }">${vote.title }</a></td>
+                        <td class="has-text-centered">${vote.startDate } ~ ${vote.finishDate}</td>
+                        <td class="has-text-centered"></td>
+                        <td class="has-text-centered">
+                            <c:if test="${vote.stateYn }">진행 중</c:if>
+                            <c:if test="${!vote.stateYn }">종료</c:if>
+                        </td>
+                    </tr>
                 </c:forEach>
                 <c:if test="${empty voteList }">
-                    <div class="column">등록된 투표가 없습니다.</div>
+                    <tr>
+                        <td colspan="5" class="has-text-centered">등록된 투표가 없습니다.</td>
+                    </tr>
                 </c:if>
+                </tbody>
+            </table>
+            <div class="buttons is-right">
+                <a href="${path }/admin/voteAdd.do" class="button is-mainColor">등록</a>
             </div>
-        </section>
+            <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
+                <c:if test="${curPage > page.pageCount }">
+                    <a href="${path }/admin/VoteMemberListAdmin.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
+                </c:if>
+                <c:if test="${page.blockLastNum < page.totalPageCount }">
+                    <a href="${path }/admin/VoteMemberListAdmin.do?page=${page.blockLastNum + 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-next">Next page</a>
+                </c:if>
+
+                <ul class="pagination-list">
+                    <c:forEach var="i" begin="${page.blockStartNum }" end="${page.blockLastNum }">
+                        <c:choose>
+                            <c:when test="${i == curPage }">
+                                <li>
+                                    <a href="${path }/admin/VoteMemberListAdmin.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link is-current" aria-label="Page ${i }" aria-current="page">${i }</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="${path }/admin/VoteMemberListAdmin.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link" aria-label="Page ${i }" aria-current="page">${i }</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <footer class="ft" id="ft">
-        <jsp:include page="../include/footer.jsp" />
-    </footer>
 </div>
 </body>
 </html>

@@ -66,4 +66,9 @@ public class MemberServiceImpl implements MemberService {
         dto.setPw(cryptPw);
         memberDAO.memberUpdate(dto);
     }
+
+    @Override
+    public void memberUpdatePoint(Member member) throws Exception {
+        memberDAO.memberUpdatePoint(member);
+    }
 }
