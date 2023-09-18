@@ -52,8 +52,6 @@
 <link rel="stylesheet" href="${headPath }/resources/css/jquery.dataTables.css">
 <script src="${headPath }/resources/js/jquery.dataTables.js"></script>
 
-
-
 <%-- wishfund 스타일 --%>
 <!-- bootstrap.min css -->
 <link rel="stylesheet" href="${headPath}/resources/wishfund-bulma-main/plugins/bulma/bulma.min.css">
