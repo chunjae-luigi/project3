@@ -73,20 +73,20 @@
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="${headPath }/notice/List.do">공지사항</a>
                             <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">자유게시판</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">QnA</a>
+                            <a class="navbar-item" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/board/dataBoard/list.do">자료실</a>
+                        <a class="navbar-link" href="${headPath }/board/dataBoardList.do">자료실</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">투표</a>
+                        <a class="navbar-link" href="">투표</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">출석</a>
+                        <a class="navbar-link" href="">출석</a>
                     </li>
 
                     <li class="navbar-item">

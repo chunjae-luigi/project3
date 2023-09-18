@@ -5,15 +5,19 @@
 <mapper namespace="board">
     <!--  dataBoard  -->
     <select id="dataBoardList" resultType="kr.co.tspoon.dto.DataBoard">
-        select * from dataBoard
+        select * from databoard
     </select>
 
     <select id="dataBoardGet" resultType="kr.co.tspoon.dto.DataBoard">
-        select * from dataBoard where bno=#{bno}
+        select * from databoard where bno=#{bno}
+    </select>
+
+    <select id="dataBoardGetLast" resultType="kr.co.tspoon.dto.DataBoard">
+        select * from databoard order by bno desc limit 1
     </select>
 
     <update id="dataBoardCountUp" >
-        update dataBoard set visited = visited+1 where bno=#{bno}
+        update databoard set visited = visited+1 where bno=#{bno}
     </update>
 
     <select id="dataBoardCount" resultType="kr.co.tspoon.dto.DataBoard">
@@ -21,20 +25,20 @@
     </select>
 
     <insert id="dataBoardInsert" >
-        insert into dataBoard values(default, #{title}, #{content}, #{author}, #{relations}, default, default)
+        insert into databoard(title, content, author, relations) values(#{title}, #{content}, #{author}, 'databoard')
     </insert>
 
     <update id="dataBoardUpdate" >
-        update dataBoard set title=#{title}, content=#{content} where bno=#{bno}
+        update databoard set title=#{title}, content=#{content} where bno=#{bno}
     </update>
 
     <delete id="dataBoardDelete" >
-        delete from dataBoard where bno=#{bno}
+        delete from databoard where bno=#{bno}
     </delete>
 
     <!-- free  -->
     <select id="qnaList" resultType="kr.co.tspoon.dto.Qna">
-        select * from qna
+        select * from qna order by par desc
     </select>
 
     <select id="qnaGet" resultType="kr.co.tspoon.dto.Qna">
@@ -45,12 +49,13 @@
         update qna set visited = visited+1 where qno=#{qno}
     </update>
 
+
     <select id="qnaCount" resultType="kr.co.tspoon.dto.Qna">
         select COUNT(*) from qna
     </select>
 
     <insert id="qnaInsert" >
-        insert into qna values(default, #{title}, #{content}, #{author}, default, default, #{lev}, #{par})
+        insert into qna(title, content, author, lev, par) values(#{title}, #{content}, #{author}, #{lev}, #{par})
     </insert>
 
     <update id="qnaPar" >

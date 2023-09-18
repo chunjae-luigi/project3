@@ -43,8 +43,6 @@
         </bean>
 
         <context:annotation-config />
-<!--        <bean id="sampleService" class="kr.co.tspoon.service.SampleServiceImpl"/>-->
-<!--        <bean id="sampleDAO" class="kr.co.tspoon.dao.SampleDAOImpl"/>-->
         <bean id="memberService" class="kr.co.tspoon.service.MemberServiceImpl"/>
         <bean id="memberDAO" class="kr.co.tspoon.dao.MemberDAOImpl"/>
 

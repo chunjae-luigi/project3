@@ -38,7 +38,6 @@ public class MemberController {
     public String memberGet(Model model) throws Exception {
         String id = (String) session.getAttribute("sid");
         Member dto = memberService.memberGet(id);
-        System.out.println(dto.getId());
         model.addAttribute("member", dto);
         return "/member/memberGet";
     }
@@ -69,6 +68,7 @@ public class MemberController {
     @RequestMapping(value="idcheck.do", method= RequestMethod.POST)
     public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String id = request.getParameter("id");
+
         boolean noId = true;
         if(memberService.memberGet(id)!=null){
             noId = false;

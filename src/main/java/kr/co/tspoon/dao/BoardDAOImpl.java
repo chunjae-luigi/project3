@@ -1,11 +1,13 @@
 package kr.co.tspoon.dao;
 
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.selectList("board.dataBoardList");
     }
 
+    @Transactional
     @Override
     public DataBoard dataBoardGet(int bno) throws Exception {
         sqlSession.update("board.dataBoardCountUp", bno);
@@ -33,9 +36,24 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.selectOne("board.dataBoardCount");
     }
 
+    @Transactional
     @Override
     public void dataBoardInsert(DataBoard dataBoard) throws Exception {
         sqlSession.insert("board.dataBoardInsert", dataBoard);
+        DataBoard last = sqlSession.selectOne("board.dataBoardGetLast");
+        int bno = last.getBno();
+
+        List<DataFile> datafiles = sqlSession.selectList("dataFile.dataFileInsertList");
+        for(DataFile df: datafiles){
+            df.setBno(bno);
+            df.setRelations("databoard");
+            sqlSession.update("dataFile.dataFileUpdate", df);
+        }
+
+        if(!datafiles.isEmpty()){
+            last.setRelations("datafile");
+            sqlSession.update("board.dataBoardUpdate", last);
+        }
     }
 
     @Override
@@ -55,6 +73,7 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.selectList("board.qnaList");
     }
 
+    @Transactional
     @Override
     public Qna qnaGet(int qno) throws Exception {
         sqlSession.update("board.qnaCountUp", qno);
@@ -66,9 +85,11 @@ public class BoardDAOImpl implements BoardDAO {
         return sqlSession.selectOne("board.qnaCount");
     }
 
+    @Transactional
     @Override
     public void qnaInsert(Qna qna) throws Exception {
         sqlSession.insert("board.qnaInsert", qna);
+        sqlSession.update("qnaPar");
     }
 
     @Override
