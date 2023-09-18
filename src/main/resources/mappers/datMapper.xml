@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dat">
+    <!-- 댓글 목록 -->
+    <select id="datList" resultType="kr.co.tspoon.dto.Dat">
+        select * from dat where par = #{par} order by regdate desc
+    </select>
+    <insert id="datInsert">
+        insert into dat values (default, #{author}, #{content}, default, #{par})
+    </insert>
+    <delete id="datDelete">
+        delete from dat where dno=#{dno}
+    </delete>
+    <update id="datEdit">
+        update dat set title=#{title}, content=#{content} where dno=#{dno}
+    </update>
+
+
+
+</mapper>

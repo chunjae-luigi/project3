@@ -8,7 +8,7 @@ public class DataBoard {
     private String title;
     private String content;
     private String author;
-    private String relations = "no";
     private String regdate;
     private int visited = 0;
+    private String relations = "no";
 }
