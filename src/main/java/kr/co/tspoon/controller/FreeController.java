@@ -34,7 +34,7 @@ public class FreeController {
     public String getfreeList(Model model) throws Exception {
         List<Free> freeList = freeService.freeList();
         model.addAttribute("freeList", freeList);
-        return "/free/freeList";
+        return "/board/free/freeList";
     }
 
     @GetMapping("detail.do")	//free/detail.do?fno=1
@@ -45,12 +45,12 @@ public class FreeController {
         model.addAttribute("datList", datList);
         model.addAttribute("dto", dto);
         model.addAttribute("fno", fno);
-        return "/free/freeDetail";
+        return "/board/free/freeDetail";
     }
 
     @GetMapping("insert.do")
     public String insertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/free/freeInsert";
+        return "/board/free/freeInsert";
     }
 
     @PostMapping("insert.do")
@@ -74,7 +74,7 @@ public class FreeController {
         int fno = Integer.parseInt(request.getParameter("fno"));
         Free dto = freeService.freeDetail(fno);
         model.addAttribute("dto", dto);
-        return "/free/freeEdit";
+        return "/board/free/freeEdit";
     }
 
 
