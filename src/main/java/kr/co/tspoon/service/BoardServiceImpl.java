@@ -2,6 +2,7 @@ package kr.co.tspoon.service;
 
 import kr.co.tspoon.dao.BoardDAO;
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -75,4 +76,5 @@ public class BoardServiceImpl implements BoardService {
     public void qnaDelete(int qno) throws Exception {
         boardDAO.qnaDelete(qno);
     }
+
 }

@@ -67,7 +67,7 @@ CREATE TABLE qna(
 	regdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),   -- (문의 등록)
 	cnt INT DEFAULT 0,   -- (조회수)
 	lev INT DEFAULT 0, -- 질문(0), 답변(1)
-	par INT DEFAULT 0,	-- 부모 글번호 -> 질문(자신 레코드의 qno), 답변(질문의 글번호)
+	par INT DEFAULT 0	-- 부모 글번호 -> 질문(자신 레코드의 qno), 답변(질문의 글번호)
 );
 
 -- 학습 자료실

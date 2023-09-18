@@ -63,6 +63,7 @@
         <bean id="datService" class="kr.co.tspoon.service.DatServiceImpl"/>
         <bean id="datDAO" class="kr.co.tspoon.dao.DatDAOImpl"/>
 
+
         <!-- @Transactional 어노테이션 처리 -->
         <tx:annotation-driven transaction-manager="transactionManager" />
 
