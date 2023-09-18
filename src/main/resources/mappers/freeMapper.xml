@@ -4,19 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="free">
     <!-- 자유게시판 목록 -->
-    <select id="freeList" resultType="kr.co.tspoon.dto.Free">
-        select * from free order by regdate desc
-    </select>
+<!--    <select id="freeList" resultType="kr.co.tspoon.dto.Free">-->
+<!--        select * from free order by regdate desc-->
+<!--    </select>-->
     <!-- 글 상세보기 -->
     <select id="freeDetail" resultType="kr.co.tspoon.dto.Free">
         select * from free where fno=#{fno}
     </select>
     <!-- 글 수 카운트 -->
-    <select id="totalCount" resultType="integer" >
-        select count(*) from free
-    </select>
+<!--    <select id="totalCount" resultType="integer" >-->
+<!--        select count(*) from free-->
+<!--    </select>-->
     <insert id="freeInsert">
-        insert into free values (default, #{title}, #{content}, default, default, #{id}, default)
+        insert into free values (default, #{title}, #{content}, #{author}, default, default)
     </insert>
     <delete id="freeDelete">
         delete from free where fno=#{fno}
@@ -28,5 +28,49 @@
         update free set visited=visited+1 where fno=#{fno}
     </update>
 
+    <select id="freeList" resultType="kr.co.tspoon.dto.Free">
+        <![CDATA[
+        select * from free
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()" >
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'content'.toString()" >
+                        content LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'author'.toString()" >
+                        author LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by regDate desc LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+
+    <select id="totalCount" resultType="integer">
+    <![CDATA[
+        select count(*) from free
+        ]]>
+    <where>
+        <if test="searchType != null">
+            <choose>
+                <when test="searchType == 'title'.toString()" >
+                    title LIKE concat('%', #{searchKeyword}, '%')
+                </when>
+                <when test="searchType == 'content'.toString()" >
+                    content LIKE concat('%', #{searchKeyword}, '%')
+                </when>
+                <when test="searchType == 'author'.toString()" >
+                    author LIKE concat('%', #{searchKeyword}, '%')
+                </when>
+            </choose>
+        </if>
+    </where>
+</select>
 
 </mapper>

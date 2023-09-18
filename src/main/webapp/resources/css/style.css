@@ -7,22 +7,18 @@
  * GITHUB: https://github.com/themefisher/
  */
 
-/*=== MEDIA QUERY ===*/
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700|Bitter:400,700,900&display=swap");
 html {
   overflow-x: hidden;
 }
 
 body {
   line-height: 1.7;
-  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   color: #464646;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Bitter", serif;
   font-weight: 900;
   color: #232323;
 }

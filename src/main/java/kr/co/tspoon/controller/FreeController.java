@@ -4,6 +4,7 @@ import kr.co.tspoon.dto.Dat;
 import kr.co.tspoon.dto.Free;
 import kr.co.tspoon.service.DatService;
 import kr.co.tspoon.service.FreeService;
+import kr.co.tspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 import java.util.UUID;
@@ -29,10 +31,36 @@ public class FreeController {
     @Autowired
     private DatService datService;
 
+    @Autowired
+    HttpSession session;
+
 
     @GetMapping("list.do")		//free/list.do
-    public String getfreeList(Model model) throws Exception {
-        List<Free> freeList = freeService.freeList();
+    public String getfreeList(HttpServletRequest request, Model model) throws Exception {
+
+
+        String type = request.getParameter("type");
+        String keyword = request.getParameter("keyword");
+        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        Page page = new Page();
+        page.setSearchType(type);
+        page.setSearchKeyword(keyword);
+        int total = freeService.totalCount(page);
+
+        page.makeBlock(curPage, total);
+        page.makeLastPageNum(total);
+        page.makePostStart(curPage, total);
+
+
+        List<Free> freeList = freeService.freeList(page);
+
+        model.addAttribute("type", type);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("page", page);
+        model.addAttribute("curPage", curPage);
+
+
         model.addAttribute("freeList", freeList);
         return "/board/free/freeList";
     }
@@ -45,6 +73,9 @@ public class FreeController {
         model.addAttribute("datList", datList);
         model.addAttribute("dto", dto);
         model.addAttribute("fno", fno);
+        System.out.println("dto : " + dto);
+        System.out.println("datList : " + datList);
+        System.out.println("fno : " + fno);
         return "/board/free/freeDetail";
     }
 
@@ -55,18 +86,20 @@ public class FreeController {
 
     @PostMapping("insert.do")
     public String freeInsert(HttpServletRequest request, Model model) throws Exception {
+        String sid = session.getAttribute("sid") != null ? (String) session.getAttribute("sid") : "";
         Free dto = new Free();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
+        dto.setAuthor(sid);
         freeService.freeInsert(dto);
-        return "redirect:list.do";
+        return "redirect:freeList.do";
     }
 
     @GetMapping("delete.do")
     public String freeDelete(HttpServletRequest request, Model model) throws Exception {
         int fno = Integer.parseInt(request.getParameter("fno"));
         freeService.freeDelete(fno);
-        return "redirect:list.do";
+        return "redirect:freeList.do";
     }
 
     @GetMapping("edit.do")
@@ -86,7 +119,7 @@ public class FreeController {
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
         freeService.freeEdit(dto);
-        return "redirect:list.do";
+        return "redirect:freeList.do";
     }
 
 
