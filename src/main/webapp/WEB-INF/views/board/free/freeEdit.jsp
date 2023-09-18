@@ -18,7 +18,7 @@
 <body>
 <div class="container is-fullhd">
 	<!-- 헤더 부분 인클루드 -->
-	<jsp:include page="../include/hd.jsp"></jsp:include>
+	<jsp:include page="../../include/header.jsp"></jsp:include>
 	<figure class="visual" id="vs1">
 		<ul class="imgbox">
 			<li class="hero is-medium is-link">
@@ -72,7 +72,7 @@
 	    </div>
 	</div>
 	<!-- 푸터 부분 인클루드 -->
-	<jsp:include page="../include/ft.jsp"></jsp:include>
+	<jsp:include page="../../include/footer.jsp"></jsp:include>
 </div>
 </body>
 </html>

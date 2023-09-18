@@ -31,6 +31,17 @@ CREATE TABLE board(
 );
 
 
+
+-- free
+CREATE TABLE free(
+	fno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
+	title VARCHAR(200) NOT NULL,   -- (게시글 제목)
+	content VARCHAR(1000),   -- (게시글 내용)
+	author VARCHAR(16) NOT NULL,   -- (작성자)
+	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
+	visited INT DEFAULT 0   -- (조회수)
+);
+
 -- datgeul
 CREATE TABLE dat(
 	dno INT PRIMARY KEY AUTO_INCREMENT,   -- (댓글번호) 자동발생
