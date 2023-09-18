@@ -61,7 +61,7 @@
                         <a class="navbar-link">커뮤니티<span class="ml-1">+</span></a>
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="${headPath }/notice/List.do">공지사항</a>
-                            <a class="navbar-item" href="${headPath }/board/freeList.do">자유게시판</a>
+                            <a class="navbar-item" href="${headPath }/board/free/list.do">자유게시판</a>
                             <a class="navbar-item" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
                     </li>
