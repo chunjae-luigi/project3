@@ -1,161 +1,155 @@
 package kr.co.tspoon.controller;
 
 import kr.co.tspoon.dto.Member;
+import kr.co.tspoon.dto.Vote;
+import kr.co.tspoon.dto.VoteCountVo;
+import kr.co.tspoon.dto.VoteList;
 import kr.co.tspoon.service.MemberService;
-import kr.co.tspoon.service.NoticeService;
-import org.json.JSONObject;
+import kr.co.tspoon.service.VoteService;
+import kr.co.tspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
 @RequestMapping("/admin/*")
-public class adminController {
-
-    @Autowired
-    private MemberService memberService;
-    @Autowired
-    private NoticeService noticeService;
+public class AdminController {
 
     @Autowired
     HttpSession session;
 
-    @GetMapping("index.do")
-    public String index(Model model) throws Exception {
-        List<Member> memberList = memberService.memberList();
-        model.addAttribute("memberList", memberList);
-        return "/member/memberList";
-    }
+    @Autowired
+    private MemberService memberService;
 
-    @GetMapping("list.do")
-    public String memberList(Model model) throws Exception {
-        List<Member> memberList = memberService.memberList();
-        model.addAttribute("memberList", memberList);
-        return "/member/memberList";
-    }
+    @Autowired
+    private VoteService voteService;
 
-    @GetMapping("get.do")
-    public String memberGet(Model model) throws Exception {
-        String id = (String) session.getAttribute("sid");
-        Member dto = memberService.memberGet(id);
-        System.out.println(dto.getId());
-        model.addAttribute("member", dto);
-        return "/member/membermypage";
-    }
+    @RequestMapping(value = "MemberListAdmin.do", method = RequestMethod.GET)
+    protected String getMemberList(HttpServletRequest request, Model model) throws Exception {
+        request.setAttribute("msg", "회원 목록을 출력합니다.");
 
-    @GetMapping("term.do")
-    public String term(){
-        return "/member/term";
-    }
+        String sid = (String) session.getAttribute("sid");
 
-    @GetMapping("login.do")
-    public String loginForm(HttpServletRequest request, Model model) throws Exception {
-        return "/member/login";
-    }
+        if(sid != null && sid.equals("admin")) {
 
+            List<Member> memberList = memberService.memberList();
 
-    @RequestMapping(value="idcheck.do", method= RequestMethod.POST)
-    public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String id = request.getParameter("id");
-        boolean noId = true;
-        if(memberService.memberGet(id)!=null){
-            noId = false;
+            request.setAttribute("memberList", memberList);
+
+            return "/admin/memberList";
+        } else {
+            return "redirect:/";
         }
-        JSONObject json = new JSONObject();
-        json.put("result", noId);
-        PrintWriter out = response.getWriter();
-        out.println(json.toString()); // 전송이 되는 부분
     }
 
-    @GetMapping("logout.do")
-    public String logout(HttpServletRequest request, Model model) throws Exception {
-        session.removeAttribute("sid");
-        return "redirect:/";
+    @RequestMapping(value = "VoteMemberListAdmin.do", method = RequestMethod.GET)
+    public String getVoteList(HttpServletRequest request, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+        String type = request.getParameter("type");
+        String keyword = request.getParameter("keyword");
+        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        if(sid != null && sid.equals("admin")) {
+            Page page = new Page();
+            page.setSearchType(type);
+            page.setSearchKeyword(keyword);
+            int total = voteService.totalCountForAdmin(page);
+
+            page.makeBlock(curPage, total);
+            page.makeLastPageNum(total);
+            page.makePostStart(curPage, total);
+
+            List<Vote> voteList = voteService.voteAllListForAdmin(page);
+
+            model.addAttribute("adminNum", 4);
+            model.addAttribute("type", type);
+            model.addAttribute("keyword", keyword);
+            model.addAttribute("page", page);
+            model.addAttribute("curPage", curPage);
+            model.addAttribute("voteList", voteList);
+
+            return "/admin/voteList";
+        } else {
+            return "redirect:/";
+        }
     }
 
-    @GetMapping("insert.do")
-    public String insertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/member/memberInsert";
+    @RequestMapping(value = "getVote.do", method = RequestMethod.GET)
+    public String getVoteDetail(@RequestParam int vno, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+
+        if(sid != null && sid.equals("admin")) {
+            model.addAttribute("adminNum", 4);
+            if(vno != 0) {
+                Vote vote = voteService.voteDetail(vno);
+                model.addAttribute("vote", vote);
+
+                if(!vote.isUseYn()) {
+                    List<VoteList> voteAnswerList = voteService.voteAnswerList(vno);
+                    model.addAttribute("voteAnswerList", voteAnswerList);
+                } else {
+                    int cnt = voteService.voteCountCnt(vno);
+                    model.addAttribute("cnt", cnt);
+
+                    VoteCountVo getMaxLno = voteService.voteMaxCountList(vno);
+                    model.addAttribute("getMaxLno", getMaxLno);
+
+                    List<VoteCountVo> voteCountList = voteService.voteCountList(vno);
+                    model.addAttribute("voteCountList", voteCountList);
+                }
+
+                return "/admin/voteDetail";
+            } else {
+                return "redirect:/admin/VoteMemberListAdmin.do";
+            }
+        } else {
+            return "redirect:/";
+        }
+
     }
 
-    @PostMapping("insert.do")
-    public String memberInsert(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
-        String pw = request.getParameter("pw");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String tel = request.getParameter("tel");
-        String addr1 = request.getParameter("addr1");
-        String addr2 = request.getParameter("addr2");
-        String postcode = request.getParameter("postcode");
-        String birth = request.getParameter("birth");
+    @RequestMapping(value = "voteAdd.do", method = RequestMethod.GET)
+    public String voteInsert(Model model) throws Exception {
 
-        Member dto = new Member();
-        dto.setId(id);
-        dto.setPw(pw);
-        dto.setName(name);
-        dto.setEmail(email);
-        dto.setTel(tel);
-        dto.setAddr1(addr1);
-        dto.setAddr2(addr2);
-        dto.setPostcode(postcode);
-        dto.setBirth(birth);
-        memberService.memberInsert(dto);
-        return "redirect:login.do";
+        String sid = (String) session.getAttribute("sid");
+
+        if(sid != null && sid.equals("admin")) {
+            model.addAttribute("adminNum", 4);
+            return "/admin/voteInsert";
+        } else {
+            return "redirect:/";
+        }
+
     }
 
-    @GetMapping("delete.do")
-    public String memberDelete(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
-        memberService.memberDelete(id);
-        return "redirect:list.do";
+    @RequestMapping(value = "voteEdit.do", method = RequestMethod.GET)
+    public String voteUpdate(@RequestParam int vno, Model model) throws Exception {
+
+        String sid = (String) session.getAttribute("sid");
+
+        if(sid != null && sid.equals("admin")) {
+            Vote vote = voteService.voteDetail(vno);
+            model.addAttribute("vote", vote);
+            model.addAttribute("adminNum", 4);
+            return "/admin/voteUpdate";
+        } else {
+            return "redirect:/";
+        }
+
     }
 
-    @GetMapping("update.do")
-    public String editForm(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
-        Member dto = memberService.memberGet(id);
-        model.addAttribute("dto", dto);
-        return "/member/memberUpdate";
-    }
 
-    @PostMapping("update.do")
-    public String memberUpdate(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
-        String pw = request.getParameter("pw");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String tel = request.getParameter("tel");
-        String addr1 = request.getParameter("addr1");
-        String addr2 = request.getParameter("addr2");
-        String postcode = request.getParameter("postcode");
-        String birth = request.getParameter("birth");
-
-        Member dto = new Member();
-        dto.setId(id);
-        dto.setPw(pw);
-        dto.setName(name);
-        dto.setEmail(email);
-        dto.setTel(tel);
-        dto.setAddr1(addr1);
-        dto.setAddr2(addr2);
-        dto.setPostcode(postcode);
-        dto.setBirth(birth);
-
-        memberService.memberUpdate(dto);
-
-        model.addAttribute("dto", dto);
-
-        return "redirect:get.do";
-    }
 }
