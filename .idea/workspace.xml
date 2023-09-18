@@ -1,267 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="team43:war" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2878234-7478-4f1b-a414-8519c50f6a46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardUpdate.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadckImage/87a909ad-66ed-43e8-a403-c1e2a457ddda_목 스트레칭.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/AdminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/DataFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/DataFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBoard.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminheader.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberUpdatePw.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaAddQuestion.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaGet.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaUpdate.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/addQuestion.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaInsert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaInsert.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/css/main.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/forms.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/img/justboil-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/chart.sample.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/chart.sample.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/main.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/tables.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/gulpfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/forms.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/tables.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/img/justboil-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/js/chart.sample.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_aside.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_card.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_footer.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_form.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_hero-bar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_main-section.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_misc.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_modal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_nav-bar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_table.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_theme-default.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_tiles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_title-bar.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/libs/_all.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/main.scss" beforeDir="false" />
+    <list default="true" id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="2VNBM6KcBRcEJBnacBeKuslFoIX" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2VYPn2JJZgxvzn2fgiuYEgQ1pbk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "sangmin",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/sangmin0816/luigi/project3/src/main/webapp/WEB-INF/views/board/dataBoard",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.26923078",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
     "spring.configuration.checksum": "acc7eb300934b9411875114ac6c2b0aa",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\board\dataBoard" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="Tomcat 9.0.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="HOT_SWAP_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
-      <deployment>
-        <artifact name="team43:war">
-          <settings>
-            <option name="CONTEXT_PATH" value="/team43_war" />
-          </settings>
-        </artifact>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="8429599f-5ae0-4890-8425-600dd1088f48" />
-      </server-settings>
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62198" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method v="2">
-        <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="team43:war" />
-        </option>
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2878234-7478-4f1b-a414-8519c50f6a46" name="Changes" comment="" />
-      <created>1694666608492</created>
+      <changelist id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="" />
+      <created>1695010205282</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694666608492</updated>
-      <workItem from="1694666610389" duration="51000" />
-      <workItem from="1694666675470" duration="411000" />
-      <workItem from="1694679183390" duration="349000" />
-      <workItem from="1694680048234" duration="60000" />
-      <workItem from="1694735998252" duration="10684000" />
-      <workItem from="1694749297890" duration="661000" />
-      <workItem from="1694750406785" duration="30000" />
-      <workItem from="1694750444331" duration="2517000" />
-      <workItem from="1694765618210" duration="66000" />
-      <workItem from="1694765697044" duration="1895000" />
-      <workItem from="1694995345418" duration="11372000" />
+      <updated>1695010205282</updated>
+      <workItem from="1695010207199" duration="100000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
