@@ -7,14 +7,16 @@ CREATE TABLE MEMBER(
 	NAME VARCHAR(100) NOT NULL,   -- (이름)
 	email VARCHAR(100) NOT NULL,   -- (이메일)
 	tel VARCHAR(13),   -- (전화번호)
-    addr1 VARCHAR(200),
-    addr2 VARCHAR(100),
-    postcode VARCHAR(10),
+	addr1 VARCHAR(200),
+	addr2 VARCHAR(100),
+	postcode VARCHAR(10),
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (가입일)
 	birth DATE, -- 생일
 	POINT INT DEFAULT 0,   -- (포인트)
-	INT grade DEFAULT 1,-- 등급: 0 관리자, 1 학부모, 2 학생
+	grade INT DEFAULT 1-- 등급: 0 관리자, 1 학부모, 2 학생
 );
+
+INSERT INTO MEMBER VALUES('admin', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', '관리자', 'admin@tspoon.co.kr', '010-1234-5678', '', '', '', DEFAULT, NULL, DEFAULT, 0);
 
 -- board
 CREATE TABLE board(
@@ -28,16 +30,15 @@ CREATE TABLE board(
 	visited INT DEFAULT 0   -- (조회수)
 );
 
--- notice
-CREATE TABLE notice(
-      no INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
-      title VARCHAR(200) NOT NULL,   -- (게시글 제목)
-      content VARCHAR(1000),   -- (게시글 내용)
-      regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
-      visited INT DEFAULT 0   -- (조회수)
+-- free
+CREATE TABLE free(
+	fno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
+	title VARCHAR(200) NOT NULL,   -- (게시글 제목)
+	content VARCHAR(1000),   -- (게시글 내용)
+	author VARCHAR(16) NOT NULL,   -- (작성자)
+	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
+	visited INT DEFAULT 0   -- (조회수)
 );
-
-
 
 -- datgeul
 CREATE TABLE dat(
@@ -46,6 +47,15 @@ CREATE TABLE dat(
 	content VARCHAR(1000) NOT NULL,   -- (댓글 내용)
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (댓글 등록일)
 	par INT(11) NOT NULL   -- (해당 게시글 번호)
+);
+
+-- notice
+CREATE TABLE notice(
+      no INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
+      title VARCHAR(200) NOT NULL,   -- (게시글 제목)
+      content VARCHAR(1000),   -- (게시글 내용)
+      regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
+      visited INT DEFAULT 0   -- (조회수)
 );
 
 -- qna
