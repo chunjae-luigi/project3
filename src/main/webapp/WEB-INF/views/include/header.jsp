@@ -27,11 +27,11 @@
                             <c:when test="${sid=='admin'}">
                                 <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
                                 <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
-                                <a class="top-btn"  href="${headPath }/admin/">관리자페이지</a>
+                                <a class="top-btn"  href="${headPath }/admin/index.do">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">
                                 <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
-                                <a class="top-btn"  href="${headPath }/WEB-INF/views/member/mypage.jsp">마이페이지</a>
+                                <a class="top-btn"  href="${headPath }/member/get.do?sid=${sid}">마이페이지</a>
                             </c:when>
                             <c:otherwise>
                                 <a class="top-btn"  href="${headPath }/member/login.do">로그인</a>

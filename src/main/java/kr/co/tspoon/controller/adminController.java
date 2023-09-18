@@ -2,12 +2,15 @@ package kr.co.tspoon.controller;
 
 import kr.co.tspoon.dto.Member;
 import kr.co.tspoon.service.MemberService;
+import kr.co.tspoon.service.NoticeService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,17 +19,23 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @Controller
-@RequestMapping("/member/*")
-public class MemberController {
+@RequestMapping("/admin/*")
+public class adminController {
 
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private NoticeService noticeService;
 
     @Autowired
     HttpSession session;
 
-    BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
-
+    @GetMapping("index.do")
+    public String index(Model model) throws Exception {
+        List<Member> memberList = memberService.memberList();
+        model.addAttribute("memberList", memberList);
+        return "/member/memberList";
+    }
 
     @GetMapping("list.do")
     public String memberList(Model model) throws Exception {
@@ -54,30 +63,6 @@ public class MemberController {
         return "/member/login";
     }
 
-    @PostMapping("login.do")
-    public String login(@RequestParam String id, @RequestParam String pw, Model model) throws Exception {
-        Member mem = memberService.login(id);
-        if(mem != null) {
-            boolean loginSuccess = pwEncoder.matches(pw, mem.getPw());
-            if (loginSuccess) {
-                session.setAttribute("sid", id);
-                model.addAttribute("msg", "로그인을 성공하셨습니다.");
-                model.addAttribute("url", "/");
-                return "/member/alert";
-
-            } else {
-                model.addAttribute("msg", "로그인을 실패하였습니다.");
-                model.addAttribute("url", "/member/login.do");
-                return "/member/alert";
-
-            }
-        }else{
-        model.addAttribute("msg", "아이디가 없습니다.");
-        model.addAttribute("url", "/member/login.do");
-        return "/member/alert";
-
-        }
-    }
 
     @RequestMapping(value="idcheck.do", method= RequestMethod.POST)
     public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -95,9 +80,7 @@ public class MemberController {
     @GetMapping("logout.do")
     public String logout(HttpServletRequest request, Model model) throws Exception {
         session.removeAttribute("sid");
-        model.addAttribute("msg", "로그아웃 하셨습니다.");
-        model.addAttribute("url", "/");
-        return "redirect: /member/alert";
+        return "redirect:/";
     }
 
     @GetMapping("insert.do")
@@ -128,26 +111,21 @@ public class MemberController {
         dto.setPostcode(postcode);
         dto.setBirth(birth);
         memberService.memberInsert(dto);
-        model.addAttribute("msg", "가족이 되신걸 환영합니다.");
-        model.addAttribute("url", "/member/login.do");
-        return "/member/alert";
+        return "redirect:login.do";
     }
 
     @GetMapping("delete.do")
-    public String memberDelete(@RequestParam String id, HttpSession session, Model model) throws Exception {
+    public String memberDelete(HttpServletRequest request, Model model) throws Exception {
+        String id = request.getParameter("id");
         memberService.memberDelete(id);
-        session.invalidate();
-        model.addAttribute("msg", "회원탈퇴가 정상적으로 진행되었습니다.");
-        model.addAttribute("url", "/");
-        return "/member/alert";
-
+        return "redirect:list.do";
     }
 
     @GetMapping("update.do")
     public String editForm(HttpServletRequest request, Model model) throws Exception {
-        String id = (String) session.getAttribute("sid");
+        String id = request.getParameter("id");
         Member dto = memberService.memberGet(id);
-        model.addAttribute("member", dto);
+        model.addAttribute("dto", dto);
         return "/member/memberUpdate";
     }
 
