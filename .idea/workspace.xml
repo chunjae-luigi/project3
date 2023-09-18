@@ -10,27 +10,80 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2878234-7478-4f1b-a414-8519c50f6a46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/c46eb5f3-acef-48fe-a589-ed3e934ec35a_참고용_테스트시나리오.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/db71424a-3ee1-451c-a0e8-eb258ecbad6f_참고용_테스트시나리오.pptx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/f5484ab1-7525-48c7-8179-aa8d71485e7d_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardUpdate.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/uploadckImage/87a909ad-66ed-43e8-a403-c1e2a457ddda_목 스트레칭.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/AdminController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/BoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/DataFileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/DataFileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/BoardDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dao/BoardDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/fileMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/fileMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBoard.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminheader.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberUpdatePw.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaAddQuestion.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaGet.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/qnaUpdate.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardInsert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/dataBoard/dataBoardInsert.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/22ff7108-881f-4516-81e0-5f2fa52ffd7f_참고용_테스트시나리오.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/03bee0cb-8c29-4ce6-8530-fc56f1b64de6_참고용_테스트시나리오.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/417bf93c-a5b1-40e9-ba52-3e523990235a_참고용_테스트시나리오.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/22ff7108-881f-4516-81e0-5f2fa52ffd7f_참고용_테스트시나리오.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/c46eb5f3-acef-48fe-a589-ed3e934ec35a_참고용_테스트시나리오.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/417bf93c-a5b1-40e9-ba52-3e523990235a_참고용_테스트시나리오.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/db71424a-3ee1-451c-a0e8-eb258ecbad6f_참고용_테스트시나리오.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/547ae8bd-59ce-4f49-abf2-40f301422af7_참고용_테스트시나리오.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/uploadAjax/230915/f5484ab1-7525-48c7-8179-aa8d71485e7d_참고용_테스트시나리오.pptx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/upload/230915/960e2df7-32aa-4ffc-b41c-c1b318118480_참고용_테스트시나리오.pptx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/addQuestion.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaGet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaInsert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaInsert.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/css/main.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/forms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/img/justboil-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/chart.sample.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/chart.sample.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/js/main.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/demo/tables.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/gulpfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/forms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/html/tables.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/img/justboil-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/js/chart.sample.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_aside.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_footer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_form.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_hero-bar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_main-section.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_misc.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_nav-bar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_table.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_theme-default.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_tiles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/_title-bar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/libs/_all.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/admin-dashboard/src/scss/main.scss" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,6 +94,9 @@
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -57,25 +113,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sangmin&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.26923078&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;acc7eb300934b9411875114ac6c2b0aa&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "sangmin",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/sangmin0816/luigi/project3/src/main/webapp/WEB-INF/views/board/dataBoard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.26923078",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "spring.configuration.checksum": "acc7eb300934b9411875114ac6c2b0aa",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\sangmin0816\luigi\project3\src\main\webapp\WEB-INF\views\board\dataBoard" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
@@ -186,6 +248,7 @@
       <workItem from="1694750444331" duration="2517000" />
       <workItem from="1694765618210" duration="66000" />
       <workItem from="1694765697044" duration="1895000" />
+      <workItem from="1694995345418" duration="11372000" />
     </task>
     <servers />
   </component>

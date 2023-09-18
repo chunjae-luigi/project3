@@ -59,10 +59,12 @@ public class BoardController {
     }
 
 
-    private static String uploadFolder = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\upload";
+    // private static String uploadFolder = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\upload";
 
     @PostMapping("dataBoardInsert.do")
     public String dataBoardInsert(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
+        String realFolder = req.getRealPath("/resources/upload");
+
         DataBoard dto = new DataBoard();
 
         Enumeration<String> e = files.getParameterNames();
@@ -78,22 +80,16 @@ public class BoardController {
         dto.setAuthor((String) map.get("sid"));
 
         String today = new SimpleDateFormat("yyMMdd").format(new Date());
-        String saveFolder = uploadFolder + File.separator + today;
+        String saveFolder = realFolder + File.separator + today;
         File folder = new File(saveFolder);
 
         if(!folder.exists()){
             folder.mkdirs();
         }
 
-        List<MultipartFile> uploadFile = new ArrayList<>();
-        Iterator<String> it = files.getFileNames();
-        while(it.hasNext()) {
-            String paramfName = it.next();
-            uploadFile.add(files.getFile(paramfName));
-        }
+        List<MultipartFile> fileList = files.getFiles("uploadFiles");
 
-
-        for(MultipartFile multipartFile : uploadFile){
+        for(MultipartFile multipartFile : fileList){
             String originalName = multipartFile.getOriginalFilename();
             if(!originalName.isEmpty()){
                 String saveName = UUID.randomUUID().toString()+"_"+originalName;
@@ -103,7 +99,7 @@ public class BoardController {
                 dataFile.setFileName(originalName);
                 dataFile.setSaveName(saveName);
                 dataFile.setFileType(multipartFile.getContentType());
-                dataFile.setSaveFolder(saveFolder);
+                dataFile.setSaveFolder(today);
 
                 dataFileService.dataFileInsert(dataFile);
 
@@ -111,7 +107,6 @@ public class BoardController {
 
                 try{
                     multipartFile.transferTo(savefile);
-                    System.out.println(originalName+" 저장 성공");
                 } catch (Exception except){
                     System.out.println(except.getMessage());
                 }
@@ -135,20 +130,78 @@ public class BoardController {
     @GetMapping("dataBoardUpdate.do")
     public String dataBoardUpdateForm(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
+
         DataBoard dto = boardService.dataBoardGet(bno);
+        DataFile temp = new DataFile();
+        temp.setBno(bno);
+        temp.setRelations("databoard");
+        List<DataFile> dataFiles = dataFileService.dataFileBoardList(temp);
+
         model.addAttribute("dto", dto);
+        model.addAttribute("dataFiles", dataFiles);
+
         return "/board/dataBoard/dataBoardUpdate";
     }
 
     @PostMapping("dataBoardUpdate.do")
-    public String dataBoardUpdate(HttpServletRequest request) throws Exception {
+    public String dataBoardUpdatePro(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
+        String realFolder = req.getRealPath("/resources/upload");
+
         DataBoard dto = new DataBoard();
-        dto.setTitle(request.getParameter("title"));
-        dto.setContent(request.getParameter("content"));
+
+        Enumeration<String> e = files.getParameterNames();
+        Map map = new HashMap();
+        while (e.hasMoreElements()) {
+            String name = e.nextElement();
+            String value = files.getParameter(name);
+            map.put(name, value);
+        }
+
+        int bno = Integer.parseInt((String) map.get("bno"));
+        dto.setBno(bno);
+        dto.setTitle((String) map.get("title"));
+        dto.setContent((String) map.get("contents"));
+
+        String today = new SimpleDateFormat("yyMMdd").format(new Date());
+        String saveFolder = realFolder + File.separator + today;
+        File folder = new File(saveFolder);
+
+        if(!folder.exists()){
+            folder.mkdirs();
+        }
+
+        List<MultipartFile> fileList = files.getFiles("uploadFiles");
+
+        for(MultipartFile multipartFile : fileList){
+            String originalName = multipartFile.getOriginalFilename();
+            if(!originalName.isEmpty()){
+                String saveName = UUID.randomUUID().toString()+"_"+originalName;
+
+                DataFile dataFile = new DataFile();
+                dataFile.setBno(bno);
+                dataFile.setFileName(originalName);
+                dataFile.setSaveName(saveName);
+                dataFile.setFileType(multipartFile.getContentType());
+                dataFile.setSaveFolder(saveFolder);
+
+                dataFileService.dataFileInsert(dataFile);
+
+                File savefile = new File(saveFolder, saveName);
+
+                try{
+                    multipartFile.transferTo(savefile);
+                } catch (Exception except){
+                    System.out.println(except.getMessage());
+                }
+            }
+        }
+
+
         boardService.dataBoardUpdate(dto);
 
         return "redirect:dataBoardList.do";
     }
+
 
     // Qna
     @GetMapping("qnaList.do")
@@ -183,6 +236,7 @@ public class BoardController {
         dto.setAuthor(request.getParameter("author"));
         dto.setLev(Integer.parseInt(request.getParameter("lev")));
         dto.setPar(Integer.parseInt(request.getParameter("par")));
+
         boardService.qnaInsert(dto);
         return "redirect:qnaList.do";
     }

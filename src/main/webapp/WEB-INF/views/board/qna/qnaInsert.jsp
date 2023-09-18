@@ -39,9 +39,9 @@
                 <tr>
                     <th><label for="title">제목</label></th>
                     <td>
-                        <input type="text" name="title" id="title" class="inData" maxlength="98" required>
+                        <input type="text" name="title" id="title" class="input" required>
                         <input type="hidden" name="lev" id="lev" value="${lev}">
-                        <input type="hidden" name="par" id="par" value="${par}>">
+                        <input type="hidden" name="par" id="par" value="${par}">
                         <c:set var="id" value='<%=(String)session.getAttribute("sid")%>' />
                         <input type="hidden" name="author" id="author" value="${id}">
                     </td>

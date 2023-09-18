@@ -1,15 +1,19 @@
 package kr.co.tspoon.controller;
 
+import kr.co.tspoon.dto.DataBoard;
 import kr.co.tspoon.dto.DataFile;
+import kr.co.tspoon.service.BoardService;
 import kr.co.tspoon.service.DataFileService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +21,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
 @RequestMapping("/dataFile/*")
 public class DataFileController {
+    @Autowired
+    private DataFileService dataFileService;
+
+    @Autowired
+    private BoardService boardService;
+
+
     @RequestMapping(value="upload.do", method = RequestMethod.POST)
     public void dataBoardUpload(HttpServletRequest request,
-                                HttpServletResponse response, MultipartHttpServletRequest multiFile, @RequestParam MultipartFile upload) throws Exception{
+                                HttpServletResponse response, @RequestParam MultipartFile upload) throws Exception{
         // 랜덤 문자 생성
         UUID uid = UUID.randomUUID();
         OutputStream out = null;
@@ -78,10 +90,9 @@ public class DataFileController {
 
 
     @RequestMapping(value="submit.do")
-    public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletResponse response) throws ServletException, IOException{
         //서버에 저장된 이미지 경로
         String path = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\uploadckImage/"; // 저장된 이미지 경로
-        System.out.println("path:"+path);
         String sDirPath = path + uid + "_" + fileName;
         File imgFile = new File(sDirPath);
 
@@ -114,4 +125,25 @@ public class DataFileController {
             }
         }
     }
+
+    @RequestMapping(value = "delete.do")
+    public String deleteFile(HttpServletRequest request,  Model model) throws Exception {
+        int fno = Integer.parseInt(request.getParameter("fno"));
+        int bno = Integer.parseInt(request.getParameter("bno"));
+
+        dataFileService.dataFileDelete(fno);
+
+        DataBoard dto = boardService.dataBoardGet(bno);
+        DataFile temp = new DataFile();
+        temp.setBno(bno);
+        temp.setRelations("databoard");
+        List<DataFile> dataFiles = dataFileService.dataFileBoardList(temp);
+
+        model.addAttribute("dto", dto);
+        model.addAttribute("dataFiles", dataFiles);
+
+        return "/board/dataBoard/dataBoardUpdate";
+    }
+
+
 }

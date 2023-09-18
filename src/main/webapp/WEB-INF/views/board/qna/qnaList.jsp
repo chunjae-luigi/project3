@@ -39,6 +39,7 @@
                 <th>제목</th>
                 <th>작성자</th>
                 <th>작성일</th>
+                <th>조회수</th>
             </tr>
             </thead>
             <tbody>
@@ -49,12 +50,12 @@
                             <td><a href="${headPath }/board/qnaGet.do?qno=${qna.qno}">${qna.title}</a></td>
                         </c:if>
                         <c:if test='${qna.lev == 1}'>
-                            <td><a class="answers" href="${headPath }/board/qnaGet.do?qno=${qna.qno}">
-                                [답변]${qna.title}</a>
+                            <td><a class="answers" href="${headPath }/board/qnaGet.do?qno=${qna.qno}">└ [답변]${qna.title}</a>
                             </td>
                         </c:if>
                         <td>${qna.author}</td>
                         <td>${qna.regdate}</td>
+                        <td>${qna.visited}</td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -68,7 +69,6 @@
 <%@ include file="../../include/footer.jsp" %>
 </body>
 </html>
-
 <script>
     $(document).ready(function(){
         if($("tbody tr").length==0){

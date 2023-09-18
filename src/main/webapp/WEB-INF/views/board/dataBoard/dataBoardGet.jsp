@@ -44,10 +44,11 @@
             </tr>
             <c:if test="${!empty dataFiles}">
             <tr>
-                <td>학습자료</td>
-                <td colspan="2">
+                <td colspan="3">
                     <c:forEach var="file" items="${dataFiles}">
-                        <a href="${file.saveFolder}/${file.fileName}" download>${file.fileName}</a>
+                        <div class="dataBoardFile">
+                            <a href="${headPath}/resources/upload/${file.saveFolder}/${file.saveName}" download="${file.fileName}"><i class="icofont-ui-file mr-2"></i>${file.fileName}</a>
+                        </div>
                     </c:forEach>
                 </td>
             </tr>
@@ -60,6 +61,8 @@
             </tbody>
         </table>
         <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
+        <a href="${headPath }/board/dataBoardUpdate.do?bno=${dto.bno}" class="button ">글 수정</a>
+        <a href="${headPath }/board/dataBoardDelete.do?bno=${dto.bno}" class="button is-danger">글 삭제</a>
     </section>
 
 
