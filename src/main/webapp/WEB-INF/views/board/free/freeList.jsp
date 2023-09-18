@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*, java.lang.*" %>
 <%@ page import="java.text.*, java.net.InetAddress" %>
-<c:set var="path1" value="/pro3_war" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +53,7 @@
 		      	<c:forEach items="${freeList }" var="free" varStatus="status">
 		      		<tr>
 		      			<td>${status.count }</td>
-		      			<td><a href="${path1}/free/detail.do?fno=${free.fno }">${free.title }</a></td>
+		      			<td><a href="${headPath}/free/detail.do?fno=${free.fno }">${free.title }</a></td>
 		      			<td>
 	      					<fmt:parseDate value="${free.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
 	      					<fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
@@ -71,7 +71,7 @@
 		      </table>
 			      	    <%-- <c:if test='${sid eq "admin"}'>  --%> 
 		      	<div class="button-group">
-				  <a class="button is-info" href="${path1 }/free/insert.do">글쓰기</a>
+				  <a class="button is-info" href="${headPath }/free/insert.do">글쓰기</a>
 				</div>
 			<%-- </c:if> --%>
 	      </div>
