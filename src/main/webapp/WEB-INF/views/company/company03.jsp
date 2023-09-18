@@ -27,7 +27,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">페이지 이름</h1>
+                        <h1 class="is-capitalize text-lg font-happy">오시는 길</h1>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,6 @@
         <div class="wrap web guide" data-page_section="web" data-page_type="guide" data-title="Daum 지도 Web API 가이드">
             <section class="page" id="page1">
                 <div class="page_wrap">
-                    <h2 class="page_tit">오시는길</h2>
                     <div class="maparea">
                         <div id="map" style="margin-left:120px;	margin-top:50px; width:800px;height:600px; background:white; "></div>
                         <script>

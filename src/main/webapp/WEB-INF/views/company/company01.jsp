@@ -42,7 +42,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">페이지 이름</h1>
+                        <h1 class="is-capitalize text-lg font-happy">인사말</h1>
                     </div>
                 </div>
             </div>
@@ -52,9 +52,6 @@
 
     <section class="section blog-wrap container">
         <section class="page" id="page1">
-            <div class="page_wrap">
-                <h2 class="page_tit">인사말</h2>
-            </div>
             <div class="intro">
                 <h3 class="intro_tit"><img src="./image/sub/icon2.png" alt="별">Grow & Joy</h3>
                 <p class="intro_con">교육브랜드 Grow & Joy는

@@ -26,9 +26,6 @@
                                 <a href="${headPath }/member/login.do">로그인</a>
                                 <a href="${headPath }/member/term.do">회원가입</a>
                                 <a href="#">오시는 길</a>
-                                <a class="top-btn"  href="${headPath }/member/login.do">로그인</a>
-                                <a class="top-btn"  href="${headPath }/member/term.do">회원가입</a>
-                                <a class="top-btn" href="${headPath }/company03">오시는 길</a>
                             </c:otherwise>
                         </c:choose>
                     </div>

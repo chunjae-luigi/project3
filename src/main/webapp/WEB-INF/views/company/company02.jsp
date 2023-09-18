@@ -64,7 +64,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">페이지 이름</h1>
+                        <h1 class="is-capitalize text-lg font-happy">연혁</h1>
                     </div>
                 </div>
             </div>
@@ -73,12 +73,6 @@
 
 
     <section class="section blog-wrap container">
-        <section class="page" id="page1">
-            <div class="page_wrap">
-                <h2 class="page_tit">연혁</h2>
-            </div>
-        </section>
-
         <div class="text-box">
             <div class="title">2024</div>
             <div class="text-box-content">
