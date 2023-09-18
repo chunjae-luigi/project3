@@ -67,3 +67,16 @@ textarea.inData {min-height:150px;}
 .button.is-mainColor {background-color:var(--main-color);border-color:transparent;color:#fff;}
 .button.is-mainColor:hover, .button.is-mainColor.is-hovered {background-color:#055ebd;}
 .pagination-link.is-current {background-color:var(--main-color);border-color:var(--main-color);}
+
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
