@@ -1,10 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼::인사말</title>
-    <%@ include file="head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/sub.css">
+    <%@ include file="../include/head.jsp" %>
     <style>
 
         @font-face {
@@ -28,18 +31,26 @@
     </style>
 
 </head>
+
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <%@ include file="header.jsp" %>
-    </header>
-    <div  class="contents" id="contents">
-        <div class="sub">
-            <h2>회사소개</h2>
+<%@ include file="../include/header.jsp" %>
+
+<div class="content">
+
+    <section class="page-title bg-1">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">페이지 이름</h1>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="breadcrumb">
-            <p><a href="/"> HOME </a> &gt; <a href="<%=headerPath%>/company01.jsp"> 회사소개 </a> &gt; <span> 인사말 </span></p>
-        </div>
+    </section>
+
+
+    <section class="section blog-wrap container">
         <section class="page" id="page1">
             <div class="page_wrap">
                 <h2 class="page_tit">인사말</h2>
@@ -49,15 +60,16 @@
                 <p class="intro_con">교육브랜드 Grow & Joy는
                     학생의 성장을 돕고 즐거움과 기쁨을 선사합니다. <br><br>
 
-                성장 (Grow) : "그로우"는 성장과 발전을 의미합니다. 티스푼는 학생들이 더 나은 사람으로 성장하도록 돕고, 동시에 지속적인 발전과 성장을 추구합니다.<br><br>
-                즐거움 (Joy) : 교육 과정에서 즐거움과 기쁨을 경험하는 것 또한 중요합니다. 티스푼는 학생들이 학습을 통해 새로운 경험과 지식을 얻는 동시에 즐거움을 느끼는 것을 강조합니다.<br>
+                    성장 (Grow) : "그로우"는 성장과 발전을 의미합니다. 티스푼는 학생들이 더 나은 사람으로 성장하도록 돕고, 동시에 지속적인 발전과 성장을 추구합니다.<br><br>
+                    즐거움 (Joy) : 교육 과정에서 즐거움과 기쁨을 경험하는 것 또한 중요합니다. 티스푼는 학생들이 학습을 통해 새로운 경험과 지식을 얻는 동시에 즐거움을 느끼는 것을 강조합니다.<br>
             </div>
 
         </section>
-    </div>
-    <footer class="ft" id="ft">
-        <%@ include file="footer.jsp" %>
-    </footer>
+    </section>
+
+
 </div>
+
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>
