@@ -20,7 +20,6 @@
         update databoard set visited = visited+1 where bno=#{bno}
     </update>
 
-
     <select id="dataBoardCount" resultType="kr.co.tspoon.dto.DataBoard">
         select COUNT(*) from dataBoard
     </select>
@@ -37,7 +36,7 @@
         delete from databoard where bno=#{bno}
     </delete>
 
-    <!-- QnA  -->
+    <!-- free  -->
     <select id="qnaList" resultType="kr.co.tspoon.dto.Qna">
         select * from qna order by par desc
     </select>
@@ -70,5 +69,35 @@
     <delete id="qnaDelete" >
         delete from qna where qno=#{qno}
     </delete>
+
+    <!--  free(자유게시판)  -->
+    <select id="freeList" resultType="kr.co.tspoon.dto.Free">
+        select * from free order by regdate desc
+    </select>
+
+    <select id="freeGet" resultType="kr.co.tspoon.dto.Free">
+        select * from free where fno=#{fno}
+    </select>
+
+    <update id="freeCountUp" >
+        update free set visited = visited+1 where fno=#{fno}
+    </update>
+
+    <select id="freeCount" resultType="kr.co.tspoon.dto.Free">
+        select COUNT(*) from free
+    </select>
+
+    <insert id="freeInsert" >
+        insert into free values(default, #{title}, #{content}, #{author}, default, default)
+    </insert>
+
+    <update id="freeUpdate" >
+        update free set title=#{title}, content=#{content} where fno=#{fno}
+    </update>
+
+    <delete id="freeDelete" >
+        delete from free where fno=#{fno}
+    </delete>
+
 
 </mapper>
