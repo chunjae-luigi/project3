@@ -1,7 +1,6 @@
 package kr.co.tspoon.dao;
 
 import kr.co.tspoon.dto.Member;
-
 import java.util.List;
 
 public interface MemberDAO {

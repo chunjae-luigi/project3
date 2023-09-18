@@ -2,12 +2,9 @@ package kr.co.tspoon.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-
 public class Member {
     private String id;
     private String pw;

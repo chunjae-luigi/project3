@@ -1,6 +1,7 @@
 package kr.co.tspoon.service;
 
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface BoardService {
     public void qnaInsert(Qna qna) throws Exception;
     public void qnaUpdate(Qna qna) throws Exception;
     public void qnaDelete(int qno) throws Exception;
+
+
 }

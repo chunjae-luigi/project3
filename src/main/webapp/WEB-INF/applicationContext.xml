@@ -61,6 +61,7 @@
         <bean id="voteDAO" class="kr.co.tspoon.dao.VoteDAOImpl"/>
 
 
+
         <!-- @Transactional 어노테이션 처리 -->
         <tx:annotation-driven transaction-manager="transactionManager" />
 
