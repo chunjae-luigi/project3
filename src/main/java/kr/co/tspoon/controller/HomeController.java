@@ -24,4 +24,20 @@ public class HomeController {
     public String template(Model model){
         return "/template";
     }
+
+    @RequestMapping(value = "/company01", method = RequestMethod.GET)
+    public String company01(Model model){
+        return "/company/company01";
+    }
+
+    @RequestMapping(value = "/company02", method = RequestMethod.GET)
+    public String company02(Model model){
+        return "/company/company02";
+    }
+
+    @RequestMapping(value = "/company03", method = RequestMethod.GET)
+    public String company03(Model model){
+        return "/company/company03";
+    }
+
 }

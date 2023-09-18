@@ -51,9 +51,9 @@
                     <li class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">회사소개<span class="ml-1">+</span></a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company01.jsp">인사말</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">연혁</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a>
+                            <a class="navbar-item" href="${headPath }/company01">인사말</a>
+                            <a class="navbar-item" href="${headPath }/company02">연혁</a>
+                            <a class="navbar-item" href="${headPath }/company03">오시는 길</a>
                         </div>
                     </li>
 
@@ -61,7 +61,7 @@
                         <a class="navbar-link">커뮤니티<span class="ml-1">+</span></a>
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="${headPath }/notice/List.do">공지사항</a>
-                            <a class="navbar-item" href="${headPath }/board/freeList.do">자유게시판</a>
+                            <a class="navbar-item" href="${headPath }/board/free/list.do">자유게시판</a>
                             <a class="navbar-item" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
                     </li>

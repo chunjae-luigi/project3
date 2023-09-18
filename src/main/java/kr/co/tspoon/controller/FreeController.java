@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("/free/*")
+@RequestMapping("/board/free/*")
 public class FreeController {
 
     @Autowired
