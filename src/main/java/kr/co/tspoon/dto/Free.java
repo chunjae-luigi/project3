@@ -13,6 +13,5 @@ public class Free {
     private String content;
     private String regdate;
     private int visited;
-    private String id;
-    private int rec;
+    private String author;
 }
