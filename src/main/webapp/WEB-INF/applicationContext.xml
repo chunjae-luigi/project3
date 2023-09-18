@@ -43,8 +43,6 @@
         </bean>
 
         <context:annotation-config />
-<!--        <bean id="sampleService" class="kr.co.tspoon.service.SampleServiceImpl"/>-->
-<!--        <bean id="sampleDAO" class="kr.co.tspoon.dao.SampleDAOImpl"/>-->
         <bean id="memberService" class="kr.co.tspoon.service.MemberServiceImpl"/>
         <bean id="memberDAO" class="kr.co.tspoon.dao.MemberDAOImpl"/>
 
@@ -56,6 +54,16 @@
 
         <bean id="noticeService" class="kr.co.tspoon.service.NoticeServiceImpl"/>
         <bean id="noticeDAO" class="kr.co.tspoon.dao.NoticeDAOImpl"/>
+
+        <bean id="freeService" class="kr.co.tspoon.service.FreeServiceImpl"/>
+        <bean id="freeDAO" class="kr.co.tspoon.dao.FreeDAOImpl"/>
+        
+        <bean id="voteService" class="kr.co.tspoon.service.VoteServiceImpl"/>
+        <bean id="voteDAO" class="kr.co.tspoon.dao.VoteDAOImpl"/>
+
+
+        <bean id="datService" class="kr.co.tspoon.service.DatServiceImpl"/>
+        <bean id="datDAO" class="kr.co.tspoon.dao.DatDAOImpl"/>
 
 
 

@@ -6,22 +6,26 @@ import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import kr.co.tspoon.service.BoardService;
 import kr.co.tspoon.service.DataFileService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
-
     @Autowired
     private BoardService boardService;
 
@@ -29,125 +33,239 @@ public class BoardController {
     private DataFileService dataFileService;
 
     // DataBoard
-    @GetMapping("dataBoard/list.do")
+    @GetMapping("dataBoardList.do")
     public String dataBoardList(Model model) throws Exception {
         List<DataBoard> boardList = boardService.dataBoardList();
         model.addAttribute("fileboardList", boardList);
         return "/board/dataBoard/dataBoardList";
     }
 
-    @GetMapping("dataBoard/get.do")
+    @GetMapping("dataBoardGet.do")
     public String dataBoardGet(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         DataBoard dto = boardService.dataBoardGet(bno);
+        DataFile temp = new DataFile();
+        temp.setBno(bno);
+        temp.setRelations("databoard");
+        List<DataFile> dataFiles = dataFileService.dataFileBoardList(temp);
 
-        List<DataFile> dataFileList = new ArrayList<>();
-        if(dto.getRelations().equals("yes")){
-            DataFile file = new DataFile();
-            file.setRelations("dataBoard");
-            file.setBno(bno);
-            dataFileList = dataFileService.dataFileBoardList(file);
-            model.addAttribute("fileList", dataFileList);
-        }
         model.addAttribute("dto", dto);
+        model.addAttribute("dataFiles", dataFiles);
         return "/board/dataBoard/dataBoardGet";
     }
 
-    @GetMapping("databoard/insert.do")
-    public String dataBoardInsertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/board/boardInsert";
+    @GetMapping("dataBoardInsert.do")
+    public String dataBoardInsertForm() {
+        return "/board/dataBoard/dataBoardInsert";
     }
 
-    @PostMapping("databoard/insert.do")
-    public String dataBoardInsert(HttpServletRequest request, Model model) throws Exception {
+
+    // private static String uploadFolder = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\upload";
+
+    @PostMapping("dataBoardInsert.do")
+    public String dataBoardInsert(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
+        String realFolder = req.getRealPath("/resources/upload");
+
         DataBoard dto = new DataBoard();
-        dto.setTitle(request.getParameter("title"));
-        dto.setContent(request.getParameter("content"));
+
+        Enumeration<String> e = files.getParameterNames();
+        Map map = new HashMap();
+        while (e.hasMoreElements()) {
+            String name = e.nextElement();
+            String value = files.getParameter(name);
+            map.put(name, value);
+        }
+
+        dto.setTitle((String) map.get("title"));
+        dto.setContent((String) map.get("contents"));
+        dto.setAuthor((String) map.get("sid"));
+
+        String today = new SimpleDateFormat("yyMMdd").format(new Date());
+        String saveFolder = realFolder + File.separator + today;
+        File folder = new File(saveFolder);
+
+        if(!folder.exists()){
+            folder.mkdirs();
+        }
+
+        List<MultipartFile> fileList = files.getFiles("uploadFiles");
+
+        for(MultipartFile multipartFile : fileList){
+            String originalName = multipartFile.getOriginalFilename();
+            if(!originalName.isEmpty()){
+                String saveName = UUID.randomUUID().toString()+"_"+originalName;
+
+                DataFile dataFile = new DataFile();
+                dataFile.setBno(0);
+                dataFile.setFileName(originalName);
+                dataFile.setSaveName(saveName);
+                dataFile.setFileType(multipartFile.getContentType());
+                dataFile.setSaveFolder(today);
+
+                dataFileService.dataFileInsert(dataFile);
+
+                File savefile = new File(saveFolder, saveName);
+
+                try{
+                    multipartFile.transferTo(savefile);
+                } catch (Exception except){
+                    System.out.println(except.getMessage());
+                }
+            }
+        }
+
+
         boardService.dataBoardInsert(dto);
-        return "redirect:list.do";
+
+        return "redirect:dataBoardList.do";
     }
 
-    @GetMapping("dataBoard/delete.do")
-    public String dataBoardDelete(HttpServletRequest request, Model model) throws Exception {
+    @GetMapping("dataBoardDelete.do")
+    public String dataBoardDelete(HttpServletRequest request) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         boardService.dataBoardDelete(bno);
 
-        return "redirect:list.do";
+        return "redirect:dataBoardList.do";
     }
 
-    @GetMapping("dataBoard/update.do")
+    @GetMapping("dataBoardUpdate.do")
     public String dataBoardUpdateForm(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
+
         DataBoard dto = boardService.dataBoardGet(bno);
+        DataFile temp = new DataFile();
+        temp.setBno(bno);
+        temp.setRelations("databoard");
+        List<DataFile> dataFiles = dataFileService.dataFileBoardList(temp);
+
         model.addAttribute("dto", dto);
-        return "board/boardEdit";
+        model.addAttribute("dataFiles", dataFiles);
+
+        return "/board/dataBoard/dataBoardUpdate";
     }
 
-    @PostMapping("dataBoard/update.do")
-    public String dataBoardUpdate(HttpServletRequest request, Model model) throws Exception {
+    @PostMapping("dataBoardUpdate.do")
+    public String dataBoardUpdatePro(MultipartHttpServletRequest files, HttpServletRequest req, Model model) throws Exception {
+        String realFolder = req.getRealPath("/resources/upload");
+
         DataBoard dto = new DataBoard();
-        dto.setTitle(request.getParameter("title"));
-        dto.setContent(request.getParameter("content"));
+
+        Enumeration<String> e = files.getParameterNames();
+        Map map = new HashMap();
+        while (e.hasMoreElements()) {
+            String name = e.nextElement();
+            String value = files.getParameter(name);
+            map.put(name, value);
+        }
+
+        int bno = Integer.parseInt((String) map.get("bno"));
+        dto.setBno(bno);
+        dto.setTitle((String) map.get("title"));
+        dto.setContent((String) map.get("contents"));
+
+        String today = new SimpleDateFormat("yyMMdd").format(new Date());
+        String saveFolder = realFolder + File.separator + today;
+        File folder = new File(saveFolder);
+
+        if(!folder.exists()){
+            folder.mkdirs();
+        }
+
+        List<MultipartFile> fileList = files.getFiles("uploadFiles");
+
+        for(MultipartFile multipartFile : fileList){
+            String originalName = multipartFile.getOriginalFilename();
+            if(!originalName.isEmpty()){
+                String saveName = UUID.randomUUID().toString()+"_"+originalName;
+
+                DataFile dataFile = new DataFile();
+                dataFile.setBno(bno);
+                dataFile.setFileName(originalName);
+                dataFile.setSaveName(saveName);
+                dataFile.setFileType(multipartFile.getContentType());
+                dataFile.setSaveFolder(saveFolder);
+
+                dataFileService.dataFileInsert(dataFile);
+
+                File savefile = new File(saveFolder, saveName);
+
+                try{
+                    multipartFile.transferTo(savefile);
+                } catch (Exception except){
+                    System.out.println(except.getMessage());
+                }
+            }
+        }
+
+
         boardService.dataBoardUpdate(dto);
 
-        return "redirect:list.do";
+        return "redirect:dataBoardList.do";
     }
-
 
 
     // Qna
-    @GetMapping("qna/list.do")
+    @GetMapping("qnaList.do")
     public String qnaList(Model model) throws Exception {
         List<Qna> qnaList = boardService.qnaList();
         model.addAttribute("qnaList", qnaList);
-        return "/qna/qnaList";
+        return "/board/qna/qnaList";
     }
 
-    @GetMapping("qna/get.do")
+    @GetMapping("qnaGet.do")
     public String qnaGet(HttpServletRequest request, Model model) throws Exception {
         int qno = Integer.parseInt(request.getParameter("qno"));
         Qna dto = boardService.qnaGet(qno);
-        model.addAttribute("dto", dto);
-        return "/qna/qnaDetail";
+        model.addAttribute("qna", dto);
+        return "/board/qna/qnaGet";
     }
 
-    @GetMapping("qna/insert.do")
+    @GetMapping("qnaInsert.do")
     public String qnaInsertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/qna/qnaInsert";
+        int lev = Integer.parseInt(request.getParameter("lev"));
+        int par = Integer.parseInt(request.getParameter("par"));
+        model.addAttribute("lev", lev);
+        model.addAttribute("par", par);
+        return "/board/qna/qnaInsert";
     }
 
-    @PostMapping("qna/insert.do")
-    public String qnaInsert(HttpServletRequest request, Model model) throws Exception {
+    @PostMapping("qnaInsert.do")
+    public String qnaInsert(HttpServletRequest request) throws Exception {
         Qna dto = new Qna();
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
+        dto.setAuthor(request.getParameter("author"));
+        dto.setLev(Integer.parseInt(request.getParameter("lev")));
+        dto.setPar(Integer.parseInt(request.getParameter("par")));
+
         boardService.qnaInsert(dto);
-        return "redirect:list.do";
+        return "redirect:qnaList.do";
     }
 
-    @GetMapping("qna/delete.do")
-    public String qnaDelete(HttpServletRequest request, Model model) throws Exception {
+    @GetMapping("qnaDelete.do")
+    public String qnaDelete(HttpServletRequest request) throws Exception {
         int qno = Integer.parseInt(request.getParameter("qno"));
         boardService.qnaDelete(qno);
 
-        return "redirect:list.do";
+        return "redirect:qnaList.do";
     }
 
-    @GetMapping("qna/update.do")
+    @GetMapping("qnaUpdate.do")
     public String qnaUpdateForm(HttpServletRequest request, Model model) throws Exception {
         int qno = Integer.parseInt(request.getParameter("qno"));
         Qna dto = boardService.qnaGet(qno);
-        model.addAttribute("dto", dto);
-        return "qna/qnaEdit";
+        model.addAttribute("qna", dto);
+        return "/board/qna/qnaUpdate";
     }
 
-    @PostMapping("qna/update.do")
-    public String qnaUpdate(HttpServletRequest request, Model model) throws Exception {
+    @PostMapping("qnaUpdate.do")
+    public String qnaUpdate(HttpServletRequest request) throws Exception {
         Qna dto = new Qna();
+        dto.setQno(Integer.parseInt(request.getParameter("qno")));
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
         boardService.qnaUpdate(dto);
 
-        return "redirect:list.do";
+        return "redirect:qnaList.do";
     }
 }

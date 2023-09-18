@@ -15,8 +15,8 @@ p {word-break:keep-all;line-height:1.2;font-size:18px;}
 
 /* 대표색 */
 :root {
-    --main-color: #e33b4d;
-    --sub-color:#EFB305;
+    --main-color: #037AFA;
+    --sub-color:#FF751A;
     --third-color:#7f7f7f;
     --admin-color:#64b772;
 }
@@ -55,3 +55,28 @@ textarea.inData {min-height:150px;}
 .font-happy {font-family: 'Happy';}
 .font-handon {font-family: 'Handon'}
 .font-iceSotong {font-family: 'iceSotong'}
+
+
+:root {
+    --main-color:#057cfc;
+    --sub-color:#fd7517;
+    --admin-main-color:#530009;
+    --admin-sub-color:#276cda;
+}
+
+.button.is-mainColor {background-color:var(--main-color);border-color:transparent;color:#fff;}
+.button.is-mainColor:hover, .button.is-mainColor.is-hovered {background-color:#055ebd;}
+.pagination-link.is-current {background-color:var(--main-color);border-color:var(--main-color);}
+
+@font-face {
+    font-family: 'HakgyoansimWoojuR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SBAggroB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

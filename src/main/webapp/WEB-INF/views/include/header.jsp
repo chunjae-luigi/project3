@@ -10,33 +10,22 @@
     <div class="header-top ">
         <div class="container">
             <div class="columns is-gapless is-justify-content-space-between is-align-items-center">
-                <div class="column is-6-desktop is-4-tablet has-text-left-desktop has-text-centered-mobile">
-                    <div class="header-top-info">
-                        <a href="https://www.facebook.com/themefisher" target="_blank"><i class="icofont-facebook"></i></a>
-                        <a href="https://twitter.com/themefisher" target="_blank"><i class="icofont-twitter"></i></a>
-                        <a href="https://github.com/themefisher/" target="_blank"><i class="icofont-github"></i></a>
-                        <a href="#" target="_blank"><i class="icofont-pinterest"></i></a>
-                        <a href="#" target="_blank"><i class="icofont-linkedin"></i></a>
-                        <a href="tel:+23-345-67890"><i class="icofont-phone mr-2"></i><span>+23-345-67890</span></a>
-                        <a href="mailto:support@gmail.com" ><i class="icofont-email mr-2"></i><span>support@gmail.com</span></a>
-                    </div>
-                </div>
-                <div class="column is-6-desktop is-8-tablet">
+                <div class="column is-12-desktop is-8-tablet">
                     <div class="header-top-right has-text-right-tablet has-text-centered-mobile">
                         <c:choose>
                             <c:when test="${sid=='admin'}">
-                                <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
-                                <a class="top-btn"  href="${headPath }/member/get.do">마이페이지</a>
-                                <a class="top-btn"  href="${headPath }/admin/index.do">관리자페이지</a>
+                                <a href="${headPath }/member/logout.do">로그아웃</a>
+                                <a href="${headPath }/member/get.do">마이페이지</a>
+                                <a href="${headPath }/admin/MemberListAdmin.do">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">
-                                <a class="top-btn"  href="${headPath }/member/logout.do">로그아웃</a>
-                                <a class="top-btn"  href="${headPath }/member/get.do?sid=${sid}">마이페이지</a>
+                                <a href="${headPath }/member/logout.do">로그아웃</a>
+                                <a href="${headPath }/member/get.do?sid=${sid}">마이페이지</a>
                             </c:when>
                             <c:otherwise>
-                                <a class="top-btn"  href="${headPath }/member/login.do">로그인</a>
-                                <a class="top-btn"  href="${headPath }/member/term.do">회원가입</a>
-                                <a class="top-btn" href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a>
+                                <a href="${headPath }/member/login.do">로그인</a>
+                                <a href="${headPath }/member/term.do">회원가입</a>
+                                <a href="#">오시는 길</a>
                             </c:otherwise>
                         </c:choose>
                     </div>
@@ -62,9 +51,9 @@
                     <li class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">회사소개<span class="ml-1">+</span></a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company01.jsp">인사말</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">연혁</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a>
+                            <a class="navbar-item" href="${headPath }/company01">인사말</a>
+                            <a class="navbar-item" href="${headPath }/company02">연혁</a>
+                            <a class="navbar-item" href="${headPath }/company03">오시는 길</a>
                         </div>
                     </li>
 
@@ -72,21 +61,21 @@
                         <a class="navbar-link">커뮤니티<span class="ml-1">+</span></a>
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="${headPath }/notice/List.do">공지사항</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">자유게시판</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">QnA</a>
+                            <a class="navbar-item" href="${headPath }/board/free/list.do">자유게시판</a>
+                            <a class="navbar-item" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/board/dataBoard/list.do">자료실</a>
+                        <a class="navbar-link" href="${headPath }/board/dataBoardList.do">자료실</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">투표</a>
+                        <a class="navbar-link" href="${headPath }/vote/list.do">투표</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">출석</a>
+                        <a class="navbar-link" href="">출석</a>
                     </li>
 
                     <li class="navbar-item">

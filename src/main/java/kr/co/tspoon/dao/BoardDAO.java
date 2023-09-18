@@ -1,11 +1,10 @@
 package kr.co.tspoon.dao;
-
 import kr.co.tspoon.dto.DataBoard;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 
-import java.util.List;
 
+import java.util.List;
 public interface BoardDAO {
     // DataBoard
     public List<DataBoard> dataBoardList() throws Exception;

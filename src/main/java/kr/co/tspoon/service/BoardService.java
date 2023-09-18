@@ -1,7 +1,7 @@
 package kr.co.tspoon.service;
 
 import kr.co.tspoon.dto.DataBoard;
-import kr.co.tspoon.dto.Notice;
+import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Qna;
 
 import java.util.List;

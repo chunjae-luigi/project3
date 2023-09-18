@@ -1,95 +1,89 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
-<%
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="headPath" value="${pageContext.request.contextPath }" />
 
-    DBC con = new MariaDBCon();
-    conn = con.connect();
-
-    List<Member> memList = new ArrayList<>();
-    try {
-        String sql = "SELECT * FROM member WHERE id NOT IN ('admin')";
-        pstmt = conn.prepareStatement(sql);
-        rs = pstmt.executeQuery();
-        while (rs.next()) {
-            Member mem = new Member();
-            mem.setName(rs.getString("name"));
-            mem.setId(rs.getString("id"));
-            mem.setTel(rs.getString("tel"));
-            mem.setRegdate(rs.getString("regdate"));
-            memList.add(mem);
-        }
-    } catch (SQLException e) {
-        System.out.println("sql 구문 오류");
-    } finally {
-        con.close(rs, pstmt, conn);
-    }
-
-    SimpleDateFormat ymd = new SimpleDateFormat("yyyy-MM-dd");
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>티스푼::관리자페이지-회원관리</title>
-    <%@ include file="../head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/admin.css">
-    <style>
-        .num {width:5%;}
-        .etc {width:30%;}
-        .inBtn {padding:0 10px;}
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 목록</title>
+    <jsp:include page="../include/head.jsp" />
 </head>
-<body>
-<div class="admin_wrap">
-    <header class="admin_hd" id="adminHd">
-        <%@ include file="/admin/adminHeader.jsp" %>
-    </header>
-    <div class="admin_contents" id="adminContents">
-        <h2>회원 관리</h2>
-        <div class="container">
-            <table class="table tb1">
-                <thead>
-                    <tr>
-                        <th class="num"></th>
-                        <th>이름</th>
-                        <th>아이디</th>
-                        <th>전화번호</th>
-                        <th>가입일</th>
-                        <th class="etc">비고</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <%
-                    if(memList.size() > 0){
-                        int num = 1;
-                        for(Member mem : memList) {
-                            Date date = ymd.parse(mem.getRegdate());
-                            String dateStr = ymd.format(date);
 
-                %>
-                <tr>
-                    <td class="num"><%=num %></td>
-                    <td class="title txtLeft"><%=mem.getName() %></td>
-                    <td class="id"><%=mem.getId() %></td>
-                    <td class="tel"><%=mem.getTel() %></td>
-                    <td class="date"><%=dateStr %></td>
-                    <td class="etc">
-                        <a href="<%=headPath%>/admin/memberUpdatePw.jsp?id=<%=mem.getId()%>" class="inBtn inBtn1">비밀번호 변경</a>
-                        <a href="../member/removeMemberPro.jsp?id=<%=mem.getId()%>" class="inBtn inBtn2">회원 탈퇴</a>
-                    </td>
-                </tr>
-                <%  num++; } } else { %>
-                <tr><td colspan="6">가입한 회원이 없습니다.</td></tr>
-                <% } %>
-                </tbody>
-            </table>
+<body>
+<jsp:include page="../include/header.jsp" />
+<div style="display: flex; min-height: 80vh;">
+    <jsp:include page="./adminBoardList.jsp" />
+    <div class="container" style="margin-top: 20px;">
+        <h2 class="title">회원</h2>
+        <div class="container">
+            <form action="${rootPath}/MemberDelete.do" method="post" onsubmit="return deleteTrue()">
+                <table class="table table-secondary" id="tb1">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>등록일</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="member" items="${memberList}" varStatus="status">
+                    <tr id="${status.count}">
+                        <td class="check"><input type="checkbox" class="isDelete" name="isDelete" value="${member.id}"></td>
+                        <td>${status.count}</td>
+                        <td>
+                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="${rootPath }/MemberGetAdmin.do?id=${member.id}" style="display:inline-block; width:100%;">${member.id}</a>
+                        </td>
+                        <td>${member.name}</td>
+                        <td>${member.regdate}</td>
+                    </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+                <input class="btn btn-danger" type="submit" value="회원 삭제">
+                <nav aria-label="Page navigation example" id="page-nation1">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </form>
         </div>
     </div>
 </div>
 </body>
 </html>
+
+
+
+<script>
+    function deleteTrue(){
+        var isdelete = confirm("정말 삭제하시겠습니까?");
+        if(isdelete===true){
+            var len = $(".isDelete[checked='true']").length;
+            if(len>0){
+                return true;
+            } else{
+                alert("삭제할 회원이 없습니다.");
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+</script>
+
+<script>
+    $(document).ready(function(){
+        if($("tbody tr").length==0){
+            $("tbody").append("<tr><td colspan='5' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
+        }
+    })
+</script>

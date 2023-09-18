@@ -2,10 +2,12 @@ package kr.co.tspoon.service;
 
 import kr.co.tspoon.dao.BoardDAO;
 import kr.co.tspoon.dto.DataBoard;
+import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -30,9 +32,11 @@ public class BoardServiceImpl implements BoardService {
         return boardDAO.dataBoardCount();
     }
 
+    @Transactional
     @Override
     public void dataBoardInsert(DataBoard dataBoard) throws Exception {
         boardDAO.dataBoardInsert(dataBoard);
+
     }
 
     @Override
@@ -44,8 +48,7 @@ public class BoardServiceImpl implements BoardService {
     public void dataBoardDelete(int bno) throws Exception {
         boardDAO.dataBoardDelete(bno);
     }
-
-
+    
     // Qna
     @Override
     public List<Qna> qnaList() throws Exception {
