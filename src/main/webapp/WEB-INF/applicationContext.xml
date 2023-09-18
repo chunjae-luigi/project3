@@ -57,6 +57,10 @@
 
         <bean id="freeService" class="kr.co.tspoon.service.FreeServiceImpl"/>
         <bean id="freeDAO" class="kr.co.tspoon.dao.FreeDAOImpl"/>
+        
+        <bean id="voteService" class="kr.co.tspoon.service.VoteServiceImpl"/>
+        <bean id="voteDAO" class="kr.co.tspoon.dao.VoteDAOImpl"/>
+
 
         <bean id="datService" class="kr.co.tspoon.service.DatServiceImpl"/>
         <bean id="datDAO" class="kr.co.tspoon.dao.DatDAOImpl"/>
