@@ -30,14 +30,6 @@ CREATE TABLE board(
 	visited INT DEFAULT 0   -- (조회수)
 );
 
--- notice
-CREATE TABLE notice(
-      no INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
-      title VARCHAR(200) NOT NULL,   -- (게시글 제목)
-      content VARCHAR(1000),   -- (게시글 내용)
-      regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
-      visited INT DEFAULT 0   -- (조회수)
-);
 
 -- datgeul
 CREATE TABLE dat(
