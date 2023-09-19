@@ -33,13 +33,10 @@
 			</div>
 		</div>
 	</section>
-
-	<div class="content" id="contents">
-	    <div class="row column text-center">
-	      <h2 class="has-text-centered">자유게시판 목록</h2>
-	      <hr>
-			<form action="${path }/board/free/list.do" method="get" class="field has-addons has-addons-right">
-				<p class="control">
+	<section class="section blog-wrap container">
+				<%-- 검색창(자유게시판-제목,내용,작성자) --%>
+				<form action="${path }/board/free/list.do" method="get" class="field has-addons has-addons-right">
+					<p class="control">
                 <span class="select">
                     <select id="type" name="type">
                         <option value="title">제목</option>
@@ -47,16 +44,14 @@
 						<option value="id">작성자</option>
                     </select>
                 </span>
-				</p>
-				<p class="control">
-					<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
-				</p>
-				<p class="control">
-					<input type="submit" class="button is-mainColor" value="검색" />
-				</p>
-			</form>
-
-			<section class="section blog-wrap container">
+					</p>
+					<p class="control">
+						<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
+					</p>
+					<p class="control">
+						<input type="submit" class="button is-mainColor" value="검색" />
+					</p>
+				</form>
 				<table class="table">
 		      	<thead>
 		      		<tr>
@@ -96,6 +91,7 @@
 			</section>
 			<%-- </c:if> --%>
 
+			<%-- 페이징처리 --%>
 			<nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
 				<c:if test="${curPage > page.pageCount }">
 					<a href="${path }/board/free/list.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
