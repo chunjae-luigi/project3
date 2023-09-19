@@ -22,7 +22,7 @@ public class DatController {
 
     @GetMapping("insert.do")
     public String insertForm(HttpServletRequest request, Model model) throws Exception {
-        return "/dat/datInsert";
+        return "/board/dat/datInsert";
     }
 
     @PostMapping("insert.do")
@@ -32,7 +32,7 @@ public class DatController {
         dat.setContent(request.getParameter("content"));
         dat.setPar(Integer.parseInt(request.getParameter("par")));
         datService.datInsert(dat);
-        return "redirect:/free/detail.do?fno="+request.getParameter("par");
+        return "redirect:/board/free/detail.do?fno="+request.getParameter("par");
     }
 
     @GetMapping("delete.do")
@@ -42,7 +42,7 @@ public class DatController {
         datService.datDelete(dno);
         model.addAttribute("fno", fno);
         ModelAndView mav = new ModelAndView();
-        mav.setView(new RedirectView(request.getContextPath() + "/free/detail.do"));
+        mav.setView(new RedirectView(request.getContextPath() + "/board/free/detail.do"));
         return mav;
         //String referer = request.getHeader("Referer");      // 요청한 페이지를 기억해서 보냄
         //System.out.println(referer);

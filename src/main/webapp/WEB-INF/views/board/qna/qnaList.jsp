@@ -31,7 +31,6 @@
         </div>
     </section>
 
-
     <section class="section blog-wrap container">
         <form action="${headPath }/board/qnaList.do" method="get" class="field has-addons has-addons-right">
             <p class="control">
