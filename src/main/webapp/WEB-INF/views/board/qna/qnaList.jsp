@@ -30,7 +30,6 @@
         </div>
     </section>
 
-
     <section class="section blog-wrap container">
         <table class="table">
             <thead>

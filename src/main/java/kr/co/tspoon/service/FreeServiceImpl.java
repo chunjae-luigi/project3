@@ -2,6 +2,7 @@ package kr.co.tspoon.service;
 
 import kr.co.tspoon.dao.FreeDAO;
 import kr.co.tspoon.dto.Free;
+import kr.co.tspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,13 @@ public class FreeServiceImpl implements FreeService {
     private FreeDAO freeDAO;
 
     @Override
-    public List<Free> freeList() throws Exception {
-        return freeDAO.freeList();
+    public List<Free> freeList(Page page) throws Exception {
+        return freeDAO.freeList(page);
+    }
+
+    @Override
+    public int totalCount(Page page) throws Exception {
+        return freeDAO.totalCount(page);
     }
 
     @Override
