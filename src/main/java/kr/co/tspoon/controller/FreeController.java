@@ -92,14 +92,14 @@ public class FreeController {
         dto.setContent(request.getParameter("content"));
         dto.setAuthor(sid);
         freeService.freeInsert(dto);
-        return "redirect:freeList.do";
+        return "redirect:/board/free/list.do";
     }
 
     @GetMapping("delete.do")
     public String freeDelete(HttpServletRequest request, Model model) throws Exception {
         int fno = Integer.parseInt(request.getParameter("fno"));
         freeService.freeDelete(fno);
-        return "redirect:freeList.do";
+        return "redirect:/board/free/list.do";
     }
 
     @GetMapping("edit.do")
@@ -119,7 +119,7 @@ public class FreeController {
         dto.setTitle(request.getParameter("title"));
         dto.setContent(request.getParameter("content"));
         freeService.freeEdit(dto);
-        return "redirect:freeList.do";
+        return "redirect:/board/free/list.do";
     }
 
 
