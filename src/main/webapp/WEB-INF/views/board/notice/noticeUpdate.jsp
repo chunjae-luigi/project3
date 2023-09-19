@@ -13,7 +13,6 @@
 
 <body>
 <jsp:include page="../../include/header.jsp" />
-<jsp:include page="./adminBoardList.jsp" />
 
 <div class="content">
     <section class="page-title bg-1">
