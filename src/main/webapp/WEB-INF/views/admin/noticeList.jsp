@@ -41,6 +41,31 @@
         <div class="btn_group">
             <a href="${headPath }/admin/Insert.do" class="inBtn inBtn1">공지 등록</a>
         </div>
+            <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
+                <c:if test="${curPage > page.pageCount }">
+                    <a href="${headPath }/admin/List.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
+                </c:if>
+                <c:if test="${page.blockLastNum < page.totalPageCount }">
+                    <a href="${headPath }/admin/List.do?page=${page.blockLastNum + 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-next">Next page</a>
+                </c:if>
+
+                <ul class="pagination-list">
+                    <c:forEach var="i" begin="${page.blockStartNum }" end="${page.blockLastNum }">
+                        <c:choose>
+                            <c:when test="${i == curPage }">
+                                <li>
+                                    <a href="${headPath }/admin/List.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link is-current" aria-label="Page ${i }" aria-current="page">${i }</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li>
+                                    <a href="${headPath }/admin/List.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link" aria-label="Page ${i }" aria-current="page">${i }</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                </ul>
+            </nav>
     </div>
     </div>
 </div>

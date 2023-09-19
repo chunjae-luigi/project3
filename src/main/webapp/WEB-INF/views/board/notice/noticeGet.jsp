@@ -56,8 +56,10 @@
         </table>
         <div class="button-group">
             <a class="button" href="${headPath }/notice/List.do">글 목록</a>
+            <c:if test='${sid eq "admin"}'>
             <a class="button" href="${headPath }/notice/Update.do?no=${notice.no}">글 수정</a>
             <a class="button" href="${headPath }/notice/Delete.do?no=${notice.no}">글 삭제</a>
+            </c:if>
         </div>
         <jsp:include page="../../include/footer.jsp" />
 </body>

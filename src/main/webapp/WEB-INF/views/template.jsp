@@ -28,8 +28,26 @@
 
 
     <section class="section blog-wrap container">
-    <%--        내용 넣기--%>
+        <div class="container is-fluid">
+            <c:forEach var="news" items="${newsList}">
+                <div class="card" style="width: 30%; height: 580px; overflow: hidden; margin: 15px; display: inline-block;">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="${news.img}">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <p class="title is-4">${news.title}</p>
+                        </div>
 
+                        <div class="content">
+                                ${news.content}
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </section>
 
 
