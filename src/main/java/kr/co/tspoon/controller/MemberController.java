@@ -47,7 +47,6 @@ public class MemberController {
     public String term(){
         return "/member/term";
     }
-
     @GetMapping("login.do")
     public String loginForm(HttpServletRequest request, Model model) throws Exception {
         return "/member/login";
@@ -58,6 +57,9 @@ public class MemberController {
         Member mem = memberService.login(id);
         if(mem != null) {
             boolean loginSuccess = pwEncoder.matches(pw, mem.getPw());
+            System.out.println("pw : " + pw);
+            System.out.println("ma : " + mem.getPw());
+            System.out.println(loginSuccess);
             if (loginSuccess) {
                 session.setAttribute("sid", id);
                 model.addAttribute("msg", "로그인을 성공하셨습니다.");
@@ -65,16 +67,14 @@ public class MemberController {
                 return "/member/alert";
 
             } else {
-                model.addAttribute("msg", "로그인을 실패하였습니다.");
+                model.addAttribute("msg", "비밀번호가 일치하지 않습니다.");
                 model.addAttribute("url", "/member/login.do");
                 return "/member/alert";
-
             }
         }else{
         model.addAttribute("msg", "아이디가 없습니다.");
         model.addAttribute("url", "/member/login.do");
         return "/member/alert";
-
         }
     }
 
@@ -97,7 +97,7 @@ public class MemberController {
         session.removeAttribute("sid");
         model.addAttribute("msg", "로그아웃 하셨습니다.");
         model.addAttribute("url", "/");
-        return "redirect: /member/alert";
+        return "/member/alert";
     }
 
     @GetMapping("insert.do")
@@ -106,28 +106,11 @@ public class MemberController {
     }
 
     @PostMapping("insert.do")
-    public String memberInsert(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
-        String pw = request.getParameter("pw");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String tel = request.getParameter("tel");
-        String addr1 = request.getParameter("addr1");
-        String addr2 = request.getParameter("addr2");
-        String postcode = request.getParameter("postcode");
-        String birth = request.getParameter("birth");
-
-        Member dto = new Member();
-        dto.setId(id);
-        dto.setPw(pw);
-        dto.setName(name);
-        dto.setEmail(email);
-        dto.setTel(tel);
-        dto.setAddr1(addr1);
-        dto.setAddr2(addr2);
-        dto.setPostcode(postcode);
-        dto.setBirth(birth);
-        memberService.memberInsert(dto);
+    public String memberInsert(Member member,  Model model) throws Exception {
+        String ppw = member.getPw();
+        String pw = pwEncoder.encode(ppw);
+        member.setPw(pw);
+        memberService.memberInsert(member);
         model.addAttribute("msg", "가족이 되신걸 환영합니다.");
         model.addAttribute("url", "/member/login.do");
         return "/member/alert";

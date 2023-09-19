@@ -40,11 +40,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void memberInsert(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberInsert(dto);
+    public void memberInsert(Member member) throws Exception {
+        memberDAO.memberInsert(member);
+
     }
 
     @Override
