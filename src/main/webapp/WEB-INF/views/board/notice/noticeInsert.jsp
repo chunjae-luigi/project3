@@ -34,18 +34,18 @@
                     <tr>
                         <th style="background-color:#dcdcdc">글 제목</th>
                         <td>
-                            <input type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" required>
+                            <input class="input" type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" required>
                         </td>
                     </tr>
                     <tr>
                         <th style="background-color:#dcdcdc">글 내용</th>
                         <td>
-                            <textarea name="content" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required></textarea>
+                            <textarea class="textarea" name="content" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input type="submit" class="submit success button" value="글 등록" >
+                            <input type="submit" class="submit is-success button" value="글 등록" >
                             <a class="button" href="${headPath }/notice/List.do">글 목록</a>
                         </td>
                     </tr>

@@ -38,8 +38,10 @@
 	    <div class="row column text-center">
 	      <h2 class="has-text-centered">자유게시판 목록</h2>
 	      <hr>
-			<form action="${path }/board/free/list.do" method="get" class="field has-addons has-addons-right">
-				<p class="control">
+
+			<section class="section blog-wrap container">
+				<form action="${path }/board/free/list.do" method="get" class="field has-addons has-addons-right">
+					<p class="control">
                 <span class="select">
                     <select id="type" name="type">
                         <option value="title">제목</option>
@@ -47,16 +49,15 @@
 						<option value="id">작성자</option>
                     </select>
                 </span>
-				</p>
-				<p class="control">
-					<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
-				</p>
-				<p class="control">
-					<input type="submit" class="button is-mainColor" value="검색" />
-				</p>
-			</form>
+					</p>
+					<p class="control">
+						<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
+					</p>
+					<p class="control">
+						<input type="submit" class="button is-mainColor" value="검색" />
+					</p>
+				</form>
 
-			<section class="section blog-wrap container">
 				<table class="table">
 		      	<thead>
 		      		<tr>
