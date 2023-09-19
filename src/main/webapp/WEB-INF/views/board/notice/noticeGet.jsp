@@ -5,66 +5,61 @@
 <c:set var="headPath" value="${pageContext.request.contextPath }"/>
 <c:set var="sid" value="${pageContext.session.getAttribute('sid') }"/>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>티스푼::공지사항</title>
+    <title>공지사항 상세보기</title>
     <jsp:include page="../../include/head.jsp" />
 </head>
+
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <jsp:include page="../../include/header.jsp" />
-    </header>
-    <div  class="contents" id="contents">
-        <div class="sub">
-            <h2>커뮤니티</h2>
-        </div>
+<jsp:include page="../../include/header.jsp" />
+<div class="content">
 
-        <div class="content" id="content">
-            <div class="row column text-center">
-                <h2 class="h1">공지사항 상세 보기</h2>
-                <hr>
-                <div class="container">
-                    <table id="table1">
-                        <tbody>
-                        <tr>
-                            <th style="background-color:#dcdcdc">글 번호</th>
-                            <td>${notice.no }</td>
-
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">글 제목</th>
-                            <td>${notice.title }</td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">글 내용</th>
-                            <td><p>${notice.content }</p></td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">작성일시</th>
-                            <td>${notice.regdate }</td>
-                        </tr>
-                        <tr>
-                            <th style="background-color:#dcdcdc">읽은 횟수</th>
-                            <td>${notice.visited }</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="button-group">
-                        <a class="button" href="${headPath }/notice/List.do">글 목록</a>
-                        <a class="button" href="${headPath }/notice/Update.do?no=${notice.no}">글 수정</a>
-                        <a class="button" href="${headPath }/notice/Delete.do?no=${notice.no}">글 삭제</a>
+    <section class="page-title bg-1">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">공지사항 상세보기</h1>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="ft" id="ft">
-        <jsp:include page="../../include/footer.jsp" />
+    </section>
 
-    </footer>
-</div>
+    <section class="section blog-wrap container">
+        <table class="table" id="myTable">
+            <tbody>
+            <tr>
+                <th style="background-color:#dcdcdc">글 번호</th>
+                <td>${notice.no }</td>
+            </tr>
+            <tr>
+                <th style="background-color:#dcdcdc">글 제목</th>
+                <td>${notice.title }</td>
+            </tr>
+            <tr>
+                <th style="background-color:#dcdcdc">글 내용</th>
+                <td><p>${notice.content }</p></td>
+            </tr>
+            <tr>
+                <th style="background-color:#dcdcdc">작성일시</th>
+                <td>${notice.regdate }</td>
+            </tr>
+            <tr>
+                <th style="background-color:#dcdcdc">읽은 횟수</th>
+                <td>${notice.visited }</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="button-group">
+            <a class="button" href="${headPath }/notice/List.do">글 목록</a>
+            <a class="button" href="${headPath }/notice/Update.do?no=${notice.no}">글 수정</a>
+            <a class="button" href="${headPath }/notice/Delete.do?no=${notice.no}">글 삭제</a>
+        </div>
+        <jsp:include page="../../include/footer.jsp" />
 </body>
 
 </html>

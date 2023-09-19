@@ -448,7 +448,7 @@ table th:not([align]) {
 }
 
 table th {
-  color: #363636;
+  color: #037AFA;
 }
 
 @-webkit-keyframes spinAround {
@@ -2133,12 +2133,12 @@ fieldset[disabled] .button {
 }
 
 .content table th {
-  color: #363636;
+  color: #037AFA;
 }
-
+/*
 .content table th:not([align]) {
-  text-align: inherit;
-}
+  text-align: center;
+}*/
 
 .content table thead td,
 .content table thead th {
@@ -2835,13 +2835,13 @@ div.icon-text {
 .table th {
   color: #363636;
 }
-
+/*
 .table th:not([align]) {
   text-align: left;
-}
+}*/
 
 .table tr.is-selected {
-  background-color: #00d1b2;
+  background-color: #037AFA ;
   color: #fff;
 }
 

@@ -21,7 +21,7 @@ p {word-break:keep-all;line-height:1.2;font-size:18px;}
     --admin-color:#64b772;
 }
 
-.table {margin:0 auto;}
+.table {margin:0 auto; width: 100%; text-align: center;}
 .table th, .table td {border-bottom:1px solid #333; border-top:1px solid #333;}
 .table th {background-color:var(--main-color);color:#fff;line-height:32px;padding:8px 0;}
 .table td {padding:14px 0;}
@@ -29,7 +29,7 @@ p {word-break:keep-all;line-height:1.2;font-size:18px;}
 
 .tb1 {width:100%;}
 .tb1 td {text-align:center;}
-.tb1 td.txtLeft {text-align:left;padding-left:15px;}
+.tb1 td.txtLeft {text-align:left; padding-left:15px;}
 
 .tb2 {width:800px;}
 .tb2 th {width:30%;padding-top:24px;vertical-align:top;}
