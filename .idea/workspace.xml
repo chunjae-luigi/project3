@@ -11,28 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02e045f0-3753-47c6-9b04-c3b2df27af75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberGet.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/noticeGet.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/noticeInsert.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/noticeList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/noticeUpdate.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/adminController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/service/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/memberMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/memberMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBoardList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/adminBoardList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/memberList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeInsert.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeInsert.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeUpdate.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/notice/noticeUpdate.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/idload.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/memberGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma-rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bulma-rtl.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +63,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "sangmin",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/kyo/project3/src/main/webapp/WEB-INF/views/admin",
+    "last_opened_file_path": "D:/kyo/project3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -248,6 +228,7 @@
       <workItem from="1695003540443" duration="6033000" />
       <workItem from="1695021282799" duration="6821000" />
       <workItem from="1695081812060" duration="7747000" />
+      <workItem from="1695090021225" duration="183000" />
     </task>
     <servers />
   </component>
