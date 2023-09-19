@@ -41,7 +41,7 @@ CREATE TABLE free(
 	regdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,   -- (등록일)
 	visited INT DEFAULT 0   -- (조회수)
 );
-team43
+
 -- datgeul
 CREATE TABLE dat(
 	dno INT PRIMARY KEY AUTO_INCREMENT,   -- (댓글번호) 자동발생

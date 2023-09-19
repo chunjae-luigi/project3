@@ -45,7 +45,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a id="admin-notice-nav" href="${rootPath}/admin/NoticeListAdmin.do" class="nav-link-side text-white">
+            <a id="admin-notice-nav" href="${rootPath}/admin/List.do" class="nav-link-side text-white">
                 공지사항 관리
             </a>
         </li>

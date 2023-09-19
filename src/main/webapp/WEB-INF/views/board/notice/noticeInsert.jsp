@@ -9,19 +9,26 @@
 <html lang="en">
 <head>
     <title>티스푼::공지사항</title>
-    <jsp:include page="../../include/head.jsp" />
+<jsp:include page="../../include/head.jsp" />
 </head>
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <jsp:include page="../../include/header.jsp" />
+<jsp:include page="../../include/header.jsp" />
 
-    </header><div class="content" id="contents">
-    <div class="row column text-center">
-        <h2 class="h1">공지사항 글쓰기</h2>
-        <hr>
+    <div class="content" id="contents">
+    <section class="page-title bg-1">
         <div class="container">
-            <form action="${headPath }/notice/Insert.do" method="post">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">공지사항</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section blog-wrap container">
+        <table class="table">
+        <form action="${headPath }/notice/Insert.do" method="post">
                 <table id="table1">
                     <tbody>
                     <tr>
@@ -45,13 +52,7 @@
                     </tbody>
                 </table>
             </form>
-        </div>
-    </div>
-</div>
-    <footer class="ft" id="ft">
-        <jsp:include page="../../include/footer.jsp" />
-
-    </footer>
+<jsp:include page="../../include/footer.jsp" />
 </div>
 </body>
 
