@@ -20,7 +20,7 @@
                             </c:when>
                             <c:when test="${!empty sid}">
                                 <a href="${headPath }/member/logout.do">로그아웃</a>
-                                <a href="#">마이페이지</a>
+                                <a href="${headPath }/member/get.do?sid=${sid}">마이페이지</a>
                             </c:when>
                             <c:otherwise>
                                 <a href="${headPath }/member/login.do">로그인</a>

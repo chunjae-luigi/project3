@@ -6,6 +6,7 @@ import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
 import kr.co.tspoon.service.BoardService;
 import kr.co.tspoon.service.DataFileService;
+import kr.co.tspoon.util.Page;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,8 +35,26 @@ public class BoardController {
 
     // DataBoard
     @GetMapping("dataBoardList.do")
-    public String dataBoardList(Model model) throws Exception {
-        List<DataBoard> boardList = boardService.dataBoardList();
+    public String dataBoardList(HttpServletRequest request, Model model) throws Exception {
+        String type = request.getParameter("type");
+        String keyword = request.getParameter("keyword");
+        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        Page page = new Page();
+        page.setSearchType(type);
+        page.setSearchKeyword(keyword);
+        int total = boardService.dataBoardCount(page);
+
+        page.makeBlock(curPage, total);
+        page.makeLastPageNum(total);
+        page.makePostStart(curPage, total);
+
+        model.addAttribute("type", type);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("page", page);
+        model.addAttribute("curPage", curPage);
+
+        List<DataBoard> boardList = boardService.dataBoardList(page);
         model.addAttribute("fileboardList", boardList);
         return "/board/dataBoard/dataBoardList";
     }
@@ -205,8 +225,26 @@ public class BoardController {
 
     // Qna
     @GetMapping("qnaList.do")
-    public String qnaList(Model model) throws Exception {
-        List<Qna> qnaList = boardService.qnaList();
+    public String qnaList(HttpServletRequest request, Model model) throws Exception {
+        String type = request.getParameter("type");
+        String keyword = request.getParameter("keyword");
+        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        Page page = new Page();
+        page.setSearchType(type);
+        page.setSearchKeyword(keyword);
+        int total = boardService.qnaCount(page);
+
+        page.makeBlock(curPage, total);
+        page.makeLastPageNum(total);
+        page.makePostStart(curPage, total);
+
+        model.addAttribute("type", type);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("page", page);
+        model.addAttribute("curPage", curPage);
+
+        List<Qna> qnaList = boardService.qnaList(page);
         model.addAttribute("qnaList", qnaList);
         return "/board/qna/qnaList";
     }

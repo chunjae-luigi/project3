@@ -37,6 +37,6 @@
     </delete>
 
     <update id="memberUpdatePoint">
-        update member set point = #{point} where id = #{id}
+        update member set point=#{point} where id=#{id}
     </update>
 </mapper>

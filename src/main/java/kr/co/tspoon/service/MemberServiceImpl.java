@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.List;
 
 @Service
@@ -34,24 +35,14 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public boolean login(String id, String pw) throws Exception {
-        boolean flag = false;
-        Member member = memberDAO.login(id);
-        boolean pwMatch = bcryptPasswordEncoder.matches(pw, member.getPw());
-        if(member.getId().equals(id) && pwMatch){
-            session.setAttribute("sid", id);
-            session.setAttribute("spw", pw);
-            flag = true;
-        }
-        return flag;
+    public Member login(String id) throws Exception {
+        return memberDAO.login(id);
     }
 
     @Override
-    public void memberInsert(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberInsert(dto);
+    public void memberInsert(Member member) throws Exception {
+        memberDAO.memberInsert(member);
+
     }
 
     @Override
