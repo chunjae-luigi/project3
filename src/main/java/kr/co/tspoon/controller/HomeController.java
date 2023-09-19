@@ -1,5 +1,7 @@
 package kr.co.tspoon.controller;
 
+import kr.co.tspoon.dto.News;
+import kr.co.tspoon.util.Crawler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 @Controller
@@ -21,7 +24,9 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/template", method = RequestMethod.GET)
-    public String template(Model model){
+    public String template(Model model) throws Exception {
+        List<News> newsList = Crawler.naverNewsKeyword("천재교육");
+        model.addAttribute("newsList", newsList);
         return "/template";
     }
 
