@@ -33,10 +33,6 @@
                 <td>${member.id}</td>
             </tr>
             <tr>
-                <th>비밀번호</th>
-                <td>${member.pw}</td>
-            </tr>
-            <tr>
                 <th>이름</th>
                 <td>${member.name}</td>
             </tr>

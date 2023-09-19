@@ -5,6 +5,7 @@ import kr.co.tspoon.dto.DataBoard;
 import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
+import kr.co.tspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +19,8 @@ public class BoardServiceImpl implements BoardService {
     private BoardDAO boardDAO;
 
     @Override
-    public List<DataBoard> dataBoardList() throws Exception {
-        return boardDAO.dataBoardList();
+    public List<DataBoard> dataBoardList(Page page) throws Exception {
+        return boardDAO.dataBoardList(page);
     }
 
     @Override
@@ -28,8 +29,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int dataBoardCount() throws Exception {
-        return boardDAO.dataBoardCount();
+    public int dataBoardCount(Page page) throws Exception {
+        return boardDAO.dataBoardCount(page);
     }
 
     @Transactional
@@ -51,8 +52,8 @@ public class BoardServiceImpl implements BoardService {
     
     // Qna
     @Override
-    public List<Qna> qnaList() throws Exception {
-        return boardDAO.qnaList();
+    public List<Qna> qnaList(Page page) throws Exception {
+        return boardDAO.qnaList(page);
     }
 
     @Override
@@ -61,8 +62,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public int qnaCount() throws Exception {
-        return boardDAO.qnaCount();
+    public int qnaCount(Page page) throws Exception {
+        return boardDAO.qnaCount(page);
     }
 
     @Override

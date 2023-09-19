@@ -2,12 +2,43 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-
+<c:set var="headPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼</title>
     <%@ include file="include/head.jsp" %>
+    <style>
+
+        /* 하단 고정 배너 */
+        .footBnrFixed {
+            position: fixed;
+            z-index: 999;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+
+        .footBnrFixed img {
+            display: block;
+            height : 100px;
+            width: 80%;
+            margin: 0 auto;
+        }
+/*
+        .footBnrFixed a {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            display: block;
+            width: 500px;
+            height: 84px;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+        }*/
+
+    </style>
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
@@ -413,7 +444,16 @@
     </div>
 
 </div>
-
+<footer id="ft" name="ft">
 <%@ include file="include/footer.jsp" %>
+
+    <div class="footBnrFixed" id="footBnrFixed">
+        <img src="${headPath }/resources/image/main/banner1.png" alt="가족선물">
+
+    </div>
+
+
+
+</footer>
 </body>
 </html>

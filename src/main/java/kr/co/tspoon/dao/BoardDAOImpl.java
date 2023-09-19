@@ -4,6 +4,7 @@ import kr.co.tspoon.dto.DataBoard;
 import kr.co.tspoon.dto.DataFile;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.dto.Qna;
+import kr.co.tspoon.util.Page;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,8 +21,8 @@ public class BoardDAOImpl implements BoardDAO {
 
     // DataBoard
     @Override
-    public List<DataBoard> dataBoardList() throws Exception {
-        return sqlSession.selectList("board.dataBoardList");
+    public List<DataBoard> dataBoardList(Page page) throws Exception {
+        return sqlSession.selectList("board.dataBoardList", page);
     }
 
     @Transactional
@@ -32,8 +33,8 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
-    public int dataBoardCount() throws Exception {
-        return sqlSession.selectOne("board.dataBoardCount");
+    public int dataBoardCount(Page page) throws Exception {
+        return sqlSession.selectOne("board.dataBoardCount", page);
     }
 
     @Transactional
@@ -69,8 +70,8 @@ public class BoardDAOImpl implements BoardDAO {
 
     // Qna
     @Override
-    public List<Qna> qnaList() throws Exception {
-        return sqlSession.selectList("board.qnaList");
+    public List<Qna> qnaList(Page page) throws Exception {
+        return sqlSession.selectList("board.qnaList", page);
     }
 
     @Transactional
@@ -81,8 +82,8 @@ public class BoardDAOImpl implements BoardDAO {
     }
 
     @Override
-    public int qnaCount() throws Exception {
-        return sqlSession.selectOne("board.qnaCount");
+    public int qnaCount(Page page) throws Exception {
+        return sqlSession.selectOne("board.qnaCount", page);
     }
 
     @Transactional
