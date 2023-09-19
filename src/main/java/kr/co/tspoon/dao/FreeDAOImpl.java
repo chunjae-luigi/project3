@@ -1,6 +1,7 @@
 package kr.co.tspoon.dao;
 
 import kr.co.tspoon.dto.Free;
+import kr.co.tspoon.util.Page;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,8 +16,13 @@ public class FreeDAOImpl implements FreeDAO{
     private SqlSession sqlSession;
 
     @Override
-    public List<Free> freeList() throws Exception {
-        return sqlSession.selectList("free.freeList");
+    public List<Free> freeList(Page page) throws Exception {
+        return sqlSession.selectList("free.freeList", page);
+    }
+
+    @Override
+    public int totalCount(Page page) throws Exception {
+        return sqlSession.selectOne("free.totalCount", page);
     }
 
     @Transactional

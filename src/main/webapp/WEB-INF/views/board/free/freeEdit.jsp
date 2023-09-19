@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="/pro3_war" />
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,32 +13,29 @@
 	<title>글 수정하기</title>
     <!-- 헤드 부분 인클루드 -->
     <jsp:include page="../../include/head.jsp"></jsp:include>
-    <script type="text/javascript" src="${path1 }/resources/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="${path }/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
-<div class="container is-fullhd">
-	<!-- 헤더 부분 인클루드 -->
-	<jsp:include page="../../include/header.jsp"></jsp:include>
-	<figure class="visual" id="vs1">
-		<ul class="imgbox">
-			<li class="hero is-medium is-link">
-				<div class="hero-body">
-					<p class="title">
-						Medium hero
-					</p>
-					<p class="subtitle">
-						Medium subtitle
-					</p>
+<header class="hd" id="hd">
+	<jsp:include page="../../include/header.jsp" />
+</header>
+
+<div class="content">
+
+	<section class="page-title bg-1">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-12">
+					<div class="block has-text-centered">
+						<h1 class="is-capitalize text-lg font-happy">자유게시판</h1>
+					</div>
 				</div>
-			</li>
-		</ul>
-	</figure>
-	<div class="content" id="contents">
-	    <div class="row column text-center">
-	      <h2 class="h1">자유게시판 글 수정</h2>
-	      <hr>
-	      <div class="container">
-	      	<form action="${path1 }/free/edit.do" method="post">
+			</div>
+		</div>
+	</section>
+
+	<section class="section blog-wrap container">
+	      	<form action="${path }/board/free/edit.do" method="post">
 			      <table id="table1">
 			      	<tbody>
 			      		<tr>
@@ -55,22 +52,20 @@
 			      				${dto.content }
 			      				</textarea>
 			      				<script>
-			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path1}/free/imageUpload.do'});
+			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/free/imageUpload.do'});
 			      				</script>
 			      			</td>
 			      		</tr>
 			      		<tr>
 			      			<td colspan="2">
-			      				<input type="submit" class="submit button is-danger" value="글 수정" >
-			      				<a class="button is-info" href="${path1 }/free/list.do">글 목록</a>
+			      				<a class="button is-info" href="${path }/board/free/list.do">글 목록</a>
+								<input type="submit" class="button button2" value="수정 완료" >
 			      			</td>
 			      		</tr>
 			      	</tbody>
 			      </table>
 			   </form>   
-	      </div>
-	    </div>
-	</div>
+	     </section>
 	<!-- 푸터 부분 인클루드 -->
 	<jsp:include page="../../include/footer.jsp"></jsp:include>
 </div>

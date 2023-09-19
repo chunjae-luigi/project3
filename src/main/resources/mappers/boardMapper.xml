@@ -5,7 +5,21 @@
 <mapper namespace="board">
     <!--  dataBoard  -->
     <select id="dataBoardList" resultType="kr.co.tspoon.dto.DataBoard">
+        <![CDATA[
         select * from databoard
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by regdate desc LIMIT #{postStart}, #{postCount}
+        ]]>
     </select>
 
     <select id="dataBoardGet" resultType="kr.co.tspoon.dto.DataBoard">
@@ -20,9 +34,22 @@
         update databoard set visited = visited+1 where bno=#{bno}
     </update>
 
-    <select id="dataBoardCount" resultType="kr.co.tspoon.dto.DataBoard">
-        select COUNT(*) from dataBoard
+    <select id="dataBoardCount" resultType="integer">
+        <![CDATA[
+        select count(*) from databoard
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
     </select>
+
+
 
     <insert id="dataBoardInsert" >
         insert into databoard(title, content, author, relations) values(#{title}, #{content}, #{author}, 'databoard')
@@ -36,9 +63,23 @@
         delete from databoard where bno=#{bno}
     </delete>
 
-    <!-- free  -->
+    <!-- qna  -->
     <select id="qnaList" resultType="kr.co.tspoon.dto.Qna">
-        select * from qna order by par desc
+        <![CDATA[
+        select * from qna
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by par desc LIMIT #{postStart}, #{postCount}
+        ]]>
     </select>
 
     <select id="qnaGet" resultType="kr.co.tspoon.dto.Qna">
@@ -49,8 +90,20 @@
         update qna set visited = visited+1 where qno=#{qno}
     </update>
 
-    <select id="qnaCount" resultType="kr.co.tspoon.dto.Qna">
-        select COUNT(*) from qna
+
+    <select id="qnaCount" resultType="integer">
+        <![CDATA[
+        select count(*) from qna
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
     </select>
 
     <insert id="qnaInsert" >

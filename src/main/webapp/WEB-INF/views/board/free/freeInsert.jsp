@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path1" value="/pro3_war" />
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,12 +14,14 @@
 	<!-- 헤드 부분 인클루드 -->
     <jsp:include page="../../include/head.jsp"></jsp:include>
 	<!-- <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script> -->
-	<script type="text/javascript" src="${path1 }/resources/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="${path }/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <div class="container is-fullhd">
 	<!-- 헤더 부분 인클루드 -->
-	<jsp:include page="../../include/header.jsp"></jsp:include>
+	<header class="hd" id="hd">
+		<jsp:include page="../../include/header.jsp" />
+	</header>
 	<figure class="visual" id="vs1">
 		<ul class="imgbox">
 			<li class="hero is-medium is-link">
@@ -39,7 +41,7 @@
 	      <h2 class="h1">자유게시판 글쓰기</h2>
 	      <hr>
 	      <div class="container">
-	      	<form action="${path1 }/free/insert.do" method="post">
+	      	<form action="${path }/board/free/insert.do" method="post">
 			      <table id="table1">
 			      	<tbody>
 			      		<tr>
@@ -53,14 +55,14 @@
 			      			<td>
 			      				<textarea name="content" id="content" class="textarea" placeholder="내용 입력" rows="8" cols="100" maxlength="1400" required></textarea>
 			      				<script>
-			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path1}/free/imageUpload.do'});
+			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/free/imageUpload.do'});
 			      				</script>
 			      			</td>
 			      		</tr>
 			      		<tr>
 			      			<td colspan="2">
 			      				<input type="submit" class="submit button is-info" value="글 등록" >
-			      				<a class="button is-primary" href="${path1 }/free/list.do">글 목록</a>
+			      				<a class="button is-primary" href="${path }/board/free/list.do">글 목록</a>
 			      			</td>
 			      		</tr>
 			      	</tbody>
