@@ -10,37 +10,7 @@
     <title>티스푼</title>
     <%@ include file="include/head.jsp" %>
     <link rel="stylesheet" href="${headPath}/resources/css/main.css">
-    <style>
-
-        /* 하단 고정 배너 */
-        .footBnrFixed {
-            position: fixed;
-            z-index: 999;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-        }
-
-        .footBnrFixed img {
-            display: block;
-            height : auto;
-            width: 80%;
-            margin: 0 auto;
-        }
-/*
-        .footBnrFixed a {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            display: block;
-            width: 500px;
-            height: 84px;
-            transform: translateX(-50%);
-            -webkit-transform: translateX(-50%);
-        }*/
-
-    </style>
+   
 
     <link rel="stylesheet" href="/resources/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -49,7 +19,7 @@
 <body>
 <%@ include file="include/header.jsp" %>
 
-<div class="content">
+<div class="content" id="content">
 
     <!-- Slider Start -->
 <%--    <section class="slider">--%>
@@ -485,8 +455,179 @@
 
 <%@ include file="include/footer.jsp" %>
 
-    <div class="footBnrFixed" id="footBnrFixed">
-        <img src="${headPath }/resources/image/main/banner1.png" alt="가족선물">
+
+/* banner */
+<div class="footBnrFixed" id="footBnrFixed">
+    <img src="${headPath }/resources/image/main/banner1.png" alt="수목원 가족여행">
+    <a href="${headPath }/event1"></a>
     </div>
+<div>
+    <button type="button" class="closebanner" onclick="closebanner()">
+        <img src="${headPath }/resources/image/main/x.png" alt="닫기">
+    </button>
+</div>
+
+/* quickMenu */
+<div class="quickMenu">
+        <div class="quick_title">
+            Quick
+            <br>
+            Menu
+        </div>
+        <div class="quick_btn">
+            <ul>
+                <li>
+                    <a href="${headPath }/notice/List.do">
+                        <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
+                        <br>
+                        "공지사항"
+                    </a>
+                </li>
+                <li>
+                    <a href="${headPath }/vote/list.do">
+                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
+                    <br>
+                    "출석체크"</a>
+                </li>
+                <li>
+                    <a href="${headPath }/vote/list.do">
+                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
+                    <br>
+                    "투표하기"</a>
+                </li>
+            </ul>
+        </div>
+        <div class="quick_top">
+            <a href="#">TOP</a>
+        </div>
+</div>
+
+/* uiPopup */
+<div class="uiPopup">
+    <div class="ui_body">
+        <div>
+            <a href="${headPath}/event2">
+                <img src="${headPath }/resources/image/main/popup1.png" alt="6모의고사">
+            </a>
+        </div>
+    </div>
+    <div class="ui_top">
+        <div class="ui-day">
+            <input type="checkbox" name="chk" id="chk" />
+            <label for="chk">오늘 하루 열지않기</label>
+            <button type="button" class="closebtn" onclick="closePopup();">
+                <img src="${headPath }/resources/image/main/x.png" alt="닫기">
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    function closePopup(){
+        $(".uiPopup").hide();
+    }
+    function closebanner(){
+        $(".footBnrFixed").hide();
+    }
+</script>
+<style>
+    /* banner */
+    .footBnrFixed {
+        position: fixed;
+        z-index: 999;
+        bottom: 0;
+        left: 0;
+        right: 50%;
+        width: 100%;
+    }
+    .footBnrFixed img {
+        display: block;
+        height : 80px;
+        width: auto;
+        margin: 0 auto;
+    }
+    .footBnrFixed a {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        display: block;
+        width: 500px;
+        height: 84px;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+    }
+    .footBnrFixed button {
+        width: 10px;
+        height: 10px;
+        top: 1px;
+        right: 1px;
+    }
+
+/* quickMenu */
+
+.quickMenu {
+    position: fixed;
+    top: 15%;
+    right: 2%;
+    width: 90px;
+    height: auto;
+    text-align: center;
+}
+.quick_title {
+    background-color: #f3bf00;
+    color: white;
+    font-weight: bold;
+    border-radius: 9px 9px 0 0;
+}
+.quickMenu li {
+    paddin-top: 5px;
+    padding-bottom: 10px;
+    height: 80px;
+    font-size: 15px;
+    text-align: center;
+
+}
+.quick_btn {
+    background-color: white;
+    border-top: #8a8a8a solid 0.1px;
+}
+.quick_btn a {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.quick_btn li:hover {
+    background-color: #8a8a8a;
+}
+.quick_top {
+    border-radius: 0 0 50% 50%;
+    border-bottom: none;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+ /* uiPopup */
+.uiPopup {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    top: 30%;
+    left: 20%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.ui_top {
+    display: block;
+    float: right;
+}
+
+</style>
 </body>
 </html>
