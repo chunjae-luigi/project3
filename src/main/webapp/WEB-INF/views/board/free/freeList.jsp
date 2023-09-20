@@ -67,7 +67,7 @@
 		      	<c:forEach items="${freeList }" var="free" varStatus="status">
 		      		<tr>
 		      			<td>${status.count }</td>
-		      			<td><a href="${path}/board/free/detail.do?fno=${free.fno }">${free.title }</a></td>
+		      			<td><a href="${path}/board/free/get.do?fno=${free.fno }">${free.title }</a></td>
 						<td>${free.author}</td>
 		      			<td>
 	      					<fmt:parseDate value="${free.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
@@ -84,12 +84,13 @@
 				</c:if>
 		      	</tbody>
 		      </table>
-			      	    <%-- <c:if test='${sid eq "admin"}'>  --%> 
+					<c:if test="${not empty sid}">
 		      	<div class="button-group">
+
 				  <a class="button is-info" href="${path }/board/free/insert.do">글쓰기</a>
 				</div>
 			</section>
-			<%-- </c:if> --%>
+					</c:if>
 
 			<%-- 페이징처리 --%>
 			<nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">

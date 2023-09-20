@@ -1,7 +1,13 @@
 package kr.co.tspoon.controller;
 
+import kr.co.tspoon.dto.Free;
 import kr.co.tspoon.dto.News;
+import kr.co.tspoon.dto.Notice;
+import kr.co.tspoon.service.FreeService;
+import kr.co.tspoon.service.NoticeService;
 import kr.co.tspoon.util.Crawler;
+import kr.co.tspoon.util.Page;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +24,42 @@ import java.util.Locale;
 public class HomeController {
     // http:localhost:8081/pro03_war == root
     // http:localhost:8081/pro03_war/index.jsp == http:localhost:8081/pro03_war/WEB-INF/views/index.jsp
+    @Autowired
+    private NoticeService noticeService;
+
+    @Autowired
+    private FreeService freeService;
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model){
+    public String index(HttpServletRequest request, Model model) throws Exception {
+        List<Notice> noticeList = noticeService.noticeList();
+
+        model.addAttribute("noticeList", noticeList);
+
+//        String type = request.getParameter("type");
+//        String keyword = request.getParameter("keyword");
+//        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+//
+//        Page page = new Page();
+//        page.setSearchType(type);
+//        page.setSearchKeyword(keyword);
+//        int total = freeService.totalCount(page);
+//
+//        page.makeBlock(curPage, total);
+//        page.makeLastPageNum(total);
+//        page.makePostStart(curPage, total);
+//
+//
+//        List<Free> freeList = freeService.freeList(page);
+//
+//        model.addAttribute("type", type);
+//        model.addAttribute("keyword", keyword);
+//        model.addAttribute("page", page);
+//        model.addAttribute("curPage", curPage);
+//
+//
+//        model.addAttribute("freeList", freeList);
+
         return "/index";
     }
 

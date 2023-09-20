@@ -60,10 +60,12 @@
 
         <div class="btn_group">
             <a href="${headPath }/board/qnaList.do" class="button button1">목록</a>
-            <a href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}" class="button button2">수정</a>
-            <a href="${headPath }/board/qnaDelete.do?qno=${qna.qno}" class="button button1">삭제</a>
-            <c:if test="${qna.lev == 0}">
-                <a href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" class="button is-primary">답변하기</a>
+            <c:if test="${not empty sid && (sid eq 'admin' || qna.author eq sid)}">
+                <a href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}&author=${qna.author}" class="button button2">수정</a>
+                <a href="${headPath }/board/qnaDelete.do?qno=${qna.qno}&author=${qna.author}" class="button button1">삭제</a>
+                <c:if test="${qna.lev == 0}">
+                    <a href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" class="button is-primary">답변하기</a>
+                </c:if>
             </c:if>
         </div>
     </section>

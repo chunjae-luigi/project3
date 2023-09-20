@@ -128,10 +128,10 @@
 			<div class="button-group">
 				<a class="button is-info" href="${path }/board/free/list.do">글 목록</a>
 				<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
-				<a class="button is-primary" href="${path }/board/free/delete.do?fno=${dto.fno}">글 삭제</a>
+				<a class="button is-primary" href="${path }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">글 삭제</a>
 				</c:if>
 				<c:if test="${not empty sid && (dto.author eq sid)}">
-				<a class="button is-danger" href="${path }/board/free/edit.do?fno=${dto.fno}">글 수정</a>
+				<a class="button is-danger" href="${path }/board/free/update.do?fno=${dto.fno}&author=${dto.author}">글 수정</a>
 				</c:if>
 			</div>
 		</div>

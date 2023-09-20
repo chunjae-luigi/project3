@@ -4,7 +4,6 @@ import kr.co.tspoon.dto.*;
 import kr.co.tspoon.service.MemberService;
 import kr.co.tspoon.service.VoteService;
 import kr.co.tspoon.util.Page;
-import kr.co.tspoon.vo.VoteCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -154,7 +153,7 @@ public class VoteController {
 
     }
 
-    @RequestMapping(value = "edit.do", method = RequestMethod.POST)
+    @RequestMapping(value = "update.do", method = RequestMethod.POST)
     public String voteUpdate(HttpServletRequest request, Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");

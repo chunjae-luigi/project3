@@ -3,12 +3,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="headPath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼</title>
     <%@ include file="include/head.jsp" %>
+    <link rel="stylesheet" href="${headPath}/resources/css/main.css">
+   
 
+    <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
@@ -16,67 +22,98 @@
 <div class="content" id="content">
 
     <!-- Slider Start -->
-    <section class="slider">
-        <div class="container">
-            <div class="columns is-justify-content-center">
-                <div class="column is-9-desktop is-10-tablet">
-                    <div class="block has-text-centered">
-                        <span class="is-block mb-4 text-white is-capitalized">배너를 넣어보자</span>
-                        <h1 class="mb-5">New hope for <br>near future</h1>
-                        <p class="mb-6">Your small contribution means a lot. Natus officia amet <br>accusamus repellat magni reprehenderit dolorem.</p>
-                        <a href="#" target="_blank" class="btn btn-main is-rounded">Donate Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<%--    <section class="slider">--%>
+<%--        <div class="container">--%>
+<%--            <div class="columns is-justify-content-center">--%>
+<%--                <div class="column is-9-desktop is-10-tablet">--%>
+<%--                    <div class="block has-text-centered">--%>
+<%--                        <span class="is-block mb-4 text-white is-capitalized">Empower Learning Together with Tspoon</span>--%>
+<%--                        <h1 class="mb-5">함께하는 학습,<br>티스푼과 함께하세요!</h1>--%>
+<%--                        <p class="mb-6">자녀의 학습을 한 눈에 관리하고,<br>최신 교육 트렌드를 커뮤니티에서 이야기해보세요</p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </section>--%>
 
-    <!-- Section Intro Start -->
-    <section class="section intro">
-        <div class="container">
-            <div class="columns is-align-items-center is-desktop mb-6">
-                <div class="column is-6-desktop">
-                    <div class="section-title mb-0">
-                        <span class="text-color">What we can do</span>
-                        <h2 class="mt-4 content-title">We Believe that We can <br>Save More Lifes with you</h2>
-                    </div>
-                </div>
-                <div class="column is-6-desktop">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, dicta, iure. Esse quasi labore aperiam, dolorem amet voluptas soluta asperiores nostrum voluptate molestias numquam similique. Voluptate natus corporis ex, distinctio.</p>
+    <section>
+        <div id="slider">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-16by9 is-covered">
+                        <img src="${headPath }/resources/image/main/main1.png" alt="" />
+                    </figure>
                 </div>
             </div>
-            <div class="columns is-multiline is-justify-content-center">
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item mb-5 mb-lg-0">
-                        <img src="images/about/image-1.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Get inspired</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
+            <div class="card ">
+                <div class="card-image">
+                    <figure class="image is-16by9 is-covered">
+                        <img src="${headPath }/resources/image/main/main2.png" alt="" />
+                    </figure>
                 </div>
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item mb-5 mb-lg-0">
-                        <img src="images/about/image-2.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Give Donation</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
-                </div>
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item">
-                        <img src="images/about/image-3.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Become a Volunteer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
-                </div>
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item">
-                        <img src="images/about/image-1.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Help The children</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
+            </div>
+            <div class="card ">
+                <div class="card-image">
+                    <figure class="image is-16by9 is-covered">
+                        <img src="${headPath }/resources/image/main/main3.png" alt="" />
+                    </figure>
                 </div>
             </div>
         </div>
     </section>
+    <script src="/resources/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+        bulmaCarousel.attach('#slider', {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            infinite: true,
+            autoplay: true,
+        });
+    </script>
+    <%-- 미니 게시판 --%>
+
+
+    <div class="page_wrap">
+        <ul class="board_lst">
+            <li class="item1">
+                <div class="board_tit">
+                    <h3>공지사항</h3>
+                    <a href="${headPath }/notice/List.do" class="btn_more">+</a>
+                </div>
+                <ul class="board_con" style="list-style-type: none">
+                    <c:forEach var="notice" items="${noticeList}">
+                        <li><a href="${headPath }/notice/Get.do?no=${notice.no}">${notice.title}<span class="date">${notice.regdate}</span></a></li>
+                    </c:forEach>
+                    <c:if test="${empty noticeList}">
+                        <li class="no_date">
+                            등록된 공지사항이 없습니다.
+                        </li>
+                    </c:if>
+                </ul>
+            </li>
+
+            <li class="item2">
+                <div class="board_tit">
+                    <h3>자유게시판</h3>
+                    <a href="${headPath }/board/free/list.do" class="btn_more">+</a>
+                </div>
+                <ul class="board_con" style="list-style-type: none">
+                    <c:forEach var="free" items="${freeList}">
+                        <li><a href="${headPath }/free/get.do?fno=${free.fno}">${free.title}<span class="date">${free.regdate}</span></a></li>
+                    </c:forEach>
+                    <c:if test="${empty freeList}">
+                        <li class="no_date">
+                            등록된 게시글이 없습니다.
+                        </li>
+                    </c:if>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
     <!-- Section Intro END -->
     <section class="section video">
         <div class="container">
@@ -206,6 +243,7 @@
             </div>
         </div>
     </section>
+
 
     <section>
         <div class="container">
@@ -350,7 +388,6 @@
         </div>
     </section>
 
-
     <div class="volunteer section ">
         <div class="container">
             <div class="columns is-multiline">
@@ -414,184 +451,183 @@
     </div>
 
 </div>
-<footer id="ft" name="ft">
+
+
 <%@ include file="include/footer.jsp" %>
 
-    /* banner */
-    <div class="footBnrFixed" id="footBnrFixed">
-        <img src="${headPath }/resources/image/main/banner1.png" alt="수목원 가족여행">
-        <a href="${headPath }/event1"></a>
-        </div>
-    <div>
-        <button type="button" class="closebanner" onclick="closebanner()">
-            <img src="${headPath }/resources/image/main/x.png" alt="닫기">
-        </button>
-    </div>
 
-    /* quickMenu */
-    <div class="quickMenu">
-            <div class="quick_title">
-                Quick
-                <br>
-                Menu
-            </div>
-            <div class="quick_btn">
-                <ul>
-                    <li>
-                        <a href="${headPath }/notice/List.do">
-                            <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
-                            <br>
-                            "공지사항"
-                        </a>
-                    </li>
-                    <li>
-                        <a href="${headPath }/vote/list.do">
+/* banner */
+<div class="footBnrFixed" id="footBnrFixed">
+    <img src="${headPath }/resources/image/main/banner1.png" alt="수목원 가족여행">
+    <a href="${headPath }/event1"></a>
+    </div>
+<div>
+    <button type="button" class="closebanner" onclick="closebanner()">
+        <img src="${headPath }/resources/image/main/x.png" alt="닫기">
+    </button>
+</div>
+
+/* quickMenu */
+<div class="quickMenu">
+        <div class="quick_title">
+            Quick
+            <br>
+            Menu
+        </div>
+        <div class="quick_btn">
+            <ul>
+                <li>
+                    <a href="${headPath }/notice/List.do">
                         <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
                         <br>
-                        "출석체크"</a>
-                    </li>
-                    <li>
-                        <a href="${headPath }/vote/list.do">
-                        <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
-                        <br>
-                        "투표하기"</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="quick_top">
-                <a href="#">TOP</a>
-            </div>
-    </div>
+                        "공지사항"
+                    </a>
+                </li>
+                <li>
+                    <a href="${headPath }/vote/list.do">
+                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
+                    <br>
+                    "출석체크"</a>
+                </li>
+                <li>
+                    <a href="${headPath }/vote/list.do">
+                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
+                    <br>
+                    "투표하기"</a>
+                </li>
+            </ul>
+        </div>
+        <div class="quick_top">
+            <a href="#">TOP</a>
+        </div>
+</div>
 
-    /* uiPopup */
-    <div class="uiPopup">
-        <div class="ui_body">
-            <div>
-                <a href="${headPath}/event2">
-                    <img src="${headPath }/resources/image/main/popup1.png" alt="6모의고사">
-                </a>
-            </div>
-        </div>
-        <div class="ui_top">
-            <div class="ui-day">
-                <input type="checkbox" name="chk" id="chk" />
-                <label for="chk">오늘 하루 열지않기</label>
-                <button type="button" class="closebtn" onclick="closePopup();">
-                    <img src="${headPath }/resources/image/main/x.png" alt="닫기">
-                </button>
-            </div>
+/* uiPopup */
+<div class="uiPopup">
+    <div class="ui_body">
+        <div>
+            <a href="${headPath}/event2">
+                <img src="${headPath }/resources/image/main/popup1.png" alt="6모의고사">
+            </a>
         </div>
     </div>
-    <script>
-        function closePopup(){
-            $(".uiPopup").hide();
-        }
-        function closebanner(){
-            $(".footBnrFixed").hide();
-        }
-    </script>
+    <div class="ui_top">
+        <div class="ui-day">
+            <input type="checkbox" name="chk" id="chk" />
+            <label for="chk">오늘 하루 열지않기</label>
+            <button type="button" class="closebtn" onclick="closePopup();">
+                <img src="${headPath }/resources/image/main/x.png" alt="닫기">
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    function closePopup(){
+        $(".uiPopup").hide();
+    }
+    function closebanner(){
+        $(".footBnrFixed").hide();
+    }
+</script>
 <style>
-        /* banner */
-        .footBnrFixed {
-            position: fixed;
-            z-index: 999;
-            bottom: 0;
-            left: 0;
-            right: 50%;
-            width: 100%;
-        }
-        .footBnrFixed img {
-            display: block;
-            height : 80px;
-            width: auto;
-            margin: 0 auto;
-        }
-        .footBnrFixed a {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            display: block;
-            width: 500px;
-            height: 84px;
-            transform: translateX(-50%);
-            -webkit-transform: translateX(-50%);
-        }
-        .footBnrFixed button {
-            width: 10px;
-            height: 10px;
-            top: 1px;
-            right: 1px;
-        }
-
-    /* quickMenu */
-
-    .quickMenu {
+    /* banner */
+    .footBnrFixed {
         position: fixed;
-        top: 15%;
-        right: 2%;
-        width: 90px;
-        height: auto;
-        text-align: center;
-    }
-    .quick_title {
-        background-color: #f3bf00;
-        color: white;
-        font-weight: bold;
-        border-radius: 9px 9px 0 0;
-    }
-    .quickMenu li {
-        paddin-top: 5px;
-        padding-bottom: 10px;
-        height: 80px;
-        font-size: 15px;
-        text-align: center;
-
-    }
-    .quick_btn {
-        background-color: white;
-        border-top: #8a8a8a solid 0.1px;
-    }
-    .quick_btn a {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-    .quick_btn li:hover {
-        background-color: #8a8a8a;
-    }
-    .quick_top {
-        border-radius: 0 0 50% 50%;
-        border-bottom: none;
+        z-index: 999;
+        bottom: 0;
+        left: 0;
+        right: 50%;
         width: 100%;
-        padding: 0;
-        list-style: none;
-        background-color: black;
-        color: white;
-        font-weight: bold;
     }
-
-
-
-
-     /* uiPopup */
-    .uiPopup {
-        width: 400px;
-        height: 300px;
-        position: fixed;
-        top: 30%;
-        left: 20%;
-        background-color: #fff;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-    }
-    .ui_top {
+    .footBnrFixed img {
         display: block;
-        float: right;
+        height : 80px;
+        width: auto;
+        margin: 0 auto;
     }
+    .footBnrFixed a {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        display: block;
+        width: 500px;
+        height: 84px;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+    }
+    .footBnrFixed button {
+        width: 10px;
+        height: 10px;
+        top: 1px;
+        right: 1px;
+    }
+
+/* quickMenu */
+
+.quickMenu {
+    position: fixed;
+    top: 15%;
+    right: 2%;
+    width: 90px;
+    height: auto;
+    text-align: center;
+}
+.quick_title {
+    background-color: #f3bf00;
+    color: white;
+    font-weight: bold;
+    border-radius: 9px 9px 0 0;
+}
+.quickMenu li {
+    paddin-top: 5px;
+    padding-bottom: 10px;
+    height: 80px;
+    font-size: 15px;
+    text-align: center;
+
+}
+.quick_btn {
+    background-color: white;
+    border-top: #8a8a8a solid 0.1px;
+}
+.quick_btn a {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.quick_btn li:hover {
+    background-color: #8a8a8a;
+}
+.quick_top {
+    border-radius: 0 0 50% 50%;
+    border-bottom: none;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+
+
+
+ /* uiPopup */
+.uiPopup {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    top: 30%;
+    left: 20%;
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.ui_top {
+    display: block;
+    float: right;
+}
 
 </style>
-
-
-</footer>
 </body>
 </html>

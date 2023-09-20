@@ -38,6 +38,14 @@
             <div class="container">
                 <h2 class="page_tit">마이 페이지</h2>
                 <hr>
+                <div class="tabs is-centered">
+                    <ul>
+                        <li class="is-active"><a>나의 정보</a></li>
+                        <li><a href="${headPath }/vote/getMyList.do">나의 투표 내역</a></li>
+                        <li><a href="${headPath }/attend/getMyAttend.do">나의 출석</a></li>
+                    </ul>
+                </div>
+                <hr>
                 <form action="${headPath }/member/update.do" method="post" onsubmit="return updateCheck(this)">
                     <div class="table_form_wrap">
                         <table class="table_form">
@@ -66,7 +74,7 @@
                             </tr>
                             <tr>
                                 <th>전화번호</th>
-                                <td>${member.tel }</td>
+                                <td><input type="tel" class="input" id="tel" name="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000 형식" value="${member.tel }"></td>
                             </tr>
                             <tr>
                                 <th><label for="findBtn" onclick="findAddr()">주소</label></th>
@@ -81,9 +89,7 @@
                                 <th>생년월일</th>
                                 <td>
                                     <fmt:parseDate value="${member.birth }" var="birth" pattern="yyyy-MM-dd" />
-                                    <span style="display:none">
-                                        <fmt:formatDate var="br" value="${birth }" pattern="yyyy-MM-dd" />
-                                    </span>
+                                    <input type="date" name="birth" value="${birth}">
                                 </td>
                             </tr>
                             <tr>
