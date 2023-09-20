@@ -1,8 +1,10 @@
 package kr.co.tspoon.controller;
 
 import kr.co.tspoon.dto.Free;
+import kr.co.tspoon.dto.Free;
 import kr.co.tspoon.dto.Notice;
 import kr.co.tspoon.service.NoticeService;
+import kr.co.tspoon.util.Page;
 import kr.co.tspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
