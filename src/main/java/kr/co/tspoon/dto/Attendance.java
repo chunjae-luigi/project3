@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class News {
-    private String title;
-    private String content;
-    private String img;
-    private String href;
+public class Attendance {
+
+    private int seq;
+    private String author;
+    private String dateYearMonth;
+    private String nowDay;
+
 }

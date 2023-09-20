@@ -3,11 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="headPath" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼</title>
     <%@ include file="include/head.jsp" %>
+    <link rel="stylesheet" href="${headPath}/resources/css/main.css">
     <style>
 
         /* 하단 고정 배너 */
@@ -22,7 +24,7 @@
 
         .footBnrFixed img {
             display: block;
-            height : 100px;
+            height : auto;
             width: 80%;
             margin: 0 auto;
         }
@@ -51,62 +53,59 @@
             <div class="columns is-justify-content-center">
                 <div class="column is-9-desktop is-10-tablet">
                     <div class="block has-text-centered">
-                        <span class="is-block mb-4 text-white is-capitalized">배너를 넣어보자</span>
-                        <h1 class="mb-5">New hope for <br>near future</h1>
-                        <p class="mb-6">Your small contribution means a lot. Natus officia amet <br>accusamus repellat magni reprehenderit dolorem.</p>
-                        <a href="#" target="_blank" class="btn btn-main is-rounded">Donate Now</a>
+                        <span class="is-block mb-4 text-white is-capitalized">Empower Learning Together with Tspoon</span>
+                        <h1 class="mb-5">함께하는 학습,<br>티스푼과 함께하세요!</h1>
+                        <p class="mb-6">자녀의 학습을 한 눈에 관리하고,<br>최신 교육 트렌드를 커뮤니티에서 이야기해보세요</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Intro Start -->
-    <section class="section intro">
-        <div class="container">
-            <div class="columns is-align-items-center is-desktop mb-6">
-                <div class="column is-6-desktop">
-                    <div class="section-title mb-0">
-                        <span class="text-color">What we can do</span>
-                        <h2 class="mt-4 content-title">We Believe that We can <br>Save More Lifes with you</h2>
-                    </div>
+
+    <%-- 미니 게시판 --%>
+
+
+    <div class="page_wrap">
+        <ul class="board_lst">
+            <li class="item1">
+                <div class="board_tit">
+                    <h3>공지사항</h3>
+                    <a href="${headPath }/notice/List.do" class="btn_more">+</a>
                 </div>
-                <div class="column is-6-desktop">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, dicta, iure. Esse quasi labore aperiam, dolorem amet voluptas soluta asperiores nostrum voluptate molestias numquam similique. Voluptate natus corporis ex, distinctio.</p>
+                <ul class="board_con" style="list-style-type: none">
+                    <c:forEach var="notice" items="${noticeList}">
+                        <li><a href="${headPath }/notice/Get.do?no=${notice.no}">${notice.title}<span class="date">${notice.regdate}</span></a></li>
+                    </c:forEach>
+                    <c:if test="${empty noticeList}">
+                        <li class="no_date">
+                            등록된 공지사항이 없습니다.
+                        </li>
+                    </c:if>
+                </ul>
+            </li>
+
+            <li class="item2">
+                <div class="board_tit">
+                    <h3>자유게시판</h3>
+                    <a href="${headPath }/board/free/list.do" class="btn_more">+</a>
                 </div>
-            </div>
-            <div class="columns is-multiline is-justify-content-center">
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item mb-5 mb-lg-0">
-                        <img src="images/about/image-1.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Get inspired</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
-                </div>
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item mb-5 mb-lg-0">
-                        <img src="images/about/image-2.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Give Donation</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
-                </div>
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item">
-                        <img src="images/about/image-3.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Become a Volunteer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
-                </div>
-                <div class="column is-3-desktop is-6-tablet">
-                    <div class="intro-item">
-                        <img src="images/about/image-1.jpg" alt="" class=" w-100">
-                        <h4 class="mt-4 mb-3">Help The children</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit, ducimus.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <ul class="board_con" style="list-style-type: none">
+                    <c:forEach var="free" items="${freeList}">
+                        <li><a href="${headPath }/free/detail.do?fno=${free.fno}">${free.title}<span class="date">${free.regdate}</span></a></li>
+                    </c:forEach>
+                    <c:if test="${empty freeList}">
+                        <li class="no_date">
+                            등록된 게시글이 없습니다.
+                        </li>
+                    </c:if>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+
     <!-- Section Intro END -->
     <section class="section video">
         <div class="container">
@@ -236,6 +235,7 @@
             </div>
         </div>
     </section>
+
 
     <section>
         <div class="container">
@@ -380,7 +380,6 @@
         </div>
     </section>
 
-
     <div class="volunteer section ">
         <div class="container">
             <div class="columns is-multiline">
@@ -444,16 +443,12 @@
     </div>
 
 </div>
-<footer id="ft" name="ft">
+
+
 <%@ include file="include/footer.jsp" %>
 
     <div class="footBnrFixed" id="footBnrFixed">
         <img src="${headPath }/resources/image/main/banner1.png" alt="가족선물">
-
     </div>
-
-
-
-</footer>
 </body>
 </html>

@@ -1,33 +1,51 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path" value="${pageContext.request.contextPath }" />
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>티스푼::투표</title>
-    <jsp:include page="../include/head.jsp" />
-    <link rel="stylesheet" href="${path }/resources/css/sub.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>출석체크</title>
+    <!-- 헤드 부분 인클루드 -->
+    <jsp:include page="./../include/head.jsp" />
 </head>
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <jsp:include page="../include/header.jsp" />
-    </header>
-    <div class="container is-fullhd">
-        <nav class="breadcrumb is-right" aria-label="breadcrumbs">
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li class="is-active"><a href="${path }/vote/voteList.jsp" aria-current="page">나의 투표내역</a></li>
-            </ul>
-        </nav>
-        <section class="section">
-            <h2 class="title has-text-centered">나의 투표내역</h2>
+<div class="container is-fullhd">
+    <!-- 헤더 부분 인클루드 -->
+    <jsp:include page="./../include/header.jsp" />
 
-            <section class="section">
-                <h2 class="title has-text-centered">${title }</h2>
+    <figure class="visual" id="vs1">
+        <ul class="imgbox">
+            <li class="hero is-medium is-link">
+                <div class="hero-body">
+                    <p class="title">
+                        투표
+                    </p>
+                    <p class="subtitle">
+                        나의 투표 내역을 확인하세요.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </figure>
+    <div class="content" id="content">
+        <div class="row column text-center">
+            <div class="container">
+                <h2 class="page_tit">마이 페이지</h2>
+                <hr>
+                <div class="tabs is-centered">
+                    <ul>
+                        <li><a href="${path }/member/get.do?sid=${sid}">나의 정보</a></li>
+                        <li class="is-active"><a>나의 투표 내역</a></li>
+                        <li><a href="${path }/attend/getMyAttend.do">나의 출석</a></li>
+                    </ul>
+                </div>
+                <hr>
                 <div class="columns is-mobile">
                     <div class="column is-three-fifths is-offset-one-fifth">
                         <table class="table is-fullwidth is-bordered">
@@ -53,11 +71,13 @@
                         </table>
                     </div>
                 </div>
-            </section>
-        </section>
+            </div>
+        </div>
     </div>
-    <footer class="ft" id="ft">
-        <jsp:include page="../include/footer.jsp" />
+
+    <!-- 푸터 부분 인클루드 -->
+    <footer class="ft" name="ft">
+        <jsp:include page="./../include/footer.jsp" />
     </footer>
 </div>
 </body>

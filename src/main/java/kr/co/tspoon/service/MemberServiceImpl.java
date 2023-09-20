@@ -62,4 +62,9 @@ public class MemberServiceImpl implements MemberService {
     public void memberUpdatePoint(Member member) throws Exception {
         memberDAO.memberUpdatePoint(member);
     }
+
+    @Override
+    public List<Member> getMemberId() throws Exception {
+        return memberDAO.getMemberId();
+    }
 }

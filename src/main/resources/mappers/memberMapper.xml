@@ -39,4 +39,9 @@
     <update id="memberUpdatePoint">
         update member set point=#{point} where id=#{id}
     </update>
+
+    <select id="getMemberId" resultType="kr.co.tspoon.dto.Member">
+        select id from member where useYn = true and grade != 0
+    </select>
+
 </mapper>
