@@ -79,7 +79,7 @@
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/template">템플릿</a>
+                        <a class="navbar-link" href="${headPath }/template">언론보도</a>
                     </li>
 
                 </ul>

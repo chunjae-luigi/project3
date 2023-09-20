@@ -64,64 +64,75 @@
 			</tbody>
 		</table>
 
-		<!-- 댓글 영역 test -->
+		<!-- 댓글 영역 -->
 
 		<div class="conwrap">
 			<h4 class="tit">한줄 의견을 나눠 보세요</h4>
 			<div class="dat_add">
+				<c:if test="${not empty sid}">
 				<form action="${path }/dat/insert.do" method="post">
 					<input type="hidden" name="id" id="id"  value="${sid}">
 					<input type="hidden" name="par" id="par" value="${dto.fno}">
 
 					<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="이곳에 댓글을 입력해주세요!" autofocus></textarea>
+
 					<input type="submit" class="dat_btn" value="댓글 등록">
 				</form>
+				</c:if>
 			</div>
-
-			<tbody>
 			<div class="dat_list">
-				<div class="h4group">
 
-				</div>
+				<ul>
+
 				<c:forEach var="dat" items="${datList }">
+					<li style="border-bottom:1px solid #cc0f35">
+						<div>
+							<p>작성자${dat.author}
+							<span>
+								<fmt:parseDate value="${dat.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+								<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
+							</span>
+							</p>
+						</div>
+						<div>
+							<textarea name="" id="" cols="30" rows="5" readonly>${dat.content}</textarea>
+							<c:if test="${sid eq dat.author || sid eq 'admin'}">
+								<a class="button is-primary" href="${path }/dat/delete.do?dno=${dat.dno}&fno=${fno}">삭제</a>
+							</c:if>
+						</div>
+					</li>
+					</c:forEach>
 
-					<p>작성자${dat.author}</p>
-					<td>${dat.regdate }</td>
-					<td>
-						<textarea name="" id="" cols="30" rows="5" readonly>${dat.content}</textarea>
-					</td>
-					<%--		  이곳을 보아라 !--%>
-					<a class="button is-primary" href="${path }/dat/delete.do?dno=${dat.dno}&fno=${fno}">삭제</a>
-				</c:forEach>
+				</ul>
 				<c:if test="${empty datList }">
 					<tr>
 						<td colspan="4">댓글이 존재하지 않습니다.</td>
 					</tr>
 				</c:if>
 			</div>
-			</tbody>
-
-			<tbody>
+			<%--<tbody>
 			<c:forEach items="${datList }" var="board" varStatus="status">
 				<tr>
 					<td>${status.count }</td>
 					<td>${dat.content }</td>
 					<td>
-						<fmt:parseDate value="${dat.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
-						<fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
+
 					</td>
 				</tr>
 			</c:forEach>
-			</tbody>
-
+			</tbody>--%>
 
 			<!-- 여기까지 댓글 영역 -->
 
 
 			<div class="button-group">
 				<a class="button is-info" href="${path }/board/free/list.do">글 목록</a>
+				<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
 				<a class="button is-primary" href="${path }/board/free/delete.do?fno=${dto.fno}">글 삭제</a>
+				</c:if>
+				<c:if test="${not empty sid && (dto.author eq sid)}">
 				<a class="button is-danger" href="${path }/board/free/edit.do?fno=${dto.fno}">글 수정</a>
+				</c:if>
 			</div>
 		</div>
 
