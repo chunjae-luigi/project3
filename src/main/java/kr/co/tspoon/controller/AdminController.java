@@ -28,7 +28,6 @@ public class AdminController {
     @Autowired
     private NoticeService noticeService;
 
-
     //member------------------------------------------------
     @RequestMapping(value = "MemberListAdmin.do", method = RequestMethod.GET)
     protected String getMemberList(HttpServletRequest request, Model model) throws Exception {
@@ -62,10 +61,6 @@ public class AdminController {
         return "redirect:/admin/MemberListAdmin.do";
 
     }
-
-
-
-
 
     //notice------------------------------------------------
 
@@ -123,10 +118,6 @@ public class AdminController {
         noticeService.noticeDelete(no);
         return "redirect:/admin/List.do";
     }
-
-
-
-
 
     //vote------------------------------------------------
     @RequestMapping(value = "VoteMemberListAdmin.do", method = RequestMethod.GET)

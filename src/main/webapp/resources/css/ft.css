@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 푸터 구역 스타일 */
+/* 푸터 구역 스타일
 .ft {clear:both;width:100%;border-top: 1px solid #ccc;}
 .ft::after {content:"";display:block;width:100%;clear:both;}
 .ft_wrap {clear:both;width:100%;border-bottom:1px solid #eee;padding-bottom:30px;padding-top:30px;}
@@ -23,8 +23,9 @@
 .snb li.locate option { display:block; height: 48px; line-height: 48px; min-height:48px;     }
 .ft_link li { line-height: 48px; }
 #sel { height: 34px; width: 200px; }
-
-.ft_wrap2 { clear:both; width:1200px; margin: 0 auto; padding-bottom: 30px; padding-top: 30px; }
+ */
+#ft {border-top:1px solid #333; box-sizing:border-box;}
+.ft_wrap2 { clear:both; width:1200px; margin: 0 auto; padding-bottom: 30px; padding-top: 30px;  }
 .copyright { line-height:20px; font-size:12px; }
 .copyright span::after { content:"|"; padding-left: 20px; padding-right: 20px; color:#ccc; }
 .copyright span.end::after { content:""; padding-right: 0; }
