@@ -76,7 +76,10 @@
                 </c:forEach>
             </tbody>
         </table>
-        <a href="${headPath}/board/qnaInsert.do?lev=0&par=0" class="button is-primary">문의하기</a>
+
+        <c:if test="${not empty sid || (sid eq 'admin')}">
+            <a href="${headPath}/board/qnaInsert.do?lev=0&par=0" class="button is-primary">문의하기</a>
+        </c:if>
 
         <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
             <c:if test="${curPage > page.pageCount }">

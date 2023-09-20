@@ -35,7 +35,7 @@
 	</section>
 
 	<section class="section blog-wrap container">
-	      	<form action="${path }/board/free/edit.do" method="post">
+	      	<form action="${path }/board/free/update.do" method="post">
 			      <table id="table1">
 			      	<tbody>
 			      		<tr>

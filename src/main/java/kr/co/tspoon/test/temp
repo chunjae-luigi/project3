@@ -25,7 +25,7 @@ public class FreeController {
         model.addAttribute("freeList", freeList);
         return "free/freeList";
     }
-    @GetMapping("detail.do")    //free/detail.do?bno=1
+    @GetMapping("get.do")    //free/get.do?bno=1
     public String getfreeDetail(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         Free dto = freeService.freeDetail(bno);
@@ -50,14 +50,14 @@ public class FreeController {
         freeService.freeDelete(bno);
         return "redirect:list.do";
     }
-    @GetMapping("edit.do")
+    @GetMapping("update.do")
     public String editForm(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         Free dto = freeService.freeDetail(bno);
         model.addAttribute("dto", dto);
         return "free/freeEdit";
     }
-    @PostMapping("edit.do")
+    @PostMapping("update.do")
     public String freeEdit(HttpServletRequest request, Model model) throws Exception {
         int bno = Integer.parseInt(request.getParameter("bno"));
         Free dto = new Free();

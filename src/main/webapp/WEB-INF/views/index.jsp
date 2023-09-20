@@ -92,7 +92,7 @@
                 </div>
                 <ul class="board_con" style="list-style-type: none">
                     <c:forEach var="free" items="${freeList}">
-                        <li><a href="${headPath }/free/detail.do?fno=${free.fno}">${free.title}<span class="date">${free.regdate}</span></a></li>
+                        <li><a href="${headPath }/free/get.do?fno=${free.fno}">${free.title}<span class="date">${free.regdate}</span></a></li>
                     </c:forEach>
                     <c:if test="${empty freeList}">
                         <li class="no_date">
