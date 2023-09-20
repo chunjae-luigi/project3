@@ -67,9 +67,7 @@
                             </tr>
                             <tr>
                                 <th>주소</th>
-                                <td>${member.addr1 }</td>
-                                <td>${member.addr2 }</td>
-                                <td>${member.postcode } </td>
+                                <td>${member.addr1 } ${member.addr2} (${member.postcode })</td>
                             </tr>
                             <tr>
                                 <th>생년월일</th>
