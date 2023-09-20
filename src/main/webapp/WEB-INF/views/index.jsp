@@ -41,6 +41,10 @@
         }*/
 
     </style>
+
+    <link rel="stylesheet" href="/resources/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
@@ -48,21 +52,55 @@
 <div class="content">
 
     <!-- Slider Start -->
-    <section class="slider">
-        <div class="container">
-            <div class="columns is-justify-content-center">
-                <div class="column is-9-desktop is-10-tablet">
-                    <div class="block has-text-centered">
-                        <span class="is-block mb-4 text-white is-capitalized">Empower Learning Together with Tspoon</span>
-                        <h1 class="mb-5">함께하는 학습,<br>티스푼과 함께하세요!</h1>
-                        <p class="mb-6">자녀의 학습을 한 눈에 관리하고,<br>최신 교육 트렌드를 커뮤니티에서 이야기해보세요</p>
-                    </div>
+<%--    <section class="slider">--%>
+<%--        <div class="container">--%>
+<%--            <div class="columns is-justify-content-center">--%>
+<%--                <div class="column is-9-desktop is-10-tablet">--%>
+<%--                    <div class="block has-text-centered">--%>
+<%--                        <span class="is-block mb-4 text-white is-capitalized">Empower Learning Together with Tspoon</span>--%>
+<%--                        <h1 class="mb-5">함께하는 학습,<br>티스푼과 함께하세요!</h1>--%>
+<%--                        <p class="mb-6">자녀의 학습을 한 눈에 관리하고,<br>최신 교육 트렌드를 커뮤니티에서 이야기해보세요</p>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </section>--%>
+
+    <section>
+        <div id="slider">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-16by9 is-covered">
+                        <img src="${headPath }/resources/image/main/main1.png" alt="" />
+                    </figure>
+                </div>
+            </div>
+            <div class="card ">
+                <div class="card-image">
+                    <figure class="image is-16by9 is-covered">
+                        <img src="${headPath }/resources/image/main/main2.png" alt="" />
+                    </figure>
+                </div>
+            </div>
+            <div class="card ">
+                <div class="card-image">
+                    <figure class="image is-16by9 is-covered">
+                        <img src="${headPath }/resources/image/main/main3.png" alt="" />
+                    </figure>
                 </div>
             </div>
         </div>
     </section>
-
-
+    <script src="/resources/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script>
+        bulmaCarousel.attach('#slider', {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            infinite: true,
+            autoplay: true,
+        });
+    </script>
     <%-- 미니 게시판 --%>
 
 
