@@ -30,8 +30,6 @@ CREATE TABLE board(
 	visited INT DEFAULT 0   -- (조회수)
 );
 
-SELECT * FROM free;
-
 -- free
 CREATE TABLE free(
 	fno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
@@ -112,3 +110,10 @@ CREATE TABLE voteAnswerUser(
 );
 
 CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, COUNT(u.uno) AS cnt FROM voteanswerlist l LEFT JOIN voteansweruser u ON l.lno = u.lno GROUP BY l.lno);
+
+CREATE TABLE attendance (
+    seq INT AUTO_INCREMENT PRIMARY KEY,								-- 출석 번호 : 자동증가
+    author VARCHAR(20) NOT NULL,									-- 출석 해당 멤버
+    dateYearMonth VARCHAR(6) NOT NULL,								-- 해당 년월
+    nowDay VARCHAR(2) NOT NULL										-- 출석 날짜
+);
