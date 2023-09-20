@@ -24,7 +24,7 @@
 
         .footBnrFixed img {
             display: block;
-            height : 100px;
+            height : auto;
             width: 80%;
             margin: 0 auto;
         }
