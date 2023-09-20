@@ -61,4 +61,9 @@ public class MemberDAOImpl implements MemberDAO{
         sqlSession.delete("member.memberUpdatePoint", member);
 
     }
+
+    @Override
+    public List<Member> getMemberId() throws Exception {
+        return sqlSession.selectList("member.getMemberId");
+    }
 }

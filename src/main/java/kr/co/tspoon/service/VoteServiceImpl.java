@@ -6,7 +6,6 @@ import kr.co.tspoon.dto.VoteCountVo;
 import kr.co.tspoon.dto.VoteList;
 import kr.co.tspoon.dto.VoteUser;
 import kr.co.tspoon.util.Page;
-import kr.co.tspoon.vo.VoteCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

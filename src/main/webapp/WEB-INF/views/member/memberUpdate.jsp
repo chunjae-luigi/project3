@@ -38,6 +38,14 @@
             <div class="container">
                 <h2 class="page_tit">마이 페이지</h2>
                 <hr>
+                <div class="tabs is-centered">
+                    <ul>
+                        <li class="is-active"><a>나의 정보</a></li>
+                        <li><a href="${headPath }/vote/getMyList.do">나의 투표 내역</a></li>
+                        <li><a href="${headPath }/attend/getMyAttend.do">나의 출석</a></li>
+                    </ul>
+                </div>
+                <hr>
                 <form action="${headPath }/member/update.do" method="post" onsubmit="return updateCheck(this)">
                     <div class="table_form_wrap">
                         <table class="table_form">
