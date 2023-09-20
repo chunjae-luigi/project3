@@ -57,9 +57,6 @@ public class MemberController {
         Member mem = memberService.login(id);
         if(mem != null) {
             boolean loginSuccess = pwEncoder.matches(pw, mem.getPw());
-            System.out.println("pw : " + pw);
-            System.out.println("ma : " + mem.getPw());
-            System.out.println(loginSuccess);
             if (loginSuccess) {
                 session.setAttribute("sid", id);
                 model.addAttribute("msg", "로그인을 성공하셨습니다.");
