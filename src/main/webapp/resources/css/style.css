@@ -711,7 +711,7 @@ ul.list-styled {
 }
 
 .slider {
-  background: url("") no-repeat;
+  background: url("../../resources/image/main/main.png") no-repeat;
   background-size: cover;
   background-position: 10% 0%;
   padding: 100px 0;
