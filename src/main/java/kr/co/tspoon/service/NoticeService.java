@@ -1,6 +1,7 @@
 package kr.co.tspoon.service;
 
 import kr.co.tspoon.dto.Notice;
+import kr.co.tspoon.util.Page;
 
 import java.util.List;
 
@@ -11,5 +12,7 @@ public interface NoticeService {
     public void noticeInsert(Notice notice) throws Exception;
     public void noticeUpdate(Notice notice) throws Exception;
     public void noticeDelete(int no) throws Exception;
-    
+
+    public List<Notice> noticeListPro(Page page) throws Exception;
+    public int noticeCount(Page page) throws Exception;
 }
