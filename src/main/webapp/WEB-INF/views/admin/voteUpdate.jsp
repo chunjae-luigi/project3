@@ -25,7 +25,7 @@
 <jsp:include page="../include/header.jsp" />
 <div class="column">
     <h1 class="is-size-3 has-text-weight-semibold">투표 관리 - 수정하기</h1>
-    <form action="${path }/vote/edit.do" method="post" class="mt-5">
+    <form action="${path }/vote/update.do" method="post" class="mt-5">
         <table class="table is-fullwidth is-bordered">
             <colgroup>
                 <col style="width:20%;">

@@ -92,8 +92,9 @@
                 </c:forEach>
             </ul>
         </nav>
-
+        <c:if test="${not empty sid || (sid eq 'admin')}">
         <a href="${headPath }/board/dataBoardInsert.do" class="button is-primary">글쓰기</a>
+        </c:if>
     </section>
 
 
