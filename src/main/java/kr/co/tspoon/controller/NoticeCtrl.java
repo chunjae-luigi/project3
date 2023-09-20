@@ -23,7 +23,7 @@ public class NoticeCtrl {
     private NoticeService noticeService;
 
     @RequestMapping(value = "List.do", method = RequestMethod.GET)
-    public String noticeList(Model model) throws Exception{
+    public String noticeList(HttpServletRequest request, Model model) throws Exception{
         String type = request.getParameter("type");
         String keyword = request.getParameter("keyword");
         int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
@@ -31,7 +31,7 @@ public class NoticeCtrl {
         Page page = new Page();
         page.setSearchType(type);
         page.setSearchKeyword(keyword);
-        int total = freeService.totalCount(page);
+        int total = noticeService.noticeCount(page);
 
         page.makeBlock(curPage, total);
         page.makeLastPageNum(total);
@@ -43,7 +43,7 @@ public class NoticeCtrl {
         model.addAttribute("page", page);
         model.addAttribute("curPage", curPage);
 
-        List<Notice> noticeList = noticeService.noticeList();
+        List<Notice> noticeList = noticeService.noticeListPro(page);
 
         model.addAttribute("noticeList", noticeList);
         return "/board/notice/noticeList";
