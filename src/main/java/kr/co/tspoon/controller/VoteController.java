@@ -153,7 +153,7 @@ public class VoteController {
 
     }
 
-    @RequestMapping(value = "edit.do", method = RequestMethod.POST)
+    @RequestMapping(value = "update.do", method = RequestMethod.POST)
     public String voteUpdate(HttpServletRequest request, Model model) throws Exception {
 
         String sid = (String) session.getAttribute("sid");

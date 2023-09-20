@@ -48,6 +48,21 @@
     <context:component-scan base-package="kr.co.tspoon.controller" />
     <annotation-driven/>
 
+
+    <beans:bean id="adminInterceptor" class="kr.co.tspoon.util.AdminInterceptor" />
+    <beans:bean id="boardInterceptor" class="kr.co.tspoon.util.BoardInterceptor" />
+
+    <interceptors>
+        <interceptor>
+            <mapping path="/admin/**"/>
+            <beans:ref bean="adminInterceptor" />
+        </interceptor>
+        <interceptor>
+            <mapping path="/board/**"/>
+            <beans:ref bean="boardInterceptor" />
+        </interceptor>
+    </interceptors>
+
     <!-- 인터셉터 : 글쓰기와 같은 회원권한을 가진 경우는 반드시 로그인 페이지를 거쳐서 시도할 것  -->
 <!--    <beans:bean id="sampleIntercepter" class="kr.co.tspoon.util.SampleInterceptor" />-->
 <!--    <beans:bean id="adminIntercepter" class="kr.co.tspoon.util.AdminInterceptor" />-->

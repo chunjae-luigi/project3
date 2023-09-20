@@ -8,6 +8,40 @@
     <select id="noticeList" resultType="kr.co.tspoon.dto.Notice">
         select * from notice order by regdate desc
     </select>
+
+    <select id="noticeListPro" resultType="kr.co.tspoon.dto.Notice">
+        <![CDATA[
+        select * from notice
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+        <![CDATA[
+        order by regdate desc LIMIT #{postStart}, #{postCount}
+        ]]>
+    </select>
+
+    <select id="noticeCount" resultType="integer">
+        <![CDATA[
+        select count(*) from notice
+        ]]>
+        <where>
+            <if test="searchType != null">
+                <choose>
+                    <when test="searchType == 'title'.toString()">
+                        and title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                </choose>
+            </if>
+        </where>
+    </select>
+
     <select id="noticeGet" resultType="kr.co.tspoon.dto.Notice">
         select * from notice where no=#{no}
     </select>

@@ -61,8 +61,10 @@
             </tbody>
         </table>
         <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
-        <a href="${headPath }/board/dataBoardUpdate.do?bno=${dto.bno}" class="button ">글 수정</a>
-        <a href="${headPath }/board/dataBoardDelete.do?bno=${dto.bno}" class="button is-danger">글 삭제</a>
+        <c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
+            <a href="${headPath }/board/dataBoardUpdate.do?bno=${dto.bno}&author=${dto.author}" class="button ">글 수정</a>
+            <a href="${headPath }/board/dataBoardDelete.do?bno=${dto.bno}&author=${dto.author}" class="button is-danger">글 삭제</a>
+        </c:if>
     </section>
 
 
