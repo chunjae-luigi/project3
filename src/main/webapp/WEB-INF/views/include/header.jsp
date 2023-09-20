@@ -37,7 +37,7 @@
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="${headPath }/">
-                    <img src="${headPath }/resources/image/common/logo.png" alt="티스푼 로고타입">
+                    <img src="${headPath }/resources/image/common/logo.png" alt="티스푼 로고타입" style="max-width: 200px;">
                 </a>
                 <button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
                     <span aria-hidden="true"></span>
