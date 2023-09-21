@@ -19,20 +19,6 @@
     <!-- 헤더 부분 인클루드 -->
     <jsp:include page="./../include/header.jsp" />
 
-    <figure class="visual" id="vs1">
-        <ul class="imgbox">
-            <li class="hero is-medium is-link">
-                <div class="hero-body">
-                    <p class="title">
-                        Medium hero
-                    </p>
-                    <p class="subtitle">
-                        Medium subtitle
-                    </p>
-                </div>
-            </li>
-        </ul>
-    </figure>
     <div class="content" id="content">
         <div class="row column text-center">
             <div class="container">
@@ -56,13 +42,14 @@
                             </tr>
                             <tr>
                                 <th><label for="pw">비밀번호</label></th>
-                                <td><input type="password" name="pw" id="pw"  class="input" value="${member.pw }" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                <td><input type="password" name="pw" id="pw" class="input" value="${member.pw }" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
                                     <p>(최소 8자리에서 최대 16자리까지, 숫자, 영문 대소문자, 특수문자가 각 1 문자 이상 포함되어야 함)</p>
                                 </td>
                             </tr>
                             <tr>
                                 <th><label for="pw2">비밀번호 확인</label></th>
-                                <td><input type="password" name="pw2" id="pw2"  class="input" value="${member.pw }" required></td>
+                                <td><input type="password" name="pw2" id="pw2" class="input" >
+                                </td>
                             </tr>
                             <tr>
                                 <th>이름</th>
@@ -70,7 +57,7 @@
                             </tr>
                             <tr>
                                 <th><label for="email">이메일</label></th>
-                                <td><input type="email" name="email" id="email" class="input" value="${member.email }" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required></td>
+                                <td><input type="email" name="email" id="email" class="input" value="${member.email }" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ></td>
                             </tr>
                             <tr>
                                 <th>전화번호</th>
@@ -87,10 +74,7 @@
                             </tr>
                             <tr>
                                 <th>생년월일</th>
-                                <td>
-                                    <fmt:parseDate value="${member.birth }" var="birth" pattern="yyyy-MM-dd" />
-                                    <input type="date" name="birth" value="${birth}">
-                                </td>
+                                <td>${member.birth }</td>
                             </tr>
                             <tr>
                                 <td colspan="2">
@@ -105,7 +89,7 @@
                 </form>
                 <script>
                     function updateCheck(f){
-                        if(f.userpw.value!=f.userpw2.value){
+                        if(f.pw.value!=f.pw2.value){
                             alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
                             return false;
                         }

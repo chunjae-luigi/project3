@@ -17,6 +17,6 @@ public class Member {
     private String regdate;
     private String birth;
     private int point = 0;
-    private int grade = 1;
+    private int grade;
     private boolean state = true;
 }

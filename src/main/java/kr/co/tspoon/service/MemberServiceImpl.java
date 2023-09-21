@@ -26,12 +26,12 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member memberGet(String id) throws Exception {
-        Member member = memberDAO.memberGet(id);
+       /* Member member = memberDAO.memberGet(id);
         if(member!=null){
             String pw = (String) session.getAttribute("spw");
             member.setPw(pw);
-        }
-        return member;
+        }*/
+        return memberDAO.memberGet(id);
     }
 
     @Override
@@ -51,11 +51,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void memberUpdate(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberUpdate(dto);
+    public void memberUpdate(Member member) throws Exception {
+        memberDAO.memberUpdate(member);
     }
 
     @Override
