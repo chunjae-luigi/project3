@@ -27,7 +27,7 @@
 
 
         .page .intro .intro_tit { font-family: SBAggroB; font-size: 50px; display: block; width: 800px; margin: 50px auto; letter-spacing:-0.048em; }
-        .page .intro .intro_con { font-family: HakgyoansimWoojuR; font-size: 20px; display: block; width: 800px; height: 300px; margin: 50px auto;  }
+        .page .intro .intro_con { font-family: HakgyoansimWoojuR; font-size: 20px; display: block; width: 800px; height: auto; margin: 30px auto;  }
     </style>
 
 </head>
@@ -67,6 +67,7 @@
                     (그로우앤조이 기업)
                     <br><br>
                     티스푼 팀 드림
+                </p>
             </div>
 
         </section>

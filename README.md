@@ -31,19 +31,13 @@
 ![Prototype](/README/prototype.png)
 
 ### 개념적 설계(UCD)
+![ucd](/README/ucd.png)
+
+### 논리적 설계(기능적 ERD)
+![ERD10](/README/erd10.png)
 
 
-### 논리적 설계
-
-
-
-### 물리적 설계
-
-
-### 클래스 다이어그램
-
-
-### ERD 다이어그램
+### 물리적 설계(ERD 다이어그램)
 ![ERD01](/README/erd01_member.PNG)
 ![ERD02](/README/erd02_notice.PNG)
 ![ERD03](/README/erd03_qna.PNG)
@@ -53,6 +47,10 @@
 ![ERD07](/README/erd07_vote.PNG)
 ![ERD08](/README/erd08_voteAnswerList.PNG)
 ![ERD09](/README/erd09_voteAnswerUser.PNG)
+
+### 클래스 다이어그램
+
+
 
 ### 시퀀스 다이어그램
 ![sequence join](/README/sequence_join.png)
