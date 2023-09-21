@@ -6,6 +6,7 @@
 .sl-btn-box .btn.prev { top:148px; }
 
 .column, .news_area {position:relative;}
+.notice_area ul {box-sizing:border-box;border-bottom:1px solid #333;}
 .subtitle.noticeTitle {border-bottom:3px dashed #333;padding-bottom:20px;}
 .section .delete.is-large {transform:rotate(45deg);position:absolute;right:5%;}
 .section .delete.is-large.news {right:4%;}
