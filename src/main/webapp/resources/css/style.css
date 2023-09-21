@@ -8,6 +8,10 @@
  */
 
 /*슬비 테스트*/
+
+.navbar-item img {
+  max-height: 3.75rem !important;
+}
 .slider-text {
   position: absolute;
   right: 0;
@@ -791,13 +795,27 @@ ul.list-styled {
     padding: 15px 10px;
   }
 }
-.bg-1 {
-  background: url("../images/bg/bg-3.jpg") no-repeat 50% 50%;
+
+/*서브페이지 배너*/
+/*회사소개*/
+.bg-01 {
+  background: url("../image/sub/sub08.jpg") no-repeat ;
+  background-size: cover;
+  ackground-position-y: 83%;
+}
+/*커뮤니티*/
+.bg-02 {
+  background: url("../image/sub/sub02.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
-
-.bg-2 {
-  background: url("../images/bg/home-5.jpg");
+/*이벤트*/
+.bg-03 {
+  background: url("../image/sub/sub01.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+/*자료실*/
+.bg-04 {
+  background: url("../image/sub/sub07.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
 

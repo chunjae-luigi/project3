@@ -13,6 +13,104 @@
 	<title>자유게시판 글 보기</title>
     <!-- 헤드 부분 인클루드 -->
     <jsp:include page="../../include/head.jsp"></jsp:include>
+
+	<style>
+		.conwrap {
+			margin: 0 0 20px;
+			padding: 30px 30px 60px;
+			background: #ffffff;
+		}
+
+		.conwrap:last-child {
+			margin: 0;
+		}
+
+		.h3group {
+			overflow: hidden;
+			margin: -30px -30px 0;
+			padding: 30px;
+			border-bottom: 1px solid #e6e6e8;
+			background: #ffffff;
+		}
+
+		.h3group.tit {
+			float: left;
+			font-family: 'NanumSquare';
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 44px;
+			color: #2d2d2d;
+		}
+
+		.hgroup.util {
+
+		}
+
+		.h3group .location {
+			float: right;
+		}
+
+		.h3group .location .depth {
+			display: block;
+			float: left;
+			position: relative;
+			margin: 0 25px 0 0;
+			font-size: 14px;
+			line-height: 44px;
+			color: #777777;
+		}
+
+		.h3group .location .depth:after {
+			display: block;
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: -15px;
+			width: 6px;
+			height: 9px;
+			margin: -4px 0 0;
+
+		}
+
+		.h3group .location .this {
+			display: block;
+			float: left;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 44px;
+			color: #2d2d2d;
+		}
+
+		.viewbody .hgroup .tit {
+			text-align: center;
+			font-weight: 700;
+			font-size: 42px;
+			margin: 0 0 20px;
+		}
+
+		.viewbody .content {
+			font-size: 20px;
+			position: relative;
+			line-height: 26px;
+			color: #666666;
+			text-align: center;
+		}
+
+		.viewbody .hgroup .util div {
+			font-size: 15px;
+			text-align: center;
+			display: inline-block;
+			margin: 10px 20px;
+		}
+
+
+		.dat_add {
+			height: 80px;
+			padding: 15px 80px 15px 20px;
+			border: none;
+			background: #f6f6f9;
+		}
+	</style>
 </head>
 
 <body>
@@ -21,7 +119,7 @@
 </header>
 <div class="content">
 
-	<section class="page-title bg-1">
+	<section class="page-title bg-02">
 		<div class="container">
 			<div class="columns">
 				<div class="column is-12">
@@ -34,35 +132,32 @@
 	</section>
 
 	<section class="section blog-wrap container">
-		<table class="table" id="myTable">
-			<tbody>
 
-			<tr>
-				<th style="background-color:#dcdcdc">글 번호</th>
-				<td>${dto.fno }</td>
-			</tr>
-			<tr>
-				<th style="background-color:#dcdcdc">글 제목</th>
-				<td>${dto.title }</td>
-			</tr>
-			<tr>
-				<th style="background-color:#dcdcdc">글 내용</th>
-				<td><p>${dto.content }</p></td>
-			</tr>
-			<tr>
-				<th style="background-color:#dcdcdc">작성자</th>
-				<td>${dto.author }</td>
-			</tr>
-			<tr>
-				<th style="background-color:#dcdcdc">작성일시</th>
-				<td>${dto.regdate }</td>
-			</tr>
-			<tr>
-				<th style="background-color:#dcdcdc">읽은 횟수</th>
-				<td>${dto.visited }</td>
-			</tr>
-			</tbody>
-		</table>
+
+
+
+			<div class="conwrap">
+				<div class="h3group">
+					<div class="location">
+						<span class="depth">홈</span>
+						<span class="depth">커뮤니티</span><strong class="this">자유게시판</strong>
+					</div>
+				</div>
+				<div class="viewbody">
+					<div class="hgroup">
+						<div class="no">${dto.fno }</div>
+						<div class="tit">${dto.title }</div>
+						<div class="util">
+							<div class="name">${dto.author }</div>
+							<div class="date">작성일 ${dto.regdate }</div>
+							<div class="hit">조회수 ${dto.visited }</div></div>
+						</div>
+					<div class="content">
+
+							${dto.content }
+
+					</div>
+
 
 		<!-- 댓글 영역 -->
 
