@@ -16,6 +16,19 @@
     <header class="hd" id="hd">
         <jsp:include page="../include/header.jsp" />
     </header>
+
+    <section class="page-title bg-03">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">출석체크</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div class="container is-fullhd">
         <nav class="breadcrumb is-right" aria-label="breadcrumbs">
             <ul>

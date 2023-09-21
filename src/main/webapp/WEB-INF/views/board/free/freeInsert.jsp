@@ -17,29 +17,27 @@
 	<script type="text/javascript" src="${path }/resources/ckeditor/ckeditor.js"></script>
 </head>
 <body>
-<div class="container is-fullhd">
-	<!-- 헤더 부분 인클루드 -->
-	<header class="hd" id="hd">
-		<jsp:include page="../../include/header.jsp" />
-	</header>
-	<figure class="visual" id="vs1">
-		<ul class="imgbox">
-			<li class="hero is-medium is-link">
-				<div class="hero-body">
-					<p class="title">
-						Medium hero
-					</p>
-					<p class="subtitle">
-						Medium subtitle
-					</p>
+<!-- 헤더 부분 인클루드 -->
+<header class="hd" id="hd">
+	<jsp:include page="../../include/header.jsp" />
+</header>
+<div class="content">
+	<section class="page-title bg-02">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-12">
+					<div class="block has-text-centered">
+						<h1 class="is-capitalize text-lg font-happy">자유게시판</h1>
+					</div>
 				</div>
-			</li>
-		</ul>
-	</figure>
+			</div>
+		</div>
+	</section>
+
+
 	<div class="content" id="contents">
 	    <div class="row column text-center">
-	      <h2 class="h1">자유게시판 글쓰기</h2>
-	      <hr>
+
 	      <div class="container">
 	      	<form action="${path }/board/free/insert.do" method="post">
 			      <table id="table1">

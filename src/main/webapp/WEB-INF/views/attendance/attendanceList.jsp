@@ -18,7 +18,17 @@
 <div class="container is-fullhd">
     <!-- 헤더 부분 인클루드 -->
     <jsp:include page="./../include/header.jsp" />
-
+    <section class="page-title bg-03">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">투표</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <figure class="visual" id="vs1">
         <ul class="imgbox">
             <li class="hero is-medium is-link">
