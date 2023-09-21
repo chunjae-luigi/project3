@@ -1,9 +1,7 @@
 package kr.co.tspoon.controller;
 
 import kr.co.tspoon.dto.*;
-import kr.co.tspoon.service.MemberService;
-import kr.co.tspoon.service.NoticeService;
-import kr.co.tspoon.service.VoteService;
+import kr.co.tspoon.service.*;
 import kr.co.tspoon.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +25,10 @@ public class AdminController {
     private VoteService voteService;
     @Autowired
     private NoticeService noticeService;
+    @Autowired
+    private FreeService freeService;
+    @Autowired
+    private DatService datService;
 
     //member------------------------------------------------
     @RequestMapping(value = "MemberListAdmin.do", method = RequestMethod.GET)
@@ -117,6 +119,51 @@ public class AdminController {
         int no = Integer.parseInt(request.getParameter("no"));
         noticeService.noticeDelete(no);
         return "redirect:/admin/List.do";
+    }
+
+    //free------------------------------------------------
+    @GetMapping("FreeListAdmin.do")		//free/list.do
+    public String getfreeList(HttpServletRequest request, Model model) throws Exception {
+
+
+        String type = request.getParameter("type");
+        String keyword = request.getParameter("keyword");
+        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        Page page = new Page();
+        page.setSearchType(type);
+        page.setSearchKeyword(keyword);
+        int total = freeService.totalCount(page);
+
+        page.makeBlock(curPage, total);
+        page.makeLastPageNum(total);
+        page.makePostStart(curPage, total);
+
+
+        List<Free> freeList = freeService.freeList(page);
+
+        model.addAttribute("type", type);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("page", page);
+        model.addAttribute("curPage", curPage);
+
+
+        model.addAttribute("freeList", freeList);
+        return "/admin/freeList";
+    }
+
+    @GetMapping("freeGet.do")	//free/get.do?fno=1
+    public String getFree(HttpServletRequest request, Model model) throws Exception {
+        int fno = Integer.parseInt(request.getParameter("fno"));
+        Free dto = freeService.freeDetail(fno);
+        List<Dat> datList = datService.datList(fno);
+        model.addAttribute("datList", datList);
+        model.addAttribute("dto", dto);
+        model.addAttribute("fno", fno);
+        System.out.println("dto : " + dto);
+        System.out.println("datList : " + datList);
+        System.out.println("fno : " + fno);
+        return "/admin/freeGet";
     }
 
     //vote------------------------------------------------

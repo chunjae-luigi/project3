@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/dat/*")
@@ -19,6 +20,9 @@ public class DatController {
 
     @Autowired
     private DatService datService;
+
+    @Autowired
+    HttpSession session;
 
     @GetMapping("insert.do")
     public String insertForm(HttpServletRequest request, Model model) throws Exception {
@@ -37,12 +41,19 @@ public class DatController {
 
     @GetMapping("delete.do")
     public ModelAndView datDelete(HttpServletRequest request, Model model) throws Exception {
+        String sid = session.getAttribute("sid") != null ? (String) session.getAttribute("sid") : "";
+
         int dno = Integer.parseInt(request.getParameter("dno"));
         int fno = Integer.parseInt(request.getParameter("fno"));
         datService.datDelete(dno);
         model.addAttribute("fno", fno);
         ModelAndView mav = new ModelAndView();
-        mav.setView(new RedirectView(request.getContextPath() + "/board/free/get.do"));
+
+        if(!sid.equals("admin")) {
+            mav.setView(new RedirectView(request.getContextPath() + "/board/free/get.do"));
+        } else {
+            mav.setView(new RedirectView(request.getContextPath() + "/admin/freeGet.do"));
+        }
         return mav;
         //String referer = request.getHeader("Referer");      // 요청한 페이지를 기억해서 보냄
         //System.out.println(referer);

@@ -105,7 +105,7 @@
 
     <!-- 투표 변경하기 - 관리자 -->
     <update id="voteEdit">
-        update vote set title = #{title}, content = #{content}, startDate = #{startDate}, finishDate = #{finishDate} where vno = #{vno}
+        update vote set title = #{title}, content = #{content}, startDate = #{startDate}, finishDate = #{finishDate}, addPt = #{addPt} where vno = #{vno}
     </update>
 
     <!-- 투표 조회수 증가 -->
@@ -138,10 +138,7 @@
     <delete id="voteAnswerDelete">
         delete from voteAnswerList where lno = #{lno}
     </delete>
-<<<<<<< HEAD
-=======
 
->>>>>>> dbd0ea5e93619b4084cd69ae7f88721657997a23
     <!-- 투표 선택지 변경하기 -->
     <update id="voteAnswerEdit">
         update voteAnswerList set title = #{title} where lno = #{lno}

@@ -144,6 +144,7 @@ public class VoteController {
             vote.setContent(request.getParameter("content"));
             vote.setStartDate(request.getParameter("startDate"));
             vote.setFinishDate(request.getParameter("finishDate"));
+            vote.setAddPt(Integer.parseInt(request.getParameter("addPt")));
             voteService.voteInsert(vote);
 
             return "redirect:/admin/VoteMemberListAdmin.do";
@@ -164,6 +165,7 @@ public class VoteController {
             vote.setContent(request.getParameter("content"));
             vote.setStartDate(request.getParameter("startDate"));
             vote.setFinishDate(request.getParameter("finishDate"));
+            vote.setAddPt(Integer.parseInt(request.getParameter("addPt")));
             vote.setVno(Integer.parseInt(request.getParameter("vno")));
             voteService.voteEdit(vote);
 
