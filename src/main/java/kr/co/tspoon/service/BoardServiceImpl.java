@@ -78,7 +78,18 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void qnaDelete(int qno) throws Exception {
+        Qna qna = boardDAO.qnaGet(qno);
+        if(qna.getLev()==0){
+            List<Qna> qnaList = qnaGetPar(qna.getPar());
+            for(Qna q: qnaList){
+                boardDAO.qnaDelete(q.getQno());
+            }
+        }
         boardDAO.qnaDelete(qno);
     }
 
+    @Override
+    public List<Qna> qnaGetPar(int par) throws Exception {
+        return boardDAO.qnaGetPar(par);
+    }
 }
