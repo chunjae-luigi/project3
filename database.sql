@@ -81,6 +81,15 @@ CREATE TABLE dataBoard(
 	visited INT DEFAULT 0   -- (조회수)
 );
 
+CREATE TABLE datafile(
+	fno INT primary KEY AUTO_INCREMENT,
+	fileName VARCHAR(100),
+	saveName VARCHAR(100),
+	fileType VARCHAR(100),
+	relations VARCHAR(20),
+	bno INT,
+	saveFolder VARCHAR(100)
+);
 
 CREATE TABLE vote(
     vno INT AUTO_INCREMENT PRIMARY KEY,								    -- 투표번호 : 자동증가

@@ -22,6 +22,7 @@ public interface BoardDAO {
     public void qnaInsert(Qna qna) throws Exception;
     public void qnaUpdate(Qna qna) throws Exception;
     public void qnaDelete(int qno) throws Exception;
+    public List<Qna> qnaGetPar(int par) throws Exception;
 
 }
 
