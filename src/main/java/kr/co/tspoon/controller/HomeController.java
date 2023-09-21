@@ -85,4 +85,14 @@ public class HomeController {
         return "/company/company03";
     }
 
+    @RequestMapping(value = "/event1", method = RequestMethod.GET)
+    public String event1(Model model){
+        return "/company/event1";
+    }
+
+    @RequestMapping(value = "/event2", method = RequestMethod.GET)
+    public String event2(Model model){
+        return "/company/event2";
+    }
+
 }

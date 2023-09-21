@@ -22,7 +22,7 @@
 
 <div class="content">
 
-    <section class="page-title bg-1">
+    <section class="page-title bg-01">
         <div class="container">
             <div class="columns">
                 <div class="column is-12">
