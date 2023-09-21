@@ -20,6 +20,11 @@ public class FreeServiceImpl implements FreeService {
     }
 
     @Override
+    public List<Free> freeListForMain() throws Exception {
+        return freeDAO.freeListForMain();
+    }
+
+    @Override
     public int totalCount(Page page) throws Exception {
         return freeDAO.totalCount(page);
     }
