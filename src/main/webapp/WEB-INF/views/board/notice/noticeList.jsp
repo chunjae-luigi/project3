@@ -26,6 +26,7 @@
             </div>
         </div>
     </section>
+
     <section class="section blog-wrap container">
         <form action="${headPath }/notice/List.do" method="get" class="field has-addons has-addons-right">
             <p class="control">
@@ -48,10 +49,10 @@
         <table class="table">
             <thead>
             <tr>
-                <th class="item1">번호</th>
-                <th class="item2">제목</th>
-                <th class="item3">작성일</th>
-                <th class="item4">조회</th>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>조회수</th>
             </tr>
             </thead>
             <tbody>

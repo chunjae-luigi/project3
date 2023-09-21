@@ -11,6 +11,7 @@
 <head>
     <title>공지사항 상세보기</title>
     <jsp:include page="../../include/head.jsp" />
+    <link rel="stylesheet" href="${headPath}/resources/css/boardget.css">
 </head>
 
 <body>
@@ -30,37 +31,37 @@
     </section>
 
     <section class="section blog-wrap container">
-        <table class="table" id="myTable">
-            <tbody>
-            <tr>
-                <th style="background-color:#dcdcdc">글 번호</th>
-                <td>${notice.no }</td>
-            </tr>
-            <tr>
-                <th style="background-color:#dcdcdc">글 제목</th>
-                <td>${notice.title }</td>
-            </tr>
-            <tr>
-                <th style="background-color:#dcdcdc">글 내용</th>
-                <td><p>${notice.content }</p></td>
-            </tr>
-            <tr>
-                <th style="background-color:#dcdcdc">작성일시</th>
-                <td>${notice.regdate }</td>
-            </tr>
-            <tr>
-                <th style="background-color:#dcdcdc">읽은 횟수</th>
-                <td>${notice.visited }</td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="button-group">
-            <a class="button" href="${headPath }/notice/List.do">글 목록</a>
+        <div class="detail">
+            <div class="conwrap">
+                <div class="h3group">
+                    <div class="location">
+                        <span class="depth">홈</span>
+                        <span class="depth">/ 회사소개</span><strong class="this">/ 공지사항</strong>
+                    </div>
+                </div>
+    <div class="viewbody">
+        <div class="hgroup">
+            <c:if test="${ sid eq 'admin'}">
+                <div class="no">NO ${notice.no }</div>
+            </c:if>
+            <div class="tit">${notice.title }</div>
+            <div class="util">
+                <div class="date">작성일${notice.regdate }</div>
+                <div class="hit">조회수 ${notice.visited }</div></div>
+        </div>
+        <div class="content">
+            ${notice.content }
+        </div>
+        <div class="buttons is-centered">
+            <a class="button is-info" href="${headPath }/notice/List.do"">글 목록</a>
             <c:if test='${sid eq "admin"}'>
-            <a class="button" href="${headPath }/notice/Update.do?no=${notice.no}">글 수정</a>
-            <a class="button" href="${headPath }/notice/Delete.do?no=${notice.no}">글 삭제</a>
+                <a class="button is-danger" href="${headPath }/notice/Update.do?no=${notice.no}">글 수정</a>
+                <a class="button is-primary" href="${headPath }/notice/Delete.do?no=${notice.no}">글 삭제</a>
             </c:if>
         </div>
+    </div>
+
+</div>
         <jsp:include page="../../include/footer.jsp" />
 </body>
 

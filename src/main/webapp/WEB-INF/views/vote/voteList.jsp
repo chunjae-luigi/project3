@@ -22,7 +22,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">출석체크</h1>
+                        <h1 class="is-capitalize text-lg font-happy">투표</h1>
                     </div>
                 </div>
             </div>
