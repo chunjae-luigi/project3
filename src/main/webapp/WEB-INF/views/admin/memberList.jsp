@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 목록</title>
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
     <style>
         table {width: 100%; text-align: center;}
@@ -22,8 +23,8 @@
 
 
 <body>
-<jsp:include page="../include/header.jsp" />
-<div style="display: flex; min-height: 80vh;">
+<jsp:include page="../include/headerAdmin.jsp" />
+<div style="display: flex; min-height:96vh;">
     <jsp:include page="./adminBoardList.jsp" />
     <div class="container" style="margin-top: 20px;">
         <h2 class="title">회원</h2>
