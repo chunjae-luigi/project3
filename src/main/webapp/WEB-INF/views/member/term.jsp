@@ -291,7 +291,7 @@
     var ck_item2 = document.getElementById("ck_item2");
     in_btn1.addEventListener("click", function(){
         if(ck_item1.checked && ck_item2.checked) {
-            location.href = "${headPath }/member/insert.do";
+            location.href = "${headPath }/member/type.do";
         } else if(ck_item1.checked || ck_item2.checked){
             alert("약관에 동의하지 않으셨습니다.");
             return;

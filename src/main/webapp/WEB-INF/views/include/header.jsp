@@ -14,7 +14,7 @@
                     <div class="header-top-right has-text-right-tablet has-text-centered-mobile">
                         <c:choose>
                             <c:when test="${sid=='admin'}">
-                                <a href="${headPath }/member/logout.do" class="is-size-6 has-text-weight-semibold">로그아웃</a>
+                                <a href="${headPath }/member/logout.do?sid=${sid}" class="is-size-6 has-text-weight-semibold">로그아웃</a>
                                 <a href="${headPath }/member/get.do" class="is-size-6 has-text-weight-semibold">마이페이지</a>
                                 <a href="${headPath }/admin/MemberListAdmin.do" class="is-size-6 has-text-weight-semibold">관리자페이지</a>
                             </c:when>

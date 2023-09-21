@@ -11,8 +11,34 @@
 <body>
 <%@ include file="../include/header.jsp" %>
 
+<section class="page-title bg-02">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <div class="block has-text-centered">
+                    <h1 class="is-capitalize text-lg font-happy">회원가입</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<br>
 <div class="content container">
     <form class="text-left clearfix form_row" action="${headPath }/member/insert.do" method="post" onsubmit="return inform(this)">
+        <div class="columns GRADE">
+            <input type="hidden" class="input" id="grade" value="${grade}" >
+            <div class="column is-1">회원유형</div>
+            <c:choose>
+                <c:when test="${grade eq 1}">
+                    <div class="column is-6"><strong>학부모</strong></div>
+                </c:when>
+                <c:otherwise>
+                    <div class="column is-6"><strong>학생</strong></div>
+                </c:otherwise>
+            </c:choose>
+        </div>
         <div class="columns ID">
             <input type="hidden" id="idck" value="no">
             <div class="column is-1"><label for="id">아이디</label></div>
@@ -54,6 +80,7 @@
             <div class="column is-1"><label for="addr2">상세주소</label></div>
             <div class="column"><input type="text" class="input" id="addr2" name="addr2" placeholder="상세주소를 입력하세요."></div>
         </div>
+
 
         <button type="submit" class="button text-center">회원가입</button>
 
