@@ -52,6 +52,13 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void memberUpdate(Member member) throws Exception {
+        Member oldMember = memberDAO.memberGet(member.getId());
+        if(!oldMember.getPw().equals(member.getPw())){
+            System.out.println(member.getPw());
+            String bpw = bcryptPasswordEncoder.encode(member.getPw());
+            member.setPw(bpw);
+            System.out.println(member.getPw());
+        }
         memberDAO.memberUpdate(member);
     }
 
