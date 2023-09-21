@@ -27,7 +27,7 @@
         </div>
     </section>
     <section class="section blog-wrap container">
-        <form action="${path }/notice/List.do" method="get" class="field has-addons has-addons-right">
+        <form action="${headPath }/notice/List.do" method="get" class="field has-addons has-addons-right">
             <p class="control">
                 <span class="select">
                     <select id="type" name="type">
