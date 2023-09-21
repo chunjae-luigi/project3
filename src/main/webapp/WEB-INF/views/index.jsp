@@ -233,6 +233,25 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<div class="uiPopup uiPopup2" id="popupModal2">
+    <div class="ui_body">
+        <div>
+            <a href="${headPath}/vote/list.do">
+              <img src="${headPath }/resources/image/main/main_vote.png" alt="투표 관련" />
+            </a>
+        </div>
+    </div>
+    <div class="ui_top">
+        <div class="ui-day">
+            <input type="checkbox" name="chk2" id="chk2" />
+            <label for="chk2">오늘 하루 열지않기</label>
+            <button type="button" class="delete is-medium closeBtn" onclick="closePopup2();">닫기</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script>
     $(function (){
         if($.cookie('popupCookie') != undefined){
