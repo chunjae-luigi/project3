@@ -103,4 +103,8 @@ public class BoardDAOImpl implements BoardDAO {
         sqlSession.delete("board.qnaDelete", qno);
     }
 
+    @Override
+    public List<Qna> qnaGetPar(int par) throws Exception {
+        return sqlSession.selectList("board.qnaGetPar", par);
+    }
 }

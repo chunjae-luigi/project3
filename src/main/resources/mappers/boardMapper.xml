@@ -86,6 +86,10 @@
         select * from qna where qno=#{qno}
     </select>
 
+    <select id="qnaGetPar" resultType="kr.co.tspoon.dto.Qna">
+        select * from qna where par=#{par}
+    </select>
+
     <update id="qnaCountUp" >
         update qna set visited = visited+1 where qno=#{qno}
     </update>
@@ -121,6 +125,7 @@
     <delete id="qnaDelete" >
         delete from qna where qno=#{qno}
     </delete>
+
 
     <!--  free(자유게시판)  -->
     <select id="freeList" resultType="kr.co.tspoon.dto.Free">
