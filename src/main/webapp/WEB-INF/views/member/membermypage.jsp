@@ -19,25 +19,20 @@
     <!-- 헤더 부분 인클루드 -->
     <jsp:include page="./../include/header.jsp" />
 
-    <figure class="visual" id="vs1">
-        <ul class="imgbox">
-            <li class="hero is-medium is-link">
-                <div class="hero-body">
-                    <p class="title">
-                        Medium hero
-                    </p>
-                    <p class="subtitle">
-                        Medium subtitle
-                    </p>
+    <section class="page-title bg-02">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">마이페이지</h1>
+                    </div>
                 </div>
-            </li>
-        </ul>
-    </figure>
+            </div>
+        </div>
+    </section>
     <div class="content" id="content">
         <div class="row column text-center">
             <div class="container">
-                    <h2 class="page_tit">마이 페이지</h2>
-                <hr>
                 <div class="tabs is-centered">
                     <ul>
                         <li class="is-active"><a>나의 정보</a></li>
@@ -49,6 +44,17 @@
                     <div class="table_form_wrap">
                         <table class="table_form">
                             <tbody>
+                            <tr>
+                                <th>회원유형</th>
+                                <c:choose>
+                                <c:when test="${member.grade eq 1}">
+                                <td><strong>학부모</strong></td>
+                                </c:when>
+                                <c:otherwise>
+                                <td><strong>학생</strong></td>
+                                </c:otherwise>
+                                </c:choose>
+                            </tr>
                             <tr>
                                 <th>아이디</th>
                                 <td>${member.id }</td>
@@ -98,6 +104,9 @@
             </div>
         </div>
     </div>
+    <script>
+
+    </script>
 
     <!-- 푸터 부분 인클루드 -->
     <footer class="ft" name="ft">

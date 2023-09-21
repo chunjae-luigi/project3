@@ -47,6 +47,7 @@ public class MemberController {
     public String term(){
         return "/member/term";
     }
+
     @GetMapping("login.do")
     public String loginForm(HttpServletRequest request, Model model) throws Exception {
         return "/member/login";
@@ -97,8 +98,15 @@ public class MemberController {
         return "/member/alert";
     }
 
-    @GetMapping("insert.do")
+    @GetMapping("type.do")
+    public String type(){
+        return "/member/type";
+    }
+
+    @PostMapping("join.do")
     public String insertForm(HttpServletRequest request, Model model) throws Exception {
+        String grade = request.getParameter("grade");
+        model.addAttribute("grade", grade);
         return "/member/memberInsert";
     }
 
@@ -130,7 +138,7 @@ public class MemberController {
         model.addAttribute("member", dto);
         return "/member/memberUpdate";
     }
-
+/*
     @PostMapping("update.do")
     public String memberUpdate(HttpServletRequest request, Model model) throws Exception {
         String id = request.getParameter("id");
@@ -142,10 +150,11 @@ public class MemberController {
         String addr2 = request.getParameter("addr2");
         String postcode = request.getParameter("postcode");
         String birth = request.getParameter("birth");
+        String ppw = pwEncoder.encode(pw);
 
         Member dto = new Member();
         dto.setId(id);
-        dto.setPw(pw);
+        dto.setPw(ppw);
         dto.setName(name);
         dto.setEmail(email);
         dto.setTel(tel);
@@ -155,9 +164,19 @@ public class MemberController {
         dto.setBirth(birth);
 
         memberService.memberUpdate(dto);
-
         model.addAttribute("dto", dto);
+        model.addAttribute("msg", "회원정보가 수정되었습니다.");
+        model.addAttribute("url", "/member/get.do");
+        return "/member/alert";
+    }*/
 
-        return "redirect:get.do";
+    @PostMapping("update.do")
+    public String memberUpdate(Member member, Model model) throws Exception {
+        String pw = pwEncoder.encode(member.getPw());
+        member.setPw(pw);
+        memberService.memberUpdate(member);
+        model.addAttribute("msg", "회원정보가 수정되었습니다.");
+        model.addAttribute("url", "/member/get.do");
+        return "/member/alert";
     }
 }
