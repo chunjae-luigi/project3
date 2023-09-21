@@ -10,9 +10,9 @@
     <title>티스푼</title>
     <%@ include file="include/head.jsp" %>
     <link rel="stylesheet" href="${headPath}/resources/css/main.css">
-   
 
-    <link rel="stylesheet" href="/resources/css/style.css">
+
+    <!--<link rel="stylesheet" href="/resources/css/style.css">-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
 </head>
@@ -61,7 +61,7 @@
             </div>
         </div>
     </section>
-    <script src="/resources/js/script.js"></script>
+    <!--<script src="/resources/js/script.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
     <script>
         bulmaCarousel.attach('#slider', {
@@ -74,13 +74,14 @@
     <%-- 미니 게시판 --%>
 
     <div class="container is-fullhd">
-        <section class="section my-5 notice_area">
+        <section class="section pb-0 my-5 notice_area">
             <div class="columns">
                 <div class="column is-half">
-                    <h2 class="subtitle">공지사항<a href="${headPath }/notice/List.do" class="delete is-large"></a></h2>
+                    <h2 class="subtitle noticeTitle">공지사항<a href="${headPath }/notice/List.do" class="delete is-large"></a></h2>
                     <ul class="board_con mx-0" style="list-style-type: none">
                         <c:forEach var="notice" items="${noticeList}">
-                            <li><a href="${headPath }/notice/Get.do?no=${notice.no}">${notice.title}<span class="date">${notice.regdate}</span></a></li>
+                            <fmt:parseDate value="${notice.regdate }" var="noticeRegdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                            <li><a href="${headPath }/notice/Get.do?no=${notice.no}">${notice.title}<span class="date"><fmt:formatDate value="${noticeRegdate }" pattern="yyyy-MM-dd" /></span></a></li>
                         </c:forEach>
                         <c:if test="${empty noticeList}">
                             <li class="no_date">
@@ -90,10 +91,11 @@
                     </ul>
                 </div>
                 <div class="column is-half ">
-                    <h2 class="subtitle">자유게시판<a href="${headPath }/board/free/list.do" class="delete is-large"></a></h2>
+                    <h2 class="subtitle noticeTitle">자유게시판<a href="${headPath }/board/free/list.do" class="delete is-large"></a></h2>
                     <ul class="board_con mx-0" style="list-style-type: none">
                         <c:forEach var="free" items="${freeList}">
-                            <li><a href="${headPath }/free/detail.do?fno=${free.fno}">${free.title}<span class="date">${free.regdate}</span></a></li>
+                            <fmt:parseDate value="${free.regdate }" var="freeRegdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                            <li><a href="${headPath }/board/free/get.do?fno=${free.fno}">${free.title}<span class="date"><fmt:formatDate value="${freeRegdate }" pattern="yyyy-MM-dd" /></span></a></li>
                         </c:forEach>
                         <c:if test="${empty freeList}">
                             <li class="no_date">
@@ -104,6 +106,51 @@
                 </div>
             </div>
         </section>
+
+        <section>
+            <img src="${headPath }/resources/image/main/banner011.png" alt="수목원 가족여행">
+        </section>
+
+        <section class="section mb-5 blog-wrap news_area">
+            <h2 class="subtitle">언론보도<a href="${headPath }/template" class="delete is-large news"></a></h2>
+            <div class="columns">
+                <c:forEach var="news" items="${newsList}">
+                    <div class="column is-3">
+                        <a href="${news.href}" target="_blank">
+                            <div class="card" style="height:400px;overflow:hidden;">
+                                <div class="card-image">
+                                    <figure class="image is-4by3">
+                                        <img src="${news.img}">
+                                    </figure>
+                                </div>
+                                <div class="media p-2 m-0">
+                                    <p class="title is-4">
+                                        <c:choose>
+                                            <c:when test="${fn:length(news.title) gt 20}">
+                                                <c:out value="${fn:substring(news.title, 0, 20)}"></c:out>...
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:out value="${news.title}"></c:out>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </p>
+                                </div>
+                                <div class="content p-2">
+                                    <c:choose>
+                                        <c:when test="${fn:length(news.content) gt 70}">
+                                            <c:out value="${fn:substring(news.content, 0, 70)}"></c:out>...
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:out value="${news.content}"></c:out>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </c:forEach>
+            </div>
+        </section>
     </div>
 </div>
 
@@ -112,18 +159,12 @@
 
 
 <!-- banner -->
-<div class="footBnrFixed" id="footBnrFixed">
-    <a href="${headPath }/event1">
-        <img src="${headPath }/resources/image/main/banner1.png" alt="수목원 가족여행">
-        <button type="button" class="delete is-medium closebanner" onclick="closebanner();">닫기</button>
-    </a>
+<div class="footBnrFixed" id="footBnrModal">
+    <div class="bannerArea">
+        <img src="${headPath }/resources/image/main/banner1.png" onclick="location.href='${headPath }/event1';" alt="수목원 가족여행">
+        <button type="button" class="delete is-medium closeBanner" onclick="closeBanner();">닫기</button>
+    </div>
 </div>
-
-<%--<div>
-    <button type="button" class="closebanner" onclick="closebanner()">
-        <img src="${headPath }/resources/image/main/x.png" alt="닫기">
-    </button>
-</div>--%>
 
 <!-- quickMenu -->
 <div class="quickMenu">
@@ -134,25 +175,19 @@
     </div>
     <div class="quick_btn">
         <ul>
-            <li>
+            <li class="quick01">
                 <a href="${headPath }/notice/List.do">
-                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
-                    <br>
-                    공지사항
+                    <p>공지사항</p>
                 </a>
             </li>
-            <li>
+            <li class="quick02">
                 <a href="${headPath}/attend/getMyAttend.do">
-                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
-                    <br>
-                    출석체크
+                    <p>출석체크</p>
                 </a>
             </li>
-            <li>
+            <li class="quick03">
                 <a href="${headPath }/vote/list.do">
-                    <img src="${headPath }/resources/image/main/icon1.png" alt="아이콘1">
-                    <br>
-                    투표하기
+                    <p>투표하기</p>
                 </a>
             </li>
         </ul>
@@ -163,7 +198,7 @@
 </div>
 
 <!-- uiPopup -->
-<div class="uiPopup">
+<div class="uiPopup" id="popupModal">
     <div class="ui_body">
         <div>
             <a href="${headPath}/event2">
@@ -175,17 +210,53 @@
         <div class="ui-day">
             <input type="checkbox" name="chk" id="chk" />
             <label for="chk">오늘 하루 열지않기</label>
-            <button type="button" class="delete is-medium closebtn" onclick="closePopup();">닫기</button>
+            <button type="button" class="delete is-medium closeBtn" onclick="closePopup();">닫기</button>
         </div>
     </div>
 </div>
+
+<div class="uiPopup uiPopup2" id="popupModal2">
+    <div class="ui_body">
+        <div>
+            <a href="${headPath}/vote/list.do">
+              <img src="${headPath }/resources/image/main/main_vote.png" alt="투표 관련" />
+            </a>
+        </div>
+    </div>
+    <div class="ui_top">
+        <div class="ui-day">
+            <input type="checkbox" name="chk2" id="chk2" />
+            <label for="chk2">오늘 하루 열지않기</label>
+            <button type="button" class="delete is-medium closeBtn" onclick="closePopup2();">닫기</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script>
+    $(function (){
+        if($.cookie('popupCookie') != undefined){
+            $("#popupModal").hide();
+        }
+        if($.cookie('popupCookie2') != undefined){
+            $("#popupModal2").hide();
+        }
+    });
     function closePopup(){
-        $(".uiPopup").hide();
+        $("#popupModal").hide();
+        if($("#chk").is(":checked") && $.cookie('popupCookie') == undefined){
+            $.cookie('popupCookie', 'Y', { expires: 1, path: '/' });
+        }
     }
-    function closebanner(){
-        $(".footBnrFixed").hide();
+    function closePopup2(){
+        $("#popupModal2").hide();
+        if($("#chk2").is(":checked") && $.cookie('popupCookie2') == undefined) {
+            $.cookie('popupCookie2', 'Y', { expires: 1, path: '/' });
+        }
     }
+    /*function closeBanner(){
+        $("#footBnrModal").hide();
+    }*/
 </script>
 </body>
 </html>

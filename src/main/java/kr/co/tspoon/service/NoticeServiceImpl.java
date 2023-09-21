@@ -20,6 +20,11 @@ public class NoticeServiceImpl implements NoticeService{
     }
 
     @Override
+    public List<Notice> noticeListForMain() throws Exception {
+        return noticeDAO.noticeListForMain();
+    }
+
+    @Override
     public Notice noticeGet(int no) throws Exception {
         return noticeDAO.noticeGet(no);
     }

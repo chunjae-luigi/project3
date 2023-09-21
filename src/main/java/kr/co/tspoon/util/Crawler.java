@@ -15,7 +15,7 @@ import java.util.List;
 public class Crawler {
     private final static String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36";
 
-    public static List<News> naverNewsKeyword(String keyword) throws Exception{
+    public static List<News> naverNewsKeyword(String keyword, int cnt) throws Exception{
         List<News> list = new ArrayList<>();
         String url = "https://search.naver.com/search.naver?where=news&ie=utf8&sm=nws_hty&query="+keyword;
 
@@ -31,7 +31,7 @@ public class Crawler {
         Elements contents = doc.select(".news_wrap .dsc_wrap .dsc_txt_wrap");
         Elements hrefs = doc.select("div.news_wrap.api_ani_send > div > a");
 
-        for(int i=0; i<9; i++){
+        for(int i=0; i<cnt; i++){
             String title = titles.get(i).text();
             String img = imgs.get(i).attr("data-lazysrc");
             String content = contents.get(i).text();

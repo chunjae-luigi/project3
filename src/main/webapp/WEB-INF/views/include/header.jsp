@@ -61,7 +61,7 @@
                         <div class="navbar-dropdown">
                             <a class="navbar-item is-size-6" href="${headPath }/notice/List.do">공지사항</a>
                             <a class="navbar-item is-size-6" href="${headPath }/board/free/list.do">자유게시판</a>
-                            <a class="navbar-item is-size-6" href="${headPath }/template.do">언론보도</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/template">언론보도</a>
                             <a class="navbar-item is-size-6" href="${headPath }/board/qnaList.do">QnA</a>
                         </div>
                     </li>
@@ -83,6 +83,7 @@
         </div>
     </nav>
 </header>
+<!--
 <script>
     var gnb = document.getElementById("hdGnb");
     var hdWrap = document.getElementById("hdWrap");
@@ -94,3 +95,4 @@
         hdWrap.classList.remove("hoverMenu");
     });
 </script>
+-->
