@@ -31,7 +31,6 @@
         <div class="container is-fluid">
             <c:forEach var="news" items="${newsList}">
                 <div class="card" style="width: 30%; height: 580px; overflow: hidden; margin: 15px; display: inline-block;">
-
                     <div class="card-image">
                         <figure class="image is-4by3">
                             <a href="${news.href}" target="_blank"><img src="${news.img}"></a>

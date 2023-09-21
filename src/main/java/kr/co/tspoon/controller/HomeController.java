@@ -32,40 +32,22 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(HttpServletRequest request, Model model) throws Exception {
-        List<Notice> noticeList = noticeService.noticeList();
 
+        List<Notice> noticeList = noticeService.noticeListForMain();
         model.addAttribute("noticeList", noticeList);
 
-//        String type = request.getParameter("type");
-//        String keyword = request.getParameter("keyword");
-//        int curPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-//
-//        Page page = new Page();
-//        page.setSearchType(type);
-//        page.setSearchKeyword(keyword);
-//        int total = freeService.totalCount(page);
-//
-//        page.makeBlock(curPage, total);
-//        page.makeLastPageNum(total);
-//        page.makePostStart(curPage, total);
-//
-//
-//        List<Free> freeList = freeService.freeList(page);
-//
-//        model.addAttribute("type", type);
-//        model.addAttribute("keyword", keyword);
-//        model.addAttribute("page", page);
-//        model.addAttribute("curPage", curPage);
-//
-//
-//        model.addAttribute("freeList", freeList);
+        List<Free> freeList = freeService.freeListForMain();
+        model.addAttribute("freeList", freeList);
+
+        List<News> newsList = Crawler.naverNewsKeyword("천재교육", 4);
+        model.addAttribute("newsList", newsList);
 
         return "/index";
     }
 
     @RequestMapping(value = "/template", method = RequestMethod.GET)
     public String template(Model model) throws Exception {
-        List<News> newsList = Crawler.naverNewsKeyword("천재교육");
+        List<News> newsList = Crawler.naverNewsKeyword("천재교육", 9);
         model.addAttribute("newsList", newsList);
         return "/template";
     }

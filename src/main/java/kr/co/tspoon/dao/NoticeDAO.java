@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface NoticeDAO {
     public List<Notice> noticeList() throws Exception;
+    public List<Notice> noticeListForMain() throws Exception;
 
     public Notice noticeGet(int no) throws Exception;
 
