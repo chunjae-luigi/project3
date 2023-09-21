@@ -219,7 +219,7 @@
     <div class="ui_body">
         <div>
             <a href="${headPath}/vote/list.do">
-                <img src="${headPath }/resources/image/main/main_event.png" alt="이벤트 관련" />
+              <img src="${headPath }/resources/image/main/main_vote.png" alt="투표 관련" />
             </a>
         </div>
     </div>
