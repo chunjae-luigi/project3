@@ -20,6 +20,11 @@ public class NoticeDAOImpl implements NoticeDAO{
     }
 
     @Override
+    public List<Notice> noticeListForMain() throws Exception {
+        return sqlSession.selectList("notice.noticeListForMain");
+    }
+
+    @Override
     public Notice noticeGet(int no) throws Exception {
         sqlSession.update("notice.noticeVisited", no);
         return sqlSession.selectOne("notice.noticeGet", no);

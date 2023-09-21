@@ -21,6 +21,11 @@ public class FreeDAOImpl implements FreeDAO{
     }
 
     @Override
+    public List<Free> freeListForMain() throws Exception {
+        return sqlSession.selectList("free.freeListForMain");
+    }
+
+    @Override
     public int totalCount(Page page) throws Exception {
         return sqlSession.selectOne("free.totalCount", page);
     }

@@ -42,6 +42,10 @@
         </where>
     </select>
 
+    <select id="noticeListForMain" resultType="kr.co.tspoon.dto.Notice">
+        select * from notice order by regdate desc limit 4
+    </select>
+
     <select id="noticeGet" resultType="kr.co.tspoon.dto.Notice">
         select * from notice where no=#{no}
     </select>
