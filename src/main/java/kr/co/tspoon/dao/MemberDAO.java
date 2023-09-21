@@ -13,5 +13,7 @@ public interface MemberDAO {
     public void memberInsert(Member member) throws Exception;
     public void memberUpdate(Member member) throws Exception;
     public void memberDelete(String id) throws Exception;
+    public void memberUpdatePoint(Member member) throws Exception;
+    public List<Member> getMemberId() throws Exception;
 
 }

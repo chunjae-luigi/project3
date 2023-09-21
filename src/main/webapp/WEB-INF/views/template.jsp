@@ -19,7 +19,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">페이지 이름</h1>
+                        <h1 class="is-capitalize text-lg font-happy">언론보도</h1>
                     </div>
                 </div>
             </div>
@@ -28,8 +28,26 @@
 
 
     <section class="section blog-wrap container">
-    <%--        내용 넣기--%>
+        <div class="container is-fluid">
+            <c:forEach var="news" items="${newsList}">
+                <div class="card" style="width: 30%; height: 580px; overflow: hidden; margin: 15px; display: inline-block;">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <a href="${news.href}" target="_blank"><img src="${news.img}"></a>
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <p class="title is-4">${news.title}</p>
+                        </div>
 
+                        <div class="content">
+                                ${news.content}
+                        </div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </section>
 
 

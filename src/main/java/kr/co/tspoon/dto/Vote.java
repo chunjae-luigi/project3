@@ -15,5 +15,7 @@ public class Vote {
     private String startDate;
     private String finishDate;
     private boolean useYn;
+    private boolean stateYn;
+    private int addPt;
 
 }

@@ -1,10 +1,14 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>티스푼::연혁</title>
-    <%@ include file="head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/sub.css">
+    <%@ include file="../include/head.jsp" %>
+
     <style>
         @font-face {
             font-family: 'HakgyoansimWoojuR';
@@ -41,7 +45,7 @@
     font-size: 50px;
     font-weight: bold;
     }
-    .content {
+    .history {
     font-family: HakgyoansimWoojuR;
     font-size: 20px;
     color: #555;
@@ -49,28 +53,30 @@
     }
     </style>
 </head>
-<body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <%@ include file="header.jsp" %>
-    </header>
-    <div  class="contents" id="contents">
-        <div class="sub">
-            <h2>회사소개</h2>
-        </div>
-        <div class="breadcrumb">
-            <p><a href="/"> HOME </a> &gt; <a href="<%=headerPath%>/company01.jsp"> 회사소개 </a> &gt; <span> 연혁 </span></p>
-        </div>
-        <section class="page" id="page1">
-            <div class="page_wrap">
-                <h2 class="page_tit">연혁</h2>
-            </div>
-        </section>
 
+<body>
+<%@ include file="../include/header.jsp" %>
+
+<div class="content">
+
+    <section class="page-title bg-01">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">연혁</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section blog-wrap container">
         <div class="text-box">
             <div class="title">2024</div>
             <div class="text-box-content">
-                <div class="content">
+                <div class="history">
                     이곳에 <br>
                     티스푼의 연혁을 적어주세요! <br>
                 </div>
@@ -80,7 +86,7 @@
         <div class="text-box">
             <div class="title">2023</div>
             <div class="text-box-content">
-                <div class="content">
+                <div class="history">
                     08.17. 2023 올해의 브랜드 최우수상 수상 <br>
                     08.16. 티스푼 홈페이지 오픈<br>
                     08.01. 교육서비스 개발 시작<br>
@@ -89,10 +95,12 @@
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="ft" id="ft">
-        <%@ include file="footer.jsp" %>
-    </footer>
+
+    </section>
+
+
 </div>
+
+<%@ include file="../include/footer.jsp" %>
 </body>
 </html>

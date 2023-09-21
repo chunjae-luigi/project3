@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
+import java.io.PrintWriter;
 import java.util.List;
 
 @Service
@@ -25,33 +26,23 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member memberGet(String id) throws Exception {
-        Member member = memberDAO.memberGet(id);
+       /* Member member = memberDAO.memberGet(id);
         if(member!=null){
             String pw = (String) session.getAttribute("spw");
             member.setPw(pw);
-        }
-        return member;
+        }*/
+        return memberDAO.memberGet(id);
     }
 
     @Override
-    public boolean login(String id, String pw) throws Exception {
-        boolean flag = false;
-        Member member = memberDAO.login(id);
-        boolean pwMatch = bcryptPasswordEncoder.matches(pw, member.getPw());
-        if(member.getId().equals(id) && pwMatch){
-            session.setAttribute("sid", id);
-            session.setAttribute("spw", pw);
-            flag = true;
-        }
-        return flag;
+    public Member login(String id) throws Exception {
+        return memberDAO.login(id);
     }
 
     @Override
-    public void memberInsert(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberInsert(dto);
+    public void memberInsert(Member member) throws Exception {
+        memberDAO.memberInsert(member);
+
     }
 
     @Override
@@ -60,10 +51,24 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public void memberUpdate(Member dto) throws Exception {
-        String pw = dto.getPw();
-        String cryptPw = bcryptPasswordEncoder.encode(pw);
-        dto.setPw(cryptPw);
-        memberDAO.memberUpdate(dto);
+    public void memberUpdate(Member member) throws Exception {
+        Member oldMember = memberDAO.memberGet(member.getId());
+        if(!oldMember.getPw().equals(member.getPw())){
+            System.out.println(member.getPw());
+            String bpw = bcryptPasswordEncoder.encode(member.getPw());
+            member.setPw(bpw);
+            System.out.println(member.getPw());
+        }
+        memberDAO.memberUpdate(member);
+    }
+
+    @Override
+    public void memberUpdatePoint(Member member) throws Exception {
+        memberDAO.memberUpdatePoint(member);
+    }
+
+    @Override
+    public List<Member> getMemberId() throws Exception {
+        return memberDAO.getMemberId();
     }
 }

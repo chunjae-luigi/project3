@@ -8,24 +8,23 @@
 
 <header class="navigation">
     <div class="header-top ">
-        <div class="container">
+        <div class="container py-2">
             <div class="columns is-gapless is-justify-content-space-between is-align-items-center">
                 <div class="column is-12-desktop is-8-tablet">
                     <div class="header-top-right has-text-right-tablet has-text-centered-mobile">
                         <c:choose>
                             <c:when test="${sid=='admin'}">
-                                <a href="${headPath }/member/logout.do">로그아웃</a>
-                                <a href="${headPath }/member/get.do">마이페이지</a>
-                                <a href="${headPath }/admin/">관리자페이지</a>
+                                <a href="${headPath }/member/logout.do?sid=${sid}" class="is-size-6 has-text-weight-semibold">로그아웃</a>
+                                <a href="${headPath }/member/get.do" class="is-size-6 has-text-weight-semibold">마이페이지</a>
+                                <a href="${headPath }/admin/MemberListAdmin.do" class="is-size-6 has-text-weight-semibold">관리자페이지</a>
                             </c:when>
                             <c:when test="${!empty sid}">
-                                <a href="${headPath }/member/logout.do">로그아웃</a>
-                                <a href="#">마이페이지</a>
+                                <a href="${headPath }/member/logout.do" class="is-size-6 has-text-weight-semibold">로그아웃</a>
+                                <a href="${headPath }/member/get.do?sid=${sid}" class="is-size-6 has-text-weight-semibold">마이페이지</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="${headPath }/member/login.do">로그인</a>
-                                <a href="${headPath }/member/term.do">회원가입</a>
-                                <a href="#">오시는 길</a>
+                                <a href="${headPath }/member/login.do" class="is-size-6 has-text-weight-semibold">로그인</a>
+                                <a href="${headPath }/member/term.do" class="is-size-6 has-text-weight-semibold">회원가입</a>
                             </c:otherwise>
                         </c:choose>
                     </div>
@@ -37,7 +36,7 @@
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="${headPath }/">
-                    <img src="${headPath }/resources/image/common/logo.png" alt="티스푼 로고타입">
+                    <img src="${headPath }/resources/image/common/logo.png" alt="티스푼 로고타입" style="max-width: 200px;">
                 </a>
                 <button role="button" class="navbar-burger burger" data-hidden="true" data-target="navigation">
                     <span aria-hidden="true"></span>
@@ -49,37 +48,34 @@
             <div class="navbar-menu mr-0" id="navigation">
                 <ul class="navbar-end">
                     <li class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">회사소개<span class="ml-1">+</span></a>
+                        <a class="navbar-link is-size-5">회사소개</a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company01.jsp">인사말</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">연혁</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">오시는 길</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/company01">인사말</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/company02">연혁</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/company03">오시는 길</a>
                         </div>
                     </li>
 
                     <li class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">커뮤니티<span class="ml-1">+</span></a>
+                        <a class="navbar-link is-size-5">커뮤니티</a>
                         <div class="navbar-dropdown">
-                            <a class="navbar-item" href="${headPath }/notice/List.do">공지사항</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company02.jsp">자유게시판</a>
-                            <a class="navbar-item" href="${headPath }/WEB-INF/views/company/company03.jsp">QnA</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/notice/List.do">공지사항</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/board/free/list.do">자유게시판</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/template">언론보도</a>
+                            <a class="navbar-item is-size-6" href="${headPath }/board/qnaList.do">QnA</a>
+                        </div>
+                    </li>
+
+                    <li class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link is-size-5">이벤트</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item is-size-6" href="${headPath }/vote/list.do">투표</a>
+                            <a class="navbar-item is-size-6" href="${headPath}/attend/getMyAttend.do">출석</a>
                         </div>
                     </li>
 
                     <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/board/dataBoard/list.do">자료실</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/vote/list.do">투표</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a class="navbar-link" href="index.html">출석</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a class="navbar-link" href="${headPath }/template">템플릿</a>
+                        <a class="navbar-link is-size-5" href="${headPath }/board/dataBoardList.do">자료실</a>
                     </li>
 
                 </ul>
@@ -87,6 +83,7 @@
         </div>
     </nav>
 </header>
+<!--
 <script>
     var gnb = document.getElementById("hdGnb");
     var hdWrap = document.getElementById("hdWrap");
@@ -98,3 +95,4 @@
         hdWrap.classList.remove("hoverMenu");
     });
 </script>
+-->

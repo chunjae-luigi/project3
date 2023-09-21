@@ -5,7 +5,7 @@
 
 <c:set var="headPath" value="${pageContext.request.contextPath }"/>
 
-<footer>
+<footer id="ft">
     <div class="ft_wrap2">
         <p class="copyright">
             <span><a href="${headPath }/WEB-INF/views/company/aboutEmail.jsp">이메일 무단 수집 거부</a></span>
@@ -16,7 +16,7 @@
             <span>통신판매신고번호 제XX-XXX호</span>
             <span class="end">부가통신사업신고 XXXXXX</span>
         </p>
-        <p class="cp">COPYRIGHT 1981-2023 GROW&JOY INC. ALL RIGHTS RESERVED.</p>
+        <p class="cp has-text-centered">COPYRIGHT 1981-2023 GROW&JOY INC. ALL RIGHTS RESERVED.</p>
     </div>
 </footer>
 

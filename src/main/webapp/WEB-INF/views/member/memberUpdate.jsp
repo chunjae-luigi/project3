@@ -1,95 +1,130 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<%@ page import="com.grownjoy.db.*" %>
-<%@ page import="com.grownjoy.dto.*" %>
-<%@ page import="java.sql.*" %>
-<%
-    String myId = (String) session.getAttribute("id");
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
+<c:set var="headPath" value="${pageContext.request.contextPath }"/>
 
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
-
-    DBC con = new MariaDBCon();
-    conn = con.connect();
-
-    Member mem = new Member();
-    try {
-        String sql = "SELECT * FROM member WHERE id = ?";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, myId);
-        rs = pstmt.executeQuery();
-        if (rs.next()) {
-            mem.setName(rs.getString("name"));
-            mem.setId(rs.getString("id"));
-            mem.setTel(rs.getString("tel"));
-            mem.setEmail(rs.getString("email"));
-            mem.setRegdate(rs.getString("regdate"));
-            mem.setPoint(rs.getInt("point"));
-            mem.setPw(rs.getString("pw"));
-        }
-    } catch (SQLException e) {
-        System.out.println("sql 구문 오류");
-    } finally {
-        con.close(rs, pstmt, conn);
-    }
-%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>티스푼::마이페이지-수정</title>
-    <%@ include file="../head.jsp" %>
-    <link rel="stylesheet" href="<%=headPath%>/css/sub.css">
-    <style>
-        .tb2 th {padding-top:10px;}
-        .tb2 td {padding-top:15px;}
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 마이페이지</title>
+    <!-- 헤드 부분 인클루드 -->
+    <jsp:include page="./../include/head.jsp" />
 </head>
 <body>
-<div class="wrap">
-    <header class="hd" id="hd">
-        <%@ include file="../header.jsp" %>
-    </header>
-    <div  class="contents" id="contents">
-        <div class="sub">
-            <h2>마이페이지</h2>
-        </div>
-        <div class="breadcrumb">
-            <p><a href="#"> HOME </a> &gt; <a href="<%=headPath%>/member/mypage.jsp"> 마이페이지 </a> &gt; <span> 회원 정보 수정 </span></p>
-        </div>
-        <section class="page" id="page1">
-            <div class="page_wrap">
-                <h2 class="page_tit">회원 정보 수정</h2>
-                <form action="modifyMemberPro.jsp" method="post">
-                    <table class="table tb2">
-                        <tbody>
-                        <tr>
-                            <th><label for="id">아이디</label></th>
-                            <td><input type="text" value="<%=mem.getId() %>" name="id" id="id" class="inData" readonly></td>
-                        </tr>
-                        <tr>
-                            <th><label for="name">이름</label></th>
-                            <td><input type="text" value="<%=mem.getName() %>" name="name" id="name" class="inData" readonly></td>
-                        </tr>
-                        <tr>
-                            <th><label for="tel">전화번호</label></th>
-                            <td><input type="text" value="<%=mem.getTel() %>" name="tel" id="tel" class="inData"></td>
-                        </tr>
-                        <tr>
-                            <th><label for="email">이메일</label></th>
-                            <td><input type="text" value="<%=mem.getEmail() %>" name="email" id="email" class="inData"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="btn_group">
-                        <input type="submit" value="정보 수정" class="inBtn inBtn1">
-                        <a href="<%=headPath%>/member/mypage.jsp" class="inBtn inBtn2">취소</a>
+<div class="container is-fullhd">
+    <!-- 헤더 부분 인클루드 -->
+    <jsp:include page="./../include/header.jsp" />
+
+    <div class="content" id="content">
+        <div class="row column text-center">
+            <div class="container">
+                <h2 class="page_tit">마이 페이지</h2>
+                <hr>
+                <div class="tabs is-centered">
+                    <ul>
+                        <li class="is-active"><a>나의 정보</a></li>
+                        <li><a href="${headPath }/vote/getMyList.do">나의 투표 내역</a></li>
+                        <li><a href="${headPath }/attend/getMyAttend.do">나의 출석</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <form action="${headPath }/member/update.do" method="post" onsubmit="return updateCheck(this)">
+                    <div class="table_form_wrap">
+                        <table class="table_form">
+                            <tbody>
+                            <tr>
+                                <th>아이디</th>
+                                <td>${member.id } </td>
+                            </tr>
+                            <tr>
+                                <input type="hidden" name="oldPw" value="${member.pw}">
+                                <th><label for="pw">비밀번호</label></th>
+                                <td><input type="password" name="pw" id="pw" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+                                    <p>(최소 8자리에서 최대 16자리까지, 숫자, 영문 대소문자, 특수문자가 각 1 문자 이상 포함되어야 함)</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="pw2">비밀번호 확인</label></th>
+                                <td><input type="password" name="pw2" id="pw2" class="input" >
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>이름</th>
+                                <input type="hidden" name="name" value="${member.name}">
+                                <td>${member.name }</td>
+                            </tr>
+                            <tr>
+                                <th><label for="email">이메일</label></th>
+                                <td><input type="email" name="email" id="email" class="input" value="${member.email }" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ></td>
+                            </tr>
+                            <tr>
+                                <th>전화번호</th>
+                                <td><input type="tel" class="input" id="tel" name="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-0000-0000 형식" value="${member.tel }"></td>
+                            </tr>
+                            <tr>
+                                <th><label for="findBtn" onclick="findAddr()">주소</label></th>
+                                <td>
+                                    <input type="text" name="addr1" id="addr1" class="input" value="${member.addr1 }"><br>
+                                    <input type="text" name="addr2" id="addr2" class="input" value="${member.addr2 }"><br>
+                                    <input type="text" name="postcode" id="postcode"  class="input" value="${member.postcode }">
+                                    <input type="button" value="주소찾기" onclick="findAddr()" id="findBtn" class="btn is-primary">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>생년월일</th>
+                                <td>
+                                    <fmt:parseDate value="${member.birth }" var="birth" pattern="yyyy-MM-dd" />
+                                    <input type="date" name="birth" value="${member.birth}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="submit" class="button btn-writer" value="회원정보수정">
+                                    <input type="reset" class="button btn-primary" value="취소">
+
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </form>
+                <script>
+                    function updateCheck(f){
+                        if(f.pw.value!=f.pw2.value){
+                            alert("비밀번호와 비밀번호 확인이 서로 다릅니다.");
+                            return false;
+                        }
+                    }
+                </script>
+                <script>
+                    function findAddr() {
+                        new daum.Postcode({
+                            oncomplete: function(data) {
+                                console.log(data);
+                                var roadAddr = data.roadAddress;
+                                var jibunAddr = data.jibunAddress;
+                                document.getElementById("postcode").value = data.zonecode;
+                                if(roadAddr !== '') {
+                                    document.getElementById("addr1").value = roadAddr;
+                                } else if(jibunAddr !== ''){
+                                    document.getElementById("addr1").value = jibunAddr;
+                                }
+                            }
+                        }).open();
+                    }
+                </script>
+                <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
             </div>
-        </section>
+        </div>
     </div>
-    <footer class="ft" id="ft">
-        <%@ include file="../footer.jsp" %>
+
+    <!-- 푸터 부분 인클루드 -->
+    <footer class="ft" name="ft">
+        <jsp:include page="./../include/footer.jsp" />
     </footer>
 </div>
 </body>

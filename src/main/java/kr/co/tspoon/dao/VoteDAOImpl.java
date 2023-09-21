@@ -1,9 +1,10 @@
 package kr.co.tspoon.dao;
 
 import kr.co.tspoon.dto.Vote;
+import kr.co.tspoon.dto.VoteCountVo;
 import kr.co.tspoon.dto.VoteList;
 import kr.co.tspoon.dto.VoteUser;
-import kr.co.tspoon.vo.VoteCount;
+import kr.co.tspoon.util.Page;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,24 +12,34 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class VoteDAOImpl implements VoteDAO{
+public class VoteDAOImpl implements VoteDAO {
 
     @Autowired
     private SqlSession sqlSession;
 
     @Override
-    public List<Vote> voteAllList() throws Exception {
-        return sqlSession.selectList("vote.voteAllList");
+    public List<Vote> voteAllList(Page page) throws Exception {
+        return sqlSession.selectList("vote.voteAllList", page);
+    }
+
+    @Override
+    public int totalCount(Page page) throws Exception {
+        return sqlSession.selectOne("vote.totalCount", page);
+    }
+
+    @Override
+    public List<Vote> voteAllListForAdmin(Page page) throws Exception {
+        return sqlSession.selectList("vote.voteAllListForAdmin", page);
+    }
+
+    @Override
+    public int totalCountForAdmin(Page page) throws Exception {
+        return sqlSession.selectOne("vote.totalCountForAdmin", page);
     }
 
     @Override
     public Vote voteDetail(int vno) throws Exception {
         return sqlSession.selectOne("vote.voteDetail", vno);
-    }
-
-    @Override
-    public int totalCount() throws Exception {
-        return sqlSession.selectOne("vote.totalCount");
     }
 
     @Override
@@ -47,6 +58,11 @@ public class VoteDAOImpl implements VoteDAO{
     }
 
     @Override
+    public void voteUpdateUse(int vno) throws Exception {
+        sqlSession.update("vote.voteUpdateUse", vno);
+    }
+
+    @Override
     public void voteEdit(Vote vote) throws Exception {
         sqlSession.update("vote.voteEdit", vote);
     }
@@ -54,6 +70,11 @@ public class VoteDAOImpl implements VoteDAO{
     @Override
     public void voteVisitCount(int vno) throws Exception {
         sqlSession.update("vote.voteVisitCount", vno);
+    }
+
+    @Override
+    public void voteFinalInsert(VoteCountVo voteCount) throws Exception {
+        sqlSession.update("vote.voteFinalInsert", voteCount);
     }
 
     @Override
@@ -72,6 +93,11 @@ public class VoteDAOImpl implements VoteDAO{
     }
 
     @Override
+    public void voteAllAnswerDelete(int vno) throws Exception {
+        sqlSession.delete("vote.voteAllAnswerDelete", vno);
+    }
+
+    @Override
     public void voteAnswerEdit(VoteList voteList) throws Exception {
         sqlSession.update("vote.voteAnswerEdit", voteList);
     }
@@ -82,27 +108,38 @@ public class VoteDAOImpl implements VoteDAO{
     }
 
     @Override
+    public int voteUserCnt(int lno) throws Exception {
+        return sqlSession.selectOne("vote.voteUserCnt", lno);
+    }
+
+    @Override
     public void voteUserInsert(VoteUser voteUser) throws Exception {
         sqlSession.insert("vote.voteUserInsert", voteUser);
     }
 
     @Override
-    public void voteUserDelete(int uno) throws Exception {
-        sqlSession.delete("vote.voteUserDelete", uno);
+    public List<Vote> voteMyList(String sid) throws Exception {
+        return sqlSession.selectList("vote.voteMyList", sid);
     }
 
     @Override
-    public void voteUserEdit(VoteUser voteUser) throws Exception {
-        sqlSession.update("vote.voteUserEdit", voteUser);
+    public void voteUserDelete(VoteUser voteUser) throws Exception {
+        sqlSession.insert("vote.voteUserDelete", voteUser);
     }
 
     @Override
-    public List<VoteCount> voteCountList(int vno) throws Exception {
+    public List<VoteCountVo> voteCountList(int vno) throws Exception {
         return sqlSession.selectList("vote.voteCountList", vno);
+    }
+
+    @Override
+    public VoteCountVo voteMaxCountList(int vno) throws Exception {
+        return sqlSession.selectOne("vote.voteMaxCountList", vno);
     }
 
     @Override
     public int voteCountCnt(int vno) throws Exception {
         return sqlSession.selectOne("vote.voteCountCnt", vno);
     }
+
 }
