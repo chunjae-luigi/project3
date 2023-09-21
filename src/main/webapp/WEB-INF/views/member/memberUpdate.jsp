@@ -41,8 +41,9 @@
                                 <td>${member.id } </td>
                             </tr>
                             <tr>
+                                <input type="hidden" name="oldPw" value="${member.pw}">
                                 <th><label for="pw">비밀번호</label></th>
-                                <td><input type="password" name="pw" id="pw" class="input" value="${member.pw }" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
+                                <td><input type="password" name="pw" id="pw" class="input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" >
                                     <p>(최소 8자리에서 최대 16자리까지, 숫자, 영문 대소문자, 특수문자가 각 1 문자 이상 포함되어야 함)</p>
                                 </td>
                             </tr>
@@ -53,6 +54,7 @@
                             </tr>
                             <tr>
                                 <th>이름</th>
+                                <input type="hidden" name="name" value="${member.name}">
                                 <td>${member.name }</td>
                             </tr>
                             <tr>

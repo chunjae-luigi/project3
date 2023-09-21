@@ -138,11 +138,15 @@ public class MemberController {
         model.addAttribute("member", dto);
         return "/member/memberUpdate";
     }
-/*
+
     @PostMapping("update.do")
     public String memberUpdate(HttpServletRequest request, Model model) throws Exception {
-        String id = request.getParameter("id");
+        String id = (String) session.getAttribute("sid");
+
+        String oldPw = request.getParameter("oldPw");
         String pw = request.getParameter("pw");
+        String pw2 = request.getParameter("pw2");
+
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String tel = request.getParameter("tel");
@@ -150,11 +154,15 @@ public class MemberController {
         String addr2 = request.getParameter("addr2");
         String postcode = request.getParameter("postcode");
         String birth = request.getParameter("birth");
-        String ppw = pwEncoder.encode(pw);
 
         Member dto = new Member();
         dto.setId(id);
-        dto.setPw(ppw);
+        if(pw!=null && pw2!=null && pw.equals(pw2)){
+            dto.setPw(pw);
+        } else{
+            dto.setPw(oldPw);
+        }
+
         dto.setName(name);
         dto.setEmail(email);
         dto.setTel(tel);
@@ -168,15 +176,15 @@ public class MemberController {
         model.addAttribute("msg", "회원정보가 수정되었습니다.");
         model.addAttribute("url", "/member/get.do");
         return "/member/alert";
-    }*/
-
-    @PostMapping("update.do")
-    public String memberUpdate(Member member, Model model) throws Exception {
-        String pw = pwEncoder.encode(member.getPw());
-        member.setPw(pw);
-        memberService.memberUpdate(member);
-        model.addAttribute("msg", "회원정보가 수정되었습니다.");
-        model.addAttribute("url", "/member/get.do");
-        return "/member/alert";
     }
+
+//    @PostMapping("update.do")
+//    public String memberUpdate(Member member, Model model) throws Exception {
+//        String pw = pwEncoder.encode(member.getPw());
+//        member.setPw(pw);
+//        memberService.memberUpdate(member);
+//        model.addAttribute("msg", "회원정보가 수정되었습니다.");
+//        model.addAttribute("url", "/member/get.do");
+//        return "/member/alert";
+//    }
 }
