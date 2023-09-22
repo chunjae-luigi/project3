@@ -41,7 +41,7 @@
                 <div class="viewbody">
                     <div class="hgroup">
                         <c:if test="${ sid eq 'admin'}">
-                            <div class="no">NO ${dto.fno }</div>
+                            <div class="no">NO ${qna.qno }</div>
                         </c:if>
                         <div class="tit">${qna.title}</div>
                         <div class="util">
@@ -52,7 +52,6 @@
                             <c:if test="${qna.lev==1}">
                                 <td>답변</td>
                             </c:if>
-
                             <div class="name">${qna.author }</div>
                             <div class="date">작성일 ${qna.regdate }</div>
                             <div class="hit">조회수 ${qna.visited }</div></div>

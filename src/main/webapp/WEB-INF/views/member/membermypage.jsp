@@ -15,11 +15,10 @@
     <jsp:include page="./../include/head.jsp" />
 </head>
 <body>
-<div class="container is-fullhd">
     <!-- 헤더 부분 인클루드 -->
     <jsp:include page="./../include/header.jsp" />
-
-    <section class="page-title bg-02">
+    <div class="content">
+    <section class="page-title bg-05">
         <div class="container">
             <div class="columns">
                 <div class="column is-12">
@@ -30,9 +29,11 @@
             </div>
         </div>
     </section>
+
     <div class="content" id="content">
         <div class="row column text-center">
             <div class="container">
+                <hr>
                 <div class="tabs is-centered">
                     <ul>
                         <li class="is-active"><a>나의 정보</a></li>
@@ -104,10 +105,6 @@
             </div>
         </div>
     </div>
-    <script>
-
-    </script>
-
     <!-- 푸터 부분 인클루드 -->
     <footer class="ft" name="ft">
     <jsp:include page="./../include/footer.jsp" />
