@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="* footer 변경">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/attendance/attendanceList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/attendance/attendanceList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaGet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/qna/qnaGet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/membermypage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/membermypage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteMyList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteMyList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="* 마이페이지 수정&#10;* 회원가입 이미지 변경" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +180,7 @@
       <workItem from="1695088062986" duration="9196000" />
       <workItem from="1695167152162" duration="9012000" />
       <workItem from="1695254067542" duration="25846000" />
-      <workItem from="1695339956851" duration="9152000" />
+      <workItem from="1695339956851" duration="9315000" />
     </task>
     <task id="LOCAL-00001" summary="* 서브페이지 배너 변경&#10;* 게시판 상세페이지 수정중">
       <option name="closed" value="true" />
@@ -214,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695346456846</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="* 마이페이지 수정&#10;* 회원가입 이미지 변경">
+      <option name="closed" value="true" />
+      <created>1695349550371</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695349550371</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +236,8 @@
     <MESSAGE value="* 서브페이지 배너 변경&#10;* 게시판 상세페이지 수정중" />
     <MESSAGE value="* 이벤트페이지 서브 배너 추가&#10;* 게시판 상세페이지 수정중" />
     <MESSAGE value="* footer 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="* footer 변경" />
+    <MESSAGE value="* 마이페이지 수정&#10;* 회원가입 이미지 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="* 마이페이지 수정&#10;* 회원가입 이미지 변경" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
