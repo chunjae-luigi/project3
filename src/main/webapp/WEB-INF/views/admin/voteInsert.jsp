@@ -8,8 +8,8 @@
 <html lang="en">
 <head>
     <title>투표 관리 - 등록</title>
-    <link rel="stylesheet" href="${path}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${path}/resources/css/admin.css">
     <script type="text/javascript" src="${path }/resources/ckeditor/ckeditor.js"></script>
 </head>
 

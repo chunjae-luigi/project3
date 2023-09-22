@@ -37,7 +37,7 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <th><label for="title">제목</label></th>
+                    <th class="has-text-white has-text-centered"><label for="title">제목</label></th>
                     <td>
                         <input type="text" name="title" id="title" class="input" required>
                         <input type="hidden" name="lev" id="lev" value="${lev}">
@@ -47,16 +47,16 @@
                     </td>
                 </tr>
                 <tr>
-                    <th><label for="content">내용</label></th>
+                    <th class="has-text-white has-text-centered"><label for="content">내용</label></th>
                     <td>
                         <textarea name="content" id="content" cols="80" rows="10" maxlength="990" class="textarea"></textarea>
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <div class="btn_group">
-                <input type="submit" value="글 등록" class="button">
-                <a href="${headPath}/board/qnaList.do" class="button">글 목록</a>
+            <div class="buttons is-centered">
+                <input type="submit" value="글 등록" class="button is-mainColor">
+                <a href="${headPath}/board/qnaList.do" class="button is-success">글 목록</a>
             </div>
         </form>
     </section>

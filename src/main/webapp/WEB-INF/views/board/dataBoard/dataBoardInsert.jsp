@@ -34,11 +34,11 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <th><label for="title">제목</label></th>
+                    <th class="has-text-centered has-text-white"><label for="title">제목</label></th>
                     <td><input type="text" class="input" name="title" id="title" placeholder="제목 입력"></td>
                 </tr>
                 <tr>
-                    <th><label for="contents">내용</label></th>
+                    <th class="has-text-centered has-text-white"><label for="contents">내용</label></th>
                     <td>
                         <textarea name="contents" id="contents" class="textarea" placeholder="내용 입력" maxlength="1500"></textarea>
                         <script>
@@ -47,15 +47,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <th><label for="uploadFiles">파일 업로드(10MB 이하)</label></th>
+                    <th class="has-text-centered has-text-white"><label for="uploadFiles">파일 업로드(10MB 이하)</label></th>
                     <td>
                         <input class="input" type="file" name="uploadFiles" id="uploadFiles" multiple="true">
                     </td>
                 </tr>
                 </tbody>
             </table>
-            <input class="button is-info" type="submit" value="작성하기">
-            <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
+            <div class="buttons is-centered">
+                <input class="button is-mainColor" type="submit" value="작성하기">
+                <a href="${headPath }/board/dataBoardList.do" class="button is-success">글 목록</a>
+            </div>
         </form>
 
     </section>

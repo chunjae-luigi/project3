@@ -31,16 +31,19 @@
         <table class="table">
             <thead>
             <tr>
-                <th class="item2">제목</th>
-                <th class="item3">작성일</th>
-                <th class="item4">조회수</th>
+                <th class="item2 has-text-white has-text-centered">제목</th>
+                <th class="item3 has-text-white has-text-centered">작성일</th>
+                <th class="item4 has-text-white has-text-centered">조회수</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td class="item2">${dto.title}</td>
-                <td class="item3">${dto.regdate}</td>
-                <td class="item4">${dto.visited}</td>
+                <td class="item2 has-text-centered">${dto.title}</td>
+                <td class="item3 has-text-centered">
+                    <fmt:parseDate value="${dto.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                    <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
+                </td>
+                <td class="item4 has-text-centered">${dto.visited}</td>
             </tr>
             <c:if test="${!empty dataFiles}">
             <tr>
@@ -60,11 +63,13 @@
             </tr>
             </tbody>
         </table>
-        <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
-        <c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
-            <a href="${headPath }/board/dataBoardUpdate.do?bno=${dto.bno}&author=${dto.author}" class="button ">글 수정</a>
-            <a href="${headPath }/board/dataBoardDelete.do?bno=${dto.bno}&author=${dto.author}" class="button is-danger">글 삭제</a>
-        </c:if>
+        <div class="buttons is-centered">
+            <a href="${headPath }/board/dataBoardList.do" class="button is-mainColor">글 목록</a>
+            <c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
+                <a href="${headPath }/board/dataBoardUpdate.do?bno=${dto.bno}&author=${dto.author}" class="button is-success">글 수정</a>
+                <a href="${headPath }/board/dataBoardDelete.do?bno=${dto.bno}&author=${dto.author}" class="button is-mainColor">글 삭제</a>
+            </c:if>
+        </div>
     </section>
 
 

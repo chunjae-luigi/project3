@@ -32,7 +32,9 @@
             <p class="control">
                 <span class="select">
                     <select id="type" name="type">
-                        <option value="title">제목</option>
+                        <option value="title"<c:if test="${type eq 'title' }"> selected</c:if>>제목</option>
+                        <option value="content"<c:if test="${type eq 'content' }"> selected</c:if>>내용</option>
+                        <option value="author"<c:if test="${type eq 'author' }"> selected</c:if>>작성자</option>
                     </select>
                 </span>
             </p>
@@ -47,23 +49,31 @@
         <table class="table table-secondary" id="tb1">
             <thead>
             <tr>
-                <th class="item1">번호</th>
-                <th class="item2">제목</th>
-                <th class="item3">작성일</th>
-                <th class="item4">조회수</th>
+                <th class="item1 has-text-centered has-text-white">번호</th>
+                <th class="item2 has-text-centered has-text-white">제목</th>
+                <th class="item3 has-text-centered has-text-white">작성일</th>
+                <th class="item4 has-text-centered has-text-white">조회수</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="fileboard" items="${fileboardList}" varStatus="status">
                 <tr>
-                    <td class="item1">${status.count}</td>
-                    <td class="item2">
+                    <td class="item1 has-text-centered">${status.count}</td>
+                    <td class="item2 has-text-centered">
                         <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="${headPath }/board/dataBoardGet.do?bno=${fileboard.bno}" style="display:inline-block; width:100%;">${fileboard.title}</a>
                     </td>
-                    <td class="item3">${fileboard.regdate}</td>
-                    <td class="item4">${fileboard.visited}</td>
+                    <td class="item3 has-text-centered">
+                        <fmt:parseDate value="${fileboard.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                        <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
+                    </td>
+                    <td class="item4 has-text-centered">${fileboard.visited}</td>
                 </tr>
             </c:forEach>
+            <c:if test="${empty fileboardList}">
+                <tr>
+                    <td colspan="4" class="has-text-centered">해당 목록이 존재하지 않습니다.</td>
+                </tr>
+            </c:if>
             </tbody>
         </table>
 
@@ -93,7 +103,9 @@
             </ul>
         </nav>
         <c:if test="${not empty sid || (sid eq 'admin')}">
-        <a href="${headPath }/board/dataBoardInsert.do" class="button is-primary">글쓰기</a>
+            <div class="buttons is-centered">
+                <a href="${headPath }/board/dataBoardInsert.do" class="button is-mainColor">글쓰기</a>
+            </div>
         </c:if>
     </section>
 
@@ -103,13 +115,3 @@
 <%@ include file="../../include/footer.jsp" %>
 </body>
 </html>
-
-
-<script>
-    $(document).ready(function(){
-        if($("tbody tr").length==0){
-            $("tbody").append("<tr><td colspan='4' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
-        }
-    })
-
-</script>

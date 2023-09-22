@@ -37,7 +37,7 @@ public class UtilController {
             byte[] bytes = upload.getBytes();
 
             //이미지 경로 생성
-            String path = request.getRealPath("/resource/uploadCkImage/");                                                        // 운영 서버
+            String path = request.getRealPath("/resource/uploadCkImage/");
             String ckUploadPath = path + uid + "_" + fileName;
             File folder = new File(path);
 
@@ -81,7 +81,7 @@ public class UtilController {
     public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         //서버에 저장된 이미지 경로
-        String path = request.getRealPath("/resource/uploadCkImage/");                                                        // 운영 서버
+        String path = request.getRealPath("/resource/uploadCkImage/");
         String sDirPath = path + uid + "_" + fileName;
 
         File imgFile = new File(sDirPath);

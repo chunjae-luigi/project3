@@ -35,11 +35,11 @@
             <table class="table">
                 <tbody>
                 <tr>
-                    <th><label for="title">제목</label></th>
+                    <th class="has-text-centered has-text-white"><label for="title">제목</label></th>
                     <td><input type="text" class="input" name="title" id="title" value="${dto.title}"></td>
                 </tr>
                 <tr>
-                    <th>업로드 파일</th>
+                    <th class="has-text-centered has-text-white">업로드 파일</th>
                     <td colspan="2">
                         <c:if test="${!empty dataFiles}">
                             <c:forEach var="file" items="${dataFiles}">
@@ -53,7 +53,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th><label for="contents">내용</label></th>
+                    <th class="has-text-centered has-text-white"><label for="contents">내용</label></th>
                     <td>
                         <textarea name="contents" id="contents" class="textarea" maxlength="1500">${dto.content}</textarea>
                         <script>
@@ -63,8 +63,10 @@
                 </tr>
                 </tbody>
             </table>
-            <input class="button is-info" type="submit" value="수정 완료">
-            <a href="${headPath }/board/dataBoardList.do" class="button is-primary">글 목록</a>
+            <div class="buttons is-centered">
+                <input class="button is-mainColor" type="submit" value="수정 완료">
+                <a href="${headPath }/board/dataBoardList.do" class="button is-success">글 목록</a>
+            </div>
         </form>
 
     </section>
