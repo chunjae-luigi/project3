@@ -108,7 +108,9 @@
         </section>
 
         <section>
-            <img src="${headPath }/resources/image/main/banner011.png" alt="수목원 가족여행">
+            <a href="${headPath }/event1" target="_blank">
+                <img src="${headPath }/resources/image/main/banner011.png" alt="수목원 가족여행">
+            </a>
         </section>
 
         <section class="section mb-5 blog-wrap news_area">
