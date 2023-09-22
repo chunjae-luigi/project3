@@ -5,6 +5,8 @@
 
 <c:set var="headPath" value="${pageContext.request.contextPath }"/>
 
+<footer id="ft">
+
     <div class="footer-wrap">
         <div class="footerV18">
             <span class="logo">티스푼</span>
