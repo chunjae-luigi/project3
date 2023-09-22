@@ -7,7 +7,9 @@
  * GITHUB: https://github.com/themefisher/
  */
 
-/*슬비 테스트*/
+/*슬라이더*/
+
+.slider {box-sizing: border-box;border-bottom: 1px solid rgba(0, 0, 0, 0.09)}
 
 .navbar-item img {
   max-height: 3.75rem !important;
