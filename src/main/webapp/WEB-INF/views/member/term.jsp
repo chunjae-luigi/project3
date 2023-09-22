@@ -16,7 +16,7 @@
 <body>
 <%@ include file="../include/header.jsp" %>
 
-<div class="content container">
+<div class="content container login_area">
     <h2 class="page_tit">회원 약관</h2>
     <h3 class="page_tit2">이용 약관 </h3>
     <div class="agree_fr box">

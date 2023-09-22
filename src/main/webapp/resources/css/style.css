@@ -1946,3 +1946,5 @@ h3.quote::before {
 
 
 header.navigation {box-sizing:border-box;border-bottom:1px solid rgba(0, 0, 0, 0.09);}
+
+.login_area {margin:20vh auto !important;}
