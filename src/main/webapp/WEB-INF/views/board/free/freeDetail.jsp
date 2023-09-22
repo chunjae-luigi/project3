@@ -74,17 +74,22 @@
 			<div class="dat_add">
 			<h4 class="tit">한줄 의견을 나눠 보세요</h4>
 			<div>
-				<c:if test="${not empty sid}">
+
 				<form action="${headPath }/dat/insert.do" method="post">
 					<input type="hidden" name="id" id="id"  value="${sid}">
 					<input type="hidden" name="par" id="par" value="${dto.fno}">
 
 					<img src="${headPath }/resources/image/sub/face.png" alt="" style="width: 70px; height: 70px; margin: 5px;">
+					<c:if test="${empty sid}">
+						<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="로그인 후 이용해주세요!"></textarea>
+					</c:if>
 
+					<c:if test="${not empty sid}">
 					<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="이곳에 댓글을 입력해주세요!"></textarea>
 					<input type="submit" class="button is-primary" value="등록">
+					</c:if>
 				</form>
-				</c:if>
+
 			</div>
 			</div>
 			<div class="dat_list">
