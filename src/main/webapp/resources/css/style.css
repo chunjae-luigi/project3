@@ -803,7 +803,7 @@ ul.list-styled {
 .bg-01 {
   background: url("../image/sub/sub08.jpg") no-repeat ;
   background-size: cover;
-  ackground-position-y: 83%;
+  background-position-y: 78%;
 }
 /*커뮤니티*/
 .bg-02 {
@@ -814,16 +814,19 @@ ul.list-styled {
 .bg-03 {
   background: url("../image/sub/sub01.jpg") no-repeat 50% 50%;
   background-size: cover;
+  background-position-y: 66%;
 }
 /*자료실*/
 .bg-04 {
   background: url("../image/sub/sub07.jpg") no-repeat 50% 50%;
   background-size: cover;
+  background-position-y: 74%;
 }
-
+/*마이페이지*/
 .bg-05 {
-  background: url("../image/sub/sub04.jpg") no-repeat 50% 50%;
+  background: url("../image/sub/sub10.jpg") no-repeat 50% 50%;
   background-size: cover;
+  background-position-y: 39%;
 }
 
 .slider {

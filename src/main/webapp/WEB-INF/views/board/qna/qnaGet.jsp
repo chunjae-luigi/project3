@@ -41,20 +41,23 @@
                 <div class="viewbody">
                     <div class="hgroup">
                         <c:if test="${ sid eq 'admin'}">
-                            <div class="no">NO ${qna.qno }</div>
+                        <div class="no">NO ${qna.qno }</div>
                         </c:if>
-                        <div class="tit">${qna.title}</div>
-                        <div class="util">
-
+                        <div class="tit">
                             <c:if test="${qna.lev==0}">
-                                <td>질문</td>
+                                <p>[질문]</p>
                             </c:if>
                             <c:if test="${qna.lev==1}">
-                                <td>답변</td>
+                                <p>[답변]</p>
                             </c:if>
+                            ${qna.title}
+                        </div>
+                        <div class="util">
                             <div class="name">${qna.author }</div>
-                            <div class="date">작성일 <fmt:parseDate value="${qna.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
-                                <fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" /></div></div>
+                            <div class="date">작성일
+                                <fmt:parseDate value="${qna.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                                <fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
+                            </div>
                             <div class="hit">조회수 ${qna.visited }</div></div>
                     </div>
                     <div class="content">
