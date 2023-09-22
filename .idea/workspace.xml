@@ -9,8 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="보드최종">
+    <list default="true" id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="footer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/ft.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/ft.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +185,7 @@
       <workItem from="1695167152162" duration="9012000" />
       <workItem from="1695254067542" duration="25846000" />
       <workItem from="1695339956851" duration="9315000" />
-      <workItem from="1695349632910" duration="5468000" />
+      <workItem from="1695349632910" duration="11211000" />
     </task>
     <task id="LOCAL-00001" summary="* 서브페이지 배너 변경&#10;* 게시판 상세페이지 수정중">
       <option name="closed" value="true" />
@@ -233,7 +235,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695358038597</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="footer">
+      <option name="closed" value="true" />
+      <created>1695359400106</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1695359400106</updated>
+    </task>
+    <task id="LOCAL-00008" summary="footer">
+      <option name="closed" value="true" />
+      <created>1695368520341</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1695368520341</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +276,8 @@
     <MESSAGE value="* 마이페이지 수정&#10;* 회원가입 이미지 변경" />
     <MESSAGE value="댓글수정" />
     <MESSAGE value="보드최종" />
-    <option name="LAST_COMMIT_MESSAGE" value="보드최종" />
+    <MESSAGE value="footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="footer" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
