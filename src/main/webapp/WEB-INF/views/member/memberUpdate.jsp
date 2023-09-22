@@ -55,7 +55,6 @@
                             </tr>
                             <tr>
                                 <th>이름</th>
-                                <input type="hidden" name="name" value="${member.name}">
                                 <td>${member.name }</td>
                             </tr>
                             <tr>
