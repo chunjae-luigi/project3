@@ -6,9 +6,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 목록</title>
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
     <style>
         table {width: 100%; text-align: center;}
@@ -20,70 +19,46 @@
     </style>
 </head>
 
-
 <body>
-<jsp:include page="../include/header.jsp" />
-<div style="display: flex; min-height: 80vh;">
+<jsp:include page="../include/headerAdmin.jsp" />
+<div class="admin_contents_area">
     <jsp:include page="./adminBoardList.jsp" />
-    <div class="container" style="margin-top: 20px;">
-        <h2 class="title">회원</h2>
-        <div class="container">
-                <table class="table table-secondary" id="tb1">
-                    <thead>
-                    <tr>
-                        <th class="item1">번호</th>
-                        <th class="item2">아이디</th>
-                        <th class="item3">이름</th>
-                        <th class="item4">포인트</th>
-                        <th class="item5">등록일</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="member" items="${memberList}" varStatus="status">
-                    <tr id="${status.count}">
-                        <td class="item1">${status.count}</td>
-                        <td class="item2">
-                            <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="${headPath }/admin/get.do?id=${member.id}" style="display:inline-block; width:100%;">${member.id}</a>
-                        </td>
-                        <td class="item3">${member.name}</td>
-                        <td class="item4">${member.point}</td>
-                        <td class="item5">${member.regdate}</td>
-                    </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
-                <c:if test="${curPage > page.pageCount }">
-                    <a href="${headPath }/admin/MemberListAdmin.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
-                </c:if>
-                <c:if test="${page.blockLastNum < page.totalPageCount }">
-                    <a href="${headPath }/admin/MemberListAdmin.do?page=${page.blockLastNum + 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-next">Next page</a>
-                </c:if>
+    <div class="container contents_area">
+        <h1 class="is-size-3 has-text-weight-semibold">회원</h1>
 
-                <ul class="pagination-list">
-                    <c:forEach var="i" begin="${page.blockStartNum }" end="${page.blockLastNum }">
-                        <c:choose>
-                            <c:when test="${i == curPage }">
-                                <li>
-                                    <a href="${headPath }/admin/MemberListAdmin.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link is-current" aria-label="Page ${i }" aria-current="page">${i }</a>
-                                </li>
-                            </c:when>
-                            <c:otherwise>
-                                <li>
-                                    <a href="${headPath }/admin/MemberListAdmin.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link" aria-label="Page ${i }" aria-current="page">${i }</a>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
-                </ul>
-            </nav>
+        <div class="container">
+            <table class="table table-secondary" id="tb1">
+                <thead>
+                <tr>
+                    <th class="item1 has-text-white has-text-centered">번호</th>
+                    <th class="item2 has-text-white has-text-centered">아이디</th>
+                    <th class="item3 has-text-white has-text-centered">이름</th>
+                    <th class="item4 has-text-white has-text-centered">포인트</th>
+                    <th class="item5 has-text-white has-text-centered">등록일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="member" items="${memberList}" varStatus="status">
+                <tr id="${status.count}">
+                    <td class="item1">${status.count}</td>
+                    <td class="item2">
+                        <a class="link-body-emphasis link-offset-2 link-underline-opacity-25 link-underline-opacity-75-hover" href="${headPath }/admin/get.do?id=${member.id}" style="display:inline-block; width:100%;">${member.id}</a>
+                    </td>
+                    <td class="item3">${member.name}</td>
+                    <td class="item4">${member.point}</td>
+                    <td class="item5">
+                        <fmt:parseDate value="${member.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                        <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
+                    </td>
+                </tr>
+                </c:forEach>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 </body>
 </html>
-
-
 
 <script>
     $(document).ready(function(){

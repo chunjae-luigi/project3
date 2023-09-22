@@ -7,27 +7,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>투표 목록</title>
+    <title>투표 관리 - 등록</title>
+    <link rel="stylesheet" href="${path}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
-    <style>
-        #editSubmit {display:none;}
-        .answer_area {background-color:#fff!important;border-radius:5px;}
-
-        .vote_li.box {border:4px solid #fff;}
-        .vote_li.box.check {border:4px solid #ff4057;}
-    </style>
     <script type="text/javascript" src="${path }/resources/ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
-<jsp:include page="../include/header.jsp" />
-<div style="display: flex; min-height: 80vh;">
+<jsp:include page="../include/headerAdmin.jsp" />
+<div class="admin_contents_area">
     <jsp:include page="./adminBoardList.jsp" />
-    <div class="container" style="margin-top: 20px;">
+    <div class="container contents_area">
         <div class="column">
-            <h1 class="is-size-3 has-text-weight-semibold">투표 관리 - 등록하기</h1>
+            <h1 class="is-size-3 has-text-weight-semibold">투표 - 등록하기</h1>
             <form action="${path }/vote/add.do" method="post" class="mt-5">
                 <table class="table is-fullwidth is-bordered">
                     <colgroup>

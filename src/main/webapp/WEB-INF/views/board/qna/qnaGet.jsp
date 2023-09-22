@@ -8,6 +8,7 @@
 <head>
     <title>티스푼</title>
     <%@ include file="../../include/head.jsp" %>
+    <link rel="stylesheet" href="${headPath}/resources/css/boardget.css">
 </head>
 
 <body>
@@ -29,46 +30,48 @@
 
 
     <section class="section blog-wrap container">
-        <table class="table" id="myTable">
-            <thead>
-            <tr>
-                <th>유형</th>
-                <th>글 제목</th>
-                <th>작성자</th>
-                <th>작성 일시</th>
-                <th>조회수</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <c:if test="${qna.lev==0}">
-                    <td>질문</td>
-                </c:if>
-                <c:if test="${qna.lev==1}">
-                    <td>답변</td>
-                </c:if>
-                <td>${qna.title}</td>
-                <td>${qna.author}</td>
-                <td>${qna.regdate}</td>
-                <td>${qna.visited}</td>
-            </tr>
-            <tr>
-                <td colspan="5">${qna.content}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="detail">
+            <div class="conwrap">
+                <div class="h3group">
+                    <div class="location">
+                        <span class="depth">홈</span>
+                        <span class="depth"> / 커뮤니티</span><strong class="this"> / 문의게시판</strong>
+                    </div>
+                </div>
+                <div class="viewbody">
+                    <div class="hgroup">
+                        <c:if test="${ sid eq 'admin'}">
+                            <div class="no">NO ${dto.fno }</div>
+                        </c:if>
+                        <div class="tit">${qna.title}</div>
+                        <div class="util">
 
-        <div class="btn_group">
-            <a href="${headPath }/board/qnaList.do" class="button button1">목록</a>
-            <c:if test="${not empty sid && (sid eq 'admin' || qna.author eq sid)}">
-                <a href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}&author=${qna.author}" class="button button2">수정</a>
-                <a href="${headPath }/board/qnaDelete.do?qno=${qna.qno}&author=${qna.author}" class="button button1">삭제</a>
-                <c:if test="${qna.lev == 0}">
-                    <a href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" class="button is-primary">답변하기</a>
-                </c:if>
-            </c:if>
-        </div>
-    </section>
+                            <c:if test="${qna.lev==0}">
+                                <td>질문</td>
+                            </c:if>
+                            <c:if test="${qna.lev==1}">
+                                <td>답변</td>
+                            </c:if>
+
+                            <div class="name">${qna.author }</div>
+                            <div class="date">작성일 ${qna.regdate }</div>
+                            <div class="hit">조회수 ${qna.visited }</div></div>
+                    </div>
+                    <div class="content">
+                        ${qna.content }
+                    </div>
+                    <div class="buttons is-centered">
+                        <a class="button is-info" href="${headPath }/board/qnaList.do">목록</a>
+                        <c:if test="${not empty sid && (sid eq 'admin' || qna.author eq sid)}">
+                            <a class="button is-danger" href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}&author=${qna.author}">수정</a>
+                            <a class="button is-primary" href="${headPath }/board/qnaDelete.do?qno=${qna.qno}&author=${qna.author}">삭제</a>
+                            <c:if test="${qna.lev == 0}">
+                            <a class="button is-primary"  href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" >답변하기</a>
+                        </c:if>
+                        </c:if>
+
+                    </div>
+                </div>
 
 </div>
 

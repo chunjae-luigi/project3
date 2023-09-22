@@ -8,74 +8,52 @@
 <html lang="en">
 <head>
     <title>티스푼::공지사항</title>
-    <jsp:include page=".././include/head.jsp" />
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
+    <jsp:include page="../include/head.jsp" />
 </head>
 <body>
-<jsp:include page="../include/header.jsp" />
-<div style="display: flex; min-height: 80vh;">
+<jsp:include page="../include/headerAdmin.jsp" />
+<div class="admin_contents_area">
     <jsp:include page="./adminBoardList.jsp" />
-    <div class="container" style="margin-top: 20px;">
-        <h2 class="title">공지사항</h2>
-        <div class="container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="item1">번호</th>
-                    <th class="item2">제목</th>
-                    <th class="item3">작성일</th>
-                    <th class="item4">조회</th>
-                </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${noticeList }" var="notice" varStatus="status">
-                <tr>
-                    <td class="item1">${status.count }</td>
-                    <td class="item2"><a href="${headPath }/admin/Get.do?no=${notice.no }">${notice.title }</a></td>
-                    <td class="item3">${notice.regdate }</td>
-                    <td class="item4">${notice.visited }</td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-<%--                <c:if test='${sid eq "admin"}' >--%>
-        <div class="btn_group">
-            <a href="${headPath }/admin/Insert.do" class="inBtn inBtn1">공지 등록</a>
+    <div class="container contents_area2">
+        <div class="buttons is-right">
+            <a href="${headPath}/notice/List.do" class="button is-mainColor">사용자 홈페이지 이동</a>
         </div>
-            <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
-                <c:if test="${curPage > page.pageCount }">
-                    <a href="${headPath }/admin/List.do?page=${page.blockStartNum - 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-previous">Previous</a>
+        <h1 class="is-size-3 has-text-weight-semibold">공지사항</h1>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="item1 has-text-centered has-text-white">번호</th>
+                        <th class="item2 has-text-centered has-text-white">제목</th>
+                        <th class="item3 has-text-centered has-text-white">작성일</th>
+                        <th class="item4 has-text-centered has-text-white">조회</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${noticeList }" var="notice" varStatus="status">
+                    <tr>
+                        <td class="item1 has-text-centered">${status.count }</td>
+                        <td class="item2 has-text-centered"><a href="${headPath }/admin/Get.do?no=${notice.no }">${notice.title }</a></td>
+                        <td class="item3 has-text-centered">
+                            <fmt:parseDate value="${notice.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                            <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
+                        </td>
+                        <td class="item4 has-text-centered">${notice.visited }</td>
+                    </tr>
+                </c:forEach>
+                <c:if test="${empty noticeList }">
+                    <tr>
+                        <td colspan="4" class="has-text-centered">해당 목록이 존재하지 않습니다.</td>
+                    </tr>
                 </c:if>
-                <c:if test="${page.blockLastNum < page.totalPageCount }">
-                    <a href="${headPath }/admin/List.do?page=${page.blockLastNum + 1 }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-next">Next page</a>
-                </c:if>
-
-                <ul class="pagination-list">
-                    <c:forEach var="i" begin="${page.blockStartNum }" end="${page.blockLastNum }">
-                        <c:choose>
-                            <c:when test="${i == curPage }">
-                                <li>
-                                    <a href="${headPath }/admin/List.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link is-current" aria-label="Page ${i }" aria-current="page">${i }</a>
-                                </li>
-                            </c:when>
-                            <c:otherwise>
-                                <li>
-                                    <a href="${headPath }/admin/List.do?page=${i }<c:if test="${!empty keyword }">&type=${type }&keyword=${keyword }</c:if>" class="pagination-link" aria-label="Page ${i }" aria-current="page">${i }</a>
-                                </li>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:forEach>
-                </ul>
-            </nav>
+                </tbody>
+            </table>
+            <div class="buttons is-right">
+                <a href="${headPath }/admin/Insert.do" class="button is-mainColor">공지 등록</a>
+            </div>
+        </div>
     </div>
-    </div>
-</div>
-        <script>
-            $(document).ready(function(){
-                if($("tbody tr").length==0){
-                    $("tbody").append("<tr><td colspan='4' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
-                }})
-        </script>
-<jsp:include page=".././include/footer.jsp" />
 </body>
 </html>
 

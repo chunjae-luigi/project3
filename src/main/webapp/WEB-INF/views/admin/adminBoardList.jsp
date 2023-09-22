@@ -40,22 +40,22 @@
     <hr>
     <ul class="nav nav-pills-admin flex-column mb-auto">
         <li class="nav-item">
-            <a id="admin-member-nav" href="${rootPath}/admin/MemberListAdmin.do" class="nav-link-side text-white">
+            <a id="admin-member-nav" href="${rootPath}/admin/MemberListAdmin.do" class="nav-link-side px-0 text-white">
                 회원 관리
             </a>
         </li>
         <li class="nav-item">
-            <a id="admin-notice-nav" href="${rootPath}/admin/List.do" class="nav-link-side text-white">
+            <a id="admin-notice-nav" href="${rootPath}/admin/List.do" class="nav-link-side px-0 text-white">
                 공지사항 관리
             </a>
         </li>
         <li class="nav-item">
-            <a id="admin-file-nav" href="${rootPath}/admin/FileboardListAdmin.do" class="nav-link-side text-white">
-                학습자료 관리
+            <a id="admin-file-nav" href="${rootPath}/admin/FreeListAdmin.do" class="nav-link-side px-0 text-white">
+                자유게시판 관리
             </a>
         </li>
         <li class="nav-item">
-            <a id="admin-vote-nav" href="${rootPath}/admin/VoteMemberListAdmin.do" class="nav-link-side text-white">
+            <a id="admin-vote-nav" href="${rootPath}/admin/VoteMemberListAdmin.do" class="nav-link-side px-0 text-white">
                 투표 관리
             </a>
         </li>
@@ -79,6 +79,10 @@
         $(nav).addClass("active");
     } else if(link.includes("Vote")){
         nav = $("#admin-file-nav");
+        $(nav).attr("aria-current", "page");
+        $(nav).addClass("active");
+    } else {
+        nav = $("#admin-member-nav");
         $(nav).attr("aria-current", "page");
         $(nav).addClass("active");
     }
