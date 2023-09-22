@@ -12,7 +12,13 @@
             <if test="searchType != null">
                 <choose>
                     <when test="searchType == 'title'.toString()">
-                        and title LIKE concat('%', #{searchKeyword}, '%')
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'content'.toString()">
+                        content LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'author'.toString()">
+                        author LIKE concat('%', #{searchKeyword}, '%')
                     </when>
                 </choose>
             </if>
@@ -42,7 +48,13 @@
             <if test="searchType != null">
                 <choose>
                     <when test="searchType == 'title'.toString()">
-                        and title LIKE concat('%', #{searchKeyword}, '%')
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'content'.toString()">
+                        content LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'author'.toString()">
+                        author LIKE concat('%', #{searchKeyword}, '%')
                     </when>
                 </choose>
             </if>
@@ -72,7 +84,13 @@
             <if test="searchType != null">
                 <choose>
                     <when test="searchType == 'title'.toString()">
-                        and title LIKE concat('%', #{searchKeyword}, '%')
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'content'.toString()">
+                        content LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'author'.toString()">
+                        author LIKE concat('%', #{searchKeyword}, '%')
                     </when>
                 </choose>
             </if>
@@ -103,7 +121,13 @@
             <if test="searchType != null">
                 <choose>
                     <when test="searchType == 'title'.toString()">
-                        and title LIKE concat('%', #{searchKeyword}, '%')
+                        title LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'content'.toString()">
+                        content LIKE concat('%', #{searchKeyword}, '%')
+                    </when>
+                    <when test="searchType == 'author'.toString()">
+                        author LIKE concat('%', #{searchKeyword}, '%')
                     </when>
                 </choose>
             </if>

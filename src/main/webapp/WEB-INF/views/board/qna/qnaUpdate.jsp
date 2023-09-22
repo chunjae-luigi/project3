@@ -36,11 +36,11 @@
             <table class="table" id="myTable">
                 <thead>
                 <tr>
-                    <th>유형</th>
-                    <th>글 제목</th>
-                    <th>작성자</th>
-                    <th>작성 일시</th>
-                    <th>조회수</th>
+                    <th class="has-text-white has-text-centered">유형</th>
+                    <th class="has-text-white has-text-centered">글 제목</th>
+                    <th class="has-text-white has-text-centered">작성자</th>
+                    <th class="has-text-white has-text-centered">작성 일시</th>
+                    <th class="has-text-white has-text-centered">조회수</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -53,7 +53,10 @@
                     </c:if>
                     <td><input type="text" class="input" name="title" id="title" value="${qna.title}"></td>
                     <td>${qna.author}</td>
-                    <td>${qna.regdate}</td>
+                    <td>
+                        <fmt:parseDate value="${qna.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                        <fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
+                    </td>
                     <td>${qna.visited}</td>
                 </tr>
                 <tr>
@@ -66,9 +69,9 @@
 
             <input type="hidden" name="qno" id="qno" value="${qna.qno}">
 
-            <div class="btn_group">
-                <a href="${headPath }/board/qnaList.do" class="button button1">목록</a>
-                <input type="submit" class="button button2" value="수정 완료">
+            <div class="buttons is-centered">
+                <a href="${headPath }/board/qnaList.do" class="button is-mainColor">목록</a>
+                <input type="submit" class="button is-success" value="수정 완료">
             </div>
         </form>
     </section>

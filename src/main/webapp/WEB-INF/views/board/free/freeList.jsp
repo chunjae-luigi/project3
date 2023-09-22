@@ -34,63 +34,62 @@
 		</div>
 	</section>
 	<section class="section blog-wrap container">
-				<%-- 검색창(자유게시판-제목,내용,작성자) --%>
-				<form action="${path }/board/free/list.do" method="get" class="field has-addons has-addons-right">
-					<p class="control">
-                <span class="select">
-                    <select id="type" name="type">
-                        <option value="title">제목</option>
-						<option value="content">내용</option>
-						<option value="id">작성자</option>
-                    </select>
-                </span>
-					</p>
-					<p class="control">
-						<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
-					</p>
-					<p class="control">
-						<input type="submit" class="button is-mainColor" value="검색" />
-					</p>
-				</form>
+		<%-- 검색창(자유게시판-제목,내용,작성자) --%>
+		<form action="${path }/board/free/list.do" method="get" class="field has-addons has-addons-right">
+			<p class="control">
+				<span class="select">
+					<select id="type" name="type">
+						<option value="title"<c:if test="${type eq 'title' }"> selected</c:if>>제목</option>
+						<option value="content"<c:if test="${type eq 'content' }"> selected</c:if>>내용</option>
+						<option value="author"<c:if test="${type eq 'author' }"> selected</c:if>>작성자</option>
+					</select>
+				</span>
+			</p>
+			<p class="control">
+				<input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
+			</p>
+			<p class="control">
+				<input type="submit" class="button is-mainColor" value="검색" />
+			</p>
+		</form>
 				<table class="table">
 		      	<thead>
 		      		<tr>
-		      			<th>글번호</th>
-		      			<th>제목</th>
-						<th>작성자</th>
-		      			<th>작성일</th>
-		      			<th>조회수</th>
+		      			<th class="has-text-centered has-text-white">글번호</th>
+		      			<th class="has-text-centered has-text-white">제목</th>
+						<th class="has-text-centered has-text-white">작성자</th>
+		      			<th class="has-text-centered has-text-white">작성일</th>
+		      			<th class="has-text-centered has-text-white">조회수</th>
 		      		</tr>
 		      	</thead>
 		      	<tbody>
 				<c:if test="${not empty freeList }">
 		      	<c:forEach items="${freeList }" var="free" varStatus="status">
 		      		<tr>
-		      			<td>${status.count }</td>
-		      			<td><a href="${path}/board/free/get.do?fno=${free.fno }">${free.title }</a></td>
-						<td>${free.author}</td>
-		      			<td>
+		      			<td class="has-text-centered">${status.count }</td>
+		      			<td class="has-text-centered"><a href="${path}/board/free/get.do?fno=${free.fno }">${free.title }</a></td>
+						<td class="has-text-centered">${free.author}</td>
+		      			<td class="has-text-centered">
 	      					<fmt:parseDate value="${free.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
 	      					<fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
 		      			</td>
-		      			<td>${free.visited }</td>
+		      			<td class="has-text-centered">${free.visited }</td>
 		      		</tr>
 		      	</c:forEach>
 				</c:if>
 				<c:if test="${empty freeList }">
 					<tr>
-						<td colspan="4">자유게시판에 글이 존재하지 않습니다.</td>
+						<td class="has-text-centered" colspan="5">자유게시판에 글이 존재하지 않습니다.</td>
 					</tr>
 				</c:if>
 		      	</tbody>
 		      </table>
 					<c:if test="${not empty sid}">
-		      	<div class="button-group">
-
-				  <a class="button is-info" href="${path }/board/free/insert.do">글쓰기</a>
-				</div>
-			</section>
+						<div class="buttons is-centered">
+							<a class="button is-mainColor" href="${path }/board/free/insert.do">글쓰기</a>
+						</div>
 					</c:if>
+			</section>
 
 			<%-- 페이징처리 --%>
 			<nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">

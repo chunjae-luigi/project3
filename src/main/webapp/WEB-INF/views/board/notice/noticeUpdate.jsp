@@ -9,6 +9,7 @@
 <head>
     <title>공지사항 상세보기</title>
     <jsp:include page="../../include/head.jsp" />
+    <script type="text/javascript" src="${headPath }/resources/ckeditor/ckeditor.js"></script>
 </head>
 
 <body>
@@ -32,26 +33,27 @@
         <table class="table" id="myTable">
             <tbody>
             <tr>
-                <th style="background-color:#dcdcdc">글 제목</th>
+                <th class="has-text-centered has-text-white">글 제목</th>
                 <td>
                     <input type="hidden" name="no" id="no" placeholder="제목 입력" maxlength="98" value="${notice.no }">
                     <input type="text" name="title" id="title" placeholder="제목 입력" maxlength="98" value="${notice.title }" required>
                 </td>
             </tr>
             <tr>
-                <th style="background-color:#dcdcdc">글 내용</th>
+                <th class="has-text-centered has-text-white">글 내용</th>
                 <td>
                     <textarea name="content" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required>${notice.content }</textarea>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input type="submit" class="submit success button" value="글 등록" >
-                    <a class="button" href="${headPath }/notice/List.do">글 목록</a>
+                    <script>
+                        CKEDITOR.replace('content',	{filebrowserUploadUrl:'${headPath }/util/imageUpload.do'});
+                    </script>
                 </td>
             </tr>
             </tbody>
         </table>
+            <div class="buttons">
+                <input type="submit" class="is-mainColor button" value="글 등록" >
+                <a class="button is-success" href="${headPath }/notice/List.do">글 목록</a>
+            </div>
         </form>
         <jsp:include page="../../include/footer.jsp" />
 </body>
