@@ -11,17 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="51841f3a-74a5-43b5-8b70-41cb97900284" name="Changes" comment="로고추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/VoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/controller/VoteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/VoteCountVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/VoteCountVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/VoteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kr/co/tspoon/dto/VoteList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/voteMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/voteMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/voteDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/voteDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/head.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/vote/voteDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/attendance/attendanceList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/attendance/attendanceList.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +187,10 @@
       <workItem from="1695166895279" duration="1097000" />
       <workItem from="1695168098789" duration="475000" />
       <workItem from="1695253621220" duration="23815000" />
-      <workItem from="1695340702136" duration="14665000" />
+      <workItem from="1695340702136" duration="15046000" />
+      <workItem from="1695359777845" duration="73000" />
+      <workItem from="1695363152422" duration="3087000" />
+      <workItem from="1695366585613" duration="1678000" />
     </task>
     <servers />
   </component>
