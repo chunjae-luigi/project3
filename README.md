@@ -49,7 +49,9 @@
 ![ERD09](/README/erd09_voteAnswerUser.PNG)
 
 ### 클래스 다이어그램
-
+![class01](/README/class_member.drawio.png)
+![class02](/README/class_notice.drawio.png)
+![class03](/README/class_vote.drawio.png)
 
 
 ### 시퀀스 다이어그램
@@ -61,7 +63,8 @@
 
 
 ---
-## 🔧기능 구현
+
+[//]: # (## 🔧기능 구현)
 
 
-## 시연 영상
+## 🎥 시연 영상
