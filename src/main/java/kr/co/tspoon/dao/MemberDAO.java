@@ -10,7 +10,7 @@ public interface MemberDAO {
     public int memberCount() throws Exception;
     public Member idcheck(String id) throws Exception;
     public Member login(String id) throws Exception;
-    public void memberInsert(Member member) throws Exception;
+    public void memberInsert(Member dto) throws Exception;
     public void memberUpdate(Member member) throws Exception;
     public void memberDelete(String id) throws Exception;
     public void memberUpdatePoint(Member member) throws Exception;
