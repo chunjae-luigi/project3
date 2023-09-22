@@ -11,5 +11,6 @@ public class VoteCountVo {
     private int vno;
     private String title;
     private int cnt;
+    private String colorNum;
 
 }

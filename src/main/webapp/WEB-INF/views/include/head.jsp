@@ -51,6 +51,7 @@
 
 <link rel="stylesheet" href="${headPath }/resources/css/jquery.dataTables.css">
 <script src="${headPath }/resources/js/jquery.dataTables.js"></script>
+<script src="${headPath }/resources/js/script.js"></script>
 
 <%-- wishfund 스타일 --%>
 <!-- bootstrap.min css -->
