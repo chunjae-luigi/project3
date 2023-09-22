@@ -39,6 +39,7 @@
                             <tr>
                                 <th>아이디</th>
                                 <td>${member.id } </td>
+                                <input type="hidden" name="id" id="id">
                             </tr>
                             <tr>
                                 <th><label for="pw">비밀번호</label></th>
