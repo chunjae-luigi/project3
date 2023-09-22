@@ -78,7 +78,7 @@
                 </c:forEach>
                 <c:if test="${empty qnaList}">
                     <tr>
-                        <td class="has-text-centered" colspan="5">해당 목록이 존재하지 않습니다.</td>
+                      <td class="has-text-centered" colspan="5">해당 목록이 존재하지 않습니다.</td>
                     </tr>
                 </c:if>
             </tbody>
