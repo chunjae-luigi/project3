@@ -53,7 +53,7 @@
 			      			<td>
 			      				<textarea name="content" id="content" class="textarea" placeholder="내용 입력" rows="8" cols="100" maxlength="1400" required></textarea>
 			      				<script>
-			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/free/imageUpload.do'});
+			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/util/imageUpload.do'});
 			      				</script>
 			      			</td>
 			      		</tr>
