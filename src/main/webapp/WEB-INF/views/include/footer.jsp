@@ -95,7 +95,7 @@
         padding-bottom: 0;
     }
 
-    .foot-cscenter a {
+    .foot-cscenter {
         display: inline-block;
         width: 284px;
         padding: 16px 0 16px 16px;
@@ -135,11 +135,9 @@
             <div class="foot-side">
             <div class="foot-cont cs">
                 <div class="foot-cscenter">
-                    <a href="/cscenter/">
                         <p class="tit">고객센터</p>
                         <div class="open-time"><span>운영시간</span> <span class="time">오전 10시 ~ 오후 5시 (주말, 공휴일 휴무)</span></div>
                         <div class="open-time lunch"><span>점심시간</span> <span class="time">오후 11시 00분 ~ 오후 1시 00분</span></div>
-                    </a>
                 </div>
             </div>
             <div class="foot-sns">
