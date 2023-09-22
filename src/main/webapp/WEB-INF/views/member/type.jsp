@@ -16,7 +16,7 @@
             list-style: none;
             width: 1500px;
             margin: 0 auto;
-            height: 700px;
+            height: 900px;
             clear:both;
             text-align: center;
         }
@@ -42,6 +42,8 @@
 
         .btn_type {
             text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
             font-size: 30px;
             font-weight: bold;
             background-color: cornflowerblue;
@@ -59,32 +61,36 @@
 <body>
 <header class="hd" id="hd">
     <jsp:include page="./../include/header.jsp" />
+    <link rel="stylesheet" href="${headPath}/resources/css/boardget.css">
+
 </header>
 
 <div class="content">
 
-<section class="page-title bg-1">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-12">
-                <div class="block has-text-centered">
-                    <h1 class="is-capitalize text-lg font-happy">회원 유형</h1>
+    <section class="page-title bg-02">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="block has-text-centered">
+                        <h1 class="is-capitalize text-lg font-happy">회원 유형</h1>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <form action="${headPath}/member/join.do" method="post" class="typ">
     <div>
         <ul class="pic_type">
             <li>
                 <input type="radio" name="grade" value="1" id="par" checked>
-                <label for="par"><img class="pic" src="${headPath }/resources/image/main/par1.png" alt="학부모">학부모</label><br>
+                <label for="par"><img class="pic" src="${headPath }/resources/image/main/par1.png" alt="학부모">
+                    <br>학부모</label><br>
             </li>
             <li>
                 <input type="radio" name="grade" value="2" id="stu">
-                <label for="stu"><img class="pic" src="${headPath }/resources/image/main/stu1.png" alt="학생">학생</label><br>
+                <label for="stu"><img class="pic" src="${headPath }/resources/image/main/stu1.png" alt="학생">
+                    <br>학생</label><br>
             </li>
         </ul>
     </div>
