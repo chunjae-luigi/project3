@@ -52,7 +52,7 @@
 								${dto.content }
 							</textarea>
 							<script>
-								CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/free/imageUpload.do'});
+								CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/util/imageUpload.do'});
 							</script>
 						</td>
 					</tr>
