@@ -28,7 +28,7 @@
 <div class="content container">
     <form class="text-left clearfix form_row" action="${headPath }/member/insert.do" method="post" onsubmit="return inform(this)">
         <div class="columns GRADE">
-            <input type="hidden" class="input" id="grade" value="${grade}" >
+            <input type="hidden" class="input" id="grade" name="grade" value="${grade}" >
             <div class="column is-1">회원유형</div>
             <c:choose>
                 <c:when test="${grade eq 1}">

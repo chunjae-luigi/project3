@@ -30,12 +30,20 @@
                     <td>${member.name}</td>
                 </tr>
                 <tr>
+                    <th class="has-text-centered">이메일</th>
+                    <td>${member.email}</td>
+                </tr>
+                <tr>
                     <th class="has-text-centered">전화번호</th>
                     <td>${member.tel}</td>
                 </tr>
                 <tr>
-                    <th class="has-text-centered">이메일</th>
-                    <td>${member.email}</td>
+                    <th class="has-text-centered">주소</th>
+                    <td>${member.addr1} ${member.addr2} ${member.postcode}</td>
+                </tr>
+                <tr>
+                    <th class="has-text-centered">생년월일</th>
+                    <td>${member.birth}</td>
                 </tr>
                 <tr>
                     <th class="has-text-centered">포인트</th>
@@ -51,7 +59,7 @@
     </div>
     <script>
         function remove() {
-            if(window.confirm("회원 탈퇴하겠습니까?")){
+            if(window.confirm("해당 회원을 탈퇴시키겠습니까?")){
                 location.href = "${headPath}/admin/delete.do?id=${member.id}"
             }
         }

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VoteServiceImpl implements VoteService {
+public class VoteServiceImpl extends VoteList implements VoteService {
 
     @Autowired
     private VoteDAO voteDAO;
