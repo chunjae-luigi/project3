@@ -17,4 +17,4 @@
 .dat_area {position:relative;}
 .dat_area > p, .dat_area > a {display:inline-block;vertical-align:top;}
 .dat_area > a {vertical-align:middle;}
-.dat_area .dat_content {width:calc(100% - 253px);}
+.dat_area .dat_content {width:calc(100% - 260px);}

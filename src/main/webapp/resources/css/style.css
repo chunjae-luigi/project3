@@ -100,7 +100,7 @@
 }
 
 
-  /*여기까지*/
+/*여기까지*/
 
 
 
@@ -1252,7 +1252,7 @@ ul.list-styled {
   text-align: center;
   transform: translateY(0);
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
@@ -1911,7 +1911,7 @@ h3.quote::before {
   display: grid;
   row-gap: 5px;
   -moz-column-gap: 5px;
-       column-gap: 5px;
+  column-gap: 5px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .footer .gallery-wrap .gallery-img {

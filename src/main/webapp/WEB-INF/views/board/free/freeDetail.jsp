@@ -58,12 +58,12 @@
 							${dto.content }
 					</div>
 					<div class="buttons is-centered">
-						<a class="button is-info" href="${headPath }/board/free/list.do">목록</a>
+						<a class="button is-mainColor" href="${headPath }/board/free/list.do">목록</a>
 						<c:if test="${not empty sid && (dto.author eq sid)}">
-							<a class="button is-danger" href="${headPath }/board/free/update.do?fno=${dto.fno}&author=${dto.author}">수정</a>
+							<a class="button is-success" href="${headPath }/board/free/update.do?fno=${dto.fno}&author=${dto.author}">수정</a>
 						</c:if>
 						<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
-							<a class="button is-primary" href="${headPath }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">삭제</a>
+							<a class="button is-mainColor" href="${headPath }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">삭제</a>
 						</c:if>
 					</div>
 				</div>
@@ -81,7 +81,7 @@
 
 					<img src="${headPath }/resources/image/sub/face.png" alt="" style="width: 70px; height: 70px; margin: 5px;">
 
-					<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="이곳에 댓글을 입력해주세요!" autofocus></textarea>
+					<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="이곳에 댓글을 입력해주세요!"></textarea>
 					<input type="submit" class="button is-primary" value="등록">
 				</form>
 				</c:if>

@@ -8,8 +8,8 @@
 <html lang="en">
 <head>
     <title>자유게시판 관리 - 상세보기</title>
-    <link rel="stylesheet" href="${path}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${path}/resources/css/admin.css">
 </head>
 
 <body>
