@@ -87,9 +87,10 @@
                 </div>
 
                 <form action="${path }/vote/addAnswer.do" method="post" class="mt-5">
-                    <div class="columns is-mobile my-5">
+                    <div class="columns is-mobile my-5 answer_list">
                         <div class="column is-four-fifths">
                             <input type="hidden" value="${vote.vno}" name="vno" id="vno" />
+                            <input type="color" name="colorNum" id="colorNum" required>
                             <input type="text" name="title" id="title" class="input" placeholder="투표 질문지 내용 입력" maxlength="98" required>
                         </div>
                         <div class="column">
@@ -101,24 +102,32 @@
                 </form>
             </c:if>
             <c:if test="${vote.useYn }">
-                <div class="columns is-multiline is-mobile is-four-fifths is-offset-1 mt-5">
+                <div class="columns is-multiline">
                     <c:forEach items="${voteCountList }" var="voteAnswer" varStatus="status">
-                        <div class="column is-half">
-                            <div class="vote_li box<c:if test="${cnt != 0 && sid.equals('admin') && getMaxLno.lno == voteAnswer.lno }"> check</c:if>">
-                                <p class="is-size-5 has-text-weight-semibold">${voteAnswer.title }</p>
-                                <c:if test="${cnt !=0 }">
+                        <div class="column is-4">
+                            <div class="card shadow has-text-centered">
+                                <c:if test="${cnt != 0 }">
                                     <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
-                                    <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
+                                    <div class="is-relative rounded-top progress-wrapper" data-color="${voteAnswer.colorNum }">
+                                        <div class="wave" data-progress="<fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0" />%"></div>
+                                    </div>
+                                    <div class="card-content has-background-white">
+                                        <h4>${voteAnswer.title } (<fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0" />%)</h4>
+                                    </div>
                                 </c:if>
                                 <c:if test="${cnt == 0 }">
-                                    <p><span>투표수 : 0</span> | <span>투표율 : 0 %</span></p>
+                                    <div class="is-relative rounded-top progress-wrapper" data-color="${voteAnswer.colorNum }">
+                                        <div class="wave" data-progress="0%"></div>
+                                    </div>
+                                    <div class="card-content has-background-white">
+                                        <h4>${voteAnswer.title } (0%)</h4>
+                                    </div>
                                 </c:if>
                             </div>
                         </div>
                     </c:forEach>
                 </div>
             </c:if>
-
             <div class="buttons is-right">
                 <a href="${path }/admin/VoteMemberListAdmin.do" class="button is-mainColor">목록</a>
                 <c:if test="${!vote.stateYn }">
@@ -150,3 +159,25 @@
 </div>
 </body>
 </html>
+
+<script>
+    $('[data-background]').each(function () {
+        $(this).css({
+            'background-image': 'url(' + $(this).data('background') + ')'
+        });
+    });
+
+    // background color
+    $('[data-color]').each(function () {
+        $(this).css({
+            'background-color': $(this).data('color')
+        });
+    });
+
+    // progress bar
+    $('[data-progress]').each(function () {
+        $(this).css({
+            'bottom': $(this).data('progress')
+        });
+    });
+</script>
