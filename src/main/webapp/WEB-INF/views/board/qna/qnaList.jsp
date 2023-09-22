@@ -24,7 +24,7 @@
             <div class="columns">
                 <div class="column is-12">
                     <div class="block has-text-centered">
-                        <h1 class="is-capitalize text-lg font-happy">Qna</h1>
+                        <h1 class="is-capitalize text-lg font-happy">Q & A</h1>
                     </div>
                 </div>
             </div>

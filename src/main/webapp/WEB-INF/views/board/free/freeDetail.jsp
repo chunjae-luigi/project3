@@ -51,7 +51,9 @@
 						<div class="tit">${dto.title }</div>
 						<div class="util">
 							<div class="name">${dto.author }</div>
-							<div class="date">작성일 ${dto.regdate }</div>
+							<div class="date">작성일
+								<fmt:parseDate value="${dat.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
+								<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" /></div>
 							<div class="hit">조회수 ${dto.visited }</div></div>
 						</div>
 					<div class="content">
@@ -81,7 +83,7 @@
 
 					<img src="${headPath }/resources/image/sub/face.png" alt="" style="width: 70px; height: 70px; margin: 5px;">
 					<c:if test="${empty sid}">
-						<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="로그인 후 이용해주세요!"></textarea>
+						<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="로그인 후 이용해주세요!" readonly></textarea>
 					</c:if>
 
 					<c:if test="${not empty sid}">
