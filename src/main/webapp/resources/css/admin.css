@@ -18,3 +18,11 @@
 .dat_area > p, .dat_area > a {display:inline-block;vertical-align:top;}
 .dat_area > a {vertical-align:middle;}
 .dat_area .dat_content {width:calc(100% - 260px);}
+
+.shadow {
+    box-shadow: 0px 18px 39.1px 6.9px rgba(224, 241, 255, 0.34) !important;
+}
+
+.bg-dark {
+    background-color: #222222 !important;
+}
