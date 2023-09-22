@@ -7,8 +7,8 @@
 <html lang="en">
 <head>
     <title>회원 목록</title>
-    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
 </head>
 
 <body>

@@ -35,37 +35,35 @@
 	</section>
 
 	<section class="section blog-wrap container">
-	      	<form action="${path }/board/free/update.do" method="post">
-			      <table id="table1">
-			      	<tbody>
-			      		<tr>
-			      			<th style="background-color:#dcdcdc">글 제목</th>
-			      			<td>
-			      				<input type="hidden" name="fno" id="fno" value="${dto.fno }" >
-			      				<input type="text" name="title" id="title" class="input" placeholder="제목 입력" value="${dto.title }" maxlength="98" required>
-			      			</td>
-			      		</tr>
-			      		<tr>
-			      			<th style="background-color:#dcdcdc">글 내용</th>
-			      			<td>
-			      				<textarea name="content" class="textarea" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required>
-			      				${dto.content }
-			      				</textarea>
-			      				<script>
-			      				CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/free/imageUpload.do'});
-			      				</script>
-			      			</td>
-			      		</tr>
-			      		<tr>
-			      			<td colspan="2">
-			      				<a class="button is-info" href="${path }/board/free/list.do">글 목록</a>
-								<input type="submit" class="button button2" value="수정 완료" >
-			      			</td>
-			      		</tr>
-			      	</tbody>
-			      </table>
-			   </form>   
-	     </section>
+		<form action="${path }/board/free/update.do" method="post">
+			<table id="table1" class="table">
+				<tbody>
+					<tr>
+						<th class="has-text-white has-text-centered">글 제목</th>
+						<td>
+							<input type="hidden" name="fno" id="fno" value="${dto.fno }" >
+							<input type="text" name="title" id="title" class="input" placeholder="제목 입력" value="${dto.title }" maxlength="98" required>
+						</td>
+					</tr>
+					<tr>
+						<th class="has-text-white has-text-centered">글 내용</th>
+						<td>
+							<textarea name="content" class="textarea" id="content" placeholder="내용 입력" rows="8" cols="100" maxlength="800" required>
+								${dto.content }
+							</textarea>
+							<script>
+								CKEDITOR.replace('content',	{filebrowserUploadUrl:'${path}/free/imageUpload.do'});
+							</script>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="buttons is-centered">
+				<a class="button is-mainColor" href="${path }/board/free/list.do">글 목록</a>
+				<input type="submit" class="button is-success" value="수정 완료" >
+			</div>
+		</form>
+	</section>
 	<!-- 푸터 부분 인클루드 -->
 	<jsp:include page="../../include/footer.jsp"></jsp:include>
 </div>

@@ -8,8 +8,8 @@
 <html lang="en">
 <head>
     <title>티스푼::공지사항</title>
-    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
 </head>
 <body>
 <jsp:include page="../include/headerAdmin.jsp" />

@@ -33,8 +33,6 @@
                 <span class="select">
                     <select id="type" name="type">
                         <option value="title">제목</option>
-						<option value="content">내용</option>
-						<option value="id">작성자</option>
                     </select>
                 </span>
             </p>
@@ -49,27 +47,35 @@
         <table class="table">
             <thead>
             <tr>
-                <th>글번호</th>
-                <th>제목</th>
-                <th>작성일</th>
-                <th>조회수</th>
+                <th class="has-text-white has-text-centered">글번호</th>
+                <th class="has-text-white has-text-centered">제목</th>
+                <th class="has-text-white has-text-centered">작성일</th>
+                <th class="has-text-white has-text-centered">조회수</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${noticeList }" var="notice" varStatus="status">
                 <tr>
-                    <td>${status.count }</td>
-                    <td><a href="${headPath }/notice/Get.do?no=${notice.no }">${notice.title }</a></td>
-                    <td>${notice.regdate }</td>
-                    <td>${notice.visited }</td>
+                    <td class="has-text-centered">${status.count }</td>
+                    <td class="has-text-centered"><a href="${headPath }/notice/Get.do?no=${notice.no }">${notice.title }</a></td>
+                    <td class="has-text-centered">
+                        <fmt:parseDate value="${notice.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                        <fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
+                    </td>
+                    <td class="has-text-centered">${notice.visited }</td>
                 </tr>
             </c:forEach>
+            <c:if test="${empty noticeList}">
+                <tr>
+                  <td class="has-text-centered" colspan="4">해당 목록이 존재하지 않습니다.</td>
+                </tr>
+            </c:if>
             </tbody>
         </table>
 
         <c:if test='${sid eq "admin"}'>
-        <div class="btn_group">
-            <a href="${headPath }/notice/Insert.do" class="inBtn inBtn1">공지 등록</a>
+        <div class="buttons is-centered">
+            <a href="${headPath }/notice/Insert.do" class="button is-mainColor">공지 등록</a>
         </div>
         </c:if>
 
@@ -101,12 +107,6 @@
     </section>
 </div>
 
-<script>
-    $(document).ready(function(){
-        if($("tbody tr").length==0){
-            $("tbody").append("<tr><td colspan='4' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
-        }})
-</script>
 <jsp:include page="../../include/footer.jsp" />
 </body>
 </html>

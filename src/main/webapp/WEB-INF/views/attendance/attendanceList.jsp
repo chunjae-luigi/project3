@@ -20,24 +20,33 @@
     <header class="hd" id="hd">
         <jsp:include page="../include/header.jsp" />
     </header>
-<section class="page-title bg-03">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-12">
-                <div class="block has-text-centered">
-                    <h1 class="is-capitalize text-lg font-happy">출석체크</h1>
+    <div class="content">
+        <section class="page-title bg-05">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="block has-text-centered">
+                            <h1 class="is-capitalize text-lg font-happy">마이페이지</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 <div class="container is-fullhd">
 
 
     <div class="content" id="content">
         <div class="row column text-center">
-            <div class="container py-5">
-
+            <div class="container">
+                <hr>
+                <div class="tabs is-centered">
+                    <ul>
+                        <li><a href="${path }/member/get.do?sid=${sid}">나의 정보</a></li>
+                        <li><a href="${path }/vote/getMyList.do">나의 투표 내역</a></li>
+                        <li class="is-active"><a href="${path }/attend/getMyAttend.do">나의 출석</a></li>
+                    </ul>
+                </div>
+                <hr>
                 <div class="block">
                     <h4 class="is-size-5 has-text-weight-bold has-text-centered">${currentYear}년 ${currentMonth}월</h4>
                 </div>
@@ -122,7 +131,7 @@
             </div>
         </div>
     </div>
-</div>
+</div></div>
     <!-- 푸터 부분 인클루드 -->
     <footer class="ft" name="ft">
     <jsp:include page="./../include/footer.jsp" />

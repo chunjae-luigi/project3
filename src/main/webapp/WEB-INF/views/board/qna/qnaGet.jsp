@@ -41,7 +41,7 @@
                 <div class="viewbody">
                     <div class="hgroup">
                         <c:if test="${ sid eq 'admin'}">
-                            <div class="no">NO ${dto.fno }</div>
+                            <div class="no">NO ${qna.qno }</div>
                         </c:if>
                         <div class="tit">${qna.title}</div>
                         <div class="util">
@@ -52,21 +52,21 @@
                             <c:if test="${qna.lev==1}">
                                 <td>답변</td>
                             </c:if>
-
                             <div class="name">${qna.author }</div>
-                            <div class="date">작성일 ${qna.regdate }</div>
+                            <div class="date">작성일 <fmt:parseDate value="${qna.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                                <fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" /></div></div>
                             <div class="hit">조회수 ${qna.visited }</div></div>
                     </div>
                     <div class="content">
                         ${qna.content }
                     </div>
                     <div class="buttons is-centered">
-                        <a class="button is-info" href="${headPath }/board/qnaList.do">목록</a>
+                        <a class="button is-mainColor" href="${headPath }/board/qnaList.do">목록</a>
                         <c:if test="${not empty sid && (sid eq 'admin' || qna.author eq sid)}">
-                            <a class="button is-danger" href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}&author=${qna.author}">수정</a>
-                            <a class="button is-primary" href="${headPath }/board/qnaDelete.do?qno=${qna.qno}&author=${qna.author}">삭제</a>
+                            <a class="button is-success" href="${headPath }/board/qnaUpdate.do?qno=${qna.qno}&author=${qna.author}">수정</a>
+                            <a class="button is-mainColor" href="${headPath }/board/qnaDelete.do?qno=${qna.qno}&author=${qna.author}">삭제</a>
                             <c:if test="${qna.lev == 0}">
-                            <a class="button is-primary"  href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" >답변하기</a>
+                            <a class="button is-success"  href="${headPath}/board/qnaInsert.do?lev=1&par=${qna.qno}" >답변하기</a>
                         </c:if>
                         </c:if>
 

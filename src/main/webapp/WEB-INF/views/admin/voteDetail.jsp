@@ -8,8 +8,8 @@
 <html lang="en">
 <head>
     <title>투표 관리 - 목록</title>
-    <link rel="stylesheet" href="${path}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${path}/resources/css/admin.css">
 </head>
 
 <body>
