@@ -8,8 +8,8 @@
 <html lang="en">
 <head>
     <title>공지사항 상세보기</title>
-    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <script type="text/javascript" src="${headPath }/resources/ckeditor/ckeditor.js"></script>
 </head>
 

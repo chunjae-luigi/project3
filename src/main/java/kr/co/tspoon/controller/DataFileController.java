@@ -52,7 +52,7 @@ public class DataFileController {
             byte[] bytes = upload.getBytes();
             //이미지 경로 생성
 
-            String path = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\uploadckImage/"; // 이미지 경로 설정(폴더 자동 생성)
+            String path = request.getRealPath("/resource/uploadCkImage/");
             String ckUploadPath = path + uid + "_" + fileName;
 
             File folder = new File(path);
@@ -90,9 +90,9 @@ public class DataFileController {
 
 
     @RequestMapping(value="submit.do")
-    public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletResponse response) throws ServletException, IOException{
+    public void ckSubmit(@RequestParam(value="uid") String uid, @RequestParam(value="fileName") String fileName, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         //서버에 저장된 이미지 경로
-        String path = "D:\\sangmin0816\\luigi\\project3\\src\\main\\webapp\\resources\\uploadckImage/"; // 저장된 이미지 경로
+        String path = request.getRealPath("/resource/uploadCkImage/");
         String sDirPath = path + uid + "_" + fileName;
         File imgFile = new File(sDirPath);
 

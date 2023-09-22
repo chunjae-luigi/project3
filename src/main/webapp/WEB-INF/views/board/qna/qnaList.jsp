@@ -51,34 +51,43 @@
         <table class="table">
             <thead>
             <tr>
-                <th>글번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>조회수</th>
+                <th class="has-text-centered has-text-white">글번호</th>
+                <th class="has-text-centered has-text-white">제목</th>
+                <th class="has-text-centered has-text-white">작성자</th>
+                <th class="has-text-centered has-text-white">작성일</th>
+                <th class="has-text-centered has-text-white">조회수</th>
             </tr>
             </thead>
             <tbody>
                 <c:forEach var="qna" items="${qnaList}" varStatus="status">
                     <tr>
-                        <td>${status.count}</td>
+                        <td class="has-text-centered">${status.count}</td>
                         <c:if test='${qna.lev == 0}'>
-                            <td><a href="${headPath }/board/qnaGet.do?qno=${qna.qno}">${qna.title}</a></td>
+                            <td class="has-text-centered"><a href="${headPath }/board/qnaGet.do?qno=${qna.qno}">${qna.title}</a></td>
                         </c:if>
                         <c:if test='${qna.lev == 1}'>
-                            <td><a class="answers" href="${headPath }/board/qnaGet.do?qno=${qna.qno}">└ [답변]${qna.title}</a>
-                            </td>
+                            <td class="has-text-centered"><a class="answers" href="${headPath }/board/qnaGet.do?qno=${qna.qno}">└ [답변]${qna.title}</a></td>
                         </c:if>
-                        <td>${qna.author}</td>
-                        <td>${qna.regdate}</td>
-                        <td>${qna.visited}</td>
+                        <td class="has-text-centered">${qna.author}</td>
+                        <td class="has-text-centered">
+                            <fmt:parseDate value="${qna.regdate }" var="resdate" pattern="yyyy-MM-dd HH:mm:ss" />
+                            <fmt:formatDate value="${resdate }" pattern="yyyy-MM-dd" />
+                        </td>
+                        <td class="has-text-centered">${qna.visited}</td>
                     </tr>
                 </c:forEach>
+                <c:if test="${empty qnaList}">
+                    <tr>
+                        <td colspan="5">해당 목록이 존재하지 않습니다.</td>
+                    </tr>
+                </c:if>
             </tbody>
         </table>
 
         <c:if test="${not empty sid || (sid eq 'admin')}">
-            <a href="${headPath}/board/qnaInsert.do?lev=0&par=0" class="button is-primary">문의하기</a>
+            <div class="buttons is-centered">
+                <a href="${headPath}/board/qnaInsert.do?lev=0&par=0" class="button is-mainColor">문의하기</a>
+            </div>
         </c:if>
 
         <nav class="pagination is-rounded is-centered mb-6" role="navigation" aria-label="pagination">
@@ -113,10 +122,3 @@
 <%@ include file="../../include/footer.jsp" %>
 </body>
 </html>
-<script>
-    $(document).ready(function(){
-        if($("tbody tr").length==0){
-            $("tbody").append("<tr><td colspan='4' class='text-center'>해당 목록이 존재하지 않습니다.</td></tr>")
-        }
-    })
-</script>
