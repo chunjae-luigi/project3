@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class VoteDAOImpl extends VoteList implements VoteDAO {
+public class VoteDAOImpl implements VoteDAO {
 
     @Autowired
     private SqlSession sqlSession;
