@@ -15,7 +15,7 @@ p {word-break:keep-all;line-height:1.2;font-size:18px;}
 
 /* 대표색 */
 :root {
-    --main-color: #037AFA;
+    --main-color: #b0cdff;
     --sub-color:#FF751A;
     --third-color:#7f7f7f;
     --admin-color:#64b772;
@@ -56,7 +56,7 @@ textarea.inData {min-height:150px;}
 
 
 :root {
-    --main-color:#057cfc;
+    --main-color: #037AFA;
     --sub-color:#fd7517;
     --admin-main-color:#530009;
     --admin-sub-color:#276cda;
