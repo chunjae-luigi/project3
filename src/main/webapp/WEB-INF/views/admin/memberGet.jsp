@@ -6,62 +6,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원 목록</title>
+    <link rel="stylesheet" href="${headPath}/resources/css/admin.css">
     <jsp:include page="../include/head.jsp" />
 </head>
 
 <body>
-<jsp:include page="../include/header.jsp" />
-<div style="display: flex; min-height: 80vh;">
+<jsp:include page="../include/headerAdmin.jsp" />
+<div class="admin_contents_area">
     <jsp:include page="./adminBoardList.jsp" />
-    <div class="container" style="margin-top: 20px;">
-        <h2 class="title">회원 정보</h2>
+    <div class="container contents_area">
+        <h1 class="is-size-3 has-text-weight-semibold">회원 정보</h1>
 
         <div class="page_wrap">
-            <h2 class="page_tit">마이페이지</h2>
             <table class="table tb2">
                 <tbody>
                 <tr>
-                    <th>아이디</th>
+                    <th class="has-text-centered">아이디</th>
                     <td>${member.id}</td>
                 </tr>
                 <tr>
-                    <th>이름</th>
+                    <th class="has-text-centered">이름</th>
                     <td>${member.name}</td>
                 </tr>
                 <tr>
-                    <th>전화번호</th>
+                    <th class="has-text-centered">전화번호</th>
                     <td>${member.tel}</td>
                 </tr>
                 <tr>
-                    <th>이메일</th>
+                    <th class="has-text-centered">이메일</th>
                     <td>${member.email}</td>
                 </tr>
                 <tr>
-                    <th>포인트</th>
+                    <th class="has-text-centered">포인트</th>
                     <td>${member.point}</td>
                 </tr>
                 </tbody>
             </table>
-            <div class="btn_group">
-                <button type="button" onclick="remove()" class="button is-primary" >회원 탈퇴</button>
-
+            <div class="buttons is-right">
+                <button type="button" onclick="remove()" class="button is-mainColor" >회원 탈퇴</button>
+                <a class="button is-success" href="${headPath }/admin/MemberListAdmin.do">회원 목록</a>
             </div>
         </div>
     </div>
-
-                <nav aria-label="Page navigation example" id="page-nation1">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-            </form>
     <script>
         function remove() {
             if(window.confirm("회원 탈퇴하겠습니까?")){

@@ -26,14 +26,33 @@
             </div>
         </div>
     </section>
+
     <section class="section blog-wrap container">
+        <form action="${headPath }/notice/List.do" method="get" class="field has-addons has-addons-right">
+            <p class="control">
+                <span class="select">
+                    <select id="type" name="type">
+                        <option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="id">작성자</option>
+                    </select>
+                </span>
+            </p>
+            <p class="control">
+                <input class="input" type="text" id="keyword" name="keyword" placeholder="검색어를 입력하세요" value="${keyword }">
+            </p>
+            <p class="control">
+                <input type="submit" class="button is-mainColor" value="검색" />
+            </p>
+        </form>
+
         <table class="table">
             <thead>
             <tr>
-                <th class="item1">번호</th>
-                <th class="item2">제목</th>
-                <th class="item3">작성일</th>
-                <th class="item4">조회</th>
+                <th>글번호</th>
+                <th>제목</th>
+                <th>작성일</th>
+                <th>조회수</th>
             </tr>
             </thead>
             <tbody>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path" value="${pageContext.request.contextPath }"/>
+<c:set var="headPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,104 +13,7 @@
 	<title>자유게시판 글 보기</title>
     <!-- 헤드 부분 인클루드 -->
     <jsp:include page="../../include/head.jsp"></jsp:include>
-
-	<style>
-		.conwrap {
-			margin: 0 0 20px;
-			padding: 30px 30px 60px;
-			background: #ffffff;
-		}
-
-		.conwrap:last-child {
-			margin: 0;
-		}
-
-		.h3group {
-			overflow: hidden;
-			margin: -30px -30px 0;
-			padding: 30px;
-			border-bottom: 1px solid #e6e6e8;
-			background: #ffffff;
-		}
-
-		.h3group.tit {
-			float: left;
-			font-family: 'NanumSquare';
-			font-weight: 700;
-			font-size: 30px;
-			line-height: 44px;
-			color: #2d2d2d;
-		}
-
-		.hgroup.util {
-
-		}
-
-		.h3group .location {
-			float: right;
-		}
-
-		.h3group .location .depth {
-			display: block;
-			float: left;
-			position: relative;
-			margin: 0 25px 0 0;
-			font-size: 14px;
-			line-height: 44px;
-			color: #777777;
-		}
-
-		.h3group .location .depth:after {
-			display: block;
-			content: '';
-			position: absolute;
-			top: 50%;
-			right: -15px;
-			width: 6px;
-			height: 9px;
-			margin: -4px 0 0;
-
-		}
-
-		.h3group .location .this {
-			display: block;
-			float: left;
-			font-weight: 700;
-			font-size: 14px;
-			line-height: 44px;
-			color: #2d2d2d;
-		}
-
-		.viewbody .hgroup .tit {
-			text-align: center;
-			font-weight: 700;
-			font-size: 42px;
-			margin: 0 0 20px;
-		}
-
-		.viewbody .content {
-			font-size: 20px;
-			position: relative;
-			line-height: 26px;
-			color: #666666;
-			text-align: center;
-		}
-
-		.viewbody .hgroup .util div {
-			font-size: 15px;
-			text-align: center;
-			display: inline-block;
-			margin: 10px 20px;
-		}
-
-
-		.dat_add {
-			height: 80px;
-			padding: 15px 80px 15px 20px;
-			border: none;
-			background: #f6f6f9;
-		}
-	</style>
+	<link rel="stylesheet" href="${headPath}/resources/css/boardget.css">
 </head>
 
 <body>
@@ -132,20 +35,19 @@
 	</section>
 
 	<section class="section blog-wrap container">
-
-
-
-
+		<div class="detail">
 			<div class="conwrap">
 				<div class="h3group">
 					<div class="location">
 						<span class="depth">홈</span>
-						<span class="depth">커뮤니티</span><strong class="this">자유게시판</strong>
+						<span class="depth">/ 커뮤니티</span><strong class="this">/ 자유게시판</strong>
 					</div>
 				</div>
 				<div class="viewbody">
 					<div class="hgroup">
-						<div class="no">${dto.fno }</div>
+						<c:if test="${ sid eq 'admin'}">
+						<div class="no">NO ${dto.fno }</div>
+						</c:if>
 						<div class="tit">${dto.title }</div>
 						<div class="util">
 							<div class="name">${dto.author }</div>
@@ -153,48 +55,58 @@
 							<div class="hit">조회수 ${dto.visited }</div></div>
 						</div>
 					<div class="content">
-
 							${dto.content }
-
 					</div>
+					<div class="buttons is-centered">
+						<a class="button is-info" href="${headPath }/board/free/list.do">목록</a>
+						<c:if test="${not empty sid && (dto.author eq sid)}">
+							<a class="button is-danger" href="${headPath }/board/free/update.do?fno=${dto.fno}&author=${dto.author}">수정</a>
+						</c:if>
+						<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
+							<a class="button is-primary" href="${headPath }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">삭제</a>
+						</c:if>
+					</div>
+				</div>
 
 
 		<!-- 댓글 영역 -->
-
-		<div class="conwrap">
-			<h4 class="tit">한줄 의견을 나눠 보세요</h4>
+		<div class="dat">
 			<div class="dat_add">
+			<h4 class="tit">한줄 의견을 나눠 보세요</h4>
+			<div>
 				<c:if test="${not empty sid}">
-				<form action="${path }/dat/insert.do" method="post">
+				<form action="${headPath }/dat/insert.do" method="post">
 					<input type="hidden" name="id" id="id"  value="${sid}">
 					<input type="hidden" name="par" id="par" value="${dto.fno}">
 
-					<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="이곳에 댓글을 입력해주세요!" autofocus></textarea>
+					<img src="${headPath }/resources/image/sub/face.png" alt="" style="width: 70px; height: 70px; margin: 5px;">
 
-					<input type="submit" class="dat_btn" value="댓글 등록">
+					<textarea rows="5" cols="50" name="content" id="content" class="tet" maxlength="300" required placeholder="이곳에 댓글을 입력해주세요!" autofocus></textarea>
+					<input type="submit" class="button is-primary" value="등록">
 				</form>
 				</c:if>
 			</div>
+			</div>
 			<div class="dat_list">
-
 				<ul>
-
 				<c:forEach var="dat" items="${datList }">
-					<li style="border-bottom:1px solid #cc0f35">
-						<div>
-							<p>작성자${dat.author}
-							<span>
+					<li style="list-style: none; width: 100%; position: relative;">
+						<div class="dat_box">
+							<div class="dat_img">
+								<p>${dat.author}</p>
+							</div>
+							<div class="dat_con">
+							<div id="con">${dat.content}</div><br>
+							<p id="reg">
 								<fmt:parseDate value="${dat.regdate }" var="regdate" pattern="yyyy-MM-dd HH:mm:ss" />
 								<fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
-							</span>
 							</p>
-						</div>
-						<div>
-							<textarea name="" id="" cols="30" rows="5" readonly>${dat.content}</textarea>
+							</div>
 							<c:if test="${sid eq dat.author || sid eq 'admin'}">
-								<a class="button is-primary" href="${path }/dat/delete.do?dno=${dat.dno}&fno=${fno}">삭제</a>
+								<a class="button is-primary" href="${headPath }/dat/delete.do?dno=${dat.dno}&fno=${fno}">삭제</a>
 							</c:if>
 						</div>
+
 					</li>
 					</c:forEach>
 
@@ -219,19 +131,9 @@
 
 			<!-- 여기까지 댓글 영역 -->
 
-
-			<div class="button-group">
-				<a class="button is-info" href="${path }/board/free/list.do">글 목록</a>
-				<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
-				<a class="button is-primary" href="${path }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">글 삭제</a>
-				</c:if>
-				<c:if test="${not empty sid && (dto.author eq sid)}">
-				<a class="button is-danger" href="${path }/board/free/update.do?fno=${dto.fno}&author=${dto.author}">글 수정</a>
-				</c:if>
+			</div>
 			</div>
 		</div>
-
-
 	</section>
 	</div>
 	<!-- 푸터 부분 인클루드 -->
