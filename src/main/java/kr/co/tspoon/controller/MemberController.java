@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -105,17 +106,17 @@ public class MemberController {
 
     @PostMapping("join.do")
     public String insertForm(HttpServletRequest request, Model model) throws Exception {
-        String grade = request.getParameter("grade");
+        int grade = Integer.parseInt(request.getParameter("grade"));
         model.addAttribute("grade", grade);
         return "/member/memberInsert";
     }
 
     @PostMapping("insert.do")
-    public String memberInsert(Member member,  Model model) throws Exception {
-        String ppw = member.getPw();
+    public String memberInsert(Member dto,  Model model) throws Exception {
+        String ppw = dto.getPw();
         String pw = pwEncoder.encode(ppw);
-        member.setPw(pw);
-        memberService.memberInsert(member);
+        dto.setPw(pw);
+        memberService.memberInsert(dto);
         model.addAttribute("msg", "가족이 되신걸 환영합니다.");
         model.addAttribute("url", "/member/login.do");
         return "/member/alert";

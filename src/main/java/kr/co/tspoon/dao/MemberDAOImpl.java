@@ -40,8 +40,8 @@ public class MemberDAOImpl implements MemberDAO{
     }
 
     @Override
-    public void memberInsert(Member member) throws Exception {
-        sqlSession.insert("member.memberInsert", member);
+    public void memberInsert(Member dto) throws Exception {
+        sqlSession.insert("member.memberInsert", dto);
     }
 
     @Override
