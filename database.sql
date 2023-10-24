@@ -71,7 +71,7 @@ CREATE TABLE qna(
 );
 
 -- 학습 자료실
-CREATE TABLE dataBoard(
+CREATE TABLE databoard(
 	bno INT PRIMARY KEY AUTO_INCREMENT,   -- (게시글 번호) 자동 발생
 	title VARCHAR(200) NOT NULL,   -- (게시글 제목)
 	content VARCHAR(1000),   -- (게시글 내용)
@@ -81,7 +81,7 @@ CREATE TABLE dataBoard(
 	visited INT DEFAULT 0   -- (조회수)
 );
 
-CREATE TABLE datafile(
+CREATE TABLE dataFile(
 	fno INT primary KEY AUTO_INCREMENT,
 	fileName VARCHAR(100),
 	saveName VARCHAR(100),
@@ -119,7 +119,7 @@ CREATE TABLE voteAnswerUser(
    author VARCHAR(20) NOT NULL										-- 질문자 아이디
 );
 
-CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, l.colorNum AS colorNum, COUNT(u.uno) AS cnt FROM voteanswerlist l LEFT JOIN voteansweruser u ON l.lno = u.lno GROUP BY l.lno);
+CREATE VIEW voteCount AS (SELECT l.lno AS lno, l.vno AS vno, l.title AS title, l.colorNum AS colorNum, COUNT(u.uno) AS cnt FROM voteAnswerList l LEFT JOIN voteAnswerUser u ON l.lno = u.lno GROUP BY l.lno);
 
 CREATE TABLE attendance (
     seq INT AUTO_INCREMENT PRIMARY KEY,								-- 출석 번호 : 자동증가
