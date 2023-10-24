@@ -20,16 +20,16 @@ public class Crawler {
         String url = "https://search.naver.com/search.naver?where=news&ie=utf8&sm=nws_hty&query="+keyword;
 
         Connection conn = Jsoup.connect(url)
-                .header("Content-Type", "application/json;charset=UTF-8")
+                .header("Content-Type", "application/json; charset=UTF-8")
                 .userAgent(USER_AGENT)
                 .method(Connection.Method.GET)
                 .ignoreContentType(true);
 
         Document doc = conn.get();
         Elements titles = doc.select(".news_wrap .news_tit");
-        Elements imgs = doc.select(".news_wrap > a > img");
+        Elements imgs = doc.select(".news_contents .dsc_thumb img");
         Elements contents = doc.select(".news_wrap .dsc_wrap .dsc_txt_wrap");
-        Elements hrefs = doc.select("div.news_wrap.api_ani_send > div > a");
+        Elements hrefs = doc.select(".news_contents .news_tit");
 
         for(int i=0; i<cnt; i++){
             String title = titles.get(i).text();
