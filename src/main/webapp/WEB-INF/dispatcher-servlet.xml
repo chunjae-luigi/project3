@@ -61,6 +61,10 @@
             <mapping path="/board/**"/>
             <beans:ref bean="boardInterceptor" />
         </interceptor>
+        <interceptor>
+            <mapping path="/notice/**"/>
+            <beans:ref bean="boardInterceptor" />
+        </interceptor>
     </interceptors>
 
     <!-- 인터셉터 : 글쓰기와 같은 회원권한을 가진 경우는 반드시 로그인 페이지를 거쳐서 시도할 것  -->

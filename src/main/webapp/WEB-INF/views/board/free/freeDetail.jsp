@@ -65,7 +65,7 @@
 							<a class="button is-success" href="${headPath }/board/free/update.do?fno=${dto.fno}&author=${dto.author}">수정</a>
 						</c:if>
 						<c:if test="${not empty sid && (sid eq 'admin' || dto.author eq sid)}">
-							<a class="button is-mainColor" href="${headPath }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">삭제</a>
+							<a class="button is-mainColor" href="${headPath }/board/free/delete.do?fno=${dto.fno}&author=author">삭제</a>
 						</c:if>
 					</div>
 				</div>
