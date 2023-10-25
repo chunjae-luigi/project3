@@ -143,8 +143,13 @@
                         <div class="column is-half">
                             <div class="vote_li box<c:if test="${getMaxLno.lno == voteAnswer.lno }"> check</c:if>">
                                 <p class="is-size-3 has-text-weight-semibold"><c:if test="${getMaxLno.lno == voteAnswer.lno }">[확정] </c:if>${voteAnswer.title }</p>
-                                <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
-                                <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
+                                <c:if test="${voteAnswer.cnt != 0}">
+                                    <c:set var="lnoTotal" value="${(voteAnswer.cnt / cnt) * 100 }" />
+                                    <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : <fmt:formatNumber value="${lnoTotal }" type="pattern" pattern="0.00" /> %</span></p>
+                                </c:if>
+                                <c:if test="${voteAnswer.cnt == 0}">
+                                    <p><span>투표수 : ${voteAnswer.cnt }</span> | <span>투표율 : 0 %</span></p>
+                                </c:if>
                             </div>
                         </div>
                     </c:forEach>

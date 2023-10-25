@@ -51,7 +51,7 @@
             </tbody>
         </table>
             <div class="buttons">
-                <input type="submit" class="is-mainColor button" value="글 등록" >
+                <input type="submit" class="is-mainColor button" value="글 수정" >
                 <a class="button is-success" href="${headPath }/notice/List.do">글 목록</a>
             </div>
         </form>
