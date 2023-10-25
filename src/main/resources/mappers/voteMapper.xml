@@ -146,7 +146,7 @@
 
     <!-- 투표자 -->
     <select id="voteMyList" resultType="kr.co.tspoon.dto.Vote">
-        SELECT v.title AS title, v.vno AS vno, v.stateYn as stateYn from vote v, voteansweruser u WHERE v.vno = u.vno and author = #{sid}
+        SELECT v.title AS title, v.vno AS vno, v.stateYn as stateYn from vote v, voteAnswerUser u WHERE v.vno = u.vno and author = #{sid}
     </select>
 
     <select id="voteUserList" resultType="kr.co.tspoon.dto.VoteUser">

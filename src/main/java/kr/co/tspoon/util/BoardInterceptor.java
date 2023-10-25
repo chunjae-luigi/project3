@@ -19,7 +19,8 @@ public class BoardInterceptor implements HandlerInterceptor {
 
         boolean flag = false;
         if(method.equals("get")){
-            if(uri.contains("insert.do")){
+            if(uri.contains("insert.do")||uri.contains("get.do")){
+                System.out.println(uri);
                 if(sid==null){
                     flag = true;
                 }

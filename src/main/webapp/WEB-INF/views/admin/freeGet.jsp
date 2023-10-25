@@ -72,7 +72,7 @@
 
             <div class="buttons is-right">
                 <a class="button is-mainColor" href="${path }/admin/FreeListAdmin.do">글 목록</a>
-                <a class="button is-success" href="${path }/board/free/delete.do?fno=${dto.fno}&author=${dto.author}">글 삭제</a>
+                <a class="button is-success" href="${path }/board/free/delete.do?fno=${dto.fno}&author=admin">글 삭제</a>
             </div>
         </div>
     </div>

@@ -136,3 +136,5 @@ textarea.inData {min-height:150px;}
 .answer_list .column > input {display:inline-block;}
 #colorNum {width:45px;height:45px;margin-right:0.5rem;}
 #title {width:calc(100% - 60px);}
+
+input#keyword {height: 2.5rem;}

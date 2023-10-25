@@ -97,8 +97,9 @@ public class FreeController {
 
     @GetMapping("delete.do")
     public String freeDelete(HttpServletRequest request, Model model) throws Exception {
-        String sid = session.getAttribute("sid") != null ? (String) session.getAttribute("sid") : "";
+        String sid = request.getParameter("author");
         int fno = Integer.parseInt(request.getParameter("fno"));
+
         freeService.freeDelete(fno);
         if(!sid.equals("admin")) {
             return "redirect:/board/free/list.do";
